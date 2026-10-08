@@ -1,0 +1,83 @@
+[
+  {
+    "timestamp": "2026-10-08 00:39:00",
+    "toEmail": "likker0123@gmail.com",
+    "customerName": "Likker0123",
+    "product": "Flex Ultimate",
+    "licenseKey": "FLEX-ULT-9126-7767-42XQ",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:35:13",
+    "toEmail": "live.buyer@gmail.com",
+    "customerName": "Live.Buyer",
+    "product": "Flex GUI Pro",
+    "licenseKey": "FLEX-PRO-7012-2538-SW9K",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:19:17",
+    "toEmail": "cloud.user@gmail.com",
+    "customerName": "Cloud.User",
+    "product": "Flex GUI Pro",
+    "licenseKey": "FLEX-PRO-2099-7231-JEN5",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:19:01",
+    "toEmail": "editor.wheel@gmail.com",
+    "customerName": "Editor.Wheel",
+    "product": "MotionKit Wheel",
+    "licenseKey": "FLEX-WHL-6397-3122-TSFQ",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:18:44",
+    "toEmail": "editor.vip@gmail.com",
+    "customerName": "Editor VIP",
+    "product": "Flex GUI Pro",
+    "licenseKey": "KEY-E11E-A846-4227-089B",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:15:42",
+    "toEmail": "user@gmail.com",
+    "customerName": "User",
+    "product": "Flex GUI Pro",
+    "licenseKey": "FLEX-PRO-3019-6703-RER2",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:14:22",
+    "toEmail": "test@gmail.com",
+    "customerName": "Test",
+    "product": "Flex GUI Pro",
+    "licenseKey": "KEY-E11E-A846-4227-089B",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:08:31",
+    "toEmail": "editor@gmail.com",
+    "customerName": "Editor",
+    "product": "Flex GUI Pro",
+    "licenseKey": "KEY-686D-53C2-1113-D58B",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-08 00:08:21",
+    "toEmail": "customer@gmail.com",
+    "customerName": "Customer",
+    "product": "Flex GUI Pro",
+    "licenseKey": "FLEX-PRO-1229-2432-DQ6X",
+    "smtpSent": false,
+    "smtpError": null
+  }
+]

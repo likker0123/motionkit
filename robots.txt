@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /adminflexx/
+
+Sitemap: https://captureflex.in/sitemap.xml

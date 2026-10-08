@@ -1,0 +1,982 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotionKit Admin Console | Ayush Singh</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00A95C;
+      --primary-light: #89F7B6;
+      --primary-dim: rgba(0, 169, 92, 0.15);
+      --primary-glow: rgba(0, 169, 92, 0.35);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #080808;
+      color: #e5e7eb;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .glass-card {
+      background: rgba(18, 18, 18, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(0, 169, 92, 0.4);
+      box-shadow: 0 8px 30px rgba(0, 169, 92, 0.12);
+    }
+    .nav-btn.active {
+      background: var(--primary-dim);
+      color: var(--primary-light);
+      border: 1px solid rgba(0, 169, 92, 0.3);
+    }
+    .glow-btn {
+      background: linear-gradient(135deg, #00A95C, #008749);
+      color: #fff;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 20px rgba(0, 169, 92, 0.25);
+    }
+    .glow-btn:hover {
+      box-shadow: 0 6px 25px rgba(0, 169, 92, 0.45);
+      transform: translateY(-1px);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #262626;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00A95C;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-[#00A95C] selection:text-white">
+
+  <!-- ADMIN AUTH LOGIN MODAL -->
+  <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
+    <div class="glass-card max-w-md w-full p-8 relative overflow-hidden border-emerald-500/20 shadow-[0_0_50px_rgba(0,169,92,0.15)]">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2 mb-2">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center font-black text-black text-lg">M</div>
+          <span class="text-xl font-black tracking-tight text-white uppercase">Motion<span class="text-[#00A95C]">Kit</span></span>
+        </div>
+        <h2 class="text-xl font-bold text-white">Admin Management Portal</h2>
+        <p class="text-xs text-gray-400 mt-1">Authorized developer access only</p>
+      </div>
+
+      <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Admin Email</label>
+          <input type="email" id="login-email" value="singhayush5304@gmail.com" required
+                 class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Security PIN / Password</label>
+          <input type="password" id="login-pass" placeholder="Enter security password" required
+                 class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 transition-colors" />
+        </div>
+
+        <button type="submit" class="w-full py-3 glow-btn rounded-lg text-sm font-bold uppercase tracking-wider mt-2">
+          Sign In to Admin Console
+        </button>
+
+        
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="glass-card px-5 py-3 border-emerald-500/40 flex items-center gap-3 shadow-2xl bg-black/95">
+      <div id="toast-icon" class="text-emerald-400 font-bold">✓</div>
+      <div id="toast-msg" class="text-sm font-semibold text-white">Operation completed</div>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="app-container" class="flex-1 flex overflow-hidden hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 border-r border-white/10 bg-[#0d0d0d] flex flex-col shrink-0">
+      <!-- Brand -->
+      <div class="p-6 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-600 to-emerald-400 flex items-center justify-center font-black text-black text-xl shadow-lg shadow-emerald-500/20">
+            M
+          </div>
+          <div>
+            <div class="text-base font-black tracking-tight text-white uppercase leading-none">
+              Motion<span class="text-[#00A95C]">Kit</span>
+            </div>
+            <div class="text-[10px] text-gray-500 font-mono mt-1 font-bold">MOTIONKIT ADMIN v9.1.5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+        <button onclick="switchTab('dashboard')" id="nav-dashboard" class="nav-btn active w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          Dashboard Overview
+        </button>
+
+        <button onclick="switchTab('licenses')" id="nav-licenses" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+          License Keys Manager
+        </button>
+
+        <button onclick="switchTab('orders')" id="nav-orders" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          Orders & Customers
+        </button>
+
+        <button onclick="switchTab('downloads')" id="nav-downloads" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Plugin Downloads Hub
+        </button>
+
+        <button onclick="switchTab('settings')" id="nav-settings" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          Settings & Pricing
+        </button>
+      </nav>
+
+      <!-- Bottom Profile -->
+      <div class="p-4 border-t border-white/10 bg-black/40">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-xs flex items-center justify-center">
+              AS
+            </div>
+            <div class="overflow-hidden">
+              <div class="text-xs font-bold text-white truncate" id="admin-user-name">Ayush Singh</div>
+              <div class="text-[10px] text-gray-500 font-mono truncate" id="admin-user-email">singhayush5304@gmail.com</div>
+            </div>
+          </div>
+          <button onclick="handleLogout()" title="Logout" class="p-2 text-gray-400 hover:text-red-400 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="flex-1 flex flex-col overflow-hidden bg-[#0a0a0a]">
+      <!-- Top Bar -->
+      <header class="h-16 border-b border-white/10 px-8 flex items-center justify-between shrink-0 bg-[#0d0d0d]/80 backdrop-blur-md">
+        <div class="flex items-center gap-4">
+          <h1 id="page-title" class="text-lg font-bold text-white tracking-tight">Dashboard Overview</h1>
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">LIVE SERVER</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="/" target="_blank" class="px-3.5 py-2 glass-card hover:bg-white/5 text-xs font-medium text-gray-300 rounded-lg flex items-center gap-2 transition-colors">
+            <span>View Live Website</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+
+          <button onclick="openModal('generate-key-modal')" class="glow-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+            <span>+ Generate Key</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- TAB CONTENT SCROLLABLE BODY -->
+      <div class="flex-1 p-8 overflow-y-auto space-y-8">
+
+        <!-- 1. DASHBOARD OVERVIEW TAB -->
+        <section id="tab-dashboard" class="space-y-8">
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-6 glass-card-hover transition-all">
+              <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Total Gross Revenue</div>
+              <div class="flex items-baseline gap-2">
+                <div class="text-3xl font-black text-white" id="stat-revenue-usd">$3,840</div>
+                <div class="text-sm font-semibold text-emerald-400" id="stat-revenue-inr">(₹3,18,000)</div>
+              </div>
+              <div class="mt-3 text-xs text-gray-500 flex items-center gap-1.5 font-mono">
+                <span class="text-emerald-400 font-bold">↑ 24%</span> from last month
+              </div>
+            </div>
+
+            <div class="glass-card p-6 glass-card-hover transition-all">
+              <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Active License Keys</div>
+              <div class="text-3xl font-black text-white" id="stat-active-licenses">4</div>
+              <div class="mt-3 text-xs text-gray-500 flex items-center gap-1.5 font-mono">
+                <span class="text-emerald-400 font-bold">100%</span> validation rate
+              </div>
+            </div>
+
+            <div class="glass-card p-6 glass-card-hover transition-all">
+              <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Total Orders Completed</div>
+              <div class="text-3xl font-black text-white" id="stat-total-orders">4</div>
+              <div class="mt-3 text-xs text-gray-500 flex items-center gap-1.5 font-mono">
+                <span class="text-emerald-400 font-bold">UPI & Cards</span> verified
+              </div>
+            </div>
+
+            <div class="glass-card p-6 glass-card-hover transition-all">
+              <div class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Total Plugin Downloads</div>
+              <div class="text-3xl font-black text-white" id="stat-downloads">1,280</div>
+              <div class="mt-3 text-xs text-gray-500 flex items-center gap-1.5 font-mono">
+                <span>Flex GUI + Wheel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Recent Orders Row -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left: Quick Action Panel -->
+            <div class="glass-card p-6 space-y-4">
+              <h3 class="text-sm font-bold text-white uppercase tracking-wider">Fast Actions</h3>
+
+              <button onclick="openModal('generate-key-modal')" class="w-full py-3 px-4 glass-card hover:border-emerald-500/50 flex items-center justify-between text-sm font-medium text-white transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">🔑</div>
+                  <span>Generate New License Key</span>
+                </div>
+                <span class="text-gray-500 group-hover:text-emerald-400">→</span>
+              </button>
+
+              <button onclick="openModal('add-order-modal')" class="w-full py-3 px-4 glass-card hover:border-emerald-500/50 flex items-center justify-between text-sm font-medium text-white transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">🛒</div>
+                  <span>Add Manual / UPI Order</span>
+                </div>
+                <span class="text-gray-500 group-hover:text-blue-400">→</span>
+              </button>
+
+              <button onclick="exportDataToJSON()" class="w-full py-3 px-4 glass-card hover:border-emerald-500/50 flex items-center justify-between text-sm font-medium text-white transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold">💾</div>
+                  <span>Backup Database (JSON)</span>
+                </div>
+                <span class="text-gray-500 group-hover:text-purple-400">↓</span>
+              </button>
+            </div>
+
+            <!-- Right: Recent Orders List -->
+            <div class="glass-card p-6 lg:col-span-2 space-y-4">
+              <div class="flex items-center justify-between">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider">Recent Transactions</h3>
+                <button onclick="switchTab('orders')" class="text-xs text-emerald-400 hover:underline">View All</button>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead class="text-gray-500 uppercase border-b border-white/5 font-mono">
+                    <tr>
+                      <th class="py-2.5">Buyer</th>
+                      <th class="py-2.5">Product</th>
+                      <th class="py-2.5">Amount</th>
+                      <th class="py-2.5">Key</th>
+                      <th class="py-2.5">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-orders-table" class="divide-y divide-white/5">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. LICENSE KEYS MANAGER TAB -->
+        <section id="tab-licenses" class="space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-white">License Keys Manager</h2>
+              <p class="text-xs text-gray-400">Create, manage, and verify license keys for your users</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <input type="text" id="license-search" placeholder="Search by key, name, email..." oninput="filterLicenses()"
+                     class="px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500 w-64" />
+              <button onclick="openModal('generate-key-modal')" class="glow-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
+                + New Key
+              </button>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="text-gray-500 uppercase bg-white/[0.02] border-b border-white/10 font-mono">
+                  <tr>
+                    <th class="p-4">License Serial Key</th>
+                    <th class="p-4">Product</th>
+                    <th class="p-4">Customer Details</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4">Issued Date</th>
+                    <th class="p-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="licenses-table-body" class="divide-y divide-white/5">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. ORDERS & CUSTOMERS TAB -->
+        <section id="tab-orders" class="space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-bold text-white">Customer Orders & Sales</h2>
+              <p class="text-xs text-gray-400">Track all UPI, Card, and WhatsApp buyers</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="openModal('add-order-modal')" class="glow-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider">
+                + Add Manual Order
+              </button>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="text-gray-500 uppercase bg-white/[0.02] border-b border-white/10 font-mono">
+                  <tr>
+                    <th class="p-4">Order ID</th>
+                    <th class="p-4">Customer</th>
+                    <th class="p-4">Product</th>
+                    <th class="p-4">Price</th>
+                    <th class="p-4">Method</th>
+                    <th class="p-4">License Key</th>
+                    <th class="p-4">Status</th>
+                    <th class="p-4 text-right">Contact</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body" class="divide-y divide-white/5">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. PLUGIN DOWNLOADS HUB TAB -->
+        <section id="tab-downloads" class="space-y-6 hidden">
+          <div>
+            <h2 class="text-xl font-bold text-white">Plugin Packages & Downloads</h2>
+            <p class="text-xs text-gray-400">Official release files for After Effects & Premiere Pro</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Flex GUI Pro -->
+            <div class="glass-card p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/20 font-bold">AFTER EFFECTS</span>
+                <span class="text-xs font-mono text-gray-500">v9.1.5</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Flex GUI Pro Installer (.zip)</h3>
+                <p class="text-xs text-gray-400 mt-1">Consolidated After Effects suite with 114+ motion tools, graph editor & one-click installer batch script.</p>
+              </div>
+              <a href="/downloads/Flex-GUI-Pro-Installer.zip" download
+                 class="block w-full text-center py-2.5 bg-white/5 hover:bg-purple-500/20 border border-purple-500/30 text-purple-400 rounded-lg text-xs font-bold uppercase transition-all">
+                Download GUI Pro Installer (.zip)
+              </a>
+            </div>
+
+            <!-- Flex Ultimate -->
+            <div class="glass-card p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 font-bold">PREMIERE PRO</span>
+                <span class="text-xs font-mono text-gray-500">v2.6.0</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Flex Ultimate (.zxp)</h3>
+                <p class="text-xs text-gray-400 mt-1">Premiere Pro workspace accelerator with Silence & Auto-Cut ripple engine.</p>
+              </div>
+              <a href="https://github.com/Captureflex1/FlexGUI/releases/download/Flexv1.2/FlexUltimate.zxp" target="_blank"
+                 class="block w-full text-center py-2.5 bg-white/5 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 rounded-lg text-xs font-bold uppercase transition-all">
+                Download FlexUltimate.zxp
+              </a>
+            </div>
+
+            <!-- Flex Wheel Suite -->
+            <div class="glass-card p-6 space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-pink-500/10 text-pink-400 border border-pink-500/20 font-bold">RADIAL WHEEL</span>
+                <span class="text-xs font-mono text-gray-500">v1.0.0</span>
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-white">Flex Wheel Installer (.zip)</h3>
+                <p class="text-xs text-gray-400 mt-1">Transparent frosted-glass radial menu with one-click installer batch script.</p>
+              </div>
+              <a href="/downloads/Flex_Wheel_Extension_Installer.zip" download
+                 class="block w-full text-center py-2.5 bg-white/5 hover:bg-pink-500/20 border border-pink-500/30 text-pink-400 rounded-lg text-xs font-bold uppercase transition-all">
+                Download Wheel Installer
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. SETTINGS & PRICING TAB -->
+        <section id="tab-settings" class="space-y-6 hidden">
+          <div>
+            <h2 class="text-xl font-bold text-white">Website Settings & Controls</h2>
+            <p class="text-xs text-gray-400">Configure pricing, developer contacts, and live announcement banner</p>
+          </div>
+
+          <div class="glass-card p-8 max-w-2xl space-y-6">
+            <form id="settings-form" onsubmit="saveSettings(event)" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Price (USD)</label>
+                  <input type="text" id="set-price-usd" value="$3.00" required
+                         class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Price (INR)</label>
+                  <input type="text" id="set-price-inr" value="₹249" required
+                         class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Developer WhatsApp Number</label>
+                <input type="text" id="set-phone" value="+91 7982179684" required
+                       class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Developer Email</label>
+                <input type="email" id="set-email" value="singhayush5304@gmail.com" required
+                       class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Developer UPI ID (for QR Code & Payments)</label>
+                <input type="text" id="set-upi" value="7982179684@ptyes" required
+                       class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 font-mono" />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Active UPI Payment QR Code</label>
+                <div class="flex items-center gap-4 p-4 bg-black/40 border border-white/10 rounded-xl">
+                  <img id="set-qr-preview" src="/assets/ayush_upi_qr.png" alt="Active QR Code" class="w-20 h-28 rounded-lg bg-white p-1 object-contain border border-emerald-500/40 shadow-lg" />
+                  <div class="space-y-1">
+                    <div class="text-xs font-bold text-white">Active Payment QR Code (Paytm Standee)</div>
+                    <div class="text-[11px] text-gray-400 font-mono">Location: /assets/ayush_upi_qr.png</div>
+                    <div class="text-[10px] text-emerald-400 font-semibold">✓ Connected to Ayush Kumar (7982179684@ptyes)</div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Live Announcement Banner</label>
+                <textarea id="set-announcement" rows="3"
+                          class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 font-sans"></textarea>
+              </div>
+
+              <button type="submit" class="glow-btn px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider">
+                Save & Apply Settings
+              </button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: GENERATE LICENSE KEY -->
+  <div id="generate-key-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-6 relative border-emerald-500/30">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-base font-bold text-white">Generate Customer License Key</h3>
+        <button onclick="closeModal('generate-key-modal')" class="text-gray-400 hover:text-white">✕</button>
+      </div>
+
+      <form onsubmit="handleGenerateKey(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Select Product</label>
+          <select id="gen-product" class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500">
+            <option value="Flex GUI Pro v9.1.5">Flex GUI Pro v9.1.5 (After Effects)</option>
+            <option value="Flex Ultimate (PR & AE)">Flex Ultimate (Premiere Pro & AE)</option>
+            <option value="Flex Wheel Suite">Flex Wheel Suite (Radial Menu)</option>
+            <option value="Flex Combo Lifetime All-In-One">Flex Combo Lifetime All-In-One</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Customer Full Name</label>
+          <input type="text" id="gen-name" placeholder="e.g. Rahul Sharma" required
+                 class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Customer Email</label>
+          <input type="email" id="gen-email" placeholder="e.g. rahul@gmail.com" required
+                 class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Customer WhatsApp Number (with country code)</label>
+          <input type="text" id="gen-phone" placeholder="e.g. +91 9876543210" required
+                 class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+
+        <button type="submit" class="w-full py-3 glow-btn rounded-lg text-xs font-bold uppercase tracking-wider mt-2">
+          Generate & Assign Key
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD MANUAL ORDER -->
+  <div id="add-order-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 hidden">
+    <div class="glass-card max-w-lg w-full p-6 relative border-emerald-500/30">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-base font-bold text-white">Add Customer Order (UPI / Card)</h3>
+        <button onclick="closeModal('add-order-modal')" class="text-gray-400 hover:text-white">✕</button>
+      </div>
+
+      <form onsubmit="handleAddOrder(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Customer Name</label>
+          <input type="text" id="ord-name" placeholder="e.g. Amit Kumar" required
+                 class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Customer Phone / WhatsApp</label>
+          <input type="text" id="ord-phone" placeholder="e.g. +91 7982179684" required
+                 class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs text-gray-400 mb-1">Product</label>
+          <select id="ord-product" class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500">
+            <option value="Flex GUI Pro v9.1.5">Flex GUI Pro v9.1.5 ($3 / ₹249)</option>
+            <option value="Flex Ultimate (PR & AE)">Flex Ultimate ($3 / ₹249)</option>
+            <option value="Flex Wheel Suite">Flex Wheel Suite ($3 / ₹249)</option>
+            <option value="Flex Combo Lifetime All-In-One">Flex Combo Lifetime (₹499)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Amount Paid</label>
+            <input type="text" id="ord-amount" value="₹249" required
+                   class="w-full px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500" />
+          </div>
+          <div>
+            <label class="block text-xs text-gray-400 mb-1">Payment Method</label>
+            <select id="ord-method" class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-emerald-500">
+              <option value="UPI / PhonePe">UPI / PhonePe</option>
+              <option value="GPay / Paytm">GPay / Paytm</option>
+              <option value="UPI / QR Code">UPI / QR Code</option>
+              <option value="Direct Admin">Direct Admin</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3 glow-btn rounded-lg text-xs font-bold uppercase tracking-wider mt-2">
+          Save Order & Issue License
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // State
+    let adminData = {
+      settings: {
+        developerName: "Ayush Singh",
+        email: "singhayush5304@gmail.com",
+        phone: "+91 7982179684",
+        priceUSD: "$3.00",
+        priceINR: "₹249",
+        discountPercent: "88%",
+        announcement: "🔥 Special Launch Offer: Get Flex GUI Pro + Flex Wheel Lifetime Suite for only $3 / ₹249!"
+      },
+      stats: {
+        totalRevenueUSD: 3840,
+        totalRevenueINR: 318000,
+        totalDownloads: 1280,
+        activeUsers: 942
+      },
+      licenses: [],
+      orders: []
+    };
+
+    // Load Data
+    async function loadAdminData() {
+      try {
+        const res = await fetch('/api/admin/data');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.settings) {
+            adminData = data;
+          }
+        }
+      } catch (err) {
+        console.warn("Could not fetch remote admin data, using local state", err);
+      }
+      renderAll();
+    }
+
+    // Save Data to Server
+    async function persistAdminData() {
+      try {
+        await fetch('/api/admin/data', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(adminData)
+        });
+      } catch (err) {
+        console.warn("Could not persist to server", err);
+      }
+      // Also cache in localStorage
+      localStorage.setItem('captureflex_admin_data', JSON.stringify(adminData));
+      renderAll();
+    }
+
+    // Check Auth on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const cached = localStorage.getItem('captureflex_admin_auth');
+      if (cached === 'authenticated') {
+        unlockAdmin();
+      }
+      loadAdminData();
+    });
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const pass = document.getElementById('login-pass').value.trim();
+      if (pass === 'admin' || pass === '1234' || pass === 'ayush') {
+        unlockAdmin();
+        showToast("Welcome back, Ayush!");
+      } else {
+        alert("Incorrect security password!");
+      }
+    }
+
+
+
+    function unlockAdmin() {
+      document.getElementById('auth-modal').classList.add('hidden');
+      document.getElementById('app-container').classList.remove('hidden');
+      localStorage.setItem('captureflex_admin_auth', 'authenticated');
+    }
+
+    function handleLogout() {
+      localStorage.removeItem('captureflex_admin_auth');
+      window.location.reload();
+    }
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      const tabs = ['dashboard', 'licenses', 'orders', 'downloads', 'settings'];
+      tabs.forEach(t => {
+        const el = document.getElementById(`tab-${t}`);
+        const btn = document.getElementById(`nav-${t}`);
+        if (el) el.classList.add('hidden');
+        if (btn) btn.classList.remove('active');
+      });
+
+      const target = document.getElementById(`tab-${tabId}`);
+      const targetBtn = document.getElementById(`nav-${tabId}`);
+      if (target) target.classList.remove('hidden');
+      if (targetBtn) targetBtn.classList.add('active');
+
+      const titles = {
+        'dashboard': 'Dashboard Overview',
+        'licenses': 'License Keys Manager',
+        'orders': 'Customer Orders & CRM',
+        'downloads': 'Plugin Downloads Hub',
+        'settings': 'Website Settings & Pricing'
+      };
+      document.getElementById('page-title').innerText = titles[tabId] || 'Admin Console';
+    }
+
+    // Render Data
+    function renderAll() {
+      // Stats
+      document.getElementById('stat-revenue-usd').innerText = `$${adminData.stats.totalRevenueUSD.toLocaleString()}`;
+      document.getElementById('stat-revenue-inr').innerText = `(₹${adminData.stats.totalRevenueINR.toLocaleString()})`;
+      document.getElementById('stat-active-licenses').innerText = adminData.licenses.filter(l => l.status === 'Active').length;
+      document.getElementById('stat-total-orders').innerText = adminData.orders.length;
+      document.getElementById('stat-downloads').innerText = adminData.stats.totalDownloads.toLocaleString();
+
+      // Recent Orders on Dashboard
+      const recentBody = document.getElementById('recent-orders-table');
+      if (recentBody) {
+        recentBody.innerHTML = adminData.orders.slice(0, 5).map(o => `
+          <tr class="hover:bg-white/[0.02]">
+            <td class="py-3">
+              <div class="font-bold text-white">${escapeHtml(o.customerName)}</div>
+              <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(o.customerPhone || o.customerEmail)}</div>
+            </td>
+            <td class="py-3 text-gray-300 font-mono text-[11px]">${escapeHtml(o.product)}</td>
+            <td class="py-3 font-bold text-emerald-400 font-mono">${escapeHtml(o.amount)}</td>
+            <td class="py-3 font-mono text-gray-400 text-[10px]">${escapeHtml(o.licenseKey)}</td>
+            <td class="py-3">
+              <button onclick="copyToClipboard('${o.licenseKey}')" class="px-2 py-1 bg-white/5 hover:bg-white/10 text-white rounded font-mono text-[10px]">Copy</button>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Licenses Table
+      renderLicensesTable(adminData.licenses);
+
+      // Orders Table
+      const ordersBody = document.getElementById('orders-table-body');
+      if (ordersBody) {
+        ordersBody.innerHTML = adminData.orders.map(o => `
+          <tr class="hover:bg-white/[0.02]">
+            <td class="p-4 font-mono font-bold text-gray-400">${escapeHtml(o.id)}</td>
+            <td class="p-4">
+              <div class="font-bold text-white text-xs">${escapeHtml(o.customerName)}</div>
+              <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(o.customerPhone)}</div>
+            </td>
+            <td class="p-4 text-xs font-medium text-gray-300">${escapeHtml(o.product)}</td>
+            <td class="p-4 font-bold text-emerald-400 font-mono">${escapeHtml(o.amount)}</td>
+            <td class="p-4 text-gray-400 text-[11px]">${escapeHtml(o.paymentMethod)}</td>
+            <td class="p-4 font-mono text-emerald-300 text-xs">${escapeHtml(o.licenseKey)}</td>
+            <td class="p-4">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">${escapeHtml(o.status)}</span>
+            </td>
+            <td class="p-4 text-right">
+              <a href="https://wa.me/${(o.customerPhone || '').replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(o.customerName)},%20Here%20is%20your%20MotionKit%20license%20key:%20${o.licenseKey}" target="_blank"
+                 class="px-3 py-1 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 font-bold rounded text-[10px] uppercase">
+                WhatsApp
+              </a>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      // Settings Inputs
+      document.getElementById('set-price-usd').value = adminData.settings.priceUSD;
+      document.getElementById('set-price-inr').value = adminData.settings.priceINR;
+      document.getElementById('set-phone').value = adminData.settings.phone;
+      document.getElementById('set-email').value = adminData.settings.email;
+      if (document.getElementById('set-upi')) document.getElementById('set-upi').value = adminData.settings.upiId || '7982179684@ptyes';
+      document.getElementById('set-announcement').value = adminData.settings.announcement;
+    }
+
+    function renderLicensesTable(list) {
+      const tbody = document.getElementById('licenses-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = list.map(l => `
+        <tr class="hover:bg-white/[0.02]">
+          <td class="p-4">
+            <span class="font-mono font-bold text-emerald-400 tracking-wider bg-black/40 px-2 py-1 rounded border border-white/5 text-xs">${escapeHtml(l.key)}</span>
+          </td>
+          <td class="p-4 text-xs font-medium text-white">${escapeHtml(l.product)}</td>
+          <td class="p-4">
+            <div class="font-semibold text-white text-xs">${escapeHtml(l.customerName)}</div>
+            <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(l.customerEmail)} • ${escapeHtml(l.customerPhone)}</div>
+          </td>
+          <td class="p-4">
+            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${l.status === 'Active' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}">
+              ${escapeHtml(l.status)}
+            </span>
+          </td>
+          <td class="p-4 font-mono text-[11px] text-gray-400">${escapeHtml(l.createdDate)}</td>
+          <td class="p-4 text-right space-x-2">
+            <button onclick="copyToClipboard('${l.key}')" class="px-2.5 py-1 bg-white/5 hover:bg-white/10 text-white rounded text-[11px] font-medium">Copy</button>
+            <a href="https://wa.me/${(l.customerPhone || '').replace(/[^0-9]/g, '')}?text=Hi%20${encodeURIComponent(l.customerName)},%20Your%20MotionKit%20(${encodeURIComponent(l.product)})%20License%20Key%20is:%20${l.key}" target="_blank"
+               class="px-2.5 py-1 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded text-[11px] font-bold">
+               WhatsApp
+            </a>
+            <button onclick="toggleLicenseStatus('${l.id}')" class="px-2.5 py-1 ${l.status === 'Active' ? 'text-red-400 hover:bg-red-500/10' : 'text-emerald-400 hover:bg-emerald-500/10'} rounded text-[11px]">
+              ${l.status === 'Active' ? 'Revoke' : 'Activate'}
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterLicenses() {
+      const q = document.getElementById('license-search').value.toLowerCase().trim();
+      const filtered = adminData.licenses.filter(l =>
+        l.key.toLowerCase().includes(q) ||
+        l.customerName.toLowerCase().includes(q) ||
+        l.customerEmail.toLowerCase().includes(q) ||
+        l.product.toLowerCase().includes(q)
+      );
+      renderLicensesTable(filtered);
+    }
+
+    // License Generator
+    function handleGenerateKey(e) {
+      e.preventDefault();
+      const product = document.getElementById('gen-product').value;
+      const name = document.getElementById('gen-name').value.trim();
+      const email = document.getElementById('gen-email').value.trim();
+      const phone = document.getElementById('gen-phone').value.trim();
+
+      const prefixes = {
+        'Flex GUI Pro v9.1.5': 'FLEX-PRO',
+        'Flex Ultimate (PR & AE)': 'FLEX-ULT',
+        'Flex Wheel Suite': 'FLEX-WHL',
+        'Flex Combo Lifetime All-In-One': 'FLEX-CMB'
+      };
+      const prefix = prefixes[product] || 'FLEX';
+      const r1 = Math.floor(1000 + Math.random() * 9000);
+      const r2 = Math.floor(1000 + Math.random() * 9000);
+      const r3 = Math.random().toString(36).substring(2, 6).toUpperCase();
+      const newKey = `${prefix}-${r1}-${r2}-${r3}`;
+
+      const newLicense = {
+        id: 'lic_' + Date.now(),
+        key: newKey,
+        product: product,
+        customerName: name,
+        customerEmail: email,
+        customerPhone: phone,
+        status: 'Active',
+        createdDate: new Date().toISOString().split('T')[0]
+      };
+
+      adminData.licenses.unshift(newLicense);
+      persistAdminData();
+      closeModal('generate-key-modal');
+      if (email) {
+        fetch('/api/license/generate-and-send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, product: product, name: name, machineId: '' })
+        }).then(function(r) { return r.json(); }).then(function(d) {
+          showToast('Official license email sent to ' + email + '!');
+        }).catch(function(err) { console.log('Email send error:', err); });
+      }
+      showToast(`Key generated: ${newKey}`);
+    }
+
+    // Toggle Status
+    function toggleLicenseStatus(licId) {
+      const item = adminData.licenses.find(l => l.id === licId);
+      if (item) {
+        item.status = item.status === 'Active' ? 'Revoked' : 'Active';
+        persistAdminData();
+        showToast(`License ${item.status.toLowerCase()}`);
+      }
+    }
+
+    // Add Order
+    function handleAddOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById('ord-name').value.trim();
+      const phone = document.getElementById('ord-phone').value.trim();
+      const product = document.getElementById('ord-product').value;
+      const amount = document.getElementById('ord-amount').value.trim();
+      const method = document.getElementById('ord-method').value;
+
+      // Auto generate key for order
+      const prefix = product.includes('Wheel') ? 'FLEX-WHL' : (product.includes('Ultimate') ? 'FLEX-ULT' : 'FLEX-PRO');
+      const r1 = Math.floor(1000 + Math.random() * 9000);
+      const r2 = Math.floor(1000 + Math.random() * 9000);
+      const key = `${prefix}-${r1}-${r2}-VIP`;
+
+      const newOrd = {
+        id: 'ORD-' + Math.floor(1000 + Math.random() * 9000),
+        customerName: name,
+        customerEmail: name.toLowerCase().replace(/\s+/g, '') + '@gmail.com',
+        customerPhone: phone,
+        product: product,
+        amount: amount,
+        paymentMethod: method,
+        status: 'Completed',
+        licenseKey: key,
+        date: new Date().toLocaleString()
+      };
+
+      // Also add to licenses
+      adminData.licenses.unshift({
+        id: 'lic_' + Date.now(),
+        key: key,
+        product: product,
+        customerName: name,
+        customerEmail: newOrd.customerEmail,
+        customerPhone: phone,
+        status: 'Active',
+        createdDate: new Date().toISOString().split('T')[0]
+      });
+
+      adminData.orders.unshift(newOrd);
+      persistAdminData();
+      closeModal('add-order-modal');
+      showToast(`Order created for ${name}!`);
+    }
+
+    // Save Settings
+    function saveSettings(e) {
+      e.preventDefault();
+      adminData.settings.priceUSD = document.getElementById('set-price-usd').value.trim();
+      adminData.settings.priceINR = document.getElementById('set-price-inr').value.trim();
+      adminData.settings.phone = document.getElementById('set-phone').value.trim();
+      adminData.settings.email = document.getElementById('set-email').value.trim();
+      if (document.getElementById('set-upi')) adminData.settings.upiId = document.getElementById('set-upi').value.trim();
+      adminData.settings.announcement = document.getElementById('set-announcement').value.trim();
+
+      persistAdminData();
+      showToast("Website settings updated successfully!");
+    }
+
+    // Export Data
+    function exportDataToJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(adminData, null, 2));
+      const a = document.createElement('a');
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `MotionKit_Backup_${new Date().toISOString().split('T')[0]}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast("Database exported successfully!");
+    }
+
+    // Utility Helpers
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text);
+      showToast("Copied to clipboard!");
+    }
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str).replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+      });
+    }
+  </script>
+</body>
+</html>

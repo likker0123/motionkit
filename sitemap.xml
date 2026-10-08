@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Home & Product Page -->
+  <url>
+    <loc>https://captureflex.in/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Flex Wheel Product Page -->
+  <url>
+    <loc>https://captureflex.in/flex-wheel</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- Affiliate Page -->
+  <url>
+    <loc>https://captureflex.in/affiliate</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Privacy Page -->
+  <url>
+    <loc>https://captureflex.in/privacy</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
