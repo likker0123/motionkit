@@ -140,12 +140,12 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
 <meta charset="utf-8">
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0c10; color: #ffffff; padding: 20px; margin: 0; }}
-  .card {{ background-color: #12141a; border: 1px solid #2be86b; border-radius: 16px; padding: 32px; max-width: 580px; margin: 0 auto; }}
-  .logo {{ font-size: 24px; font-weight: 900; color: #2be86b; letter-spacing: 2px; text-transform: uppercase; }}
+  .card {{ background-color: #12141a; border: 1px solid #06b6d4; border-radius: 16px; padding: 32px; max-width: 580px; margin: 0 auto; }}
+  .logo {{ font-size: 24px; font-weight: 900; color: #06b6d4; letter-spacing: 2px; text-transform: uppercase; }}
   .title {{ font-size: 20px; font-weight: 800; color: #ffffff; margin-top: 15px; }}
   .desc {{ color: #9ca3af; font-size: 14px; line-height: 1.5; }}
-  .key-box {{ background-color: #000000; border: 2px solid #2be86b; border-radius: 12px; padding: 18px; font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 900; color: #2be86b; text-align: center; letter-spacing: 3px; margin: 25px 0; }}
-  .btn-green {{ display: inline-block; background-color: #2be86b; color: #000000; padding: 12px 24px; font-weight: 800; text-decoration: none; border-radius: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-right: 10px; margin-bottom: 10px; }}
+  .key-box {{ background-color: #000000; border: 2px solid #06b6d4; border-radius: 12px; padding: 18px; font-family: 'Courier New', Courier, monospace; font-size: 22px; font-weight: 900; color: #06b6d4; text-align: center; letter-spacing: 3px; margin: 25px 0; }}
+  .btn-green {{ display: inline-block; background-color: #06b6d4; color: #000000; padding: 12px 24px; font-weight: 800; text-decoration: none; border-radius: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-right: 10px; margin-bottom: 10px; }}
   .btn-purple {{ display: inline-block; background-color: #9999ff; color: #000000; padding: 12px 24px; font-weight: 800; text-decoration: none; border-radius: 8px; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; margin-bottom: 10px; }}
   .steps {{ background-color: #181b22; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px; margin-top: 25px; font-size: 13px; line-height: 1.7; color: #d1d5db; }}
   .footer {{ font-size: 11px; color: #6b7280; text-align: center; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px; }}

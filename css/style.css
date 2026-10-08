@@ -1,13 +1,13 @@
-﻿/* MotionKit / MotionKit Pro & MotionKit Wheel Official Design System */
+/* MotionKit / MotionKit Pro & MotionKit Wheel Official Design System */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  --primary: #00A95C;
-  --primary-light: #89F7B6;
-  --primary-accent: #A8E063;
-  --primary-dim: rgba(0, 169, 92, 0.16);
-  --primary-glow: rgba(0, 169, 92, 0.45);
+  --primary: #06b6d4;
+  --primary-light: #67e8f9;
+  --primary-accent: #22d3ee;
+  --primary-dim: rgba(6, 182, 212, 0.16);
+  --primary-glow: rgba(6, 182, 212, 0.45);
   --coral-accent: #ff3366;
   --bg-dark: #0B0B0B;
   --card-dark: #12141a;
@@ -36,7 +36,7 @@ body {
 
 /* MotionKit Official Gradient Text */
 .text-gradient-captureflex {
-  background: linear-gradient(135deg, #89F7B6 0%, #00A95C 60%, #A8E063 100%);
+  background: linear-gradient(135deg, #67e8f9 0%, #06b6d4 60%, #22d3ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -49,9 +49,9 @@ body {
 
 /* MotionKit Glow Animations */
 @keyframes outline-glow {
-  0% { border-color: rgba(0, 169, 92, 0.2); }
-  50% { border-color: rgba(0, 169, 92, 0.8); box-shadow: 0 0 15px rgba(0, 169, 92, 0.3); }
-  100% { border-color: rgba(0, 169, 92, 0.2); }
+  0% { border-color: rgba(6, 182, 212, 0.2); }
+  50% { border-color: rgba(6, 182, 212, 0.8); box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
+  100% { border-color: rgba(6, 182, 212, 0.2); }
 }
 
 .animate-glow-pulse {
@@ -79,7 +79,7 @@ body {
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(137, 247, 182, 0.25),
+    rgba(6, 182, 212, 0.3),
     transparent
   );
   animation: shine-infinite 4s infinite;
@@ -109,11 +109,11 @@ body {
   background: var(--primary-dim);
   color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 169, 92, 0.3);
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
 }
 
 .tool-btn.active {
-  border-color: #89F7B6;
+  border-color: #67e8f9;
   background: var(--primary);
   color: #000;
   font-weight: 800;
@@ -145,5 +145,5 @@ body {
 }
 
 .glass-card:hover {
-  border-color: rgba(137, 247, 182, 0.25);
+  border-color: rgba(6, 182, 212, 0.35);
 }

@@ -1,0 +1,460 @@
+/* ==========================================================================
+   MotionKit Pro — Cyber Neon Cyan & Electric Blue HUD Design System
+   Inspired by Option 1: Futuristic Sci-Fi / High-Tech Cyberpunk HUD UI
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --cyber-bg: #06070a;
+  --cyber-bg-surface: #0a0d14;
+  --cyber-card: rgba(10, 14, 23, 0.78);
+  --cyber-card-hover: rgba(14, 20, 32, 0.9);
+  --cyber-cyan: #06b6d4;
+  --cyber-cyan-bright: #22d3ee;
+  --cyber-cyan-light: #67e8f9;
+  --cyber-cyan-dim: rgba(6, 182, 212, 0.16);
+  --cyber-cyan-glow: rgba(6, 182, 212, 0.5);
+  --cyber-blue: #3b82f6;
+  --cyber-blue-deep: #1d4ed8;
+  --cyber-border: rgba(6, 182, 212, 0.24);
+  --cyber-border-bright: rgba(34, 211, 238, 0.65);
+  --cyber-text: #f1f5f9;
+  --cyber-text-muted: #94a3b8;
+  --cyber-font-mono: 'JetBrains Mono', monospace;
+  --cyber-font-display: 'Orbitron', -apple-system, sans-serif;
+  --cyber-font-sans: 'Inter', -apple-system, sans-serif;
+}
+
+/* Force Pitch-Black Cyberpunk Backdrop Everywhere */
+html, body {
+  background-color: var(--cyber-bg) !important;
+  color: var(--cyber-text) !important;
+  font-family: var(--cyber-font-sans) !important;
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
+}
+
+/* Futuristic Cyber Grid & Radial Ambient Nebula Background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 850px;
+  background: radial-gradient(circle at 50% 15%, rgba(6, 182, 212, 0.18) 0%, rgba(59, 130, 246, 0.1) 40%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* MotionKit Root Container Overrides */
+.fgp {
+  --bg: #06070a !important;
+  --card: rgba(10, 14, 23, 0.82) !important;
+  --card2: rgba(7, 10, 17, 0.9) !important;
+  --line: rgba(6, 182, 212, 0.22) !important;
+  --text: #f8fafc !important;
+  --mut: #94a3b8 !important;
+  --soft: #cbd5e1 !important;
+  --a: #06b6d4 !important;
+  --a-dim: rgba(6, 182, 212, 0.18) !important;
+  --a-glow: rgba(6, 182, 212, 0.55) !important;
+  --ink: #000000 !important;
+  --a-line: rgba(6, 182, 212, 0.28) !important;
+  --a-soft: rgba(6, 182, 212, 0.09) !important;
+  position: relative !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  z-index: 1 !important;
+}
+
+/* ==========================================================================
+   TOP FLOATING CYBER HUD NAVIGATION BAR
+   ========================================================================== */
+#cyber-top-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(6, 7, 10, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(6, 182, 212, 0.15);
+  transition: all 0.3s ease;
+}
+
+.cyber-nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cyber-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.cyber-nav-brand-logo {
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.cyber-nav-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  font-family: var(--cyber-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cyber-cyan-bright);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cyber-nav-badge .pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyber-cyan-bright);
+  box-shadow: 0 0 10px var(--cyber-cyan-bright);
+  animation: cyber-beacon 1.8s infinite ease-in-out;
+}
+
+@keyframes cyber-beacon {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 6px #22d3ee; }
+  50% { opacity: 0.4; transform: scale(0.8); box-shadow: 0 0 2px #22d3ee; }
+}
+
+.cyber-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .cyber-nav-links {
+    display: none;
+  }
+}
+
+.cyber-nav-link {
+  color: #94a3b8;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  font-family: var(--cyber-font-mono);
+  transition: all 0.2s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.cyber-nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(6, 182, 212, 0.7);
+}
+
+.cyber-nav-link:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  box-shadow: 0 0 8px #06b6d4;
+}
+
+.cyber-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+  color: #000;
+  font-size: 11.5px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 18px rgba(6, 182, 212, 0.45);
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cyber-nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(6, 182, 212, 0.75);
+  color: #000;
+}
+
+/* ==========================================================================
+   HEADINGS & FUTURISTIC TEXT GRADIENTS
+   ========================================================================== */
+.fgp h1, .fgp h2, .fgp h3 {
+  font-weight: 900 !important;
+  letter-spacing: -0.035em !important;
+  color: #ffffff !important;
+}
+
+/* The Glowing Electric Cyan & Blue Gradient Accent */
+.fgp .g, .fgp-a, .text-gradient-cyan {
+  background: linear-gradient(135deg, #a5f3fc 0%, #22d3ee 35%, #06b6d4 75%, #3b82f6 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 16px rgba(6, 182, 212, 0.45)) !important;
+  font-weight: 900 !important;
+}
+
+/* Futuristic HUD Pill Badge */
+.fgp-pill {
+  background: rgba(6, 182, 212, 0.12) !important;
+  border: 1px solid rgba(6, 182, 212, 0.45) !important;
+  color: #22d3ee !important;
+  border-radius: 30px !important;
+  font-family: var(--cyber-font-mono) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.fgp-dot {
+  background: #22d3ee !important;
+  box-shadow: 0 0 8px #22d3ee !important;
+}
+
+/* ==========================================================================
+   CYBER BUTTONS & CTA ACTIONS
+   ========================================================================== */
+/* Primary Glowing Action Button */
+.fgp-btn.p {
+  background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%) !important;
+  color: #000000 !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.fgp-btn.p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: cyber-btn-shine 3.5s infinite;
+}
+
+@keyframes cyber-btn-shine {
+  0% { left: -100%; }
+  30%, 100% { left: 100%; }
+}
+
+.fgp-btn.p:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.8), inset 0 1px 0 #fff !important;
+}
+
+/* Secondary Cyber Glass Button */
+.fgp-btn.o {
+  background: rgba(10, 14, 23, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(6, 182, 212, 0.45) !important;
+  color: #22d3ee !important;
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.fgp-btn.o:hover {
+  background: rgba(6, 182, 212, 0.18) !important;
+  border-color: #22d3ee !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ==========================================================================
+   GLASSMORPHIC CYBER CARDS & STATS
+   ========================================================================== */
+.fgp-card {
+  background: rgba(10, 14, 23, 0.75) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(6, 182, 212, 0.22) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  position: relative !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.fgp-card:hover {
+  border-color: rgba(34, 211, 238, 0.6) !important;
+  box-shadow: 0 15px 40px rgba(6, 182, 212, 0.25), 0 0 20px rgba(6, 182, 212, 0.1) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Futuristic Corner Crosshairs on Feature Cards */
+.fgp-card::before {
+  content: '┌';
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  font-family: var(--cyber-font-mono);
+  font-size: 10px;
+  color: rgba(6, 182, 212, 0.5);
+  pointer-events: none;
+}
+
+.fgp-card::after {
+  content: '┘';
+  position: absolute;
+  bottom: 4px;
+  right: 6px;
+  font-family: var(--cyber-font-mono);
+  font-size: 10px;
+  color: rgba(6, 182, 212, 0.5);
+  pointer-events: none;
+}
+
+/* High-Tech Stat Counters */
+.fgp-stat {
+  background: rgba(10, 14, 23, 0.8) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(6, 182, 212, 0.25) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.2s ease !important;
+}
+
+.fgp-stat:hover {
+  border-color: rgba(6, 182, 212, 0.6) !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.3) !important;
+}
+
+.fgp-stat b {
+  color: #22d3ee !important;
+  font-family: var(--cyber-font-mono) !important;
+  text-shadow: 0 0 18px rgba(6, 182, 212, 0.6) !important;
+}
+
+/* ==========================================================================
+   FUTURISTIC WHEEL HUD CONSOLE FRAME (.fgp-live)
+   ========================================================================== */
+.fgp-live {
+  position: relative !important;
+}
+
+.fgp-live::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -6px !important;
+  border-radius: 20px !important;
+  background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.3) 0%, rgba(59, 130, 246, 0.15) 50%, transparent 80%) !important;
+  filter: blur(28px) !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* High-Tech Telemetry Bar above the Wheel */
+.fgp-livebar {
+  background: #080b12 !important;
+  border: 1px solid rgba(6, 182, 212, 0.4) !important;
+  border-bottom: 0 !important;
+  border-radius: 16px 16px 0 0 !important;
+  color: #94a3b8 !important;
+  font-family: var(--cyber-font-mono) !important;
+  font-size: 11px !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.fgp-livebar i {
+  background: #22d3ee !important;
+  box-shadow: 0 0 8px #22d3ee !important;
+}
+
+.fgp-livebar em {
+  color: #22d3ee !important;
+  font-weight: 800 !important;
+}
+
+/* High-Tech Glass Frame for Interactive Wheel */
+.fgp-liveframe {
+  background: #06080e !important;
+  border: 1px solid rgba(6, 182, 212, 0.4) !important;
+  border-radius: 0 0 16px 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* ==========================================================================
+   PRICING CARD & SPECIAL ACCENTS
+   ========================================================================== */
+.fgp-price {
+  background: rgba(10, 14, 23, 0.85) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(6, 182, 212, 0.35) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Ambient Blobs in Background */
+.fgp-blob {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.35) 0%, rgba(59, 130, 246, 0.15) 60%, transparent 80%) !important;
+  filter: blur(90px) !important;
+  opacity: 0.35 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #06070a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22d3ee;
+  box-shadow: 0 0 10px #22d3ee;
+}

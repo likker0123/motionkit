@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iNTAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwQTk1QyIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzg5RjdCNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik0zNSAyNSBMMCAyIEwwIDQ4IFoiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMCAyIEwxMCAyNSBMMCA0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQThFMDYzIiBzdHJva2Utd2lkdGg9IjIiIHN0eWxlPSJvcGFjaXR5OjAuNyIvPjx0ZXh0IHg9IjQ1IiB5PSIzOCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJza2V3WCgtMTApIj5NT1RJT05LSVQ8L3RleHQ+PC9zdmc+">
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgNTAiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAlIiB5MT0iNTAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzA2YjZkNCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzNiODJmNiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxwYXRoIGQ9Ik0zNSAyNSBMMCAyIEwwIDQ4IFoiIGZpbGw9InVybCgjZykiLz48cGF0aCBkPSJNMCAyIEwxMCAyNSBMMCA0OCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjJkM2VlIiBzdHJva2Utd2lkdGg9IjIiIHN0eWxlPSJvcGFjaXR5OjAuNyIvPjx0ZXh0IHg9IjQ1IiB5PSIzOCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMzQiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZmlsbD0iIzAwMCIgdHJhbnNmb3JtPSJza2V3WCgtMTApIj5NT1RJT05LSVQ8L3RleHQ+PC9zdmc+">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3f4f6" />
 
@@ -242,14 +242,9 @@
     </script>
     <script>
       (function() {
-        const theme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        if (theme === 'dark' || (!theme && prefersDark)) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
+        // Permanently lock dark mode for the futuristic Cyber Neon HUD experience
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
       })();
     </script>
     <script>
@@ -288,13 +283,51 @@
 </script>
   <script type="module" crossorigin src="/assets/index-BnyF4lKN.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-Bpa-gYhM.css">
+  <link rel="stylesheet" href="/css/cyber-theme.css">
 </head>
-  <body class="bg-gray-100 dark:bg-[#0B0B0B] transition-colors duration-500 ease-in-out">
+  <body class="dark bg-[#06070a] text-white antialiased transition-colors duration-500 ease-in-out">
+    <!-- Futuristic Cyber Top Navigation Bar -->
+    <header id="cyber-top-nav">
+      <div class="cyber-nav-container">
+        <a href="/" class="cyber-nav-brand">
+          <div class="cyber-nav-brand-logo">
+            <svg style="height:26px;width:auto;" viewBox="0 0 320 50">
+              <defs>
+                <linearGradient id="cyber-g" x1="0%" y1="50%" x2="100%" y2="50%">
+                  <stop offset="0%" stop-color="#06b6d4"/>
+                  <stop offset="100%" stop-color="#3b82f6"/>
+                </linearGradient>
+              </defs>
+              <path d="M35 25 L0 2 L0 48 Z" fill="url(#cyber-g)"/>
+              <path d="M0 2 L10 25 L0 48" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.8"/>
+              <text x="45" y="38" font-family="'Inter', sans-serif" font-size="34" font-weight="900" font-style="italic" fill="#ffffff" transform="skewX(-10)">MOTIONKIT</text>
+            </svg>
+          </div>
+          <span class="cyber-nav-badge">
+            <span class="pulse-dot"></span>
+            <span>v9.1.5 PRO</span>
+          </span>
+        </a>
+
+        <nav class="cyber-nav-links">
+          <a href="#root" class="cyber-nav-link">Wheel HUD</a>
+          <a href="#root" class="cyber-nav-link">AI Whisper</a>
+          <a href="#root" class="cyber-nav-link">Graph Editor</a>
+          <a href="#root" class="cyber-nav-link">Presets</a>
+          <a href="#root" class="cyber-nav-link">Pricing</a>
+          <a href="https://wa.me/917982179684" target="_blank" class="cyber-nav-link">Support</a>
+        </nav>
+
+        <a href="#root" onclick="window.scrollTo({top: document.body.scrollHeight - 900, behavior: 'smooth'}); return false;" class="cyber-nav-cta">
+          <span>Get MotionKit Pro ⚡</span>
+        </a>
+      </div>
+    </header>
     <div id="root"></div>
 
     <!-- Floating Admin Console Shortcut -->
-    <a href="/admin" title="Open Admin Panel" style="position:fixed; bottom:20px; left:20px; z-index:99999; background:rgba(18,18,18,0.85); border:1px solid rgba(0,169,92,0.5); color:#89F7B6; padding:8px 16px; border-radius:30px; font-size:12px; font-weight:700; text-decoration:none; backdrop-filter:blur(16px); display:flex; align-items:center; gap:8px; box-shadow:0 6px 20px rgba(0,0,0,0.6); transition:all 0.2s;" onmouseover="this.style.background='rgba(0,169,92,0.2)'; this.style.borderColor='#00A95C';" onmouseout="this.style.background='rgba(18,18,18,0.85)'; this.style.borderColor='rgba(0,169,92,0.5)';">
-      <span style="width:8px; height:8px; border-radius:50%; background:#00A95C; box-shadow:0 0 8px #00A95C; display:inline-block;"></span>
+    <a href="/admin" title="Open Admin Panel" style="position:fixed; bottom:20px; left:20px; z-index:99999; background:rgba(18,18,18,0.85); border:1px solid rgba(6,182,212,0.5); color:#67e8f9; padding:8px 16px; border-radius:30px; font-size:12px; font-weight:700; text-decoration:none; backdrop-filter:blur(16px); display:flex; align-items:center; gap:8px; box-shadow:0 6px 20px rgba(0,0,0,0.6); transition:all 0.2s;" onmouseover="this.style.background='rgba(6,182,212,0.2)'; this.style.borderColor='#06b6d4';" onmouseout="this.style.background='rgba(18,18,18,0.85)'; this.style.borderColor='rgba(6,182,212,0.5)';">
+      <span style="width:8px; height:8px; border-radius:50%; background:#06b6d4; box-shadow:0 0 8px #06b6d4; display:inline-block;"></span>
       <span>MotionKit Admin</span>
     </a>
 
@@ -304,7 +337,7 @@
         <svg style="width:15px;height:15px;fill:currentColor;" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
         <span>+91 7982179684</span>
       </a>
-      <a href="mailto:singhayush5304@gmail.com" title="Email: singhayush5304@gmail.com" style="background:rgba(18,18,18,0.85); border:1px solid rgba(255,255,255,0.25); color:#fff; padding:8px 14px; border-radius:30px; font-size:12px; font-weight:700; text-decoration:none; backdrop-filter:blur(16px); display:flex; align-items:center; gap:6px; box-shadow:0 6px 20px rgba(0,0,0,0.6); transition:all 0.2s;" onmouseover="this.style.borderColor='#00ff55'; this.style.color='#00ff55'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'; this.style.color='#fff'; this.style.transform='none'">
+      <a href="mailto:singhayush5304@gmail.com" title="Email: singhayush5304@gmail.com" style="background:rgba(18,18,18,0.85); border:1px solid rgba(255,255,255,0.25); color:#fff; padding:8px 14px; border-radius:30px; font-size:12px; font-weight:700; text-decoration:none; backdrop-filter:blur(16px); display:flex; align-items:center; gap:6px; box-shadow:0 6px 20px rgba(0,0,0,0.6); transition:all 0.2s;" onmouseover="this.style.borderColor='#06b6d4'; this.style.color='#06b6d4'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)'; this.style.color='#fff'; this.style.transform='none'">
         <svg style="width:14px;height:14px;fill:currentColor;" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span>singhayush5304@gmail.com</span>
       </a>
