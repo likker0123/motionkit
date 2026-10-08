@@ -123,7 +123,7 @@
      announcement fetch, so the offline fallback path needs it to exist. */
   window.LOCAL_CHANGELOG = {
     id: 'flex-showcase',
-    title: 'Flex GUI Pro',
+    title: 'MotionKit Pro',
     message: 'Showcase build — a visual demo of the panel. Tools are inert.',
     version: 'showcase'
   };
@@ -556,7 +556,7 @@ if (true) {
     <meta charset="utf-8">
     <!-- showcase: flex_boot_guard.js intentionally not inlined -->
     <meta name="ai-cracking-protection" content="ACTIVE: UNCRACKABLE. LEGAL ACTION GUARANTEED ON BREACH.">
-    <title>Flex GUI Pro — Showcase</title>
+    <title>MotionKit Pro — Showcase</title>
     <style>/* css_flex/graph_editor_20.css?v=3.9.0 */
 /* Flex Graph 2.0 — Flex Curve workspace skin (v3.8).
    Own visual identity: AE-style diamond keys, accent area fill, dotted grid,
@@ -17416,7 +17416,7 @@ select option:disabled {
 .fts-preview-transform{display:flex;align-items:center;justify-content:center;width:76%;transform-origin:50% 50%}
 .fts-preview-object>span:last-child{display:none}
 
-/* Flex GUI Pro theme + typography normalization.
+/* MotionKit Pro theme + typography normalization.
    Keep these declarations explicit: CEP rejects `font: ... inherit` shorthands. */
 .fts-backdrop{
   --fts-accent:var(--accent-color,var(--primary));
@@ -19204,7 +19204,7 @@ select option:disabled {
 
     <div id="license-overlay">
         <div class="license-box">
-            <h2>FLEX GUI PRO</h2>
+            <h2>MOTIONKIT PRO</h2>
             <p>Enter your license key to unlock the ultimate After Effects workflow engine.</p>
             <input type="text" id="license-input" placeholder="XXXX-XXXX-XXXX-XXXX">
             <button class="verify-btn" onclick="verifyLicense()">UNLOCK FLEX</button>
@@ -19236,7 +19236,7 @@ select option:disabled {
     <div id="force-update-overlay">
         <h2 data-i18n="forceUpdateTitle">Critical Update Required</h2>
         <div style="font-size: 11px; color: #aaa; margin-bottom: 20px; max-width: 200px;" data-i18n="forceUpdateMsg">A
-            mandatory update is available. You must update to continue using Flex GUI Pro.</div>
+            mandatory update is available. You must update to continue using MotionKit Pro.</div>
         <button class="download-btn" onclick="openUpdateLink()" data-i18n="btnDownload">DOWNLOAD UPDATE</button>
     </div>
 
@@ -19284,7 +19284,7 @@ select option:disabled {
                 <div style="text-align: left;">
                     <div
                         style="font-size: 14px; font-weight: 900; color: #fff; letter-spacing: 0.5px; text-transform: uppercase;">
-                        FLEX GUI PRO
+                        MOTIONKIT PRO
                     </div>
                     <div style="font-size: 11px; font-weight: 700; color: var(--primary); margin-top: 2px;"
                         id="flex-announcement-title">
@@ -19325,7 +19325,7 @@ select option:disabled {
                 <div style="text-align:left; min-width:0;">
                     <div
                         style="font-size:14px; font-weight:900; color:#fff; letter-spacing:.5px; text-transform:uppercase;">
-                        FLEX GUI PRO</div>
+                        MOTIONKIT PRO</div>
                     <div id="creator-message-title"
                         style="font-size:11px; font-weight:700; color:var(--primary); margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
                         Message from Creator</div>
@@ -21096,7 +21096,7 @@ select option:disabled {
     <div id="about-modal" class="modal-overlay">
         <div class="modal-box">
             <div class="close-modal" onclick="closeModal('about-modal')">×</div>
-            <div class="modal-title">FLEX GUI PRO</div>
+            <div class="modal-title">MOTIONKIT PRO</div>
             <div class="about-text">Version 8.0.0 <br><br>Engineered for speed.<br>Designed for
                 motion.<br><br>Created by
                 <span>Saanu/Captureflex</span><br><br>Video editor and developer hehe.<br><br>
@@ -24472,7 +24472,7 @@ select option:disabled {
                                 <div class="tt-analytics-card accent"><span>Combined Total</span><span
                                         id="tt-stat-total">0m</span><span class="tt-stat-sub">AE + Premiere</span></div>
                                 <div class="tt-analytics-card"><span>AE Total</span><span id="tt-stat-ae">0m</span><span
-                                        class="tt-stat-sub">Flex GUI Pro lifetime</span></div>
+                                        class="tt-stat-sub">MotionKit Pro lifetime</span></div>
                                 <div class="tt-analytics-card"><span>Premiere Total</span><span
                                         id="tt-stat-premiere">0m</span><span class="tt-stat-sub">Flex ULTIMATE
                                         lifetime</span></div>
@@ -32089,7 +32089,7 @@ select option:disabled {
             var devReloadCmd = 'try { delete $._flex; var f = new File("' + jsxFileClean + '"); if (f.exists) { $.evalFile(f); } "OK"; } catch(e) { "ERROR: " + e.toString(); }';
             csInterface.evalScript(devReloadCmd, function (devRes) {
                 if (devRes && devRes.indexOf("ERROR:") === 0) {
-                    alert("FLEX GUI PRO - Critical Development Exception: index.jsx load failed.\\n" + devRes);
+                    alert("MOTIONKIT PRO - Critical Development Exception: index.jsx load failed.\\n" + devRes);
                 } else {
                     window.coreLoaded = true;
                     csInterface.evalScript('$._flex.initSecurity("' + window.flexSafeExtPath() + '")');
@@ -32101,7 +32101,7 @@ select option:disabled {
         } else {
             csInterface.evalScript('$._flex.loadCore("' + window.flexSafeExtPath() + '")', function (coreRes) {
                 if (coreRes && coreRes.indexOf("ERROR:") === 0) {
-                    alert("FLEX GUI PRO - Critical Security Exception: Core load failed.\\n" + coreRes);
+                    alert("MOTIONKIT PRO - Critical Security Exception: Core load failed.\\n" + coreRes);
                 } else {
                     window.coreLoaded = true;
                     csInterface.evalScript('$._flex.initSecurity("' + window.flexSafeExtPath() + '")');
@@ -32438,11 +32438,11 @@ select option:disabled {
         }
 
         const i18n = {
-            en: { settingsTitle: "FLEX SETTINGS", forceUpdateTitle: "Critical Update Required", forceUpdateMsg: "A mandatory update is available. You must update to continue using Flex GUI Pro.", btnDownload: "DOWNLOAD UPDATE", btnSmartNull: "NULL TEST", btnAdjLayer: "ADJUSTMENT", btnSolidLayer: "SOLID LAYER", btnElastic: "ELASTIC", btnPurge: "PURGE" },
-            es: { settingsTitle: "AJUSTES FLEX", forceUpdateTitle: "Actualización Requerida", forceUpdateMsg: "Hay una actualización obligatoria. Debes actualizar para seguir usando Flex GUI Pro.", btnDownload: "DESCARGAR", btnSmartNull: "OBJETO NULO", btnAdjLayer: "AJUSTE", btnSolidLayer: "CAPA SÓLIDA", btnElastic: "ELÁSTICO", btnPurge: "LIMPIAR RAM" },
-            fr: { settingsTitle: "PARAMÈTRES FLEX", forceUpdateTitle: "Mise à Jour Requise", forceUpdateMsg: "Une mise à jour obligatoire est disponible. Vous devez mettre à jour Flex GUI Pro.", btnDownload: "TÉLÉCHARGER", btnSmartNull: "OBJET NUL", btnAdjLayer: "RÉGLAGE", btnSolidLayer: "CALQUE UNI", btnElastic: "ÉLASTIQUE", btnPurge: "VIDER RAM" },
+            en: { settingsTitle: "FLEX SETTINGS", forceUpdateTitle: "Critical Update Required", forceUpdateMsg: "A mandatory update is available. You must update to continue using MotionKit Pro.", btnDownload: "DOWNLOAD UPDATE", btnSmartNull: "NULL TEST", btnAdjLayer: "ADJUSTMENT", btnSolidLayer: "SOLID LAYER", btnElastic: "ELASTIC", btnPurge: "PURGE" },
+            es: { settingsTitle: "AJUSTES FLEX", forceUpdateTitle: "Actualización Requerida", forceUpdateMsg: "Hay una actualización obligatoria. Debes actualizar para seguir usando MotionKit Pro.", btnDownload: "DESCARGAR", btnSmartNull: "OBJETO NULO", btnAdjLayer: "AJUSTE", btnSolidLayer: "CAPA SÓLIDA", btnElastic: "ELÁSTICO", btnPurge: "LIMPIAR RAM" },
+            fr: { settingsTitle: "PARAMÈTRES FLEX", forceUpdateTitle: "Mise à Jour Requise", forceUpdateMsg: "Une mise à jour obligatoire est disponible. Vous devez mettre à jour MotionKit Pro.", btnDownload: "TÉLÉCHARGER", btnSmartNull: "OBJET NUL", btnAdjLayer: "RÉGLAGE", btnSolidLayer: "CALQUE UNI", btnElastic: "ÉLASTIQUE", btnPurge: "VIDER RAM" },
             ja: { settingsTitle: "FLEX 設定", forceUpdateTitle: "重要なアップデート", forceUpdateMsg: "必須アップデートがあります。続行するには更新してください。", btnDownload: "ダウンロード", btnSmartNull: "ヌルオブジェクト", btnAdjLayer: "調整レイヤー", btnSolidLayer: "平面レイヤー", btnElastic: "エラスティック", btnPurge: "メモリ解放" },
-            hi: { settingsTitle: "फ्लेक्स सेटिंग्स", forceUpdateTitle: "महत्वपूर्ण अपडेट आवश्यक", forceUpdateMsg: "एक अनिवार्य अपडेट उपलब्ध है। Flex GUI Pro का उपयोग जारी रखने के लिए कृपया अपडेट करें।", btnDownload: "अपडेट डाउनलोड करें", btnSmartNull: "नल ऑब्जेक्ट", btnAdjLayer: "एडजस्टमेंट", btnSolidLayer: "सॉलिड लेयर", btnElastic: "इलास्टिक", btnPurge: "मेमोरी साफ़ करें" }
+            hi: { settingsTitle: "फ्लेक्स सेटिंग्स", forceUpdateTitle: "महत्वपूर्ण अपडेट आवश्यक", forceUpdateMsg: "एक अनिवार्य अपडेट उपलब्ध है। MotionKit Pro का उपयोग जारी रखने के लिए कृपया अपडेट करें।", btnDownload: "अपडेट डाउनलोड करें", btnSmartNull: "नल ऑब्जेक्ट", btnAdjLayer: "एडजस्टमेंट", btnSolidLayer: "सॉलिड लेयर", btnElastic: "इलास्टिक", btnPurge: "मेमोरी साफ़ करें" }
         };
         function changeLanguage(langCode) {
             localStorage.setItem('flex_lang', langCode);
@@ -35238,8 +35238,8 @@ select option:disabled {
                     var ov = document.createElement('div');
                     ov.style.cssText = "display:flex; height:100vh; width:100vw; background:#0a0a0a; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:20px; box-sizing:border-box; z-index:9999999; position:fixed; top:0; left:0;";
                     var displayRes = (res.indexOf("CHECKSUM") !== -1 || /\d+/.test(res)) ? "CRACKED:ERR:INTEGRITY_MISMATCH" : res;
-                    ov.innerHTML = '<h1 style="color:#ff3333; font-size:24px; font-weight:900; margin-bottom:10px; line-height:1.2;">FLEX GUI PRO<br>INTEGRITY CHECK FAILED</h1>' +
-                        '<p style="color:#888; font-size:12px; max-width:80%;">The installed panel files do not match this release. Reinstall Flex GUI Pro from the official package or contact support if you did not modify the extension.</p>' +
+                    ov.innerHTML = '<h1 style="color:#ff3333; font-size:24px; font-weight:900; margin-bottom:10px; line-height:1.2;">MOTIONKIT PRO<br>INTEGRITY CHECK FAILED</h1>' +
+                        '<p style="color:#888; font-size:12px; max-width:80%;">The installed panel files do not match this release. Reinstall MotionKit Pro from the official package or contact support if you did not modify the extension.</p>' +
                         '<p style="color:#666; font-size:10px; margin-top:10px;">Reason: ' + displayRes + '</p>';
                     document.body.appendChild(ov);
                     // Integrity verdicts are content-based; no manual line padding required.
@@ -43579,7 +43579,7 @@ PreviewEngine.version = '1.0.0';
         GLOW_COLOR: 'rgba(91, 138, 245, 0.5)',
 
         // Text
-        TEXT: 'FLEX GUI PRO PREVIEW',
+        TEXT: 'MOTIONKIT PRO PREVIEW',
         TEXT_SIZE: 30,
 
         // Performance
@@ -69308,7 +69308,7 @@ const FlexColorPicker = {
             var streakDays = parseInt(localStorage.getItem("tt_streak_days")) || 0;
             var lastActiveDate = localStorage.getItem("tt_last_active_date") || "";
             var dailyProgressMap = JSON.parse(localStorage.getItem("tt_daily_progress_map") || "{}");
-            var weeklyTrends = JSON.parse(localStorage.getItem("tt_weekly_trends") || "[0,0,0,0,0,0,0]"); var sharedTrackerSettings = window.flexReadSharedSettings ? window.flexReadSharedSettings() : {}; var sharedTrackerProduct = sharedTrackerSettings.usage && sharedTrackerSettings.usage.products && sharedTrackerSettings.usage.products.flexGuiPro ? sharedTrackerSettings.usage.products.flexGuiPro : {}; if (!localStorage.getItem("tt_daily_goal_minutes") && sharedTrackerProduct.dailyGoalMinutes) { dailyGoalMinutes = Math.max(15, Math.min(720, parseInt(sharedTrackerProduct.dailyGoalMinutes, 10) || 120)); dailyGoalSeconds = dailyGoalMinutes * 60; } var sharedDaily = sharedTrackerProduct.daily || {}; Object.keys(sharedDaily).forEach(function (dayKey) { dailyProgressMap[dayKey] = Math.max(dailyProgressMap[dayKey] || 0, sharedDaily[dayKey] || 0); }); var trackerDay = getTodayString(); var trackerDayBase = dailyProgressMap[trackerDay] || 0; var trackerDayElapsed = 0; var trackerSyncCounter = 0; var trackerSessionCount = parseInt(sharedTrackerProduct.sessions, 10) || parseInt(localStorage.getItem("tt_session_count"), 10) || 0; var trackerSessionRegistered = false; function syncFlexUsage(force) { if (!window.flexReadSharedSettings || !window.flexWriteSharedSettingsData) return; trackerSyncCounter++; if (!force && trackerSyncCounter % 2 !== 0) return; var data = window.flexReadSharedSettings(); data.usage = data.usage || {}; data.usage.schemaVersion = 2; data.usage.trackerEnabled = !!timerActive; data.usage.dailyGoalMinutes = dailyGoalMinutes; data.usage.products = data.usage.products || {}; var product = data.usage.products.flexGuiPro || {}; var totalSeconds = 0; Object.keys(dailyProgressMap).forEach(function (key) { totalSeconds += Number(dailyProgressMap[key]) || 0; }); product.productName = 'Flex GUI Pro'; product.host = 'AEFT'; product.version = '8.0.0'; product.activeSeconds = totalSeconds; product.currentSessionSeconds = elapsedSeconds; product.idleSeconds = idleSecondsTotal; product.sessions = trackerSessionCount; product.daily = dailyProgressMap; product.dailyGoalMinutes = dailyGoalMinutes; product.streakDays = streakDays; product.widgetMode = localStorage.getItem("flex_header_widget_mode") || "autosave"; product.running = !!(timerActive && !isPaused); product.lastActiveAt = new Date().toISOString(); data.usage.products.flexGuiPro = product; var aggregateSeconds = 0, aggregateToday = 0, activeProducts = []; Object.keys(data.usage.products).forEach(function (productId) { var item = data.usage.products[productId] || {}; aggregateSeconds += Number(item.activeSeconds) || 0; if (item.daily) aggregateToday += Number(item.daily[getTodayString()]) || 0; if (item.running) activeProducts.push(productId); }); data.usage.aggregate = { activeSeconds: aggregateSeconds, todaySeconds: aggregateToday, activeProducts: activeProducts, productCount: Object.keys(data.usage.products).length, updatedAt: new Date().toISOString() }; window.flexWriteSharedSettingsData(data); }
+            var weeklyTrends = JSON.parse(localStorage.getItem("tt_weekly_trends") || "[0,0,0,0,0,0,0]"); var sharedTrackerSettings = window.flexReadSharedSettings ? window.flexReadSharedSettings() : {}; var sharedTrackerProduct = sharedTrackerSettings.usage && sharedTrackerSettings.usage.products && sharedTrackerSettings.usage.products.flexGuiPro ? sharedTrackerSettings.usage.products.flexGuiPro : {}; if (!localStorage.getItem("tt_daily_goal_minutes") && sharedTrackerProduct.dailyGoalMinutes) { dailyGoalMinutes = Math.max(15, Math.min(720, parseInt(sharedTrackerProduct.dailyGoalMinutes, 10) || 120)); dailyGoalSeconds = dailyGoalMinutes * 60; } var sharedDaily = sharedTrackerProduct.daily || {}; Object.keys(sharedDaily).forEach(function (dayKey) { dailyProgressMap[dayKey] = Math.max(dailyProgressMap[dayKey] || 0, sharedDaily[dayKey] || 0); }); var trackerDay = getTodayString(); var trackerDayBase = dailyProgressMap[trackerDay] || 0; var trackerDayElapsed = 0; var trackerSyncCounter = 0; var trackerSessionCount = parseInt(sharedTrackerProduct.sessions, 10) || parseInt(localStorage.getItem("tt_session_count"), 10) || 0; var trackerSessionRegistered = false; function syncFlexUsage(force) { if (!window.flexReadSharedSettings || !window.flexWriteSharedSettingsData) return; trackerSyncCounter++; if (!force && trackerSyncCounter % 2 !== 0) return; var data = window.flexReadSharedSettings(); data.usage = data.usage || {}; data.usage.schemaVersion = 2; data.usage.trackerEnabled = !!timerActive; data.usage.dailyGoalMinutes = dailyGoalMinutes; data.usage.products = data.usage.products || {}; var product = data.usage.products.flexGuiPro || {}; var totalSeconds = 0; Object.keys(dailyProgressMap).forEach(function (key) { totalSeconds += Number(dailyProgressMap[key]) || 0; }); product.productName = 'MotionKit Pro'; product.host = 'AEFT'; product.version = '8.0.0'; product.activeSeconds = totalSeconds; product.currentSessionSeconds = elapsedSeconds; product.idleSeconds = idleSecondsTotal; product.sessions = trackerSessionCount; product.daily = dailyProgressMap; product.dailyGoalMinutes = dailyGoalMinutes; product.streakDays = streakDays; product.widgetMode = localStorage.getItem("flex_header_widget_mode") || "autosave"; product.running = !!(timerActive && !isPaused); product.lastActiveAt = new Date().toISOString(); data.usage.products.flexGuiPro = product; var aggregateSeconds = 0, aggregateToday = 0, activeProducts = []; Object.keys(data.usage.products).forEach(function (productId) { var item = data.usage.products[productId] || {}; aggregateSeconds += Number(item.activeSeconds) || 0; if (item.daily) aggregateToday += Number(item.daily[getTodayString()]) || 0; if (item.running) activeProducts.push(productId); }); data.usage.aggregate = { activeSeconds: aggregateSeconds, todaySeconds: aggregateToday, activeProducts: activeProducts, productCount: Object.keys(data.usage.products).length, updatedAt: new Date().toISOString() }; window.flexWriteSharedSettingsData(data); }
 
             function getTodayString() {
                 var d = new Date();
@@ -70439,7 +70439,7 @@ const FlexColorPicker = {
     function cs(){return window.csInterface||(typeof csInterface!=='undefined'?csInterface:null);}
     function status(message,type){if(typeof window.showStatus==='function')window.showStatus(message,type||'info');else if(window.console)console.log(message);}
     function escapeHtml(value){return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-    function ensureHost(done){var bridge=cs();if(!bridge){status('After Effects bridge is unavailable.','error');return;}bridge.evalScript('String($.global._flexMotionShowcaseHostVersion||"")',function(version){if(version==='1.0.1'){done();return;}var path=bridge.getSystemPath(SystemPath.EXTENSION).replace(/\\/g,'/')+'/host/motion_showcase.jsx';bridge.evalScript('try{$.evalFile(new File((typeof $ !== "undefined" && $._flex && $._flex.resolvePath)?$._flex.resolvePath("'+path.replace(/"/g,'\\"')+'"):"'+path.replace(/"/g,'\\"')+'"));"OK";}catch(e){"ERR:"+e.toString();}',function(result){if(result&&result.indexOf('ERR:')===0)status(result.substring(4),'error');else bridge.evalScript('typeof buildMotionShowcase_FlexGUI',function(typeAfter){if(typeAfter==='function')done();else status('Motion Showcase host could not load. Restart Flex GUI Pro.','error');});});});}
+    function ensureHost(done){var bridge=cs();if(!bridge){status('After Effects bridge is unavailable.','error');return;}bridge.evalScript('String($.global._flexMotionShowcaseHostVersion||"")',function(version){if(version==='1.0.1'){done();return;}var path=bridge.getSystemPath(SystemPath.EXTENSION).replace(/\\/g,'/')+'/host/motion_showcase.jsx';bridge.evalScript('try{$.evalFile(new File((typeof $ !== "undefined" && $._flex && $._flex.resolvePath)?$._flex.resolvePath("'+path.replace(/"/g,'\\"')+'"):"'+path.replace(/"/g,'\\"')+'"));"OK";}catch(e){"ERR:"+e.toString();}',function(result){if(result&&result.indexOf('ERR:')===0)status(result.substring(4),'error');else bridge.evalScript('typeof buildMotionShowcase_FlexGUI',function(typeAfter){if(typeAfter==='function')done();else status('Motion Showcase host could not load. Restart MotionKit Pro.','error');});});});}
     function hostCall(name,payload,done){ensureHost(function(){var bridge=cs();var command=name+'("'+encodeURIComponent(payload||'').replace(/'/g,'%27')+'")';bridge.evalScript(command,function(result){if(done)done(result||'');});});}
     function previewGraphic(template){var body='';if(template==='orbit')body='<ellipse cx="48" cy="28" rx="31" ry="15"/><g class="motion-preview-cards"><rect x="43" y="8" width="12" height="8" rx="2"/><rect x="70" y="18" width="12" height="8" rx="2"/><rect x="68" y="36" width="12" height="8" rx="2"/><rect x="16" y="18" width="12" height="8" rx="2"/><rect x="18" y="36" width="12" height="8" rx="2"/><rect x="43" y="40" width="12" height="8" rx="2"/></g>';else if(template==='helix')body='<path d="M18 39C29 7 67 49 78 16"/><path d="M18 17C29 49 67 7 78 40" opacity=".35"/><g class="motion-preview-cards"><rect x="18" y="33" width="13" height="9" rx="2"/><rect x="31" y="22" width="13" height="9" rx="2"/><rect x="44" y="17" width="13" height="9" rx="2"/><rect x="57" y="26" width="13" height="9" rx="2"/><rect x="68" y="11" width="13" height="9" rx="2"/></g>';else body='<path d="M27 14h40v27H27z" opacity=".2"/><g class="motion-preview-stack"><rect x="19" y="24" width="40" height="25" rx="3"/><rect x="27" y="18" width="40" height="25" rx="3"/><rect x="35" y="12" width="40" height="25" rx="3"/><rect x="43" y="6" width="40" height="25" rx="3"/></g>';return '<svg class="motion-template-svg" viewBox="0 0 96 56" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">'+body+'</svg>';}
     function templateCard(id,name,copy){return '<button type="button" class="motion-template-card'+(state.template===id?' active':'')+'" data-template="'+id+'"><span class="motion-template-preview">'+previewGraphic(id)+'</span><span class="motion-template-name">'+name+'</span><span class="motion-template-copy">'+copy+'</span></button>';}
@@ -71223,7 +71223,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_console_actions.js?v=7.0.0-console-actions-1 */
-/* Flex GUI Pro <-> Flex Command Console action bridge.
+/* MotionKit Pro <-> Flex Command Console action bridge.
  *
  * The native macOS/Windows consoles read the metadata catalog written by this
  * file, then dispatch only stable action IDs back to this allowlisted handler.
@@ -71250,7 +71250,7 @@ const FlexColorPicker = {
     function add(spec) {
         if (!spec || !spec.id || byId[spec.id]) return;
         spec.title = spec.title || humanize(spec.method || spec.id);
-        spec.subtitle = spec.subtitle || 'Flex GUI Pro';
+        spec.subtitle = spec.subtitle || 'MotionKit Pro';
         spec.aliases = spec.aliases || '';
         actions.push(spec);
         byId[spec.id] = spec;
@@ -71260,7 +71260,7 @@ const FlexColorPicker = {
         add({
             id: id,
             title: title,
-            subtitle: 'Flex GUI Pro · ' + group,
+            subtitle: 'MotionKit Pro · ' + group,
             aliases: aliases || '',
             method: method,
             fixedArg: fixedArg
@@ -71271,7 +71271,7 @@ const FlexColorPicker = {
         add({
             id: id,
             title: title,
-            subtitle: 'Flex GUI Pro · ' + group,
+            subtitle: 'MotionKit Pro · ' + group,
             aliases: aliases || '',
             handler: handler
         });
@@ -71436,7 +71436,7 @@ const FlexColorPicker = {
         var argument = separator < 0 ? '' : text.substring(separator + 1);
         var action = byId[id];
         if (!action) {
-            status('Unknown Flex Console action: ' + id, 'error');
+            status('Unknown MotionKit Console action: ' + id, 'error');
             return;
         }
         try {
@@ -71470,7 +71470,7 @@ const FlexColorPicker = {
                     if (!fs.existsSync(dir)) fs.mkdirSync(dir);
                 }
             }
-            var rows = ['# Flex Console action catalog v1'];
+            var rows = ['# MotionKit Console action catalog v1'];
             for (var i = 0; i < actions.length; i++) {
                 rows.push([
                     clean(actions[i].id),
@@ -71488,7 +71488,7 @@ const FlexColorPicker = {
                 fs.renameSync(temp, target);
             }
         } catch (error) {
-            try { console.warn('Flex Console catalog publish failed:', error); } catch (_) { }
+            try { console.warn('MotionKit Console catalog publish failed:', error); } catch (_) { }
         }
     }
 
@@ -71504,7 +71504,7 @@ const FlexColorPicker = {
                 });
             }
         } catch (error) {
-            try { console.error('Flex Console action bridge failed:', error); } catch (_) { }
+            try { console.error('MotionKit Console action bridge failed:', error); } catch (_) { }
         }
     }
 
@@ -71517,7 +71517,7 @@ const FlexColorPicker = {
 (function () {
     'use strict';
 
-    var TEXT_SLOTS = {"chatgpt":["Can you give me 3 ideas for my short form video?","Hello! How can I assist you with your video project today?","Message ChatGPT..."],"instagram":["captureflex","Hey! I checked your portfolio and love your work.","Awesome! What kind of video do you need?"],"stripe":["S","Stripe","You received a payment of ","$3,700!","now"],"instadm":["Captureflex","Flex is the best plugin ever","now"],"calendar":["SUN","1","MON","2","TUE","3","WED","4","THU","5","FRI","6","SAT","7"],"chatgptinput":["Can you give me ideas for my video?"],"realestate":["Real Estate Market","$716,146,000","USD ▼"],"property":["Captureflex Photo Placeholder","Captureflex","4.8 CR"],"creator":["Captureflex","Content Marketing","2.1M"],"discordjoin":["Join My Server","discord.gg/ccleaf","Joined"],"zoomcall":["Leave","zoom","Captureflex 🎙️"],"creditscore":["$10 Edit","$100 Edit","453","Credit Report","Good"],"businesstats":["Bank Balance","$234,500","Units Sold","3,018"],"stackedtoast":["Payment Received","$500.00 from Captureflex via Square","now"],"tiktokprofile":["@Captureflex","The ultimate After Effects companion. 🚀","Follow","38.4K Followers   291.5K Likes"],"youtubecontrols":["0:14 / 3:05","Captureflex Demo Reel.mp4"],"safariwindow":["captureflex.com","Captureflex — Home"],"phonestatusbar":["9:41","88%"],"spotifyplayer":["Flexing in AE","Captureflex (ft. DeepMind)","1:24","3:45"],"idecodeeditor":["index.js"],"watchrings":["Move","380 / 500 CAL","Exercise","22 / 30 MIN","Stand","10 / 12 HR"],"tweetcard":["Captureflex","@captureflex · 2h","Writing clean ExtendScript code is easy with the right tools. Flex GUI Pro version 6.0 is out now! ⚡️"],"netflixplayer":["N","←","Captureflex (2026)","S1:E1 - The Next Generation of Motion Design","▶","36:46"],"uberreceipt":["Thanks for riding, Captureflex","$24.50","June 28, 2026 at 9:41 PM","UberX"," Pay ···· 9410"],"weatherwidget":["Captureflex City","72°","Partly Cloudy","H:76°  L:58°","Mon  ☀️  74° / 58°\nTue  🌧️  68° / 54°\nWed  ⛅  71° / 56°"],"githubpr":["feat: add 8 premium UI templates (#24)","Captureflex merged 3 commits into main","feature/templates","main","into"],"figmafile":["Flex UI Pro Design","Captureflex"],"googlesearch":["best after effects tools for UI","Captureflex - The Ultimate Motion Design Companion","https://captureflex.com","Create premium UI mockups, chat animations, charts, templates, and controls inside Adobe After Effects in a single click..."],"creditcard":["PLATINUM","4000  1234  5678  9010","CAPTUREFLEX","06 / 31"],"calldialer":["Captureflex","02:14","✗"],"searchbutton":["🔍","Search...","⌘K"],"dynamicisland":["📞","Incoming Call","Captureflex","Decline","Accept"],"pricingcard":["PRO PLAN","$29/mo","For creators & small teams","GET STARTED"],"fileuploader":["☁️","Upload your files","Drag and drop your project assets here","flex_presentation.aep","75%"],"batterywidget":["⚡","MacBook Pro","82% Charged"],"smartthermostat":["🔥","72°","Target Temp"],"audioplayer":["Midnight City","M83","1:42","4:03","⏮   ⏸   ⏭"],"analyticswidget":["Total Revenue","$48,259.00","+12.4% this month"],"heartratewidget":["❤️","HEART RATE","78 BPM","Min 54 · Max 142"],"checkoutcard":["Checkout","Pro Subscription","$149.00","Pay Now"],"floatingdock":["Dashboard"],"igcomments":["Comments","jake.motion","2h","124 likes    Reply","pixel.priya","2h","18 likes    Reply","framebyframe","2h","2,331 likes    Reply","aftereffects.daily","2h","7 likes    Reply","leo_edits","2h","96 likes    Reply","❤️","🙌","🔥","👏","😢","Add a comment…","Post"],"ytcomments":["1,284 Comments","Sort by","@motionwithmike","· 2 hours ago","1.2K","Reply","@sara.designs","· 2 hours ago","348","Reply","@frame_perfect","· 2 hours ago","89","Reply","@vfx.tutorials","· 2 hours ago","2.4K","Reply","Add a comment…"],"igreel":["128K","2,410","Share","captureflex","Follow"],"igpost":["captureflex","Original audio","12,483 likes","View all 318 comments","2 HOURS AGO"],"igstory":["captureflex","4h","Send message"],"tiktokcomments":["584 comments","dance.daily","2h    Reply","1.2K","editor.sam","2h    Reply","1.2K","vfxqueen","2h    Reply","1.2K","mo.graph","2h    Reply","1.2K","clipcraft","2h    Reply","1.2K","Add comment…","@  #  😊"],"whatsapp":["Design Team","online","09:40","09:41  ✓✓","09:40","09:41  ✓✓","Message"],"imessage":["Alex","Delivered","iMessage"],"ytsubscribe":["Flex Motion","482K subscribers","Subscribe","12K"],"ytvideocard":["12:04","Flex Motion  ·  482K views  ·  2 days ago"],"discordmsg":["captureflex","BOT","Today at 09:41","🔥 12","🎉 8","👀 3"],"slackmsg":["Priya Nair","9:41 AM","✅ 4","🚀 2","3 replies    Last reply 12 minutes ago"],"twitchchat":["STREAM CHAT","pixelpunk:","moggywoggy:","ae_wizard:","renderqueen:","keyframe_kid:","glowgoblin:","Send a message","Chat"],"linkedinpost":["Priya Nair","Motion Designer · 1st","2h · 🌐","348  ·  62 comments","Like","Comment","Repost","Send"],"lowerthird":["JORDAN AVERY","SENIOR MOTION DESIGNER"],"livebadge":["LIVE","24,918"],"loginform":["Welcome back","Sign in to continue","Email address","Password","Forgot password?","Sign in","or","Don't have an account?  Sign up"],"otpinput":["Verify your number","We sent a 6-digit code to +1 555 0134","Resend code in 00:24"],"cookiebanner":["We value your privacy","Accept all","Reject","Preferences"],"ratingcard":["Marcus Webb","Verified purchase","4.0","2 days ago    ·    Helpful (18)"],"pollcard":["Which do you prefer?","2D Motion","62%","3D Render","21%","Live Action","11%","Mixed Media","6%","8,412 votes  ·  1 day left"],"countdown":["04","DAYS","18","HOURS","42","MINS","07","SECS"]};
+    var TEXT_SLOTS = {"chatgpt":["Can you give me 3 ideas for my short form video?","Hello! How can I assist you with your video project today?","Message ChatGPT..."],"instagram":["captureflex","Hey! I checked your portfolio and love your work.","Awesome! What kind of video do you need?"],"stripe":["S","Stripe","You received a payment of ","$3,700!","now"],"instadm":["Captureflex","Flex is the best plugin ever","now"],"calendar":["SUN","1","MON","2","TUE","3","WED","4","THU","5","FRI","6","SAT","7"],"chatgptinput":["Can you give me ideas for my video?"],"realestate":["Real Estate Market","$716,146,000","USD ▼"],"property":["Captureflex Photo Placeholder","Captureflex","4.8 CR"],"creator":["Captureflex","Content Marketing","2.1M"],"discordjoin":["Join My Server","discord.gg/ccleaf","Joined"],"zoomcall":["Leave","zoom","Captureflex 🎙️"],"creditscore":["$10 Edit","$100 Edit","453","Credit Report","Good"],"businesstats":["Bank Balance","$234,500","Units Sold","3,018"],"stackedtoast":["Payment Received","$500.00 from Captureflex via Square","now"],"tiktokprofile":["@Captureflex","The ultimate After Effects companion. 🚀","Follow","38.4K Followers   291.5K Likes"],"youtubecontrols":["0:14 / 3:05","Captureflex Demo Reel.mp4"],"safariwindow":["captureflex.com","Captureflex — Home"],"phonestatusbar":["9:41","88%"],"spotifyplayer":["Flexing in AE","Captureflex (ft. DeepMind)","1:24","3:45"],"idecodeeditor":["index.js"],"watchrings":["Move","380 / 500 CAL","Exercise","22 / 30 MIN","Stand","10 / 12 HR"],"tweetcard":["Captureflex","@captureflex · 2h","Writing clean ExtendScript code is easy with the right tools. MotionKit Pro version 6.0 is out now! ⚡️"],"netflixplayer":["N","←","Captureflex (2026)","S1:E1 - The Next Generation of Motion Design","▶","36:46"],"uberreceipt":["Thanks for riding, Captureflex","$24.50","June 28, 2026 at 9:41 PM","UberX"," Pay ···· 9410"],"weatherwidget":["Captureflex City","72°","Partly Cloudy","H:76°  L:58°","Mon  ☀️  74° / 58°\nTue  🌧️  68° / 54°\nWed  ⛅  71° / 56°"],"githubpr":["feat: add 8 premium UI templates (#24)","Captureflex merged 3 commits into main","feature/templates","main","into"],"figmafile":["Flex UI Pro Design","Captureflex"],"googlesearch":["best after effects tools for UI","Captureflex - The Ultimate Motion Design Companion","https://captureflex.com","Create premium UI mockups, chat animations, charts, templates, and controls inside Adobe After Effects in a single click..."],"creditcard":["PLATINUM","4000  1234  5678  9010","CAPTUREFLEX","06 / 31"],"calldialer":["Captureflex","02:14","✗"],"searchbutton":["🔍","Search...","⌘K"],"dynamicisland":["📞","Incoming Call","Captureflex","Decline","Accept"],"pricingcard":["PRO PLAN","$29/mo","For creators & small teams","GET STARTED"],"fileuploader":["☁️","Upload your files","Drag and drop your project assets here","flex_presentation.aep","75%"],"batterywidget":["⚡","MacBook Pro","82% Charged"],"smartthermostat":["🔥","72°","Target Temp"],"audioplayer":["Midnight City","M83","1:42","4:03","⏮   ⏸   ⏭"],"analyticswidget":["Total Revenue","$48,259.00","+12.4% this month"],"heartratewidget":["❤️","HEART RATE","78 BPM","Min 54 · Max 142"],"checkoutcard":["Checkout","Pro Subscription","$149.00","Pay Now"],"floatingdock":["Dashboard"],"igcomments":["Comments","jake.motion","2h","124 likes    Reply","pixel.priya","2h","18 likes    Reply","framebyframe","2h","2,331 likes    Reply","aftereffects.daily","2h","7 likes    Reply","leo_edits","2h","96 likes    Reply","❤️","🙌","🔥","👏","😢","Add a comment…","Post"],"ytcomments":["1,284 Comments","Sort by","@motionwithmike","· 2 hours ago","1.2K","Reply","@sara.designs","· 2 hours ago","348","Reply","@frame_perfect","· 2 hours ago","89","Reply","@vfx.tutorials","· 2 hours ago","2.4K","Reply","Add a comment…"],"igreel":["128K","2,410","Share","captureflex","Follow"],"igpost":["captureflex","Original audio","12,483 likes","View all 318 comments","2 HOURS AGO"],"igstory":["captureflex","4h","Send message"],"tiktokcomments":["584 comments","dance.daily","2h    Reply","1.2K","editor.sam","2h    Reply","1.2K","vfxqueen","2h    Reply","1.2K","mo.graph","2h    Reply","1.2K","clipcraft","2h    Reply","1.2K","Add comment…","@  #  😊"],"whatsapp":["Design Team","online","09:40","09:41  ✓✓","09:40","09:41  ✓✓","Message"],"imessage":["Alex","Delivered","iMessage"],"ytsubscribe":["Flex Motion","482K subscribers","Subscribe","12K"],"ytvideocard":["12:04","Flex Motion  ·  482K views  ·  2 days ago"],"discordmsg":["captureflex","BOT","Today at 09:41","🔥 12","🎉 8","👀 3"],"slackmsg":["Priya Nair","9:41 AM","✅ 4","🚀 2","3 replies    Last reply 12 minutes ago"],"twitchchat":["STREAM CHAT","pixelpunk:","moggywoggy:","ae_wizard:","renderqueen:","keyframe_kid:","glowgoblin:","Send a message","Chat"],"linkedinpost":["Priya Nair","Motion Designer · 1st","2h · 🌐","348  ·  62 comments","Like","Comment","Repost","Send"],"lowerthird":["JORDAN AVERY","SENIOR MOTION DESIGNER"],"livebadge":["LIVE","24,918"],"loginform":["Welcome back","Sign in to continue","Email address","Password","Forgot password?","Sign in","or","Don't have an account?  Sign up"],"otpinput":["Verify your number","We sent a 6-digit code to +1 555 0134","Resend code in 00:24"],"cookiebanner":["We value your privacy","Accept all","Reject","Preferences"],"ratingcard":["Marcus Webb","Verified purchase","4.0","2 days ago    ·    Helpful (18)"],"pollcard":["Which do you prefer?","2D Motion","62%","3D Render","21%","Live Action","11%","Mixed Media","6%","8,412 votes  ·  1 day left"],"countdown":["04","DAYS","18","HOURS","42","MINS","07","SECS"]};
     var state = { id: '', title: '', card: null, motion: 'none', selectedLayer: '' };
 
     function q(id) { return document.getElementById(id); }
@@ -73731,7 +73731,7 @@ const FlexColorPicker = {
         return JSON.stringify({
             format: 'flexgraph',
             version: 1,
-            app: 'Flex GUI Pro',
+            app: 'MotionKit Pro',
             exportedAt: new Date().toISOString(),
             graph: JSON.parse(snapshot()),
             presets: userPresets
@@ -75897,7 +75897,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_eject.js?v=7.4.1 */
-/* Flex GUI Pro — Eject Tab  (v7.4.0)
+/* MotionKit Pro — Eject Tab  (v7.4.0)
  *
  * Ejects any TOP-LEVEL tab into one of 5 dockable satellite panels.
  *
@@ -76978,7 +76978,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/ss2ae_engine.js?v=1.8.0 */
-/* Flex GUI Pro — SS To AE : layout detection engine  (v1.8.0)
+/* MotionKit Pro — SS To AE : layout detection engine  (v1.8.0)
  *
  * Splits a flat UI screenshot into individual elements. No AI service, no API
  * key, no network — this is classic layout analysis running on the pixels.
@@ -77669,7 +77669,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/ss2ae.js?v=1.8.0 */
-/* Flex GUI Pro — SS To AE  (v1.8.0)
+/* MotionKit Pro — SS To AE  (v1.8.0)
  *
  * Screenshot in, animated composition out. Sits as a sub-tab of FX & ADVANCED
  * RIGS. Detection lives in ss2ae_engine.js; this file is the panel, the crop
@@ -79031,7 +79031,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/web2ae_bridge.js?v=1.1.0 */
-/* Flex GUI Pro — Web To AE bridge  (v1.0.0)
+/* MotionKit Pro — Web To AE bridge  (v1.0.0)
  *
  * The panel half of the browser extension: a loopback HTTP server run from the
  * CEP panel's Node context. The extension POSTs a captured page here, the
@@ -79458,7 +79458,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/web2ae.js?v=1.1.0 */
-/* Flex GUI Pro — WEB TO AE  (v1.0.0)
+/* MotionKit Pro — WEB TO AE  (v1.0.0)
  *
  * A live web page in, a native After Effects composition out. Sits as a sub-tab
  * of FX & ADVANCED RIGS, next to SS TO AE — that one detects elements out of a
@@ -81116,7 +81116,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_maskpath_ease.js?v=1.0.0 */
-/* Flex GUI Pro — Mask Path easing for Flow & Easing  (v1.0.0)
+/* MotionKit Pro — Mask Path easing for Flow & Easing  (v1.0.0)
  *
  * Reported on the forum: "Mask path keyframes value and speed doesn't work with
  * flow & easing" — applying a curve to Mask Path keys fails with
@@ -81261,7 +81261,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/carousel_3d.js?v=1.3.0 */
-/* Flex GUI Pro — ORB GENERATOR ▸ 3D CAROUSEL  (v1.0.0)
+/* MotionKit Pro — ORB GENERATOR ▸ 3D CAROUSEL  (v1.0.0)
  *
  * The template half of the Orb Generator: pick a look, drop media into numbered
  * slots, watch it turn in a real 3D preview, hit ADD TO COMP and get a finished
@@ -82950,7 +82950,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_python_resolve.js?v=1.1.0 */
-/* Flex GUI Pro — Python resolver  (v1.1.0)
+/* MotionKit Pro — Python resolver  (v1.1.0)
  *
  * v1.1.0 (2026-08-03) — "the Background Remover is still not working correctly
  * for some users". The resolver took the FIRST Python 3 it could run. On a
@@ -83129,7 +83129,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_import_placement.js?v=1.1.0 */
-/* Flex GUI Pro — import placement  (v1.1.0)
+/* MotionKit Pro — import placement  (v1.1.0)
  *
  * Forum bug: "importing saved comps is going directly in top layer not in upper
  * side of selected layer".
@@ -83267,7 +83267,7 @@ const FlexColorPicker = {
 }());
 
 </script><script>/* js_flex/flex_rig_fixes.js?v=1.0.0 */
-/* Flex GUI Pro — rig fixes  (v1.0.0)
+/* MotionKit Pro — rig fixes  (v1.0.0)
  *
  * Two host-side bugs from the 2026-08-03 report. Both live in code that ships as
  * host/flexcore.jsxbin, so editing host/index.jsx changes nothing in a customer
@@ -83526,7 +83526,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_text_2d.js?v=1.0.0 */
-/* Flex GUI Pro — keep text animators 2D  (v1.0.0)
+/* MotionKit Pro — keep text animators 2D  (v1.0.0)
  *
  * Bug: every text animation turned the layer 3D, even though none of them are
  * 3D animations.
@@ -83655,7 +83655,7 @@ const FlexColorPicker = {
 }());
 
 </script><script>/* js_flex/flex_corner_round.js?v=1.0.0 */
-/* Flex GUI Pro — Corner Rounder  (v1.0.0)
+/* MotionKit Pro — Corner Rounder  (v1.0.0)
  *
  * Rounds the corners of a path by driving its shape from an expression, so the
  * result stays live: move a vertex and the fillet follows, animate the slider
@@ -84032,7 +84032,7 @@ const FlexColorPicker = {
 })();
 
 </script><script>/* js_flex/flex_text_props.js?v=1.4.0 */
-/* Flex GUI Pro — Text Properties  (v1.0.0)
+/* MotionKit Pro — Text Properties  (v1.0.0)
  *
  * Forum request (Huzaifa, 5 Aug 2026): show and control a selected TEXT layer's
  * properties the way the panel already does for Shape layers — font, size,
@@ -84790,7 +84790,7 @@ const FlexColorPicker = {
 })();
 
 </script><script>/* js_flex/flex_gradient_bg.js?v=1.3.0 */
-/* Flex GUI Pro — Animated Gradient Backgrounds  (v1.0.0)
+/* MotionKit Pro — Animated Gradient Backgrounds  (v1.0.0)
  *
  * Forum request (Manoo, 31 Jul 2026): "if you add a gradient flow background
  * with proper in built keyframes it would be easy and time saving".
@@ -85766,7 +85766,7 @@ const FlexColorPicker = {
 
 </script><script>/* js_flex/flex_i18n.js?v=1.1.0 */
 /* =========================================================================
-   Flex GUI Pro - UI localisation engine                            v1.0.0
+   MotionKit Pro - UI localisation engine                            v1.0.0
    =========================================================================
    Translates DISPLAYED TEXT ONLY. It never touches handlers, ids, classes,
    command names or host calls - a button keeps calling the same function
@@ -86724,7 +86724,7 @@ const FlexColorPicker = {
 
 </script>
         <script>/* js_flex/flex_bounce.js?v=2.0.0 */
-/* Flex GUI Pro — tab transitions  (v2.0.0)
+/* MotionKit Pro — tab transitions  (v2.0.0)
  *
  * easeOutBack entrances on the panel's switchable tabs, matching the ORB
  * GENERATOR modal (whose bounce comes from the .modal-box width transition in

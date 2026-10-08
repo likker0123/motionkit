@@ -51,7 +51,7 @@ def generate_universal_key(product):
     r3 = "".join(random.choices(chars, k=4))
     return f"{prefix}-{r1}-{r2}-{r3}"
 
-def generate_license(email, product="Flex GUI Pro", machine_id=None, customer_name=None):
+def generate_license(email, product="MotionKit Pro", machine_id=None, customer_name=None):
     email = (email or "").strip().lower()
     if machine_id and machine_id.strip().startswith("FLEX-"):
         lic_key = generate_key_for_machine(machine_id.strip())
@@ -153,15 +153,15 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
 </head>
 <body>
   <div class="card">
-    <div class="logo">⚡ MOTIONKIT / FLEX</div>
+    <div class="logo">⚡ MOTIONKIT SUITE</div>
     <div class="title">Thank You, {customer_name}!</div>
     <p class="desc">Your official lifetime license key for <strong>{product}</strong> has been generated and activated.</p>
     
     <div class="key-box">{license_key}</div>
 
     <div style="text-align: center; margin: 20px 0;">
-      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/Flex-GUI-Pro-Installer.zip" class="btn-green">Download Flex GUI Pro (.zip)</a>
-      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/Flex_Wheel_Extension_Installer.zip" class="btn-purple">Download Flex Wheel (.zip)</a>
+      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/MotionKit-Pro-Installer.zip" class="btn-green">Download MotionKit Pro (.zip)</a>
+      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/Flex_Wheel_Extension_Installer.zip" class="btn-purple">Download MotionKit Wheel (.zip)</a>
     </div>
 
     <div class="steps">
@@ -175,7 +175,7 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
     </div>
 
     <div class="footer">
-      MotionKit & Flex Suite • Need Support? WhatsApp: +91 7982179684 • Email: singhayush5304@gmail.com
+      MotionKit Suite • Need Support? WhatsApp: +91 7982179684 • Email: singhayush5304@gmail.com
     </div>
   </div>
 </body>
@@ -245,12 +245,12 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         # CLI invocation: python keygen_engine.py <email> [product] [machine_id] [name]
         email_arg = sys.argv[1]
-        prod_arg = sys.argv[2] if len(sys.argv) > 2 else "Flex GUI Pro"
+        prod_arg = sys.argv[2] if len(sys.argv) > 2 else "MotionKit Pro"
         mid_arg = sys.argv[3] if len(sys.argv) > 3 else None
         name_arg = sys.argv[4] if len(sys.argv) > 4 else None
         res = generate_license(email_arg, prod_arg, mid_arg, name_arg)
         print(json.dumps(res))
     else:
         # Self-test
-        test_res = generate_license("test@gmail.com", "Flex GUI Pro")
+        test_res = generate_license("test@gmail.com", "MotionKit Pro")
         print("Self-test result:", json.dumps(test_res, indent=2))

@@ -1,4 +1,4 @@
-﻿/* CaptureFlex / Flex GUI Pro & Flex Wheel Official Design System */
+﻿/* MotionKit / MotionKit Pro & MotionKit Wheel Official Design System */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -34,7 +34,7 @@ body {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-/* CaptureFlex Official Gradient Text */
+/* MotionKit Official Gradient Text */
 .text-gradient-captureflex {
   background: linear-gradient(135deg, #89F7B6 0%, #00A95C 60%, #A8E063 100%);
   -webkit-background-clip: text;
@@ -47,7 +47,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* CaptureFlex Glow Animations */
+/* MotionKit Glow Animations */
 @keyframes outline-glow {
   0% { border-color: rgba(0, 169, 92, 0.2); }
   50% { border-color: rgba(0, 169, 92, 0.8); box-shadow: 0 0 15px rgba(0, 169, 92, 0.3); }
@@ -85,7 +85,7 @@ body {
   animation: shine-infinite 4s infinite;
 }
 
-/* CaptureFlex HUD Tool Button (.tool-btn from live site) */
+/* MotionKit HUD Tool Button (.tool-btn from live site) */
 .tool-btn {
   height: 36px;
   background: rgba(255, 255, 255, 0.04);
