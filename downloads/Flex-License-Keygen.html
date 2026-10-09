@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex GUI Pro - License Key Generator</title>
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --card: #151821;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #ff3366;
+      --accent-purple: #8b5cf6;
+      --accent-green: #10b981;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(255,51,102,0.1);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 520px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
+      box-shadow: 0 0 10px var(--accent);
+    }
+    .logo-title {
+      font-size: 18px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #fff, #d1d5db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255,51,102,0.15);
+      color: var(--accent);
+      border: 1px solid rgba(255,51,102,0.3);
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    input {
+      background: #0b0c10;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.2s;
+    }
+    input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 12px rgba(255,51,102,0.25);
+    }
+    .btn {
+      background: linear-gradient(135deg, var(--accent), #e11d48);
+      border: none;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 13px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 15px rgba(255,51,102,0.35);
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255,51,102,0.5);
+    }
+    .result-box {
+      display: none;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    .result-box.show {
+      display: flex;
+    }
+    .result-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-green);
+      text-transform: uppercase;
+    }
+    .result-key {
+      font-family: Consolas, monospace;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #fff;
+      background: #0b0c10;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.1);
+      user-select: all;
+    }
+    .btn-copy {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-copy:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .master-key-box {
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .master-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .master-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-purple);
+      text-transform: uppercase;
+    }
+    .master-key-val {
+      font-family: Consolas, monospace;
+      font-size: 11.5px;
+      color: #fff;
+      font-weight: 600;
+    }
+    .instructions {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .instructions ol {
+      margin-left: 18px;
+      margin-top: 6px;
+    }
+    .instructions li {
+      margin-bottom: 4px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      background: #1e222d;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      opacity: 0;
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-group">
+        <div class="logo-dot"></div>
+        <span class="logo-title">Flex GUI Pro</span>
+      </div>
+      <span class="badge">ADMIN KEYGEN</span>
+    </div>
+
+    <div class="field-group">
+      <label for="machine-id">User's Machine ID:</label>
+      <input type="text" id="machine-id" placeholder="FLEX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false" />
+    </div>
+
+    <button id="btn-generate" class="btn">
+      ⚡ Generate License Key
+    </button>
+
+    <div id="result-box" class="result-box">
+      <span class="result-label">✓ Valid License Key Generated</span>
+      <div id="license-key-display" class="result-key">KEY-XXXX-XXXX-XXXX-XXXX</div>
+      <button id="btn-copy-key" class="btn-copy">📋 Copy License Key</button>
+    </div>
+
+    <div class="master-key-box">
+      <div class="master-info">
+        <span class="master-title">Universal Master Key (Any PC):</span>
+        <span class="master-key-val">FLEX-MASTER-LIFETIME-ACCESS</span>
+      </div>
+      <button id="btn-copy-master" class="btn-copy">Copy</button>
+    </div>
+
+    <div class="instructions">
+      <strong>How to License a User:</strong>
+      <ol>
+        <li>User installs <code>Flex-GUI-Pro-Installer.zip</code> and opens After Effects.</li>
+        <li>On the lock screen, user clicks <b>"Copy Machine ID"</b> and sends it to you.</li>
+        <li>Paste their Machine ID in the box above and click <b>"Generate License Key"</b>.</li>
+        <li>Send the generated key to the user. User pastes it and unlocks the panel!</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Copied to Clipboard!</div>
+
+  <script>
+    function imul(a, b) {
+      var ah = (a >>> 16) & 0xffff, al = a & 0xffff;
+      var bh = (b >>> 16) & 0xffff, bl = b & 0xffff;
+      return ((al * bl) + (((ah * bl + al * bh) << 16) >>> 0) | 0);
+    }
+
+    function flex_generateKey(machineId) {
+      var salt = "FLEX_PRO_2026_SECRET_SALT_KEY";
+      var raw = machineId.replace(/^\\s+|\\s+$/g, '').toUpperCase() + "::" + salt;
+      var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+      for (var i = 0; i < raw.length; i++) {
+        var ch = raw.charCodeAt(i);
+        h1 = imul(h1 ^ ch, 2654435761);
+        h2 = imul(h2 ^ ch, 1597334677);
+      }
+      h1 = imul(h1 ^ (h1 >>> 16), 2246822507) ^ imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = imul(h2 ^ (h2 >>> 16), 2246822507) ^ imul(h1 ^ (h1 >>> 13), 3266489909);
+      var hex1 = ("00000000" + (h1 >>> 0).toString(16).toUpperCase()).slice(-8);
+      var hex2 = ("00000000" + (h2 >>> 0).toString(16).toUpperCase()).slice(-8);
+      return "KEY-" + hex1.slice(0, 4) + "-" + hex1.slice(4, 8) + "-" + hex2.slice(0, 4) + "-" + hex2.slice(4, 8);
+    }
+
+    var inputMid = document.getElementById("machine-id");
+    var btnGen = document.getElementById("btn-generate");
+    var resultBox = document.getElementById("result-box");
+    var keyDisplay = document.getElementById("license-key-display");
+    var btnCopy = document.getElementById("btn-copy-key");
+    var btnCopyMaster = document.getElementById("btn-copy-master");
+    var toast = document.getElementById("toast");
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(function() { toast.classList.remove("show"); }, 2000);
+    }
+
+    btnGen.addEventListener("click", function() {
+      var mid = inputMid.value.trim().toUpperCase();
+      if (!mid) {
+        alert("Please enter user's Machine ID first!");
+        inputMid.focus();
+        return;
+      }
+      var key = flex_generateKey(mid);
+      keyDisplay.textContent = key;
+      resultBox.classList.add("show");
+    });
+
+    btnCopy.addEventListener("click", function() {
+      var key = keyDisplay.textContent;
+      navigator.clipboard.writeText(key).then(function() {
+        showToast("✓ License Key copied to clipboard!");
+      });
+    });
+
+    btnCopyMaster.addEventListener("click", function() {
+      navigator.clipboard.writeText("FLEX-MASTER-LIFETIME-ACCESS").then(function() {
+        showToast("✓ Master Key copied to clipboard!");
+      });
+    });
+
+    inputMid.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") btnGen.click();
+    });
+  </script>
+</body>
+</html>

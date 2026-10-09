@@ -434,6 +434,8 @@ body::after {
   border: 1px solid rgba(6, 182, 212, 0.35) !important;
   border-radius: 20px !important;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(6, 182, 212, 0.2) !important;
+  max-width: 560px !important;
+  margin: 0 auto !important;
 }
 
 /* Ambient Blobs in Background */
@@ -457,4 +459,53 @@ body::after {
 ::-webkit-scrollbar-thumb:hover {
   background: #22d3ee;
   box-shadow: 0 0 10px #22d3ee;
+}
+
+/* ==========================================================================
+   PRINT & PDF EXPORT STYLING (PRESERVES EXACT CYBER HUD DESIGN)
+   ========================================================================== */
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  html, body {
+    background-color: #06070a !important;
+    color: #f1f5f9 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  #cyber-top-nav {
+    position: relative !important;
+    margin-bottom: 20px !important;
+  }
+  .fgp {
+    overflow: visible !important;
+    contain: none !important;
+  }
+  .fgp-sec {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    padding: 24px 0 !important;
+  }
+  .fgp-card, .fgp-stat, .fgp-price {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .fgp-blob {
+    display: none !important;
+  }
+  @page {
+    margin: 10mm 6mm;
+    background: #06070a;
+    size: auto;
+  }
 }

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Interactive Wheel
   const wheelInstance = new FlexWheel("wheel-svg-container", {
     appMode: "afterEffects",
-    accentColor: "#00FF66",
+    accentColor: "#8B5CF6",
     onFire: (tool) => {
       console.log("Tool executed:", tool);
     },
@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
     wheelInstance.setAppMode(appKey);
 
     if (appKey === "afterEffects") {
-      btnAE.classList.add("bg-green-500", "text-black", "font-bold", "shadow-[0_0_15px_rgba(0,255,102,0.4)]");
+      btnAE.classList.add("bg-purple-600", "text-black", "font-bold", "shadow-[0_0_15px_rgba(139,92,246,0.4)]");
       btnAE.classList.remove("text-slate-400", "hover:text-white");
-      btnPremiere.classList.remove("bg-green-500", "text-black", "font-bold", "shadow-[0_0_15px_rgba(0,255,102,0.4)]");
+      btnPremiere.classList.remove("bg-purple-600", "text-black", "font-bold", "shadow-[0_0_15px_rgba(139,92,246,0.4)]");
       btnPremiere.classList.add("text-slate-400", "hover:text-white");
       
       if (currentAppBadge) currentAppBadge.textContent = "After Effects Mode";
       if (heroToolCount) heroToolCount.textContent = "114";
     } else {
-      btnPremiere.classList.add("bg-green-500", "text-black", "font-bold", "shadow-[0_0_15px_rgba(0,255,102,0.4)]");
+      btnPremiere.classList.add("bg-purple-600", "text-black", "font-bold", "shadow-[0_0_15px_rgba(139,92,246,0.4)]");
       btnPremiere.classList.remove("text-slate-400", "hover:text-white");
-      btnAE.classList.remove("bg-green-500", "text-black", "font-bold", "shadow-[0_0_15px_rgba(0,255,102,0.4)]");
+      btnAE.classList.remove("bg-purple-600", "text-black", "font-bold", "shadow-[0_0_15px_rgba(139,92,246,0.4)]");
       btnAE.classList.add("text-slate-400", "hover:text-white");
       
       if (currentAppBadge) currentAppBadge.textContent = "Premiere Pro Mode";
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = document.createElement("button");
       btn.className = `px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
         idx === 0 
-          ? "border-green-500 text-green-400 bg-green-500/10 shadow-[0_0_10px_rgba(0,255,102,0.2)]" 
+          ? "border-purple-500 text-purple-400 bg-purple-600/10 shadow-[0_0_10px_rgba(139,92,246,0.2)]" 
           : "border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
       }`;
       btn.textContent = name;
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.querySelectorAll("button").forEach(b => {
           b.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200 transition-all";
         });
-        btn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold border border-green-500 text-green-400 bg-green-500/10 shadow-[0_0_10px_rgba(0,255,102,0.2)] transition-all";
+        btn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold border border-purple-500 text-purple-400 bg-purple-600/10 shadow-[0_0_10px_rgba(139,92,246,0.2)] transition-all";
         wheelInstance.showToast(`Layout: ${name}`, `Switched active wheel configuration to ${name}`);
         if (window.soundEngine) window.soundEngine.fanout();
       });
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flex items-center justify-between mb-1">
           <h4 class="font-bold text-base text-white flex items-center space-x-2">
             <span>${cat.name}</span>
-            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-green-400 font-mono">${cat.count}</span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-purple-400 font-mono">${cat.count}</span>
           </h4>
         </div>
         <p class="text-xs text-slate-400 leading-relaxed">${cat.desc}</p>
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       cat.tools.forEach(tool => {
         const span = document.createElement("button");
-        span.className = "px-2 py-1 rounded text-[11px] font-mono bg-slate-800/80 hover:bg-green-500 hover:text-black border border-slate-700/60 hover:border-green-400 text-slate-300 transition-colors";
+        span.className = "px-2 py-1 rounded text-[11px] font-mono bg-slate-800/80 hover:bg-purple-600 hover:text-black border border-slate-700/60 hover:border-purple-400 text-slate-300 transition-colors";
         span.textContent = tool;
         span.addEventListener("click", () => {
           wheelInstance.fireTool(tool);
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const tr = document.createElement("tr");
       tr.className = "border-b border-slate-800/60 hover:bg-slate-900/40 transition-colors";
       tr.innerHTML = `
-        <td class="py-3 px-4 font-mono text-xs text-green-400 font-semibold whitespace-nowrap">
+        <td class="py-3 px-4 font-mono text-xs text-purple-400 font-semibold whitespace-nowrap">
           <span class="px-2 py-1 rounded bg-slate-800 border border-slate-700/80">${item.key}</span>
         </td>
         <td class="py-3 px-4 text-xs text-slate-300 leading-relaxed">
@@ -163,8 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sizeBtns = document.querySelectorAll(".pref-size-btn");
   sizeBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
-      sizeBtns.forEach(b => b.classList.remove("bg-green-500", "text-black", "font-bold"));
-      btn.classList.add("bg-green-500", "text-black", "font-bold");
+      sizeBtns.forEach(b => b.classList.remove("bg-purple-600", "text-black", "font-bold"));
+      btn.classList.add("bg-purple-600", "text-black", "font-bold");
       const sz = btn.getAttribute("data-size");
       if (sz === "S") {
         wheelInstance.options.outerRadius = 115;

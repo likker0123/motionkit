@@ -12,8 +12,8 @@ class FlexWheel {
       outerRadius: 135,
       fanoutRadius: 215,
       appMode: "afterEffects",
-      accentColor: "#00FF66",
-      accentGlow: "rgba(0, 255, 102, 0.45)",
+      accentColor: "#8B5CF6",
+      accentGlow: "rgba(139, 92, 246, 0.45)",
       onFire: null,
       onHover: null
     }, options);
