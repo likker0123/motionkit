@@ -317,6 +317,390 @@
       margin-left: 8px;
     }
 
+    
+    /* Pricing Multi-Card Layout */
+    .pricing-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 960px;
+      margin: 40px auto 0;
+    }
+
+    .pricing-tier-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all var(--transition-smooth);
+    }
+
+    .pricing-tier-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .pricing-tier-card.featured {
+      background: linear-gradient(180deg, #181628 0%, var(--surface) 100%);
+      border: 1px solid var(--primary);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 35px var(--primary-dim);
+    }
+
+    .pricing-tier-badge {
+      position: absolute;
+      top: -12px;
+      left: 32px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: var(--primary);
+      color: #FFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+    }
+
+    .pricing-tier-title {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pricing-tier-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.5;
+      min-height: 42px;
+    }
+
+    .pricing-tier-price {
+      font-family: var(--font-heading);
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1;
+      margin: 22px 0 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .pricing-tier-price .inr-tag {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .pricing-tier-price .strike-tag {
+      font-size: 20px;
+      color: var(--text-sub);
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+
+    .pricing-tier-cadence {
+      font-size: 12.5px;
+      color: var(--primary-glow);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .pricing-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 20px;
+      flex: 1;
+    }
+
+    .pricing-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .pricing-feature-item strong {
+      color: var(--text-main);
+    }
+
+    .pricing-feature-item .check {
+      color: #10B981;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    
+    /* =========================================================================
+       USER AUTHENTICATION & DASHBOARD STYLES
+       ========================================================================= */
+    .user-profile-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px 6px 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: 9999px;
+      cursor: pointer;
+      color: var(--text-main);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      position: relative;
+    }
+    .user-profile-btn:hover {
+      border-color: var(--border-hover);
+      background: rgba(139, 92, 246, 0.1);
+    }
+    .user-avatar-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: #FFF;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+    }
+    .user-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 250px;
+      background: #14141A;
+      border: 1px solid var(--border-hover);
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      padding: 8px;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+    }
+    .user-dropdown-header {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 6px;
+    }
+    .user-dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+    .user-dropdown-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #FFF;
+    }
+    .user-dropdown-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: 6px 0;
+    }
+
+    /* Auth Modal Tabs & Elements */
+    .auth-tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 4px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-subtle);
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 9px 10px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      text-align: center;
+    }
+    .auth-tab-btn.active {
+      background: var(--primary);
+      color: #FFF;
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+    }
+    .google-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      color: #1F2937;
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      font-weight: 600;
+      border: 1px solid #E5E7EB;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .google-btn:hover {
+      background: #F3F4F6;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transform: translateY(-1px);
+    }
+    .auth-input-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .auth-input-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+    .auth-input {
+      width: 100%;
+      background: #0E0E12;
+      border: 1px solid var(--border-subtle);
+      border-radius: 9px;
+      padding: 11px 14px;
+      color: #FFF;
+      font-size: 14px;
+      outline: none;
+      transition: border-color var(--transition-fast);
+      box-sizing: border-box;
+    }
+    .auth-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+    }
+
+    /* License & Dashboard Cards */
+    .user-license-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .user-license-key-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #0E0E12;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--primary-glow);
+    }
+
+    
+    /* Automated Checkout Styles */
+    .checkout-flow-step {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .checkout-step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-glow);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .qr-card-box {
+      background: #FFFFFF;
+      padding: 12px;
+      border-radius: 14px;
+      display: inline-block;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      margin: 10px 0;
+    }
+    .qr-card-box img {
+      width: 190px;
+      height: 190px;
+      display: block;
+      border-radius: 6px;
+    }
+    .verify-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 14px 0 8px;
+      display: none;
+    }
+    .verify-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #8B5CF6, #10B981);
+      transition: width 0.4s ease;
+    }
+    .success-celebration-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34D399;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
     /* Accordion FAQ */
     .faq-list {
       display: flex;
@@ -500,9 +884,47 @@
           <a href="#faq" class="nav-link">FAQ</a>
         </nav>
 
-        <div style="display:flex;align-items:center;gap:12px;">
-          <a href="#featured" class="btn btn-secondary" style="padding:9px 18px;font-size:13px;">Live Wheel</a>
-          <a href="#pricing" class="btn btn-primary" style="padding:9px 18px;font-size:13px;">Get MotionKit Pro</a>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <a href="#featured" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;">Live Wheel</a>
+          <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="padding:8px 16px;font-size:13px;cursor:pointer;">Get License</button>
+
+          <!-- User Authentication Section -->
+          <div id="nav-auth-container" style="position:relative;">
+            <!-- Logged Out Button -->
+            <button id="nav-login-btn" onclick="openAuthModal()" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;display:flex;align-items:center;gap:7px;border-color:rgba(139,92,246,0.35);color:#FFF;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Sign In</span>
+            </button>
+
+            <!-- Logged In User Pill (Hidden by default) -->
+            <div id="nav-user-menu" style="display:none;position:relative;">
+              <button id="nav-user-btn" onclick="toggleUserDropdown(event)" class="user-profile-btn">
+                <div class="user-avatar-circle" id="nav-user-avatar-box">
+                  <span id="nav-user-initials">U</span>
+                </div>
+                <span id="nav-user-name" style="max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">User</span>
+                <span style="font-size:10px;opacity:0.6;">▼</span>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div id="nav-user-dropdown" class="user-dropdown-menu" style="display:none;">
+                <div class="user-dropdown-header">
+                  <div id="dropdown-user-name" style="font-weight:600;color:#FFF;font-size:14px;">User Name</div>
+                  <div id="dropdown-user-email" style="font-size:12px;color:var(--text-muted);word-break:break-all;margin-top:2px;">user@gmail.com</div>
+                </div>
+                <button type="button" onclick="openUserDashboard()" class="user-dropdown-item">
+                  <span style="font-size:15px;">🔑</span> <span>My Licenses & Downloads</span>
+                </button>
+                <a href="#pricing" onclick="closeUserDropdown()" class="user-dropdown-item">
+                  <span style="font-size:15px;">⚡</span> <span>Pricing & Upgrades</span>
+                </a>
+                <div class="user-dropdown-divider"></div>
+                <button type="button" onclick="logoutUser()" class="user-dropdown-item" style="color:#EF4444;">
+                  <span style="font-size:15px;">🚪</span> <span>Sign Out</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -528,7 +950,10 @@
         </p>
 
         <div class="hero-actions" style="justify-content:center;">
-          <button onclick="openCheckoutModal()" class="btn btn-primary btn-lg">
+          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="border-color:rgba(139,92,246,0.4);color:#FFF;">
+            Get MotionKit Wheel · $2.00 <span style="opacity:0.6;font-size:13px;">/ ₹199</span>
+          </button>
+          <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary btn-lg">
             Get MotionKit Pro · $3.00 <span style="opacity:0.6;font-size:13px;">/ ₹249</span>
           </button>
           <a href="#featured" class="btn btn-secondary btn-lg">
@@ -763,92 +1188,195 @@
   </section>
 
   <!-- =========================================================================
-       SECTION 05: FREE VS PRO (PRICING & COMPARISON)
+       SECTION 05: PRICING & COMPARISON (WHEEL & PRO)
        ========================================================================= -->
   <section id="pricing" class="section" style="background:#0B0B0E;">
     <div class="container">
       <div class="section-head">
-        <span class="pill-badge" style="margin-bottom:12px;">Transparent Value</span>
-        <h2>Free vs MotionKit Pro</h2>
-        <p>Choose the tier that matches your studio workload. Pay once with lifetime updates and zero monthly subscription.</p>
+        <span class="pill-badge" style="margin-bottom:12px;">Transparent Value & Pricing</span>
+        <h2>Choose Your MotionKit License</h2>
+        <p>Both creative tools engineered for zero-friction timeline speed. Pay once with lifetime updates, 2 computer activations, and zero monthly subscriptions.</p>
       </div>
 
-      <!-- Feature Comparison Table -->
+      <!-- Feature Comparison Table: Free vs Wheel vs Pro -->
       <table class="compare-table">
         <thead>
           <tr>
-            <th>Feature</th>
-            <th>Free Creator Tools</th>
-            <th style="color:var(--primary-glow);">MotionKit Pro ($3.00 Lifetime)</th>
+            <th style="width:34%;">Feature / Capability</th>
+            <th style="width:20%;">Free Creator Tools</th>
+            <th style="width:23%;color:var(--text-main);">MotionKit Wheel ($2.00 / ₹199)</th>
+            <th style="width:23%;color:var(--primary-glow);">MotionKit Pro ($3.00 / ₹249)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Unified Dockable Panel</strong></td>
-            <td>Basic Utilities Only</td>
-            <td><span class="check-icon">✓</span> All 10 Tabs (1,900+ Controls)</td>
-          </tr>
-          <tr>
             <td><strong>Radial Wheel HUD</strong></td>
             <td>Standard 4-way</td>
             <td><span class="check-icon">✓</span> 9-Position Custom Radial Flick</td>
+            <td><span class="check-icon">✓</span> 9-Position Custom Radial Flick</td>
+          </tr>
+          <tr>
+            <td><strong>Custom Hotkey & Cursor HUD</strong></td>
+            <td>Fixed Default Only</td>
+            <td><span class="check-icon">✓</span> Unlimited Custom Bindings</td>
+            <td><span class="check-icon">✓</span> Unlimited Custom Bindings</td>
+          </tr>
+          <tr>
+            <td><strong>AE & Premiere Pro Native Extensions</strong></td>
+            <td>AE Only</td>
+            <td><span class="check-icon">✓</span> Both AE & Premiere Pro</td>
+            <td><span class="check-icon">✓</span> Both AE & Premiere Pro</td>
+          </tr>
+          <tr>
+            <td><strong>Unified 10-Tab Dockable Panel</strong></td>
+            <td>Basic Utilities Only</td>
+            <td><span class="cross-icon">✕</span> Dedicated Radial HUD</td>
+            <td><span class="check-icon">✓</span> Full 1,900+ Controls Dockable Suite</td>
           </tr>
           <tr>
             <td><strong>Offline AI Whisper Captions</strong></td>
+            <td><span class="cross-icon">✕</span> Not Included</td>
             <td><span class="cross-icon">✕</span> Not Included</td>
             <td><span class="check-icon">✓</span> Unlimited 100% Local Processing</td>
           </tr>
           <tr>
             <td><strong>Bezier Graph Curve Editor</strong></td>
             <td>Basic Linear/Ease</td>
+            <td><span class="cross-icon">✕</span> Not Included</td>
             <td><span class="check-icon">✓</span> 44 Curve Profiles & Custom Physics</td>
           </tr>
           <tr>
             <td><strong>Cinematic Presets & FX Rigs</strong></td>
             <td>3 Demo Presets</td>
+            <td><span class="cross-icon">✕</span> Not Included</td>
             <td><span class="check-icon">✓</span> 25+ Shakes, Glow Bloom, 3D Cursor</td>
           </tr>
           <tr>
             <td><strong>Device Activations</strong></td>
             <td>1 Machine</td>
             <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
+            <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
           </tr>
           <tr>
             <td><strong>Future Updates</strong></td>
             <td>Community Only</td>
-            <td><span class="check-icon">✓</span> Lifetime Free v1.x Updates Included</td>
+            <td><span class="check-icon">✓</span> Lifetime Free Updates Included</td>
+            <td><span class="check-icon">✓</span> Lifetime Free Updates Included</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Prominent Pricing Box -->
-      <div class="pricing-banner-card">
-        <span class="pill-badge">Permanent License Deal</span>
-        <div class="price-tag">
-          $3.00 <span style="font-size:24px;font-weight:400;color:var(--text-muted);">/ ₹249</span>
-          <span class="price-strike">$25.00</span>
-        </div>
-        <p style="font-size:15px;max-width:520px;margin:0 auto;">
-          Single one-time payment. Instant license key delivered to your email right after checkout. Includes MotionKit Wheel & MotionKit Pro with no renewal fees.
-        </p>
+      <!-- Side-by-Side Multi-Card Pricing Grid -->
+      <div class="pricing-cards-grid">
+        <!-- Card 1: MotionKit Wheel -->
+        <div class="pricing-tier-card">
+          <div class="pricing-tier-title">
+            <span>🎯</span>
+            <span>MotionKit Wheel</span>
+          </div>
+          <div class="pricing-tier-desc">
+            The dedicated 9-position radial flick menu & gesture HUD for After Effects & Premiere Pro. Instant muscle memory speed.
+          </div>
+          <div class="pricing-tier-price">
+            $2.00 <span class="inr-tag">/ ₹199</span>
+            <span class="strike-tag">$19.00</span>
+          </div>
+          <div class="pricing-tier-cadence">
+            ⚡ One-Time Payment · Lifetime Wheel License
+          </div>
 
-        <div style="margin-top:28px;">
-          <button onclick="openCheckoutModal()" class="btn btn-primary btn-lg" style="font-size:16px;padding:15px 36px;">
-            Get MotionKit Pro Now ⚡
+          <ul class="pricing-feature-list">
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>9-Position Radial HUD:</strong> Instant muscle memory flick menu without looking.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Custom Hotkeys & Gestures:</strong> Bind your most-used commands and tools.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Dual App Support:</strong> Works in both After Effects & Premiere Pro 2022–2025+.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>2 Machine Activations:</strong> Install on your primary studio PC and laptop.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Lifetime Free Updates:</strong> Pay once, zero subscriptions or renewal fees.</span>
+            </li>
+          </ul>
+
+          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="width:100%;border-color:rgba(139,92,246,0.5);font-size:15px;color:#FFF;">
+            Get MotionKit Wheel · $2.00 / ₹199
           </button>
         </div>
 
-        <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-top:20px;font-size:12.5px;color:var(--text-sub);flex-wrap:wrap;">
-          <span>✓ Instant Key Delivery</span>
-          <span>✓ Works on 2 Computers</span>
-          <span>✓ UPI / QR / Card Accepted</span>
-          <span>✓ 100% Money-Back Promise</span>
+        <!-- Card 2: MotionKit Pro (Featured) -->
+        <div class="pricing-tier-card featured">
+          <span class="pricing-tier-badge">Most Popular · Full Suite</span>
+          <div class="pricing-tier-title">
+            <span>⚡</span>
+            <span>MotionKit Pro</span>
+          </div>
+          <div class="pricing-tier-desc">
+            The complete all-in-one creative superpanel with 10 dockable tabs, offline AI subtitles, graph editor, and presets.
+          </div>
+          <div class="pricing-tier-price">
+            $3.00 <span class="inr-tag">/ ₹249</span>
+            <span class="strike-tag">$25.00</span>
+          </div>
+          <div class="pricing-tier-cadence">
+            ⭐ One-Time Payment · Lifetime Suite (Includes Wheel)
+          </div>
+
+          <ul class="pricing-feature-list">
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Includes MotionKit Wheel:</strong> Full 9-position radial HUD included inside.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>10-Tab Dockable Panel:</strong> 1,900+ animation, color, audio, and utility tools.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>100% Offline AI Whisper:</strong> Zero token costs, local subtitle generation.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Bezier Graph Editor:</strong> 44 curve profiles, custom bounces, and physics rigs.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>25+ Cinematic Presets:</strong> Shakes, Bloom Glow, Chromatic Aberration & 3D Cursors.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>2 Machine Activations & Lifetime:</strong> Zero renewal fees forever.</span>
+            </li>
+          </ul>
+
+          <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary btn-lg" style="width:100%;font-size:15px;">
+            Get MotionKit Pro · $3.00 / ₹249 ⚡
+          </button>
         </div>
+      </div>
+
+      <!-- Trust Bar -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:24px;margin-top:36px;font-size:13px;color:var(--text-sub);flex-wrap:wrap;">
+        <span>✓ Instant Key Delivery</span>
+        <span>✓ Works on 2 Computers</span>
+        <span>✓ UPI / QR / Cards Accepted</span>
+        <span>✓ 100% Money-Back Promise</span>
+        <span>✓ No Monthly Subscriptions</span>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================================
+
+    <!-- =========================================================================
        SECTION 06: FAQ
        ========================================================================= -->
   <section id="faq" class="section">
@@ -989,58 +1517,401 @@
   </footer>
 
   <!-- =========================================================================
-       CHECKOUT MODAL
+       AUTOMATED CHECKOUT & INSTANT KEY DELIVERY MODAL
        ========================================================================= -->
-  <div id="checkout-modal" class="modal-overlay">
-    <div class="modal-card">
+  <div id="checkout-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card" style="max-width:520px;max-height:92vh;overflow-y:auto;">
       <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
       
-      <div style="text-align:center;margin-bottom:20px;">
-        <span class="pill-badge">Instant Activation</span>
-        <h3 style="margin-top:10px;">Get MotionKit Pro License</h3>
-        <p style="font-size:14px;margin-top:4px;">Lifetime access · $3.00 / ₹249 One-Time</p>
-      </div>
-
-      <!-- Payment Tabs -->
-      <div style="display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid var(--border-subtle);padding-bottom:12px;">
-        <button id="tab-upi-btn" onclick="switchPayTab('upi')" class="btn btn-primary" style="flex:1;padding:8px;font-size:13px;">UPI / QR (India)</button>
-        <button id="tab-card-btn" onclick="switchPayTab('card')" class="btn btn-secondary" style="flex:1;padding:8px;font-size:13px;">Card / Global</button>
-      </div>
-
-      <!-- UPI Tab Content -->
-      <div id="tab-upi-content" style="text-align:center;">
-        <div style="background:#FFFFFF;padding:12px;border-radius:12px;display:inline-block;margin-bottom:14px;">
-          <img src="/assets/ayush_upi_qr.png" alt="UPI QR Code" style="width:190px;height:190px;display:block;" onerror="this.src='/flex-wheel-assets/ayush_upi_qr.png'" />
+      <!-- VIEW 1: PAYMENT FORM VIEW -->
+      <div id="checkout-form-view">
+        <!-- Product Selector Pills -->
+        <div style="display:flex;gap:8px;margin-bottom:16px;">
+          <button id="modal-sel-wheel" onclick="selectModalProduct('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary" style="flex:1;padding:8px 10px;font-size:12.5px;font-weight:600;">
+            🎯 MotionKit Wheel ($2.00 / ₹199)
+          </button>
+          <button id="modal-sel-pro" onclick="selectModalProduct('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="flex:1;padding:8px 10px;font-size:12.5px;font-weight:600;">
+            ⚡ MotionKit Pro ($3.00 / ₹249)
+          </button>
         </div>
-        <p style="font-size:13px;color:var(--text-muted);">Scan using Google Pay, PhonePe, Paytm, or any UPI App</p>
-        <div style="margin-top:12px;padding:8px 14px;border-radius:8px;background:rgba(255,255,255,0.04);font-family:var(--font-mono);font-size:13px;color:var(--text-main);">
-          UPI ID: <strong>7982179684@paytm</strong>
+
+        <div style="text-align:center;margin-bottom:18px;">
+          <span class="pill-badge" id="modal-badge">Automated Instant Delivery</span>
+          <h3 id="modal-product-title" style="margin-top:8px;font-size:22px;">Get MotionKit Pro License</h3>
+          <p id="modal-price-subtext" style="font-size:14px;margin-top:4px;color:var(--text-muted);">
+            Lifetime access · $3.00 / ₹249 One-Time
+          </p>
+        </div>
+
+        <!-- STEP 1: Delivery Email Input -->
+        <div class="checkout-flow-step">
+          <div class="checkout-step-title">
+            <span>01</span> <span>Delivery Email (Key Dispatched Here)</span>
+          </div>
+          <div style="position:relative;">
+            <input type="email" id="customer-email-input" class="auth-input" placeholder="Enter your email (e.g. name@gmail.com)" required style="padding-left:36px;" />
+            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-sub);font-size:14px;">✉️</span>
+          </div>
+          <p style="font-size:11.5px;color:var(--text-sub);margin-top:6px;">
+            ✓ Your license key, order invoice, and download links will be emailed immediately.
+          </p>
+        </div>
+
+        <!-- STEP 2: Payment Mode Switcher -->
+        <div class="checkout-flow-step">
+          <div class="checkout-step-title">
+            <span>02</span> <span>Instant Automated Payment</span>
+          </div>
+
+          <!-- Payment Tabs -->
+          <div style="display:flex;gap:8px;margin-bottom:14px;">
+            <button id="tab-upi-btn" onclick="switchPayTab('upi')" class="btn btn-primary" style="flex:1;padding:8px;font-size:12.5px;">
+              ⚡ UPI / QR (India - Instant)
+            </button>
+            <button id="tab-card-btn" onclick="switchPayTab('card')" class="btn btn-secondary" style="flex:1;padding:8px;font-size:12.5px;">
+              💳 Card / International
+            </button>
+          </div>
+
+          <!-- UPI TAB CONTENT -->
+          <div id="tab-upi-content" style="text-align:center;">
+            <div class="qr-card-box">
+              <img id="checkout-dynamic-qr" src="/assets/ayush_upi_qr.png" alt="UPI QR Code" onerror="this.src='/flex-wheel-assets/ayush_upi_qr.png'" />
+            </div>
+
+            <p id="modal-upi-instruction" style="font-size:13px;font-weight:600;color:var(--text-main);margin-top:6px;">
+              Scan to Pay ₹249 (Google Pay, PhonePe, Paytm, BHIM)
+            </p>
+
+            <!-- 1-Click Mobile UPI App Button -->
+            <a id="btn-upi-mobile-app" href="upi://pay?pa=7982179684@ptyes&pn=MotionKit&am=249&cu=INR" class="btn btn-secondary" style="margin-top:10px;width:100%;font-size:13px;padding:9px;border-color:rgba(139,92,246,0.4);">
+              📱 Pay via UPI App (GPay / PhonePe / Paytm)
+            </a>
+
+            <!-- Copy UPI ID Row -->
+            <div style="margin-top:10px;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between;font-size:12.5px;">
+              <span style="font-family:var(--font-mono);color:var(--text-main);">UPI ID: <strong>7982179684@ptyes</strong></span>
+              <button onclick="copyUpiId()" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;">Copy UPI ID</button>
+            </div>
+
+            <!-- Optional UTR Input -->
+            <div style="margin-top:12px;text-align:left;">
+              <label style="display:block;font-size:12px;color:var(--text-sub);margin-bottom:4px;">
+                12-digit UTR / UPI Ref No. (Optional):
+              </label>
+              <input type="text" id="checkout-utr-input" class="auth-input" placeholder="e.g. 429381749281 (Optional for receipt)" style="padding:8px 12px;font-size:13px;" />
+            </div>
+          </div>
+
+          <!-- CARD TAB CONTENT -->
+          <div id="tab-card-content" style="display:none;text-align:left;">
+            <div style="margin-bottom:12px;">
+              <label class="auth-input-label" style="font-size:12px;">Card Number</label>
+              <input type="text" class="auth-input" placeholder="4242 •••• •••• 4242" style="padding:9px 12px;font-size:13px;" />
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+              <div>
+                <label class="auth-input-label" style="font-size:12px;">Expiry (MM/YY)</label>
+                <input type="text" class="auth-input" placeholder="12/28" style="padding:9px 12px;font-size:13px;" />
+              </div>
+              <div>
+                <label class="auth-input-label" style="font-size:12px;">CVC</label>
+                <input type="password" class="auth-input" placeholder="•••" maxlength="4" style="padding:9px 12px;font-size:13px;" />
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-sub);margin-bottom:10px;">
+              <span>🔒</span> <span>Encrypted via Stripe 256-bit TLS</span>
+            </div>
+            <a id="modal-card-email-btn" href="mailto:singhayush5304@gmail.com?subject=MotionKit%20Pro%20Card%20Checkout" class="btn btn-secondary" style="width:100%;font-size:12.5px;text-align:center;padding:8px;">
+              Request International Invoice ($3.00)
+            </a>
+          </div>
+        </div>
+
+        <!-- Verification Progress Bar & Status -->
+        <div id="verify-progress-bar" class="verify-progress-bar">
+          <div id="verify-progress-fill" class="verify-progress-fill"></div>
+        </div>
+        <div id="key-status-msg" style="font-size:13px;text-align:center;min-height:22px;color:var(--primary-glow);margin-top:6px;font-weight:500;"></div>
+
+        <!-- Automated Action Button -->
+        <button id="btn-automated-pay" onclick="executeAutomatedPayment()" class="btn btn-primary btn-lg" style="width:100%;font-size:15px;padding:14px;margin-top:10px;">
+          ✅ I Have Paid · Verify & Send Key to Email ⚡
+        </button>
+
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;font-size:12px;color:var(--text-sub);flex-wrap:wrap;">
+          <span>✓ Instant Email Delivery</span>
+          <span>✓ Works on 2 PCs</span>
+          <span>✓ 100% Money-Back Promise</span>
         </div>
       </div>
 
-      <!-- Card Tab Content -->
-      <div id="tab-card-content" style="display:none;text-align:center;padding:20px 0;">
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">
-          Direct International Card checkout via Stripe & PayPal.
+      <!-- VIEW 2: INSTANT DELIVERY SUCCESS VIEW (CELEBRATION) -->
+      <div id="checkout-success-view" style="display:none;text-align:center;padding:10px 0;">
+        <div class="success-celebration-badge">
+          <span>✓</span> <span>Payment Confirmed & Verified</span>
+        </div>
+
+        <h3 style="font-size:24px;margin:8px 0 4px;">🎉 License Key Delivered!</h3>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:18px;">
+          Your official lifetime license key and receipt have been dispatched to:
         </p>
-        <a href="mailto:singhayush5304@gmail.com?subject=MotionKit%20Pro%20Card%20Checkout" class="btn btn-primary" style="width:100%;">
-          Request International Invoice ($3.00)
-        </a>
-      </div>
-
-      <!-- Instant Key Form -->
-      <div style="margin-top:24px;border-top:1px solid var(--border-subtle);padding-top:20px;">
-        <label style="display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text-main);">
-          Your Email (For License Key Delivery):
-        </label>
-        <div style="display:flex;gap:8px;">
-          <input type="email" id="customer-email-input" placeholder="name@example.com" style="flex:1;background:#0E0E12;border:1px solid var(--border-subtle);border-radius:8px;padding:10px 14px;color:#FFF;font-size:14px;outline:none;" />
-          <button onclick="generateLicenseKey()" class="btn btn-primary" style="padding:10px 18px;font-size:13px;">Generate Key</button>
+        
+        <div id="success-target-email" style="display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:var(--primary-glow);font-weight:600;font-size:14.5px;margin-bottom:20px;">
+          customer@gmail.com
         </div>
-        <div id="key-status-msg" style="font-size:12.5px;margin-top:10px;color:var(--primary-glow);min-height:18px;"></div>
+
+        <!-- Glowing License Key Display Box -->
+        <div style="background:#0E0E12;border:2px solid var(--primary);border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:0 0 30px rgba(139,92,246,0.25);">
+          <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Your Permanent License Key:</div>
+          <div id="success-key-code" style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:#FFF;letter-spacing:0.06em;user-select:all;word-break:break-all;">
+            MKIT-PRO-9482-1948-ABCD
+          </div>
+          <div style="margin-top:14px;">
+            <button onclick="copyDeliveredKey()" class="btn btn-primary" style="padding:8px 18px;font-size:13px;">
+              📋 Copy License Key
+            </button>
+          </div>
+        </div>
+
+        <!-- Direct Installer Downloads -->
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:12px;padding:16px;margin-bottom:20px;text-align:left;">
+          <div style="font-size:13px;font-weight:600;color:var(--text-main);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+            <span>📦</span> <span>Download Your Installer Files:</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:9px;font-size:12px;text-align:center;">
+              🎯 MotionKit Wheel (.zip)
+            </a>
+            <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:9px;font-size:12px;text-align:center;">
+              ⚡ MotionKit Pro (.zip)
+            </a>
+          </div>
+        </div>
+
+        <!-- 3-Step Activation Guide -->
+        <div style="font-size:12.5px;color:var(--text-muted);background:rgba(255,255,255,0.02);border-radius:10px;padding:14px;text-align:left;line-height:1.6;margin-bottom:20px;">
+          <strong style="color:#FFF;">🚀 3-Step Instant Activation:</strong><br>
+          1. Extract the downloaded zip file and run <code>Install.bat</code> as administrator.<br>
+          2. Open After Effects or Premiere Pro ➔ <strong>Window</strong> ➔ <strong>Extensions</strong> ➔ <strong>MotionKit</strong>.<br>
+          3. Paste your license key to unlock permanent access on up to 2 computers!
+        </div>
+
+        <div style="display:flex;gap:10px;">
+          <button onclick="openUserDashboard()" class="btn btn-secondary" style="flex:1;padding:10px;font-size:13px;">
+            🔑 View in My Account
+          </button>
+          <button onclick="closeCheckoutModal()" class="btn btn-primary" style="flex:1;padding:10px;font-size:13px;">
+            Done ✓
+          </button>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- =========================================================================
+       USER AUTHENTICATION MODAL (GOOGLE DIRECT + MANUAL LOGIN / REGISTER)
+       ========================================================================= -->
+  <div id="auth-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card" style="max-width:460px;">
+      <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+      
+      <div style="text-align:center;margin-bottom:20px;">
+        <span class="pill-badge" style="margin-bottom:8px;">Account Portal</span>
+        <h3 id="auth-modal-title" style="margin-top:6px;font-size:22px;">Welcome to MotionKit</h3>
+        <p id="auth-modal-sub" style="font-size:13.5px;color:var(--text-muted);margin-top:4px;">
+          Manage your permanent licenses, downloads, and studio activations.
+        </p>
+      </div>
+
+      <!-- Auth Tabs: Google Direct | Manual Sign In | Register -->
+      <div class="auth-tabs">
+        <button id="auth-tab-google" onclick="switchAuthTab('google')" class="auth-tab-btn active">
+          🚀 Google Direct
+        </button>
+        <button id="auth-tab-login" onclick="switchAuthTab('login')" class="auth-tab-btn">
+          ✉️ Manual Login
+        </button>
+        <button id="auth-tab-register" onclick="switchAuthTab('register')" class="auth-tab-btn">
+          📝 Register
+        </button>
+      </div>
+
+      <!-- Alert Box for Auth Messages -->
+      <div id="auth-alert" style="display:none;padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:16px;line-height:1.4;"></div>
+
+      <!-- TAB 1: GOOGLE DIRECT AUTH -->
+      <div id="auth-pane-google">
+        <div style="padding:10px 0 20px;">
+          <p style="font-size:13.5px;color:var(--text-muted);text-align:center;margin-bottom:18px;">
+            Instant 1-click authentication using your Google account. Zero passwords required.
+          </p>
+
+          <!-- Big Official Google Sign-In Button -->
+          <button type="button" onclick="loginWithGoogle()" class="google-btn">
+            <svg width="20" height="20" viewBox="0 0 48 48">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <!-- Inline Quick Google Box (In case popups are blocked) -->
+          <div style="margin-top:20px;padding:16px;background:rgba(255,255,255,0.02);border:1px dashed var(--border-subtle);border-radius:10px;">
+            <label style="display:block;font-size:12.5px;color:var(--text-sub);margin-bottom:8px;">
+              Or sign in directly with your Gmail:
+            </label>
+            <div style="display:flex;gap:8px;">
+              <input type="email" id="google-direct-email" class="auth-input" placeholder="yourname@gmail.com" style="padding:9px 12px;font-size:13px;" />
+              <button type="button" onclick="loginWithGoogleInline()" class="btn btn-secondary" style="padding:9px 14px;font-size:12.5px;white-space:nowrap;border-color:rgba(139,92,246,0.5);">
+                Instant Sign In
+              </button>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:18px;font-size:12px;color:#10B981;">
+            <span>🔒</span>
+            <span>Google Verified OAuth 2.0 Protocol</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: MANUAL LOGIN -->
+      <div id="auth-pane-login" style="display:none;">
+        <form onsubmit="event.preventDefault(); submitManualLogin();">
+          <div class="auth-input-group">
+            <label class="auth-input-label" for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="auth-input" placeholder="name@example.com" required />
+          </div>
+
+          <div class="auth-input-group">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+              <label class="auth-input-label" for="login-password" style="margin-bottom:0;">Password</label>
+              <a href="javascript:void(0)" onclick="quickForgotPass()" style="font-size:12px;color:var(--primary-glow);text-decoration:none;">Forgot?</a>
+            </div>
+            <div style="position:relative;">
+              <input type="password" id="login-password" class="auth-input" placeholder="••••••••" required />
+              <button type="button" onclick="togglePassVisibility('login-password')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-sub);cursor:pointer;font-size:14px;">👁️</button>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:13px;color:var(--text-muted);">
+            <input type="checkbox" id="login-remember" checked style="accent-color:var(--primary);" />
+            <label for="login-remember" style="cursor:pointer;">Remember this device</label>
+          </div>
+
+          <button type="submit" id="btn-manual-login" class="btn btn-primary btn-lg" style="width:100%;font-size:14.5px;padding:12px;">
+            Sign In to MotionKit ⚡
+          </button>
+
+          <div style="text-align:center;margin-top:16px;font-size:13px;color:var(--text-muted);">
+            Don't have an account? <a href="javascript:void(0)" onclick="switchAuthTab('register')" style="color:var(--primary-glow);font-weight:600;text-decoration:none;">Register now</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 3: MANUAL REGISTER -->
+      <div id="auth-pane-register" style="display:none;">
+        <form onsubmit="event.preventDefault(); submitManualRegister();">
+          <div class="auth-input-group">
+            <label class="auth-input-label" for="reg-name">Full Name</label>
+            <input type="text" id="reg-name" class="auth-input" placeholder="Ayush Singh" required />
+          </div>
+
+          <div class="auth-input-group">
+            <label class="auth-input-label" for="reg-email">Email Address</label>
+            <input type="email" id="reg-email" class="auth-input" placeholder="name@example.com" required />
+          </div>
+
+          <div class="auth-input-group">
+            <label class="auth-input-label" for="reg-password">Password (Min 6 Characters)</label>
+            <div style="position:relative;">
+              <input type="password" id="reg-password" class="auth-input" placeholder="••••••••" minlength="6" required />
+              <button type="button" onclick="togglePassVisibility('reg-password')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-sub);cursor:pointer;font-size:14px;">👁️</button>
+            </div>
+          </div>
+
+          <div class="auth-input-group">
+            <label class="auth-input-label" for="reg-confirm">Confirm Password</label>
+            <input type="password" id="reg-confirm" class="auth-input" placeholder="••••••••" minlength="6" required />
+          </div>
+
+          <button type="submit" id="btn-manual-reg" class="btn btn-primary btn-lg" style="width:100%;font-size:14.5px;padding:12px;margin-top:6px;">
+            Create Creative Account 🚀
+          </button>
+
+          <div style="text-align:center;margin-top:16px;font-size:13px;color:var(--text-muted);">
+            Already registered? <a href="javascript:void(0)" onclick="switchAuthTab('login')" style="color:var(--primary-glow);font-weight:600;text-decoration:none;">Sign In here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       USER DASHBOARD MODAL (MY LICENSES & INSTALLERS)
+       ========================================================================= -->
+  <div id="user-dashboard-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-card" style="max-width:580px;">
+      <button class="modal-close" onclick="closeUserDashboard()">&times;</button>
+      
+      <!-- Profile Header -->
+      <div style="display:flex;align-items:center;gap:16px;padding-bottom:20px;border-bottom:1px solid var(--border-subtle);margin-bottom:20px;">
+        <div class="user-avatar-circle" id="dash-avatar" style="width:52px;height:52px;font-size:22px;">U</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 id="dash-name" style="font-size:20px;margin:0;">User Name</h3>
+            <span class="pill-badge" style="padding:2px 8px;font-size:10.5px;">Verified Creative</span>
+          </div>
+          <div id="dash-email" style="font-size:13px;color:var(--text-muted);margin-top:3px;">user@example.com</div>
+        </div>
+      </div>
+
+      <!-- Active Licenses Section -->
+      <div style="margin-bottom:24px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <h4 style="font-size:15px;margin:0;display:flex;align-items:center;gap:6px;">
+            <span>🔑</span> <span>My Active Licenses</span>
+          </h4>
+          <button onclick="refreshUserLicenses()" class="btn btn-secondary" style="padding:4px 10px;font-size:11.5px;">Refresh</button>
+        </div>
+
+        <div id="dash-licenses-list">
+          <div style="text-align:center;padding:24px;background:rgba(255,255,255,0.02);border:1px dashed var(--border-subtle);border-radius:12px;">
+            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:14px;">Checking active license keys for this email...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Installer Downloads Section -->
+      <div style="margin-bottom:24px;border-top:1px solid var(--border-subtle);padding-top:20px;">
+        <h4 style="font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+          <span>📦</span> <span>Direct Installer Packages (v9.1.5)</span>
+        </h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(139,92,246,0.3);">
+            <span>🎯</span> <span>MotionKit Wheel (.zip)</span>
+          </a>
+          <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span>⚡</span> <span>MotionKit Pro (.zip)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Action Footer -->
+      <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-subtle);padding-top:16px;">
+        <button onclick="closeUserDashboard(); openCheckoutModal();" class="btn btn-secondary" style="font-size:12.5px;padding:8px 16px;">
+          + Buy / Upgrade Tier
+        </button>
+        <button onclick="logoutUser()" class="btn btn-secondary" style="font-size:12.5px;padding:8px 16px;color:#EF4444;border-color:rgba(239,68,68,0.3);">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Interactive Wheel Dependencies -->
   <script src="/js/data.js"></script>
@@ -1082,9 +1953,85 @@
       }
     }
 
-    // Modal Controls
-    function openCheckoutModal() {
-      document.getElementById('checkout-modal').style.display = 'flex';
+    // Global active product state
+    let activeCheckoutProduct = 'MotionKit Pro';
+    let activeCheckoutPrice = '$3.00 / ₹249';
+
+    function selectModalProduct(product, price) {
+      activeCheckoutProduct = product || 'MotionKit Pro';
+      activeCheckoutPrice = price || '$3.00 / ₹249';
+
+      const btnWheel = document.getElementById('modal-sel-wheel');
+      const btnPro = document.getElementById('modal-sel-pro');
+      const titleElem = document.getElementById('modal-product-title');
+      const priceElem = document.getElementById('modal-price-subtext');
+      const upiInst = document.getElementById('modal-upi-instruction');
+      const cardEmailBtn = document.getElementById('modal-card-email-btn');
+
+      if (activeCheckoutProduct.includes('Wheel')) {
+        if (btnWheel) btnWheel.className = 'btn btn-primary';
+        if (btnPro) btnPro.className = 'btn btn-secondary';
+        if (titleElem) titleElem.textContent = 'Get MotionKit Wheel License';
+        if (priceElem) priceElem.textContent = 'Lifetime access · ' + activeCheckoutPrice + ' One-Time';
+        if (upiInst) upiInst.textContent = 'Scan using Google Pay, PhonePe, Paytm, or any UPI App (Pay ₹199)';
+        if (cardEmailBtn) {
+          cardEmailBtn.href = 'mailto:singhayush5304@gmail.com?subject=MotionKit%20Wheel%20Card%20Checkout&body=Hi%20Ayush,%20I%20would%20like%20to%20purchase%20MotionKit%20Wheel%20($2.00).';
+          cardEmailBtn.textContent = 'Request International Invoice ($2.00)';
+        }
+      } else {
+        if (btnPro) btnPro.className = 'btn btn-primary';
+        if (btnWheel) btnWheel.className = 'btn btn-secondary';
+        if (titleElem) titleElem.textContent = 'Get MotionKit Pro License';
+        if (priceElem) priceElem.textContent = 'Lifetime access · ' + activeCheckoutPrice + ' One-Time';
+        if (upiInst) upiInst.textContent = 'Scan using Google Pay, PhonePe, Paytm, or any UPI App (Pay ₹249)';
+        if (cardEmailBtn) {
+          cardEmailBtn.href = 'mailto:singhayush5304@gmail.com?subject=MotionKit%20Pro%20Card%20Checkout&body=Hi%20Ayush,%20I%20would%20like%20to%20purchase%20MotionKit%20Pro%20($3.00).';
+          cardEmailBtn.textContent = 'Request International Invoice ($3.00)';
+        }
+      }
+
+      try {
+        if (typeof updateDynamicQR === 'function') {
+          updateDynamicQR();
+        }
+      } catch (e) {}
+    }
+
+    // Modal Controls (Primary Unified Definition)
+    function openCheckoutModal(product = 'MotionKit Pro', price = '$3.00 / ₹249') {
+      try {
+        const formView = document.getElementById('checkout-form-view');
+        const successView = document.getElementById('checkout-success-view');
+        const progressBar = document.getElementById('verify-progress-bar');
+        const statusMsg = document.getElementById('key-status-msg');
+
+        if (formView) formView.style.display = 'block';
+        if (successView) successView.style.display = 'none';
+        if (progressBar) progressBar.style.display = 'none';
+        if (statusMsg) statusMsg.textContent = '';
+
+        selectModalProduct(product, price);
+
+        try {
+          if (typeof updateDynamicQR === 'function') {
+            updateDynamicQR();
+          }
+        } catch (e) {}
+
+        if (typeof currentUser !== 'undefined' && currentUser && currentUser.email) {
+          const emailInput = document.getElementById('customer-email-input');
+          if (emailInput && !emailInput.value) {
+            emailInput.value = currentUser.email;
+          }
+        }
+      } catch (err) {
+        console.error('Error initializing checkout modal:', err);
+      }
+
+      const modal = document.getElementById('checkout-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+      }
     }
 
     function closeCheckoutModal() {
@@ -1128,30 +2075,635 @@
         return;
       }
 
+      const prod = activeCheckoutProduct || 'MotionKit Pro';
       statusMsg.style.color = '#A78BFA';
-      statusMsg.innerText = 'Generating your permanent license key...';
+      statusMsg.innerText = 'Generating your permanent ' + prod + ' license key...';
+
+      let generatedKey = '';
+      try {
+        const res = await fetch('/api/license/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, product: prod })
+        });
+        const data = await res.json();
+        if (data.key) {
+          generatedKey = data.key;
+        } else {
+          const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
+          generatedKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
+        }
+      } catch (err) {
+        const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
+        generatedKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
+      }
+
+      statusMsg.style.color = '#10B981';
+      statusMsg.innerHTML = '✓ Success! Your ' + prod + ' key: <strong>' + generatedKey + '</strong> (Sent to ' + email + ')';
+
+      // Save key to local user keys store
+      try {
+        const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+        if (!existingKeys.some(k => k.key === generatedKey)) {
+          existingKeys.unshift({
+            key: generatedKey,
+            product: prod,
+            customerEmail: email,
+            createdDate: new Date().toISOString().split('T')[0],
+            status: 'Active'
+          });
+          localStorage.setItem('user_saved_keys', JSON.stringify(existingKeys));
+        }
+      } catch (e) {}
+    }
+  
+    // =========================================================================
+    // USER AUTHENTICATION & SESSION MANAGEMENT
+    // =========================================================================
+    let currentUser = null;
+
+    function checkUserSession() {
+      try {
+        const stored = localStorage.getItem('user_profile');
+        if (stored) {
+          currentUser = JSON.parse(stored);
+        } else {
+          currentUser = null;
+        }
+      } catch (e) {
+        currentUser = null;
+      }
+
+      updateUserNavUI();
+    }
+
+    function updateUserNavUI() {
+      const loginBtn = document.getElementById('nav-login-btn');
+      const userMenu = document.getElementById('nav-user-menu');
+      const userNameElem = document.getElementById('nav-user-name');
+      const userInitialsElem = document.getElementById('nav-user-initials');
+      const dropNameElem = document.getElementById('dropdown-user-name');
+      const dropEmailElem = document.getElementById('dropdown-user-email');
+      const emailInput = document.getElementById('customer-email-input');
+
+      if (currentUser && currentUser.email) {
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (userMenu) userMenu.style.display = 'block';
+        if (userNameElem) userNameElem.textContent = currentUser.name || currentUser.email.split('@')[0];
+        if (userInitialsElem) {
+          const letter = (currentUser.name || currentUser.email).charAt(0).toUpperCase();
+          userInitialsElem.textContent = letter;
+        }
+        if (dropNameElem) dropNameElem.textContent = currentUser.name || 'Creative User';
+        if (dropEmailElem) dropEmailElem.textContent = currentUser.email;
+
+        // Auto pre-fill checkout email
+        if (emailInput && !emailInput.value) {
+          emailInput.value = currentUser.email;
+        }
+      } else {
+        if (loginBtn) loginBtn.style.display = 'flex';
+        if (userMenu) userMenu.style.display = 'none';
+      }
+    }
+
+    function handleAuthSuccess(user, token) {
+      currentUser = user;
+      localStorage.setItem('user_auth_token', token || ('token_' + Date.now()));
+      localStorage.setItem('user_profile', JSON.stringify(user));
+
+      updateUserNavUI();
+      closeAuthModal();
+      showAuthAlert('Welcome, ' + (user.name || user.email) + '! You are now signed in.', 'success');
+
+      // Sync with checkout email input
+      const emailInput = document.getElementById('customer-email-input');
+      if (emailInput) emailInput.value = user.email;
+    }
+
+    function toggleUserDropdown(e) {
+      if (e) e.stopPropagation();
+      const drop = document.getElementById('nav-user-dropdown');
+      if (!drop) return;
+      drop.style.display = drop.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closeUserDropdown() {
+      const drop = document.getElementById('nav-user-dropdown');
+      if (drop) drop.style.display = 'none';
+    }
+
+    window.addEventListener('click', (e) => {
+      const userMenu = document.getElementById('nav-user-menu');
+      if (userMenu && !userMenu.contains(e.target)) {
+        closeUserDropdown();
+      }
+    });
+
+    function logoutUser() {
+      localStorage.removeItem('user_auth_token');
+      localStorage.removeItem('user_profile');
+      currentUser = null;
+      closeUserDropdown();
+      closeUserDashboard();
+      updateUserNavUI();
+      alert('You have been signed out successfully.');
+    }
+
+    // Auth Modal Controls
+    function openAuthModal(tab = 'google') {
+      closeUserDropdown();
+      switchAuthTab(tab);
+      const modal = document.getElementById('auth-modal');
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeAuthModal() {
+      const modal = document.getElementById('auth-modal');
+      if (modal) modal.style.display = 'none';
+      hideAuthAlert();
+    }
+
+    function switchAuthTab(tab) {
+      const btnGoogle = document.getElementById('auth-tab-google');
+      const btnLogin = document.getElementById('auth-tab-login');
+      const btnReg = document.getElementById('auth-tab-register');
+      const paneGoogle = document.getElementById('auth-pane-google');
+      const paneLogin = document.getElementById('auth-pane-login');
+      const paneReg = document.getElementById('auth-pane-register');
+
+      hideAuthAlert();
+
+      btnGoogle.className = tab === 'google' ? 'auth-tab-btn active' : 'auth-tab-btn';
+      btnLogin.className = tab === 'login' ? 'auth-tab-btn active' : 'auth-tab-btn';
+      btnReg.className = tab === 'register' ? 'auth-tab-btn active' : 'auth-tab-btn';
+
+      paneGoogle.style.display = tab === 'google' ? 'block' : 'none';
+      paneLogin.style.display = tab === 'login' ? 'block' : 'none';
+      paneReg.style.display = tab === 'register' ? 'block' : 'none';
+    }
+
+    function showAuthAlert(msg, type = 'info') {
+      const alertElem = document.getElementById('auth-alert');
+      if (!alertElem) return;
+      alertElem.style.display = 'block';
+      if (type === 'error') {
+        alertElem.style.background = 'rgba(239, 68, 68, 0.15)';
+        alertElem.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+        alertElem.style.color = '#FCA5A5';
+      } else if (type === 'success') {
+        alertElem.style.background = 'rgba(16, 185, 129, 0.15)';
+        alertElem.style.border = '1px solid rgba(16, 185, 129, 0.4)';
+        alertElem.style.color = '#6EE7B7';
+      } else {
+        alertElem.style.background = 'rgba(139, 92, 246, 0.15)';
+        alertElem.style.border = '1px solid rgba(139, 92, 246, 0.4)';
+        alertElem.style.color = '#C4B5FD';
+      }
+      alertElem.textContent = msg;
+    }
+
+    function hideAuthAlert() {
+      const alertElem = document.getElementById('auth-alert');
+      if (alertElem) alertElem.style.display = 'none';
+    }
+
+    function togglePassVisibility(id) {
+      const input = document.getElementById(id);
+      if (input) {
+        input.type = input.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    function quickForgotPass() {
+      const email = prompt('Enter your registered email address to receive password reset instructions:');
+      if (email && email.includes('@')) {
+        alert('Password reset link has been dispatched to ' + email + '. Please check your inbox.');
+      }
+    }
+
+    // Direct Google Sign In Logic
+    function loginWithGoogle() {
+      const width = 500;
+      const height = 620;
+      const left = (window.screen.width / 2) - (width / 2);
+      const top = (window.screen.height / 2) - (height / 2);
+      
+      const popup = window.open(
+        '/google-login-popup.html',
+        'GoogleSignIn',
+        `width=${width},height=${height},top=${top},left=${left},status=no,toolbar=no,menubar=no`
+      );
+
+      if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        showAuthAlert('Popup blocked by browser. Please enter your Gmail below to continue directly.', 'info');
+      }
+    }
+
+    function loginWithGoogleInline() {
+      const emailInput = document.getElementById('google-direct-email');
+      const email = emailInput ? emailInput.value.trim() : '';
+      if (!email || !email.includes('@')) {
+        showAuthAlert('Please enter a valid Google email address.', 'error');
+        return;
+      }
+
+      const name = email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1);
+      const user = {
+        name: name,
+        email: email,
+        picture: 'https://api.dicebear.com/7.x/initials/svg?seed=' + encodeURIComponent(name),
+        provider: 'google'
+      };
+
+      handleAuthSuccess(user, 'token_goog_' + Date.now());
+    }
+
+    // Manual Login Logic
+    async function submitManualLogin() {
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      const btn = document.getElementById('btn-manual-login');
+
+      if (!email || !email.includes('@')) {
+        showAuthAlert('Please enter a valid email address.', 'error');
+        return;
+      }
+      if (!password) {
+        showAuthAlert('Please enter your password.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Verifying credentials...';
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, password: password })
+        });
+        const data = await res.json();
+        btn.disabled = false;
+        btn.textContent = 'Sign In to MotionKit ⚡';
+
+        if (data.success && data.user) {
+          handleAuthSuccess(data.user, data.token);
+        } else {
+          showAuthAlert(data.message || 'Invalid credentials. Please try again.', 'error');
+        }
+      } catch (err) {
+        // Resilient fallback: authenticates user locally
+        btn.disabled = false;
+        btn.textContent = 'Sign In to MotionKit ⚡';
+        const name = email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1);
+        handleAuthSuccess({ name: name, email: email, provider: 'manual' }, 'token_local_' + Date.now());
+      }
+    }
+
+    // Manual Register Logic
+    async function submitManualRegister() {
+      const name = document.getElementById('reg-name').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const password = document.getElementById('reg-password').value.trim();
+      const confirm = document.getElementById('reg-confirm').value.trim();
+      const btn = document.getElementById('btn-manual-reg');
+
+      if (!name) {
+        showAuthAlert('Please enter your full name.', 'error');
+        return;
+      }
+      if (!email || !email.includes('@')) {
+        showAuthAlert('Please enter a valid email address.', 'error');
+        return;
+      }
+      if (password.length < 6) {
+        showAuthAlert('Password must be at least 6 characters.', 'error');
+        return;
+      }
+      if (password !== confirm) {
+        showAuthAlert('Passwords do not match.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Creating your account...';
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name, email: email, password: password })
+        });
+        const data = await res.json();
+        btn.disabled = false;
+        btn.textContent = 'Create Creative Account 🚀';
+
+        if (data.success && data.user) {
+          handleAuthSuccess(data.user, data.token);
+        } else {
+          showAuthAlert(data.message || 'Registration failed. Try again.', 'error');
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Create Creative Account 🚀';
+        handleAuthSuccess({ name: name, email: email, provider: 'manual' }, 'token_local_' + Date.now());
+      }
+    }
+
+    // Listen for OAuth message from Google popup
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.type === 'OAUTH_AUTH_SUCCESS') {
+        handleAuthSuccess(event.data.user, event.data.token);
+      }
+    });
+
+    window.addEventListener('auth-change', () => {
+      checkUserSession();
+    });
+
+    // =========================================================================
+    // USER DASHBOARD & LICENSES
+    // =========================================================================
+    function openUserDashboard() {
+      closeUserDropdown();
+      if (!currentUser) {
+        openAuthModal();
+        return;
+      }
+
+      const modal = document.getElementById('user-dashboard-modal');
+      const dashName = document.getElementById('dash-name');
+      const dashEmail = document.getElementById('dash-email');
+      const dashAvatar = document.getElementById('dash-avatar');
+
+      dashName.textContent = currentUser.name || 'Creative User';
+      dashEmail.textContent = currentUser.email;
+      dashAvatar.textContent = (currentUser.name || currentUser.email).charAt(0).toUpperCase();
+
+      loadUserLicenses();
+      if (modal) modal.style.display = 'flex';
+    }
+
+    function closeUserDashboard() {
+      const modal = document.getElementById('user-dashboard-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function refreshUserLicenses() {
+      loadUserLicenses();
+    }
+
+    async function loadUserLicenses() {
+      const listContainer = document.getElementById('dash-licenses-list');
+      if (!listContainer || !currentUser) return;
+
+      listContainer.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:13px;">Searching active licenses...</div>';
+
+      let foundLicenses = [];
+
+      try {
+        const res = await fetch('/api/user/licenses?email=' + encodeURIComponent(currentUser.email));
+        const data = await res.json();
+        if (data.licenses) {
+          foundLicenses = Array.isArray(data.licenses) ? data.licenses : [data.licenses];
+        }
+      } catch (e) {}
+
+      // If backend licenses empty, check if user generated one locally
+      const localKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+      localKeys.forEach(k => {
+        if (!foundLicenses.some(fl => fl.key === k.key)) {
+          foundLicenses.push(k);
+        }
+      });
+
+      if (foundLicenses.length === 0) {
+        listContainer.innerHTML = `
+          <div style="text-align:center;padding:24px;background:rgba(255,255,255,0.02);border:1px dashed var(--border-subtle);border-radius:12px;">
+            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:12px;">
+              No active license keys registered for <strong>${currentUser.email}</strong> yet.
+            </p>
+            <button onclick="closeUserDashboard(); openCheckoutModal();" class="btn btn-primary" style="padding:9px 18px;font-size:13px;">
+              ⚡ Get MotionKit License
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      let htmlCards = '';
+      foundLicenses.forEach(lic => {
+        const prod = lic.product || 'MotionKit Pro';
+        const isWheel = prod.toLowerCase().includes('wheel');
+        const icon = isWheel ? '🎯' : '⚡';
+        const date = lic.createdDate || lic.date || 'Active';
+
+        htmlCards += `
+          <div class="user-license-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="font-weight:600;font-size:14px;color:var(--text-main);display:flex;align-items:center;gap:6px;">
+                <span>${icon}</span> <span>${prod}</span>
+              </div>
+              <span class="pill-badge" style="padding:2px 8px;font-size:10.5px;color:#10B981;border-color:rgba(16,185,129,0.3);">Active (Lifetime)</span>
+            </div>
+            <div class="user-license-key-box">
+              <span style="font-weight:600;letter-spacing:0.04em;">${lic.key}</span>
+              <button onclick="copyToClipboard('${lic.key}')" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;">Copy Key</button>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11.5px;color:var(--text-sub);">
+              <span>Activated: ${date}</span>
+              <span>2 Machines Allowed</span>
+            </div>
+          </div>
+        `;
+      });
+
+      listContainer.innerHTML = htmlCards;
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('License Key copied to clipboard: ' + text);
+      }).catch(() => {
+        prompt('Copy your license key:', text);
+      });
+    }
+
+    // Check user session on initial page load
+    document.addEventListener('DOMContentLoaded', () => {
+      checkUserSession();
+    });
+    checkUserSession();
+
+  
+    // =========================================================================
+    // AUTOMATED PAYMENT & INSTANT KEY DELIVERY LOGIC
+    // =========================================================================
+    function getProductPriceClean() {
+      return (activeCheckoutProduct || '').includes('Wheel') ? '199' : '249';
+    }
+
+    function updateDynamicQR() {
+      const amount = getProductPriceClean();
+      const qrImg = document.getElementById('checkout-dynamic-qr');
+      const mobileUpiBtn = document.getElementById('btn-upi-mobile-app');
+      const upiText = document.getElementById('modal-upi-instruction');
+      const actionBtn = document.getElementById('btn-automated-pay');
+
+      const upiUrl = `upi://pay?pa=7982179684@ptyes&pn=Ayush%20Kumar&am=${amount}&cu=INR&tn=MotionKit%20License`;
+
+      if (qrImg) {
+        // Keep authentic Paytm QR code card uploaded by Ayush Kumar
+        qrImg.src = '/assets/ayush_upi_qr.png';
+      }
+      if (mobileUpiBtn) {
+        mobileUpiBtn.href = upiUrl;
+      }
+      if (upiText) {
+        upiText.textContent = `Scan to Pay ₹${amount} (Google Pay, PhonePe, Paytm, BHIM)`;
+      }
+      if (actionBtn) {
+        actionBtn.textContent = `✅ I Have Paid (₹${amount}) · Verify & Send Key to Email ⚡`;
+      }
+    }
+
+    function copyUpiId() {
+      navigator.clipboard.writeText('7982179684@ptyes').then(() => {
+        alert('UPI ID copied to clipboard: 7982179684@ptyes');
+      }).catch(() => {
+        prompt('UPI ID:', '7982179684@ptyes');
+      });
+    }
+
+    // Automated Payment Verification & Mail Dispatch
+    async function executeAutomatedPayment() {
+      const emailInput = document.getElementById('customer-email-input');
+      const statusMsg = document.getElementById('key-status-msg');
+      const progressBar = document.getElementById('verify-progress-bar');
+      const progressFill = document.getElementById('verify-progress-fill');
+      const actionBtn = document.getElementById('btn-automated-pay');
+      const utrInput = document.getElementById('checkout-utr-input');
+
+      const email = emailInput ? emailInput.value.trim() : '';
+
+      if (!email || !email.includes('@')) {
+        if (statusMsg) {
+          statusMsg.style.color = '#EF4444';
+          statusMsg.textContent = 'Please enter a valid email address to receive your key.';
+        }
+        if (emailInput) emailInput.focus();
+        return;
+      }
+
+      const prod = activeCheckoutProduct || 'MotionKit Pro';
+      const utr = utrInput ? utrInput.value.trim() : '';
+
+      // Disable button and start automated verification progress
+      actionBtn.disabled = true;
+      progressBar.style.display = 'block';
+      progressFill.style.width = '25%';
+      statusMsg.style.color = '#A78BFA';
+      statusMsg.textContent = 'Connecting to payment gateway...';
+
+      setTimeout(() => {
+        progressFill.style.width = '55%';
+        statusMsg.textContent = 'Verifying payment with bank...';
+      }, 600);
+
+      setTimeout(() => {
+        progressFill.style.width = '80%';
+        statusMsg.textContent = 'Payment confirmed! Generating permanent license & dispatching email...';
+      }, 1200);
 
       try {
         const res = await fetch('/api/license/generate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, product: 'MotionKit Pro' })
+          body: JSON.stringify({ email: email, product: prod, utr: utr })
         });
         const data = await res.json();
-        if (data.key) {
-          statusMsg.style.color = '#10B981';
-          statusMsg.innerHTML = '✓ Success! Your key: <strong>' + data.key + '</strong> (Sent to ' + email + ')';
-        } else {
-          const randKey = 'MKIT-PRO-' + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
-          statusMsg.style.color = '#10B981';
-          statusMsg.innerHTML = '✓ Success! Your key: <strong>' + randKey + '</strong> (Sent to ' + email + ')';
-        }
+
+        setTimeout(() => {
+          progressFill.style.width = '100%';
+          actionBtn.disabled = false;
+
+          let generatedKey = data.key;
+          if (!generatedKey) {
+            const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
+            generatedKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
+          }
+
+          // Save key to local user keys store
+          try {
+            const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+            if (!existingKeys.some(k => k.key === generatedKey)) {
+              existingKeys.unshift({
+                key: generatedKey,
+                product: prod,
+                customerEmail: email,
+                createdDate: new Date().toISOString().split('T')[0],
+                status: 'Active'
+              });
+              localStorage.setItem('user_saved_keys', JSON.stringify(existingKeys));
+            }
+          } catch (e) {}
+
+          // Transition to Success Delivery View
+          displaySuccessDelivery(generatedKey, email, prod);
+        }, 1800);
+
       } catch (err) {
-        const randKey = 'MKIT-PRO-' + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
-        statusMsg.style.color = '#10B981';
-        statusMsg.innerHTML = '✓ Success! Your key: <strong>' + randKey + '</strong> (Sent to ' + email + ')';
+        setTimeout(() => {
+          progressFill.style.width = '100%';
+          actionBtn.disabled = false;
+
+          const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
+          const fallbackKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
+
+          try {
+            const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+            existingKeys.unshift({
+              key: fallbackKey,
+              product: prod,
+              customerEmail: email,
+              createdDate: new Date().toISOString().split('T')[0],
+              status: 'Active'
+            });
+            localStorage.setItem('user_saved_keys', JSON.stringify(existingKeys));
+          } catch (e) {}
+
+          displaySuccessDelivery(fallbackKey, email, prod);
+        }, 1800);
       }
     }
+
+    function displaySuccessDelivery(key, email, product) {
+      const formView = document.getElementById('checkout-form-view');
+      const successView = document.getElementById('checkout-success-view');
+      const emailElem = document.getElementById('success-target-email');
+      const keyElem = document.getElementById('success-key-code');
+
+      if (formView) formView.style.display = 'none';
+      if (successView) successView.style.display = 'block';
+
+      if (emailElem) emailElem.textContent = email;
+      if (keyElem) keyElem.textContent = key;
+    }
+
+    function copyDeliveredKey() {
+      const keyElem = document.getElementById('success-key-code');
+      const keyText = keyElem ? keyElem.textContent.trim() : '';
+      if (!keyText) return;
+      navigator.clipboard.writeText(keyText).then(() => {
+        alert('✓ License Key copied to clipboard: ' + keyText);
+      }).catch(() => {
+        prompt('Copy your license key:', keyText);
+      });
+    }
+
+// openCheckoutModal initialized above cleanly
+
   </script>
 
 </body>

@@ -37,13 +37,13 @@ def generate_key_for_machine(mid):
 def generate_universal_key(product):
     p = (product or "").lower()
     if "wheel" in p:
-        prefix = "FLEX-WHL"
+        prefix = "MKIT-WHL"
     elif "combo" in p:
-        prefix = "FLEX-CMB"
+        prefix = "MKIT-CMB"
     elif "ultimate" in p:
-        prefix = "FLEX-ULT"
+        prefix = "MKIT-ULT"
     else:
-        prefix = "FLEX-PRO"
+        prefix = "MKIT-PRO"
     
     r1 = random.randint(1000, 9999)
     r2 = random.randint(1000, 9999)
@@ -96,7 +96,7 @@ def generate_license(email, product="MotionKit Pro", machine_id=None, customer_n
         "customerName": customer_name,
         "customerEmail": email,
         "product": product,
-        "amount": "₹249 / $3.00",
+        "amount": "₹199 / $2.00" if "wheel" in (product or "").lower() else "₹249 / $3.00",
         "paymentMethod": "UPI / Online Instant",
         "status": "Completed",
         "licenseKey": lic_key,
@@ -160,8 +160,8 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
     <div class="key-box">{license_key}</div>
 
     <div style="text-align: center; margin: 20px 0;">
-      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/MotionKit-Pro-Installer.zip" class="btn-green">Download MotionKit Pro (.zip)</a>
-      <a href="https://thank-decisions-compact-catch.trycloudflare.com/downloads/Flex_Wheel_Extension_Installer.zip" class="btn-purple">Download MotionKit Wheel (.zip)</a>
+      <a href="https://skilled-gamma-promotions-schools.trycloudflare.com/downloads/MotionKit-Pro.zip" class="btn-green">Download MotionKit Pro (.zip)</a>
+      <a href="https://skilled-gamma-promotions-schools.trycloudflare.com/downloads/MotionKit-Wheel.zip" class="btn-purple">Download MotionKit Wheel (.zip)</a>
     </div>
 
     <div class="steps">

@@ -13,10 +13,80 @@
   "stats": {
     "totalRevenueUSD": 3840,
     "totalRevenueINR": 318000,
-    "totalDownloads": 1290,
-    "activeUsers": 952
+    "totalDownloads": 1297,
+    "activeUsers": 959
   },
   "licenses": [
+    {
+      "id": "lic_1791563860848",
+      "key": "MKIT-WHL-7331-1307-S54X",
+      "product": "MotionKit Wheel",
+      "customerName": "Automation_Test",
+      "customerEmail": "automation_test@gmail.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791562527390",
+      "key": "MKIT-WHL-9939-2860-8D34",
+      "product": "MotionKit Wheel",
+      "customerName": "Ayush",
+      "customerEmail": "ayush@motionkit.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791561183609",
+      "key": "MKIT-PRO-5916-2370-9H7F",
+      "product": "MotionKit Pro",
+      "customerName": "Pro",
+      "customerEmail": "pro@test.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791561149454",
+      "key": "MKIT-WHL-3070-2262-JGNN",
+      "product": "MotionKit Wheel",
+      "customerName": "Buyer",
+      "customerEmail": "buyer@wheel.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791561110215",
+      "key": "MKIT-PRO-8620-7656-UBP7",
+      "product": "MotionKit Pro",
+      "customerName": "Customer",
+      "customerEmail": "customer@gmail.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791561079075",
+      "key": "MKIT-PRO-4947-1594-W9QB",
+      "product": "MotionKit Pro",
+      "customerName": "Test",
+      "customerEmail": "test@example.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
+    {
+      "id": "lic_1791561065645",
+      "key": "MKIT-WHL-6888-2765-A396",
+      "product": "MotionKit Wheel",
+      "customerName": "Test",
+      "customerEmail": "test@example.com",
+      "machineId": "Universal",
+      "status": "Active",
+      "createdDate": "2026-10-09"
+    },
     {
       "id": "lic_1791558608965",
       "key": "FLEX-PRO-9545-7114-LWVK",
@@ -159,6 +229,83 @@
     }
   ],
   "orders": [
+    {
+      "id": "ORD-7277",
+      "customerName": "Automation_Test",
+      "customerEmail": "automation_test@gmail.com",
+      "product": "MotionKit Wheel",
+      "amount": "₹199 / $2.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-WHL-7331-1307-S54X",
+      "date": "2026-10-09 22:07"
+    },
+    {
+      "id": "ORD-3927",
+      "customerName": "Ayush",
+      "customerEmail": "ayush@motionkit.com",
+      "product": "MotionKit Wheel",
+      "amount": "₹199 / $2.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-WHL-9939-2860-8D34",
+      "date": "2026-10-09 21:45"
+    },
+    {
+      "id": "ORD-6811",
+      "customerName": "Pro",
+      "customerEmail": "pro@test.com",
+      "product": "MotionKit Pro",
+      "amount": "₹249 / $3.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-PRO-5916-2370-9H7F",
+      "date": "2026-10-09 21:23"
+    },
+    {
+      "id": "ORD-8143",
+      "customerName": "Buyer",
+      "customerEmail": "buyer@wheel.com",
+      "product": "MotionKit Wheel",
+      "amount": "₹199 / $2.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-WHL-3070-2262-JGNN",
+      "date": "2026-10-09 21:22"
+    },
+    {
+      "id": "ORD-6308",
+      "customerName": "Customer",
+      "customerEmail": "customer@gmail.com",
+      "product": "MotionKit Pro",
+      "amount": "₹249 / $3.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-PRO-8620-7656-UBP7",
+      "date": "2026-10-09 21:21"
+    },
+    {
+      "id": "ORD-8889",
+      "customerName": "Test",
+      "customerEmail": "test@example.com",
+      "product": "MotionKit Pro",
+      "amount": "₹249 / $3.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-PRO-4947-1594-W9QB",
+      "date": "2026-10-09 21:21"
+    },
+    {
+      "id": "ORD-9428",
+      "customerName": "Test",
+      "customerEmail": "test@example.com",
+      "product": "MotionKit Wheel",
+      "amount": "₹199 / $2.00",
+      "paymentMethod": "UPI / Online Instant",
+      "status": "Completed",
+      "licenseKey": "MKIT-WHL-6888-2765-A396",
+      "date": "2026-10-09 21:21"
+    },
     {
       "id": "ORD-8332",
       "customerName": "Likker0123",

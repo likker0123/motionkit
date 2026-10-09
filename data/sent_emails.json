@@ -1,5 +1,68 @@
 [
   {
+    "timestamp": "2026-10-09 22:07:40",
+    "toEmail": "automation_test@gmail.com",
+    "customerName": "Automation_Test",
+    "product": "MotionKit Wheel",
+    "licenseKey": "MKIT-WHL-7331-1307-S54X",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:45:27",
+    "toEmail": "ayush@motionkit.com",
+    "customerName": "Ayush",
+    "product": "MotionKit Wheel",
+    "licenseKey": "MKIT-WHL-9939-2860-8D34",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:23:03",
+    "toEmail": "pro@test.com",
+    "customerName": "Pro",
+    "product": "MotionKit Pro",
+    "licenseKey": "MKIT-PRO-5916-2370-9H7F",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:22:29",
+    "toEmail": "buyer@wheel.com",
+    "customerName": "Buyer",
+    "product": "MotionKit Wheel",
+    "licenseKey": "MKIT-WHL-3070-2262-JGNN",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:21:50",
+    "toEmail": "customer@gmail.com",
+    "customerName": "Customer",
+    "product": "MotionKit Pro",
+    "licenseKey": "MKIT-PRO-8620-7656-UBP7",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:21:19",
+    "toEmail": "test@example.com",
+    "customerName": "Test",
+    "product": "MotionKit Pro",
+    "licenseKey": "MKIT-PRO-4947-1594-W9QB",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
+    "timestamp": "2026-10-09 21:21:05",
+    "toEmail": "test@example.com",
+    "customerName": "Test",
+    "product": "MotionKit Wheel",
+    "licenseKey": "MKIT-WHL-6888-2765-A396",
+    "smtpSent": false,
+    "smtpError": null
+  },
+  {
     "timestamp": "2026-10-09 20:40:08",
     "toEmail": "likker0123@gmail.com",
     "customerName": "Likker0123",
