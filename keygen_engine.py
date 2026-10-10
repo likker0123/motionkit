@@ -193,8 +193,9 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
     <div class="key-box">{license_key}</div>
 
     <div style="text-align: center; margin: 20px 0;">
-      <a href="https://skilled-gamma-promotions-schools.trycloudflare.com/downloads/MotionKit-Pro.zip" class="btn-green">Download MotionKit Pro (.zip)</a>
-      <a href="https://skilled-gamma-promotions-schools.trycloudflare.com/downloads/MotionKit-Wheel.zip" class="btn-purple">Download MotionKit Wheel (.zip)</a>
+      <a href="/downloads/MotionKit-Pro.zip" class="btn-green">MotionKit Pro (.zip)</a>
+      <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" class="btn-green" style="background-color:#D4AF37;">PR Ultimate (.zip)</a>
+      <a href="/downloads/MotionKit-Wheel.zip" class="btn-purple">MotionKit Wheel (.zip)</a>
     </div>
 
     <div class="steps">

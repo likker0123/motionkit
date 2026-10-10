@@ -325,10 +325,17 @@
     /* Pricing Multi-Card Layout */
     .pricing-cards-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      max-width: 960px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1220px;
       margin: 40px auto 0;
+    }
+
+    @media (max-width: 1024px) {
+      .pricing-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+      }
     }
 
     .pricing-tier-card {
@@ -1180,6 +1187,7 @@
             <span>⚡ Free Plugins</span>
           </a>
           <a href="#tools" class="nav-link">Tools</a>
+          <a href="#ultimate-pr" class="nav-link" style="color:var(--primary-glow);font-weight:600;">Ultimate (PR)</a>
           <a href="#featured" class="nav-link">Wheel HUD</a>
           <a href="#sfx-library" class="nav-link">SFX Library</a>
           <a href="#how-it-works" class="nav-link nav-link-extra">Workflow</a>
@@ -1419,6 +1427,141 @@
   </section>
 
   <!-- =========================================================================
+       SECTION 02.5: MOTIONKIT ULTIMATE FOR ADOBE PREMIERE PRO (PR)
+       ========================================================================= -->
+  <section id="ultimate-pr" class="section" style="background:#0F0D09; border-top:1px solid rgba(212,175,55,0.16); border-bottom:1px solid rgba(212,175,55,0.16); position:relative; overflow:hidden;">
+    <!-- Subtle Golden Aurora Glow -->
+    <div style="position:absolute; top:-100px; left:50%; transform:translateX(-50%); width:800px; height:350px; background:radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(245,158,11,0.05) 45%, transparent 70%); filter:blur(60px); pointer-events:none;"></div>
+
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="section-head">
+        <span class="pill-badge" style="margin-bottom:12px; background:rgba(212,175,55,0.14); border-color:rgba(212,175,55,0.35); color:var(--primary-glow);">
+          🎬 PREMIERE PRO CEP EXTENSION · CC 2020 - CC 2026+
+        </span>
+        <h2>MotionKit Ultimate for <span style="background:linear-gradient(135deg, #FFFFFF 15%, #FDE68A 65%, #D4AF37 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Premiere Pro.</span></h2>
+        <p>The all-in-one dockable powerhouse built exclusively for Premiere Pro editors. Silence Remover, 99-Language Whisper AutoCaptions, Bézier Speed Graph Editor (Greedy-Fit polyline baking), Auto 3D Cameras, and timeline sequence automation in one unified panel.</p>
+      </div>
+
+      <!-- Flagship 6-Feature Grid with Real Panel Screenshots -->
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-bottom:36px;">
+        <!-- Feature 1: Silence Remover & Auto Cut -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-silence.webp" alt="Silence Remover in MotionKit Ultimate for PR" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">Audio Silence Remover</span>
+          </div>
+          <h3 style="font-size:18px;">Silence Remover & Auto Cut</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            Waveform silence threshold scanner that automatically detects dead air and awkward pauses, ripple deleting silent gaps across multi-track dialogue in seconds.
+          </p>
+        </div>
+
+        <!-- Feature 2: AutoCaptions & Subtitle Suite -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-autocaptions.webp" alt="AutoCaptions in MotionKit Ultimate for PR" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">Whisper AI Captions</span>
+          </div>
+          <h3 style="font-size:18px;">AutoCaptions (99 Languages)</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            Word-level timestamp synchronization with animated active karaoke captions. Custom font typography, automatic line breaks, and speaker diarization.
+          </p>
+        </div>
+
+        <!-- Feature 3: Adaptive Graph Editor 2.0 (Bézier Curves) -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-flow.webp" alt="Bézier Graph Editor in MotionKit Ultimate for PR" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">Adaptive Graph Editor</span>
+          </div>
+          <h3 style="font-size:18px;">Bézier Graph Editor 2.0</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            Adaptive Greedy-Fit polyline baking overcomes Premiere Pro's lack of native Bézier handles, baking buttery smooth easing curves directly into timeline clips.
+          </p>
+        </div>
+
+        <!-- Feature 4: Auto Camera 3D & Dynamic Shakes -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-tools.webp" alt="Camera 3D and Shakes in MotionKit Ultimate" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">3D Cameras & Shakes</span>
+          </div>
+          <h3 style="font-size:18px;">Camera 3D & Dynamic Shakes</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            Handheld action shakes, directional whip-zooms, dynamic push-ins, and multi-angle camera rigs without opening After Effects.
+          </p>
+        </div>
+
+        <!-- Feature 5: Nest Saver & Batch Organization -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-nest.webp" alt="Nest Saver in MotionKit Ultimate for PR" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">Nest & Organization</span>
+          </div>
+          <h3 style="font-size:18px;">Nest Saver & Batch Rigs</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            1-click sequence nesting, color tag batching, LUT library management, and adjustment layer rigs across your entire project timeline.
+          </p>
+        </div>
+
+        <!-- Feature 6: Retake Detection & Notes -->
+        <div class="tool-card" style="background:#14120D; border:1px solid rgba(212,175,55,0.18);">
+          <div class="tool-thumb" style="height:190px; background:#0A0805; border:1px solid rgba(212,175,55,0.12);">
+            <img src="/flex-ultimate-assets/ult-notes.webp" alt="Retake Detection in MotionKit Ultimate" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+            <span class="tool-tag" style="background:rgba(12,10,7,0.9); border-color:rgba(212,175,55,0.3); color:var(--primary-glow);">Retake Detection</span>
+          </div>
+          <h3 style="font-size:18px;">Retake Detection & Notes</h3>
+          <p style="font-size:13.5px; color:var(--text-muted); margin-top:8px; line-height:1.55;">
+            Automatically flags repeated script takes from A-roll footage, drops cut markers, and keeps timestamped collaborative notes right in the panel.
+          </p>
+        </div>
+      </div>
+
+      <!-- Download & 1-Click Installation Card -->
+      <div style="background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(245,158,11,0.04)); border:1.5px solid rgba(212,175,55,0.35); border-radius:18px; padding:32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; box-shadow:0 14px 45px rgba(0,0,0,0.6), 0 0 24px rgba(212,175,55,0.15);">
+        <div style="max-width:640px;">
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:var(--primary-glow); background:var(--primary-dim); border:1px solid rgba(212,175,55,0.3); padding:4px 12px; border-radius:999px; margin-bottom:10px;">
+            <span>⚡ OFFICIAL RELEASE · PREMIERE PRO SUITE</span>
+          </div>
+          <h3 style="font-size:25px; font-weight:800; color:#FFF; font-family:'Space Grotesk',sans-serif; margin-bottom:8px;">
+            MotionKit Ultimate for Premiere Pro
+          </h3>
+          <p style="color:var(--text-muted); font-size:14px; line-height:1.6;">
+            Includes 1-click automated <code>Install.bat</code>, full Premiere Pro extension assets, Silence Remover, Whisper AI AutoCaptions, Bézier Graph Editor 2.0, 3D Camera, and master key activation. Works on Premiere Pro CC 2020 through CC 2026+ on Windows 10/11.
+          </p>
+          <div style="margin-top:14px; display:flex; gap:16px; font-size:12px; color:var(--text-sub); flex-wrap:wrap;">
+            <span>✓ 1-Click Batch Installer</span>
+            <span>✓ 2 Machine Activations</span>
+            <span>✓ Zero Renewal Fees</span>
+            <span>✓ Instant Delivery</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px; min-width:280px;">
+          <!-- Highlighted Price Badge -->
+          <div style="text-align:center; padding:14px 18px; background:rgba(212,175,55,0.09); border:1px solid rgba(212,175,55,0.32); border-radius:12px;">
+            <div style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); font-weight:600;">Lifetime License Price</div>
+            <div style="font-size:30px; font-weight:800; color:#FFF; font-family:'Space Grotesk',sans-serif; margin-top:2px; display:flex; align-items:baseline; justify-content:center; gap:6px;">
+              <span>$3.00</span>
+              <span style="font-size:20px; color:var(--primary-glow); font-weight:700;">/ ₹249</span>
+              <span style="font-size:14px; color:var(--text-sub); text-decoration:line-through;">$29.00</span>
+            </div>
+            <div style="font-size:11px; color:#10B981; font-weight:600; margin-top:3px;">✓ One-Time Payment · Lifetime Updates</div>
+          </div>
+
+          <button onclick="openCheckoutModal('MotionKit Ultimate for PR', '$3.00 / ₹249')" class="btn btn-primary" style="background:linear-gradient(135deg, #D4AF37, #F59E0B); color:#0C0A07; font-weight:800; padding:15px 22px; text-align:center; border-radius:8px; font-size:14.5px; box-shadow:0 6px 22px rgba(212,175,55,0.4); display:flex; align-items:center; justify-content:center; gap:8px; cursor:pointer; width:100%;">
+            <span>⚡ Get Ultimate PR · $3.00 / ₹249</span>
+          </button>
+
+          <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" class="btn btn-secondary" style="border-color:rgba(212,175,55,0.35); color:#FFF; background:#14120D; text-align:center; padding:11px 18px; font-size:12.5px; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:6px;" download>
+            <span>📥 Download Installer (.ZIP 24.3 MB)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        SECTION 03: FEATURED TOOL (INTERACTIVE MOTIONKIT WHEEL & CEP SIMULATOR)
        ========================================================================= -->
   <section id="featured" class="section" style="background:#0B0B0E;">
@@ -1594,7 +1737,10 @@
               <span>🎯</span> <span>Download MotionKit Wheel (.zip)</span>
             </a>
             <a href="/downloads/MotionKit-Pro-Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
-              <span>⚡</span> <span>Download MotionKit Pro (.zip)</span>
+              <span>⚡</span> <span>Download MotionKit Pro AE (.zip)</span>
+            </a>
+            <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(59,130,246,0.5);color:#93c5fd;background:rgba(59,130,246,0.1);">
+              <span>🎬</span> <span>Download MotionKit Ultimate PR (.zip)</span>
             </a>
           </div>
         </div>
@@ -1641,72 +1787,72 @@
         <table class="compare-table">
         <thead>
           <tr>
-            <th style="width:34%;">Feature / Capability</th>
-            <th style="width:20%;">Free Creator Tools</th>
-            <th style="width:23%;color:var(--text-main);">MotionKit Wheel ($2.00 / ₹199)</th>
-            <th style="width:23%;color:var(--primary-glow);">MotionKit Pro ($3.00 / ₹249)</th>
+            <th style="width:28%;">Feature / Capability</th>
+            <th style="width:24%;color:var(--text-main);">MotionKit Wheel ($2.00 / ₹199)</th>
+            <th style="width:24%;color:var(--primary-glow);">MotionKit Pro ($3.00 / ₹249)</th>
+            <th style="width:24%;color:var(--primary-glow);">Ultimate PR ($3.00 / ₹249)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
+            <td><strong>Target Host Application</strong></td>
+            <td><span class="check-icon">✓</span> Both AE & Premiere Pro</td>
+            <td><span class="check-icon">✓</span> After Effects CC 2022–2026+</td>
+            <td><span class="check-icon">✓</span> Premiere Pro CC 2020–2026+</td>
+          </tr>
+          <tr>
             <td><strong>Radial Wheel HUD</strong></td>
-            <td>Standard 4-way</td>
             <td><span class="check-icon">✓</span> 9-Position Custom Radial Flick</td>
             <td><span class="check-icon">✓</span> 9-Position Custom Radial Flick</td>
+            <td><span class="check-icon">✓</span> Radial HUD Integration</td>
           </tr>
           <tr>
-            <td><strong>Custom Hotkey & Cursor HUD</strong></td>
-            <td>Fixed Default Only</td>
-            <td><span class="check-icon">✓</span> Unlimited Custom Bindings</td>
-            <td><span class="check-icon">✓</span> Unlimited Custom Bindings</td>
+            <td><strong>Dockable CEP Panel Engine</strong></td>
+            <td>Radial HUD Utility</td>
+            <td><span class="check-icon">✓</span> 10-Tab Dockable Superpanel</td>
+            <td><span class="check-icon">✓</span> Dockable PR Automation Panel</td>
           </tr>
           <tr>
-            <td><strong>AE & Premiere Pro Native Extensions</strong></td>
-            <td>AE Only</td>
-            <td><span class="check-icon">✓</span> Both AE & Premiere Pro</td>
-            <td><span class="check-icon">✓</span> Both AE & Premiere Pro</td>
-          </tr>
-          <tr>
-            <td><strong>Unified 10-Tab Dockable Panel</strong></td>
-            <td>Basic Utilities Only</td>
-            <td><span class="cross-icon">✕</span> Dedicated Radial HUD</td>
-            <td><span class="check-icon">✓</span> Full 1,900+ Controls Dockable Suite</td>
-          </tr>
-          <tr>
-            <td><strong>Offline AI Whisper Captions</strong></td>
+            <td><strong>Silence Remover & Auto Cut</strong></td>
             <td><span class="cross-icon">✕</span> Not Included</td>
             <td><span class="cross-icon">✕</span> Not Included</td>
-            <td><span class="check-icon">✓</span> Unlimited 100% Local Processing</td>
+            <td><span class="check-icon">✓</span> Multi-Track Waveform Auto-Cut</td>
           </tr>
           <tr>
-            <td><strong>Bezier Graph Curve Editor</strong></td>
-            <td>Basic Linear/Ease</td>
+            <td><strong>Whisper AI AutoCaptions</strong></td>
             <td><span class="cross-icon">✕</span> Not Included</td>
-            <td><span class="check-icon">✓</span> 44 Curve Profiles & Custom Physics</td>
+            <td><span class="check-icon">✓</span> Unlimited 100% Local AI</td>
+            <td><span class="check-icon">✓</span> 99-Language Word-Sync Karaoke</td>
           </tr>
           <tr>
-            <td><strong>Cinematic Presets & FX Rigs</strong></td>
-            <td>3 Demo Presets</td>
+            <td><strong>Bézier Graph Curve Editor</strong></td>
             <td><span class="cross-icon">✕</span> Not Included</td>
-            <td><span class="check-icon">✓</span> 25+ Shakes, Glow Bloom, 3D Cursor</td>
+            <td><span class="check-icon">✓</span> 44 Curve Profiles & Physics</td>
+            <td><span class="check-icon">✓</span> Greedy-Fit Bézier Baking in PR</td>
           </tr>
           <tr>
-            <td><strong>120+ Studio Sound Effects & SFX</strong></td>
+            <td><strong>Camera 3D & Dynamic Shakes</strong></td>
             <td><span class="cross-icon">✕</span> Not Included</td>
-            <td><span class="check-icon">✓</span> Included Free (.zip pack)</td>
-            <td><span class="check-icon">✓</span> 120+ Full Studio SFX & Dockable Panel Browser</td>
+            <td><span class="check-icon">✓</span> 25+ AE Shakes & Presets</td>
+            <td><span class="check-icon">✓</span> Dynamic Shakes & 3D Rig in PR</td>
+          </tr>
+          <tr>
+            <td><strong>120+ Studio SFX Library</strong></td>
+            <td><span class="check-icon">✓</span> Included Free (.zip)</td>
+            <td><span class="check-icon">✓</span> 120+ SFX & Panel Browser</td>
+            <td><span class="check-icon">✓</span> Included Free (.zip)</td>
           </tr>
           <tr>
             <td><strong>Device Activations</strong></td>
-            <td>1 Machine</td>
+            <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
             <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
             <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
           </tr>
           <tr>
-            <td><strong>Future Updates</strong></td>
-            <td>Community Only</td>
-            <td><span class="check-icon">✓</span> Lifetime Free Updates Included</td>
-            <td><span class="check-icon">✓</span> Lifetime Free Updates Included</td>
+            <td><strong>Lifetime Price</strong></td>
+            <td><strong>$2.00 / ₹199</strong></td>
+            <td><strong style="color:var(--primary-glow);">$3.00 / ₹249</strong></td>
+            <td><strong style="color:var(--primary-glow);">$3.00 / ₹249</strong></td>
           </tr>
         </tbody>
       </table>
@@ -1810,6 +1956,60 @@
 
           <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary btn-lg" style="width:100%;font-size:15px;">
             Get MotionKit Pro · $3.00 / ₹249 ⚡
+          </button>
+        </div>
+
+        <!-- Card 3: MotionKit Ultimate (PR Flagship) -->
+        <div class="pricing-tier-card" style="border-color: rgba(212,175,55,0.35);">
+          <span class="pricing-tier-badge" style="background:rgba(212,175,55,0.18);border:1px solid rgba(212,175,55,0.35);color:var(--primary-glow);">Premiere Pro Flagship</span>
+          <div class="pricing-tier-title">
+            <span>🎬</span>
+            <span>MotionKit Ultimate (PR)</span>
+          </div>
+          <div class="pricing-tier-desc">
+            The dedicated Premiere Pro automation engine: Silence Cut, 99-Language Whisper Captions, Bézier Graph Editor 2.0, and 3D Cameras.
+          </div>
+          <div class="pricing-tier-price">
+            $3.00 <span class="inr-tag">/ ₹249</span>
+            <span class="strike-tag">$29.00</span>
+          </div>
+          <div class="pricing-tier-cadence">
+            ⭐ One-Time Payment · Lifetime License (Premiere Pro)
+          </div>
+
+          <ul class="pricing-feature-list">
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Silence Remover & Auto Cut:</strong> Multi-track waveform scanner deletes silence in seconds.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>99-Language Whisper Captions:</strong> Word-level karaoke animated subtitles directly on timeline.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Bézier Graph Editor 2.0:</strong> Adaptive Greedy-Fit polyline baking for buttery easing curves.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Auto Camera 3D & Dynamic Shakes:</strong> Handheld shakes & multi-angle camera rigs in PR.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Nest Saver & Batch Sorting:</strong> 1-click sequence nesting, color tags & adjustment layers.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>Retake Detection & Notes:</strong> Flags duplicate takes and attaches timeline markers.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>2 Machine Activations & Lifetime:</strong> Zero renewal or subscription fees forever.</span>
+            </li>
+          </ul>
+
+          <button onclick="openCheckoutModal('MotionKit Ultimate for PR', '$3.00 / ₹249')" class="btn btn-primary btn-lg" style="width:100%;font-size:15px;background:linear-gradient(135deg,#D4AF37,#F59E0B);color:#0C0A07;font-weight:800;">
+            Get Ultimate PR · $3.00 / ₹249 🎬
           </button>
         </div>
       </div>
@@ -1933,7 +2133,8 @@
           <h4>Platform</h4>
           <ul class="footer-links">
             <li><a href="#tools" class="footer-link">Tools Grid</a></li>
-            <li><a href="/free-plugins.html" class="footer-link">9 Free Plugins Suite</a></li>
+            <li><a href="#ultimate-pr" class="footer-link" style="color:var(--primary-glow);">MotionKit Ultimate (PR)</a></li>
+            <li><a href="/free-plugins.html" class="footer-link">Free Plugins Suite</a></li>
             <li><a href="#featured" class="footer-link">MotionKit Wheel HUD</a></li>
             <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
             <li><a href="#pricing" class="footer-link">Pricing & Plans</a></li>
@@ -1978,11 +2179,14 @@
       <div id="checkout-form-view">
         <!-- Product Selector Pills -->
         <div style="display:flex;gap:8px;margin-bottom:16px;">
-          <button id="modal-sel-wheel" onclick="selectModalProduct('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary" style="flex:1;padding:8px 10px;font-size:12.5px;font-weight:600;">
-            🎯 MotionKit Wheel ($2.00 / ₹199)
+          <button id="modal-sel-wheel" onclick="selectModalProduct('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary" style="flex:1;padding:8px 6px;font-size:12px;font-weight:600;white-space:nowrap;">
+            🎯 Wheel ($2 / ₹199)
           </button>
-          <button id="modal-sel-pro" onclick="selectModalProduct('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="flex:1;padding:8px 10px;font-size:12.5px;font-weight:600;">
-            ⚡ MotionKit Pro ($3.00 / ₹249)
+          <button id="modal-sel-pro" onclick="selectModalProduct('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="flex:1;padding:8px 6px;font-size:12px;font-weight:600;white-space:nowrap;">
+            ⚡ Pro Suite ($3 / ₹249)
+          </button>
+          <button id="modal-sel-ult" onclick="selectModalProduct('MotionKit Ultimate for PR', '$3.00 / ₹249')" class="btn btn-secondary" style="flex:1;padding:8px 6px;font-size:12px;font-weight:600;white-space:nowrap;">
+            🎬 Ultimate PR ($3 / ₹249)
           </button>
         </div>
 
@@ -2089,12 +2293,15 @@
           <div style="font-size:13px;font-weight:600;color:var(--text-main);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
             <span>📦</span> <span>Download Your Installer Files:</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+          <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:8px;">
             <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:9px 5px;font-size:11px;text-align:center;">
               🎯 Wheel (.zip)
             </a>
             <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:9px 5px;font-size:11px;text-align:center;">
               ⚡ Pro Suite (.zip)
+            </a>
+            <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" download class="btn btn-secondary" style="padding:9px 5px;font-size:11px;text-align:center;border-color:rgba(212,175,55,0.4);color:var(--primary-glow);">
+              🎬 PR Ultimate (.zip)
             </a>
             <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-secondary" style="padding:9px 5px;font-size:11px;text-align:center;border-color:rgba(212,175,55,0.4);color:#FDE68A;">
               🎧 SFX Pack (.zip)
@@ -2303,15 +2510,18 @@
         <h4 style="font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
           <span>📦</span> <span>Direct Installer Packages (v9.1.5)</span>
         </h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
-          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.3);">
-            <span>🎯</span> <span>Wheel (.zip)</span>
+        <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:8px;">
+          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px 4px;font-size:11px;display:flex;align-items:center;justify-content:center;gap:4px;border-color:rgba(212, 175, 55, 0.3);">
+            <span>🎯</span> <span>Wheel</span>
           </a>
-          <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;">
-            <span>⚡</span> <span>Pro Suite (.zip)</span>
+          <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px 4px;font-size:11px;display:flex;align-items:center;justify-content:center;gap:4px;">
+            <span>⚡</span> <span>Pro AE</span>
           </a>
-          <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-secondary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.4);color:#FDE68A;">
-            <span>🎧</span> <span>SFX Pack (.zip)</span>
+          <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" download class="btn btn-secondary" style="padding:10px 4px;font-size:11px;display:flex;align-items:center;justify-content:center;gap:4px;border-color:rgba(212, 175, 55, 0.4);color:var(--primary-glow);">
+            <span>🎬</span> <span>PR Ultimate</span>
+          </a>
+          <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-secondary" style="padding:10px 4px;font-size:11px;display:flex;align-items:center;justify-content:center;gap:4px;border-color:rgba(212, 175, 55, 0.4);color:#FDE68A;">
+            <span>🎧</span> <span>SFX Pack</span>
           </a>
         </div>
       </div>
@@ -2380,6 +2590,7 @@
 
       const btnWheel = document.getElementById('modal-sel-wheel');
       const btnPro = document.getElementById('modal-sel-pro');
+      const btnUlt = document.getElementById('modal-sel-ult');
       const titleElem = document.getElementById('modal-product-title');
       const priceElem = document.getElementById('modal-price-subtext');
       const rzpBtnLabel = document.getElementById('rzp-btn-label');
@@ -2387,12 +2598,21 @@
       if (activeCheckoutProduct.includes('Wheel')) {
         if (btnWheel) btnWheel.className = 'btn btn-primary';
         if (btnPro) btnPro.className = 'btn btn-secondary';
+        if (btnUlt) btnUlt.className = 'btn btn-secondary';
         if (titleElem) titleElem.textContent = 'Get MotionKit Wheel License';
         if (priceElem) priceElem.textContent = 'Lifetime access · $2.00 / ₹199 One-Time';
         if (rzpBtnLabel) rzpBtnLabel.textContent = 'Pay ₹199 with Razorpay';
+      } else if (activeCheckoutProduct.includes('Ultimate')) {
+        if (btnUlt) btnUlt.className = 'btn btn-primary';
+        if (btnWheel) btnWheel.className = 'btn btn-secondary';
+        if (btnPro) btnPro.className = 'btn btn-secondary';
+        if (titleElem) titleElem.textContent = 'Get MotionKit Ultimate (PR) License';
+        if (priceElem) priceElem.textContent = 'Lifetime access · $3.00 / ₹249 One-Time';
+        if (rzpBtnLabel) rzpBtnLabel.textContent = 'Pay ₹249 with Razorpay';
       } else {
         if (btnPro) btnPro.className = 'btn btn-primary';
         if (btnWheel) btnWheel.className = 'btn btn-secondary';
+        if (btnUlt) btnUlt.className = 'btn btn-secondary';
         if (titleElem) titleElem.textContent = 'Get MotionKit Pro License';
         if (priceElem) priceElem.textContent = 'Lifetime access · $3.00 / ₹249 One-Time';
         if (rzpBtnLabel) rzpBtnLabel.textContent = 'Pay ₹249 with Razorpay';

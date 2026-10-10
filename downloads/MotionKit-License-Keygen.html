@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MotionKit Pro - License Key Generator</title>
+  <title>MotionKit - Universal License Key Generator</title>
   <style>
     :root {
       --bg: #0d0f14;
@@ -11,6 +11,7 @@
       --border: rgba(255, 255, 255, 0.08);
       --accent: #ff3366;
       --accent-purple: #8b5cf6;
+      --accent-blue: #3b82f6;
       --accent-green: #10b981;
       --text: #f3f4f6;
       --text-muted: #9ca3af;
@@ -31,7 +32,7 @@
       box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 30px rgba(255,51,102,0.1);
       border-radius: 14px;
       width: 100%;
-      max-width: 520px;
+      max-width: 540px;
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -72,6 +73,22 @@
       color: var(--accent);
       border: 1px solid rgba(255,51,102,0.3);
     }
+    .suite-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: -6px;
+    }
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .tag.ae { border-color: rgba(139, 92, 246, 0.4); color: #c4b5fd; }
+    .tag.pr { border-color: rgba(59, 130, 246, 0.4); color: #93c5fd; }
     .field-group {
       display: flex;
       flex-direction: column;
@@ -141,7 +158,7 @@
     }
     .result-key {
       font-family: Consolas, monospace;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       letter-spacing: 1.5px;
       color: #fff;
@@ -178,103 +195,112 @@
     .master-info {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
     }
     .master-title {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--accent-purple);
       text-transform: uppercase;
     }
-    .master-key-val {
+    .master-key {
       font-family: Consolas, monospace;
-      font-size: 11.5px;
+      font-size: 12px;
       color: #fff;
-      font-weight: 600;
+      letter-spacing: 1px;
     }
     .instructions {
-      font-size: 11px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .instructions h4 {
+      font-size: 12px;
       color: var(--text-muted);
-      line-height: 1.5;
-      background: rgba(255,255,255,0.02);
-      border: 1px dashed var(--border);
-      border-radius: 8px;
-      padding: 12px 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .instructions ol {
-      margin-left: 18px;
-      margin-top: 6px;
-    }
-    .instructions li {
-      margin-bottom: 4px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: #94a3b8;
     }
     .toast {
       position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(30px);
-      background: #1e222d;
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
+      bottom: 20px;
+      background: #10b981;
       color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
       opacity: 0;
-      transition: all 0.2s;
       pointer-events: none;
+      transition: opacity 0.2s;
     }
     .toast.show {
-      transform: translateX(-50%) translateY(0);
       opacity: 1;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
     <div class="header">
       <div class="logo-group">
         <div class="logo-dot"></div>
-        <span class="logo-title">MotionKit Pro</span>
+        <div class="logo-title">MotionKit Keygen</div>
       </div>
-      <span class="badge">ADMIN KEYGEN</span>
+      <div class="badge">SUITE v2.2 / v9.2</div>
+    </div>
+
+    <div class="suite-tags">
+      <span class="tag ae">After Effects: MotionKit Pro</span>
+      <span class="tag pr">Premiere Pro: MotionKit Ultimate</span>
     </div>
 
     <div class="field-group">
-      <label for="machine-id">User's Machine ID:</label>
-      <input type="text" id="machine-id" placeholder="MK-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false" />
+      <label for="machine-id">Enter User Machine ID</label>
+      <input type="text" id="machine-id" placeholder="e.g. win32-USER-a1b2c3d4..." autocomplete="off" spellcheck="false">
     </div>
 
-    <button id="btn-generate" class="btn">
-      ⚡ Generate License Key
+    <button class="btn" id="btn-generate">
+      Generate License Key
     </button>
 
-    <div id="result-box" class="result-box">
-      <span class="result-label">✓ Valid License Key Generated</span>
-      <div id="license-key-display" class="result-key">KEY-XXXX-XXXX-XXXX-XXXX</div>
-      <button id="btn-copy-key" class="btn-copy">📋 Copy License Key</button>
+    <div class="result-box" id="result-box">
+      <div class="result-label">Generated License Key (Machine Locked)</div>
+      <div class="result-key" id="license-key-display">KEY-XXXX-XXXX-XXXX-XXXX</div>
+      <button class="btn-copy" id="btn-copy-key">Copy Generated Key</button>
     </div>
 
     <div class="master-key-box">
       <div class="master-info">
-        <span class="master-title">Universal Master Key (Any PC):</span>
-        <span class="master-key-val">MOTIONKIT-MASTER-LIFETIME-ACCESS</span>
+        <div class="master-title">Universal Master Key (All Apps)</div>
+        <div class="master-key">MOTIONKIT-MASTER-LIFETIME-ACCESS</div>
       </div>
-      <button id="btn-copy-master" class="btn-copy">Copy</button>
+      <button class="btn-copy" id="btn-copy-master">Copy Master</button>
     </div>
 
     <div class="instructions">
-      <strong>How to License a User:</strong>
+      <h4>How to activate:</h4>
       <ol>
-        <li>User installs <code>MotionKit-Pro-Installer.zip</code> and opens After Effects.</li>
-        <li>On the lock screen, user clicks <b>"Copy Machine ID"</b> and sends it to you.</li>
-        <li>Paste their Machine ID in the box above and click <b>"Generate License Key"</b>.</li>
-        <li>Send the generated key to the user. User pastes it and unlocks the panel!</li>
+        <li>Open <b>Premiere Pro</b> &rarr; <code>Window &gt; Extensions &gt; MotionKit Ultimate for PR</code></li>
+        <li>Or open <b>After Effects</b> &rarr; <code>Window &gt; Extensions &gt; MotionKit Pro</code></li>
+        <li>Copy the Machine ID shown on the activation dialog.</li>
+        <li>Paste it into this keygen and click <b>Generate License Key</b>.</li>
+        <li>Or simply paste the <b>Universal Master Key</b> to unlock immediately!</li>
       </ol>
     </div>
   </div>
 
-  <div id="toast" class="toast">Copied to Clipboard!</div>
+  <div class="toast" id="toast">Copied to clipboard!</div>
 
   <script>
     function imul(a, b) {
@@ -285,7 +311,7 @@
 
     function flex_generateKey(machineId) {
       var salt = "FLEX_PRO_2026_SECRET_SALT_KEY";
-      var raw = machineId.replace(/^\\s+|\\s+$/g, '').toUpperCase() + "::" + salt;
+      var raw = machineId.replace(/^\s+|\s+$/g, '').toUpperCase() + "::" + salt;
       var h1 = 0xdeadbeef, h2 = 0x41c6ce57;
       for (var i = 0; i < raw.length; i++) {
         var ch = raw.charCodeAt(i);
@@ -307,39 +333,37 @@
     var btnCopyMaster = document.getElementById("btn-copy-master");
     var toast = document.getElementById("toast");
 
-    function showToast(text) {
-      toast.textContent = text;
+    function showToast(msg) {
+      toast.textContent = msg || "Copied to clipboard!";
       toast.classList.add("show");
       setTimeout(function() { toast.classList.remove("show"); }, 2000);
     }
 
     btnGen.addEventListener("click", function() {
-      var mid = inputMid.value.trim().toUpperCase();
+      var mid = inputMid.value.trim();
       if (!mid) {
-        alert("Please enter user's Machine ID first!");
+        alert("Please enter a Machine ID first.");
         inputMid.focus();
         return;
       }
-      var key = flex_generateKey(mid);
-      keyDisplay.textContent = key;
+      var genKey = flex_generateKey(mid);
+      keyDisplay.textContent = genKey;
       resultBox.classList.add("show");
     });
 
     btnCopy.addEventListener("click", function() {
-      var key = keyDisplay.textContent;
-      navigator.clipboard.writeText(key).then(function() {
-        showToast("✓ License Key copied to clipboard!");
-      });
+      var k = keyDisplay.textContent;
+      if (k && k.indexOf("KEY-") === 0) {
+        navigator.clipboard.writeText(k).then(function() {
+          showToast("Generated key copied!");
+        });
+      }
     });
 
     btnCopyMaster.addEventListener("click", function() {
       navigator.clipboard.writeText("MOTIONKIT-MASTER-LIFETIME-ACCESS").then(function() {
-        showToast("✓ Master Key copied to clipboard!");
+        showToast("Universal Master key copied!");
       });
-    });
-
-    inputMid.addEventListener("keypress", function(e) {
-      if (e.key === "Enter") btnGen.click();
     });
   </script>
 </body>

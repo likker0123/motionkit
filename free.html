@@ -255,6 +255,14 @@
   <!-- 3D Floating Interactive Jump Tiles Deck (CaptureFlex Layout) -->
   <div class="tiles-deck-wrapper">
     <div class="tiles-grid">
+      <a href="#plugin-pr-ultimate" class="tile-card" style="border-color: rgba(212, 175, 55, 0.35); background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(245, 158, 11, 0.03));">
+        <div class="tile-icon-box" style="border-color: rgba(212, 175, 55, 0.4); color: var(--primary-glow);">🎬</div>
+        <div class="tile-info">
+          <div class="tile-name" style="color: var(--primary-glow);">MotionKit Ultimate (PR)</div>
+          <div class="tile-meta"><span class="tile-cat-badge">FLAGSHIP</span> <span>v2.2.0 · Premiere Pro</span></div>
+        </div>
+      </a>
+
       <a href="#plugin-1" class="tile-card">
         <div class="tile-icon-box">💎</div>
         <div class="tile-info">
@@ -331,7 +339,8 @@
 
   <!-- Sticky Filter Bar -->
   <div class="filter-sticky-bar">
-    <button class="filter-btn active" onclick="filterPlugins('all')">All (9)</button>
+    <button class="filter-btn active" onclick="filterPlugins('all')">All (10)</button>
+    <button class="filter-btn" onclick="filterPlugins('suite')">Premiere Pro (1)</button>
     <button class="filter-btn" onclick="filterPlugins('effects')">Effects (5)</button>
     <button class="filter-btn" onclick="filterPlugins('workflow')">Workflow (3)</button>
     <button class="filter-btn" onclick="filterPlugins('apps')">Apps (1)</button>
@@ -340,6 +349,96 @@
   <!-- Products Showcase -->
   <main class="container">
     <div class="products-list" id="productsList">
+
+      <!-- 00: MotionKit Ultimate for PR (Premiere Pro) -->
+      <article class="prod-card" data-cat="suite" id="plugin-pr-ultimate" style="border-color: rgba(212,175,55,0.38); box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 24px rgba(212,175,55,0.18); background: #14120D;">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span style="color:var(--primary-glow);">🎬 PREMIERE PRO FLAGSHIP EXTENSION</span>
+              <span class="host-pill" style="border-color:rgba(212,175,55,0.35); color:var(--primary-glow);">PPRO CC 2020 - CC 2026+</span>
+            </span>
+            <h2 class="prod-name">MotionKit Ultimate for PR <span class="prod-ver">v2.2.0</span></h2>
+            <p class="prod-tagline">“The ultimate Premiere Pro workflow engine: Silence Cut, Subtitles, 3D & Graph Editor.”</p>
+          </div>
+          <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);">$3.00 / ₹249 · LIFETIME</span>
+        </header>
+
+        <p class="prod-pitch">The complete Premiere Pro dockable extension rebuilt for offline and master licensing. Includes Silence Remover (Auto Cut), 99-Language Whisper AutoCaptions & Subtitle Editor, Camera 3D Rig, Handheld Shake Presets, Speed Ramp Graph Editor with Adaptive Greedy-Fit polyline baking, and project sequence nesting tools.</p>
+
+        <!-- Visual Screenshots Deck -->
+        <div class="demo-stage" style="background:#0A0805; border-color:rgba(212,175,55,0.22); padding:18px;">
+          <div class="demo-title">
+            <span>PANEL SHOWCASE · Dockable Premiere Pro CEP Suite</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Engine: Offline CEP + ExtendScript</span>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:10px;">
+            <div style="background:#14120D; border:1px solid rgba(212,175,55,0.18); border-radius:10px; overflow:hidden;">
+              <img src="/flex-ultimate-assets/ult-silence.webp" alt="Silence Remover in MotionKit Ultimate" style="width:100%; height:130px; object-fit:cover; display:block;" onerror="this.style.display='none'">
+              <div style="padding:8px 10px; font-size:11px; font-weight:700; color:var(--primary-glow); text-align:center;">✂️ Silence Remover (Auto Cut)</div>
+            </div>
+            <div style="background:#14120D; border:1px solid rgba(212,175,55,0.18); border-radius:10px; overflow:hidden;">
+              <img src="/flex-ultimate-assets/ult-autocaptions.webp" alt="Whisper Captions in MotionKit Ultimate" style="width:100%; height:130px; object-fit:cover; display:block;" onerror="this.style.display='none'">
+              <div style="padding:8px 10px; font-size:11px; font-weight:700; color:var(--primary-glow); text-align:center;">📝 99-Language Whisper Captions</div>
+            </div>
+            <div style="background:#14120D; border:1px solid rgba(212,175,55,0.18); border-radius:10px; overflow:hidden;">
+              <img src="/flex-ultimate-assets/ult-flow.webp" alt="Bézier Graph Editor in MotionKit Ultimate" style="width:100%; height:130px; object-fit:cover; display:block;" onerror="this.style.display='none'">
+              <div style="padding:8px 10px; font-size:11px; font-weight:700; color:var(--primary-glow); text-align:center;">⚡ Bézier Graph Editor 2.0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Waveform Silence Cut:</b> Real-time audio threshold analysis detects pauses and dead air, automatically ripple deleting silent gaps across dialogue tracks.</li>
+            <li><b>99-Language AutoCaptions:</b> Local Whisper speech recognition produces word-level karaoke animated subtitles with customizable typography and line wrapping.</li>
+            <li><b>Adaptive Graph Editor 2.0:</b> Greedy-Fit polyline baking unlocks smooth Bézier curves and easing in Premiere Pro timelines without touching After Effects.</li>
+            <li><b>3D Camera & Shakes:</b> Handheld shakes, whip-zooms, camera movements, and multi-angle rigs baked directly into clip properties.</li>
+            <li><b>Nest Saver & Track Organization:</b> 1-click batch sequence nesting, color tag sorting, adjustment layer presets, and LUT management.</li>
+            <li><b>Retake Detection & Notes:</b> Flags repeated script takes in A-roll footage, marks cutting points, and attaches timestamped panel notes.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);">$3.00 / ₹249</span>
+              <span class="dl-plat">Windows 10/11 · Premiere Pro CC 2020-2026+</span>
+            </div>
+            <!-- Buy License Link -->
+            <a href="/#ultimate-pr" class="btn-dl" style="margin-bottom:6px;">
+              <span>⚡ Buy Lifetime License</span>
+              <span class="btn-dl-sub">$3.00 / ₹249</span>
+            </a>
+            <!-- Direct Package Download -->
+            <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" class="btn-dl-secondary" download style="display:flex; justify-content:space-between; align-items:center;">
+              <span>📦 Download Package (.ZIP)</span>
+              <span style="font-family:var(--font-mono); font-size:11px; opacity:0.8;">24.3 MB</span>
+            </a>
+            <div style="background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:8px; padding:10px; font-size:11px; color:var(--primary-glow); line-height:1.5;">
+              🔑 <strong>Master Key:</strong> <code style="user-select:all; color:#FFF; background:#0B0A07; padding:2px 5px; border-radius:4px; font-size:10px; font-family:var(--font-mono); display:inline-block; margin-top:3px;">MOTIONKIT-MASTER-LIFETIME-ACCESS</code>
+              <div style="margin-top:6px;">
+                <a href="/downloads/MotionKit-License-Keygen.html" target="_blank" style="color:var(--primary); font-size:11px; text-decoration:underline;">Open MotionKit Keygen Generator ➔</a>
+              </div>
+            </div>
+            <details class="install-accordion">
+              <summary>1-Click Batch Installation Guide</summary>
+              <ol>
+                <li>Quit Premiere Pro completely before installing.</li>
+                <li>Extract <code>MotionKit-Ultimate-PR-Installer.zip</code> to any folder.</li>
+                <li>Right-click <code>Install.bat</code> and select <b>Run as administrator</b>.</li>
+                <li>Launch Premiere Pro: <b>Window › Extensions › MotionKit Ultimate</b>.</li>
+                <li>Enter the master key or activate offline instantly.</li>
+              </ol>
+              <div class="paths-box">
+                <div class="path-row">
+                  <span>CEP Extension Path</span>
+                  <button class="copy-path-btn" onclick="copyPath('C:\\Program Files (x86)\\Common Files\\Adobe\\CEP\\extensions\\')">Copy Path</button>
+                </div>
+              </div>
+            </details>
+          </aside>
+        </div>
+      </article>
+
 
       <!-- 01: MotionKit Liquid Glass -->
       <article class="prod-card" data-cat="effects" id="plugin-1">
