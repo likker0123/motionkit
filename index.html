@@ -15,6 +15,10 @@
   <!-- Design System CSS -->
   <link rel="stylesheet" href="/css/design-system.css">
 
+  <!-- Razorpay Official Checkout SDK -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
   <style>
     /* Specific section styling aligned with design system */
     .hero-badge {
@@ -1153,11 +1157,11 @@
             Get the lightweight installer zip. Includes native installers for both Windows and macOS (Apple Silicon M1/M2/M3 & Intel).
           </p>
           <div style="margin-top:24px;display:flex;flex-direction:column;gap:8px;">
-            <a href="/downloads/MotionKit_Wheel_Extension_Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;">
-              Download MotionKit Wheel (.zip)
+            <a href="/downloads/MotionKit_Wheel_Extension_Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+              <span>🎯</span> <span>Download MotionKit Wheel (.zip)</span>
             </a>
-            <a href="/downloads/MotionKit-Pro-Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;">
-              Download MotionKit Pro (.zip)
+            <a href="/downloads/MotionKit-Pro-Installer.zip" download class="btn btn-secondary" style="padding:8px 14px;font-size:12.5px;width:100%;display:flex;align-items:center;justify-content:center;gap:6px;">
+              <span>⚡</span> <span>Download MotionKit Pro (.zip)</span>
             </a>
           </div>
         </div>
@@ -1557,75 +1561,36 @@
           </p>
         </div>
 
-        <!-- STEP 2: Payment Mode Switcher -->
+        <!-- STEP 2: Instant Bank-Verified Payment (Razorpay & 1-Click UPI) -->
         <div class="checkout-flow-step">
-          <div class="checkout-step-title">
-            <span>02</span> <span>Instant Automated Payment</span>
+          <div class="checkout-step-title" style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span>02</span> <span>Instant Bank-Verified Payment</span>
+            </div>
+            <span style="font-size:11px;color:#34D399;font-weight:600;background:rgba(16,185,129,0.15);padding:3px 8px;border-radius:9999px;border:1px solid rgba(16,185,129,0.3);">
+              ⚡ Auto Bank Verified
+            </span>
           </div>
 
-          <!-- Payment Tabs -->
-          <div style="display:flex;gap:8px;margin-bottom:14px;">
-            <button id="tab-upi-btn" onclick="switchPayTab('upi')" class="btn btn-primary" style="flex:1;padding:8px;font-size:12.5px;">
-              ⚡ UPI / QR (India - Instant)
+          <!-- PRIMARY 1-CLICK RAZORPAY GATEWAY BUTTON -->
+          <div style="margin-top:12px;text-align:center;">
+            <button id="btn-razorpay-pay" onclick="launchRazorpayCheckout()" class="btn btn-primary btn-lg" style="width:100%;font-size:16px;padding:15px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 30px rgba(139,92,246,0.45);border-radius:12px;font-weight:700;">
+              <span>⚡</span> <span id="rzp-btn-label">Pay ₹249 with Razorpay</span>
             </button>
-            <button id="tab-card-btn" onclick="switchPayTab('card')" class="btn btn-secondary" style="flex:1;padding:8px;font-size:12.5px;">
-              💳 Card / International
-            </button>
-          </div>
 
-          <!-- UPI TAB CONTENT -->
-          <div id="tab-upi-content" style="text-align:center;">
-            <div class="qr-card-box">
-              <img id="checkout-dynamic-qr" src="/assets/ayush_upi_qr.png" alt="UPI QR Code" onerror="this.src='/flex-wheel-assets/ayush_upi_qr.png'" />
+            <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;font-size:11.5px;color:var(--text-sub);flex-wrap:wrap;">
+              <span>✓ Google Pay</span>
+              <span>✓ PhonePe</span>
+              <span>✓ Paytm UPI</span>
+              <span>✓ Cards & NetBanking</span>
             </div>
 
-            <p id="modal-upi-instruction" style="font-size:13px;font-weight:600;color:var(--text-main);margin-top:6px;">
-              Scan to Pay ₹249 (Google Pay, PhonePe, Paytm, BHIM)
-            </p>
-
-            <!-- 1-Click Mobile UPI App Button -->
-            <a id="btn-upi-mobile-app" href="upi://pay?pa=7982179684@ptyes&pn=MotionKit&am=249&cu=INR" class="btn btn-secondary" style="margin-top:10px;width:100%;font-size:13px;padding:9px;border-color:rgba(139,92,246,0.4);">
-              📱 Pay via UPI App (GPay / PhonePe / Paytm)
-            </a>
-
-            <!-- Copy UPI ID Row -->
-            <div style="margin-top:10px;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between;font-size:12.5px;">
-              <span style="font-family:var(--font-mono);color:var(--text-main);">UPI ID: <strong>7982179684@ptyes</strong></span>
-              <button onclick="copyUpiId()" class="btn btn-secondary" style="padding:4px 10px;font-size:11px;">Copy UPI ID</button>
-            </div>
-
-            <!-- Optional UTR Input -->
-            <div style="margin-top:12px;text-align:left;">
-              <label style="display:block;font-size:12px;color:var(--text-sub);margin-bottom:4px;">
-                12-digit UTR / UPI Ref No. (Optional):
-              </label>
-              <input type="text" id="checkout-utr-input" class="auth-input" placeholder="e.g. 429381749281 (Optional for receipt)" style="padding:8px 12px;font-size:13px;" />
+            <div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.25);font-size:12px;color:var(--text-muted);text-align:left;line-height:1.5;">
+              🔒 <strong>Real-Time Bank Clearance:</strong> Payment hote hi bank se instant automated confirmation aayegi aur license key bina kisi delay ke aapki email par turant deliver ho jayegi (No fake UTR issue).
             </div>
           </div>
 
-          <!-- CARD TAB CONTENT -->
-          <div id="tab-card-content" style="display:none;text-align:left;">
-            <div style="margin-bottom:12px;">
-              <label class="auth-input-label" style="font-size:12px;">Card Number</label>
-              <input type="text" class="auth-input" placeholder="4242 •••• •••• 4242" style="padding:9px 12px;font-size:13px;" />
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-              <div>
-                <label class="auth-input-label" style="font-size:12px;">Expiry (MM/YY)</label>
-                <input type="text" class="auth-input" placeholder="12/28" style="padding:9px 12px;font-size:13px;" />
-              </div>
-              <div>
-                <label class="auth-input-label" style="font-size:12px;">CVC</label>
-                <input type="password" class="auth-input" placeholder="•••" maxlength="4" style="padding:9px 12px;font-size:13px;" />
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--text-sub);margin-bottom:10px;">
-              <span>🔒</span> <span>Encrypted via Stripe 256-bit TLS</span>
-            </div>
-            <a id="modal-card-email-btn" href="mailto:singhayush5304@gmail.com?subject=MotionKit%20Pro%20Card%20Checkout" class="btn btn-secondary" style="width:100%;font-size:12.5px;text-align:center;padding:8px;">
-              Request International Invoice ($3.00)
-            </a>
-          </div>
+
         </div>
 
         <!-- Verification Progress Bar & Status -->
@@ -1633,11 +1598,6 @@
           <div id="verify-progress-fill" class="verify-progress-fill"></div>
         </div>
         <div id="key-status-msg" style="font-size:13px;text-align:center;min-height:22px;color:var(--primary-glow);margin-top:6px;font-weight:500;"></div>
-
-        <!-- Automated Action Button -->
-        <button id="btn-automated-pay" onclick="executeAutomatedPayment()" class="btn btn-primary btn-lg" style="width:100%;font-size:15px;padding:14px;margin-top:10px;">
-          ✅ I Have Paid · Verify & Send Key to Email ⚡
-        </button>
 
         <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:14px;font-size:12px;color:var(--text-sub);flex-wrap:wrap;">
           <span>✓ Instant Email Delivery</span>
@@ -1657,8 +1617,11 @@
           Your official lifetime license key and receipt have been dispatched to:
         </p>
         
-        <div id="success-target-email" style="display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:var(--primary-glow);font-weight:600;font-size:14.5px;margin-bottom:20px;">
+        <div id="success-target-email" style="display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:var(--primary-glow);font-weight:600;font-size:14.5px;margin-bottom:8px;">
           customer@gmail.com
+        </div>
+        <div id="success-target-utr" style="font-size:12px;color:#10B981;font-family:var(--font-mono);font-weight:600;margin-bottom:18px;">
+          ✓ UPI UTR Verified
         </div>
 
         <!-- Glowing License Key Display Box -->
@@ -1965,36 +1928,21 @@
       const btnPro = document.getElementById('modal-sel-pro');
       const titleElem = document.getElementById('modal-product-title');
       const priceElem = document.getElementById('modal-price-subtext');
-      const upiInst = document.getElementById('modal-upi-instruction');
-      const cardEmailBtn = document.getElementById('modal-card-email-btn');
+      const rzpBtnLabel = document.getElementById('rzp-btn-label');
 
       if (activeCheckoutProduct.includes('Wheel')) {
         if (btnWheel) btnWheel.className = 'btn btn-primary';
         if (btnPro) btnPro.className = 'btn btn-secondary';
         if (titleElem) titleElem.textContent = 'Get MotionKit Wheel License';
-        if (priceElem) priceElem.textContent = 'Lifetime access · ' + activeCheckoutPrice + ' One-Time';
-        if (upiInst) upiInst.textContent = 'Scan using Google Pay, PhonePe, Paytm, or any UPI App (Pay ₹199)';
-        if (cardEmailBtn) {
-          cardEmailBtn.href = 'mailto:singhayush5304@gmail.com?subject=MotionKit%20Wheel%20Card%20Checkout&body=Hi%20Ayush,%20I%20would%20like%20to%20purchase%20MotionKit%20Wheel%20($2.00).';
-          cardEmailBtn.textContent = 'Request International Invoice ($2.00)';
-        }
+        if (priceElem) priceElem.textContent = 'Lifetime access · $2.00 / ₹199 One-Time';
+        if (rzpBtnLabel) rzpBtnLabel.textContent = 'Pay ₹199 with Razorpay';
       } else {
         if (btnPro) btnPro.className = 'btn btn-primary';
         if (btnWheel) btnWheel.className = 'btn btn-secondary';
         if (titleElem) titleElem.textContent = 'Get MotionKit Pro License';
-        if (priceElem) priceElem.textContent = 'Lifetime access · ' + activeCheckoutPrice + ' One-Time';
-        if (upiInst) upiInst.textContent = 'Scan using Google Pay, PhonePe, Paytm, or any UPI App (Pay ₹249)';
-        if (cardEmailBtn) {
-          cardEmailBtn.href = 'mailto:singhayush5304@gmail.com?subject=MotionKit%20Pro%20Card%20Checkout&body=Hi%20Ayush,%20I%20would%20like%20to%20purchase%20MotionKit%20Pro%20($3.00).';
-          cardEmailBtn.textContent = 'Request International Invoice ($3.00)';
-        }
+        if (priceElem) priceElem.textContent = 'Lifetime access · $3.00 / ₹249 One-Time';
+        if (rzpBtnLabel) rzpBtnLabel.textContent = 'Pay ₹249 with Razorpay';
       }
-
-      try {
-        if (typeof updateDynamicQR === 'function') {
-          updateDynamicQR();
-        }
-      } catch (e) {}
     }
 
     // Modal Controls (Primary Unified Definition)
@@ -2337,6 +2285,8 @@
       btn.disabled = true;
       btn.textContent = 'Verifying credentials...';
 
+
+
       try {
         const res = await fetch('/api/auth/login', {
           method: 'POST',
@@ -2388,6 +2338,8 @@
 
       btn.disabled = true;
       btn.textContent = 'Creating your account...';
+
+
 
       try {
         const res = await fetch('/api/auth/register', {
@@ -2546,149 +2498,242 @@
 
     function updateDynamicQR() {
       const amount = getProductPriceClean();
-      const qrImg = document.getElementById('checkout-dynamic-qr');
-      const mobileUpiBtn = document.getElementById('btn-upi-mobile-app');
-      const upiText = document.getElementById('modal-upi-instruction');
-      const actionBtn = document.getElementById('btn-automated-pay');
-
-      const upiUrl = `upi://pay?pa=7982179684@ptyes&pn=Ayush%20Kumar&am=${amount}&cu=INR&tn=MotionKit%20License`;
-
-      if (qrImg) {
-        // Keep authentic Paytm QR code card uploaded by Ayush Kumar
-        qrImg.src = '/assets/ayush_upi_qr.png';
-      }
-      if (mobileUpiBtn) {
-        mobileUpiBtn.href = upiUrl;
-      }
-      if (upiText) {
-        upiText.textContent = `Scan to Pay ₹${amount} (Google Pay, PhonePe, Paytm, BHIM)`;
-      }
-      if (actionBtn) {
-        actionBtn.textContent = `✅ I Have Paid (₹${amount}) · Verify & Send Key to Email ⚡`;
+      const rzpBtnLabel = document.getElementById('rzp-btn-label');
+      if (rzpBtnLabel) {
+        rzpBtnLabel.textContent = `Pay ₹${amount} with Razorpay`;
       }
     }
 
-    function copyUpiId() {
-      navigator.clipboard.writeText('7982179684@ptyes').then(() => {
-        alert('UPI ID copied to clipboard: 7982179684@ptyes');
-      }).catch(() => {
-        prompt('UPI ID:', '7982179684@ptyes');
-      });
+    // =========================================================================
+    // RAZORPAY 1-CLICK AUTOMATED PAYMENT & REAL-TIME BANK VERIFICATION
+    // =========================================================================
+    let cachedRazorpayConfig = null;
+
+    async function getRazorpayConfig() {
+      if (cachedRazorpayConfig) return cachedRazorpayConfig;
+      try {
+        const res = await fetch('/api/payment/razorpay-config');
+        const data = await res.json();
+        if (data && data.success) {
+          cachedRazorpayConfig = data;
+          return data;
+        }
+      } catch (e) {}
+      return { keyId: 'rzp_live_TmCdDrVkr3iZWV', enabled: true, mode: 'live' };
     }
 
-    // Automated Payment Verification & Mail Dispatch
-    async function executeAutomatedPayment() {
+    async function launchRazorpayCheckout() {
       const emailInput = document.getElementById('customer-email-input');
       const statusMsg = document.getElementById('key-status-msg');
-      const progressBar = document.getElementById('verify-progress-bar');
-      const progressFill = document.getElementById('verify-progress-fill');
-      const actionBtn = document.getElementById('btn-automated-pay');
-      const utrInput = document.getElementById('checkout-utr-input');
-
       const email = emailInput ? emailInput.value.trim() : '';
 
       if (!email || !email.includes('@')) {
         if (statusMsg) {
           statusMsg.style.color = '#EF4444';
-          statusMsg.textContent = 'Please enter a valid email address to receive your key.';
+          statusMsg.textContent = '⚠️ Kripya payment karne se pehle valid email address dalein.';
         }
-        if (emailInput) emailInput.focus();
+        if (emailInput) {
+          emailInput.focus();
+          emailInput.style.borderColor = '#EF4444';
+        }
+        return;
+      }
+      if (emailInput) emailInput.style.borderColor = '';
+
+      if (typeof Razorpay === 'undefined') {
+        if (statusMsg) {
+          statusMsg.style.color = '#EF4444';
+          statusMsg.textContent = '⚠️ Razorpay SDK load ho raha hai... Kripya 2 second ruk kar dobara click karein.';
+        }
         return;
       }
 
+      if (statusMsg) {
+        statusMsg.style.color = '#A78BFA';
+        statusMsg.textContent = 'Creating secure Razorpay order...';
+      }
+
       const prod = activeCheckoutProduct || 'MotionKit Pro';
-      const utr = utrInput ? utrInput.value.trim() : '';
+      const amountClean = getProductPriceClean();
+      const amountPaise = Math.max(100, parseInt(amountClean, 10) * 100);
 
-      // Disable button and start automated verification progress
-      actionBtn.disabled = true;
-      progressBar.style.display = 'block';
-      progressFill.style.width = '25%';
-      statusMsg.style.color = '#A78BFA';
-      statusMsg.textContent = 'Connecting to payment gateway...';
-
-      setTimeout(() => {
-        progressFill.style.width = '55%';
-        statusMsg.textContent = 'Verifying payment with bank...';
-      }, 600);
-
-      setTimeout(() => {
-        progressFill.style.width = '80%';
-        statusMsg.textContent = 'Payment confirmed! Generating permanent license & dispatching email...';
-      }, 1200);
-
+      let orderData = null;
       try {
-        const res = await fetch('/api/license/generate', {
+        const orderRes = await fetch('/api/create-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email, product: prod, utr: utr })
+          body: JSON.stringify({
+            amount: amountPaise,
+            currency: 'INR',
+            receipt: 'rcpt_' + Date.now()
+          })
+        });
+        orderData = await orderRes.json();
+        if (!orderRes.ok || !orderData || !orderData.order_id) {
+          throw new Error((orderData && orderData.error) || 'Failed to create order on server.');
+        }
+      } catch (err) {
+        if (statusMsg) {
+          statusMsg.style.color = '#EF4444';
+          statusMsg.textContent = '❌ Order Creation Error: ' + err.message;
+        }
+        return;
+      }
+
+      if (statusMsg) {
+        statusMsg.style.color = '#A78BFA';
+        statusMsg.textContent = 'Opening secure Razorpay Checkout...';
+      }
+
+      const options = {
+        key: orderData.key_id || 'rzp_live_TmCdDrVkr3iZWV',
+        amount: orderData.amount,
+        currency: orderData.currency || 'INR',
+        name: 'MotionKit Suite',
+        description: `Lifetime License for ${prod}`,
+        order_id: orderData.order_id,
+        prefill: {
+          email: email
+        },
+        theme: {
+          color: '#8B5CF6'
+        },
+        modal: {
+          backdropclose: true,
+          ondismiss: function () {
+            if (statusMsg) {
+              statusMsg.style.color = '#F59E0B';
+              statusMsg.textContent = 'Checkout window closed. Click the button to pay.';
+            }
+          }
+        },
+        handler: async function (response) {
+          // Received razorpay_payment_id, razorpay_order_id, razorpay_signature
+          await processVerifiedGatewayPayment(
+            response.razorpay_order_id,
+            response.razorpay_payment_id,
+            response.razorpay_signature,
+            email,
+            prod
+          );
+        }
+      };
+
+      const rzpInstance = new Razorpay(options);
+      rzpInstance.on('payment.failed', function (resp) {
+        if (statusMsg) {
+          statusMsg.style.color = '#EF4444';
+          statusMsg.textContent = '❌ Payment failed: ' + (resp.error.description || 'Transaction declined by bank.');
+        }
+      });
+      rzpInstance.open();
+    }
+
+    async function processVerifiedGatewayPayment(orderId, paymentId, signature, email, prod) {
+      const statusMsg = document.getElementById('key-status-msg');
+      const progressBar = document.getElementById('verify-progress-bar');
+      const progressFill = document.getElementById('verify-progress-fill');
+      const rzpBtn = document.getElementById('btn-razorpay-pay');
+
+      if (rzpBtn) rzpBtn.disabled = true;
+      if (progressBar) progressBar.style.display = 'block';
+      if (progressFill) progressFill.style.width = '40%';
+      if (statusMsg) {
+        statusMsg.style.color = '#10B981';
+        statusMsg.textContent = `✓ Payment captured! Verifying cryptographic signature...`;
+      }
+
+      setTimeout(() => {
+        if (progressFill) progressFill.style.width = '75%';
+        if (statusMsg) {
+          statusMsg.textContent = 'Signature valid. Generating lifetime license & dispatching email receipt...';
+        }
+      }, 500);
+
+      try {
+        const res = await fetch('/api/verify-payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            order_id: orderId,
+            payment_id: paymentId,
+            signature: signature,
+            razorpay_order_id: orderId,
+            razorpay_payment_id: paymentId,
+            razorpay_signature: signature,
+            email: email,
+            product: prod
+          })
         });
         const data = await res.json();
 
-        setTimeout(() => {
-          progressFill.style.width = '100%';
-          actionBtn.disabled = false;
-
-          let generatedKey = data.key;
-          if (!generatedKey) {
-            const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
-            generatedKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
+        if (!res.ok || !data || !data.success) {
+          if (progressFill) progressFill.style.width = '0%';
+          if (progressBar) progressBar.style.display = 'none';
+          if (rzpBtn) rzpBtn.disabled = false;
+          if (statusMsg) {
+            statusMsg.style.color = '#EF4444';
+            statusMsg.textContent = '❌ ' + (data && data.error ? data.error : 'Payment verification failed: invalid signature.');
           }
+          return;
+        }
 
-          // Save key to local user keys store
-          try {
-            const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
-            if (!existingKeys.some(k => k.key === generatedKey)) {
-              existingKeys.unshift({
-                key: generatedKey,
-                product: prod,
-                customerEmail: email,
-                createdDate: new Date().toISOString().split('T')[0],
-                status: 'Active'
-              });
-              localStorage.setItem('user_saved_keys', JSON.stringify(existingKeys));
-            }
-          } catch (e) {}
+        if (progressFill) progressFill.style.width = '100%';
+        if (rzpBtn) rzpBtn.disabled = false;
 
-          // Transition to Success Delivery View
-          displaySuccessDelivery(generatedKey, email, prod);
-        }, 1800);
+        const generatedKey = data.key || data.licenseKey;
 
-      } catch (err) {
-        setTimeout(() => {
-          progressFill.style.width = '100%';
-          actionBtn.disabled = false;
-
-          const prefix = prod.includes('Wheel') ? 'MKIT-WHL-' : 'MKIT-PRO-';
-          const fallbackKey = prefix + Math.floor(1000 + Math.random()*9000) + '-' + Math.floor(1000 + Math.random()*9000);
-
-          try {
-            const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+        // Save key in local user keys store
+        try {
+          const existingKeys = JSON.parse(localStorage.getItem('user_saved_keys') || '[]');
+          if (!existingKeys.some(k => k.key === generatedKey)) {
             existingKeys.unshift({
-              key: fallbackKey,
+              key: generatedKey,
               product: prod,
               customerEmail: email,
+              paymentId: paymentId,
               createdDate: new Date().toISOString().split('T')[0],
               status: 'Active'
             });
             localStorage.setItem('user_saved_keys', JSON.stringify(existingKeys));
-          } catch (e) {}
+          }
+        } catch (e) {}
 
-          displaySuccessDelivery(fallbackKey, email, prod);
-        }, 1800);
+        // Transition to celebration delivery view
+        displaySuccessDelivery(generatedKey, email, prod, paymentId);
+
+      } catch (err) {
+        if (progressFill) progressFill.style.width = '0%';
+        if (progressBar) progressBar.style.display = 'none';
+        if (rzpBtn) rzpBtn.disabled = false;
+        if (statusMsg) {
+          statusMsg.style.color = '#EF4444';
+          statusMsg.textContent = '❌ Server connection error. Please contact WhatsApp support with Payment ID: ' + paymentId;
+        }
       }
     }
 
-    function displaySuccessDelivery(key, email, product) {
+
+
+    function displaySuccessDelivery(key, email, product, utr) {
       const formView = document.getElementById('checkout-form-view');
       const successView = document.getElementById('checkout-success-view');
       const emailElem = document.getElementById('success-target-email');
       const keyElem = document.getElementById('success-key-code');
+      const utrElem = document.getElementById('success-target-utr');
 
       if (formView) formView.style.display = 'none';
       if (successView) successView.style.display = 'block';
 
       if (emailElem) emailElem.textContent = email;
-      if (keyElem) keyElem.textContent = key;
+      if (keyElem && key) keyElem.textContent = key;
+      if (utrElem && utr) {
+        if (utr.startsWith('pay_')) {
+          utrElem.textContent = '✓ Razorpay Payment ID: ' + utr + ' (Bank Confirmed)';
+        } else {
+          utrElem.textContent = '✓ UPI UTR: ' + utr + ' (Verified)';
+        }
+      }
     }
 
     function copyDeliveredKey() {

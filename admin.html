@@ -482,6 +482,47 @@
                 </div>
               </div>
 
+              <!-- RAZORPAY AUTOMATED PAYMENT GATEWAY CONFIG -->
+              <div class="p-5 bg-purple-950/20 border border-purple-500/30 rounded-xl space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <span class="text-base">⚡</span>
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">Razorpay Automated Payment Gateway</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-green-500/10 text-green-400 border border-green-500/20">Zero Fake UTRs</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Razorpay Key ID</label>
+                    <input type="text" id="set-rzp-key" placeholder="e.g. rzp_test_... or rzp_live_..."
+                           class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500 font-mono" />
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Razorpay Key Secret</label>
+                    <input type="password" id="set-rzp-secret" placeholder="Enter Razorpay Key Secret"
+                           class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500 font-mono" />
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-1 flex-wrap gap-2">
+                  <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer">
+                    <input type="checkbox" id="set-rzp-enabled" class="rounded border-white/20 bg-black/60 text-purple-600 focus:ring-0" checked />
+                    <span>Enable Automated Gateway on Checkout</span>
+                  </label>
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs text-gray-400">Mode:</span>
+                    <select id="set-rzp-mode" class="px-3 py-1 bg-black/60 border border-white/10 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500 font-mono">
+                      <option value="test">Test Sandbox (rzp_test_...)</option>
+                      <option value="live">Live Production (rzp_live_...)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-[11px] text-gray-400">
+                  💡 Razorpay Dashboard (Settings &gt; API Keys) se Key ID aur Secret paste karein. Customer payment karte hi bank 1 second me auto-verify karega.
+                </div>
+              </div>
+
               <div>
                 <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Live Announcement Banner</label>
                 <textarea id="set-announcement" rows="3"
@@ -729,7 +770,10 @@
               <div class="font-bold text-white">${escapeHtml(o.customerName)}</div>
               <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(o.customerPhone || o.customerEmail)}</div>
             </td>
-            <td class="py-3 text-gray-300 font-mono text-[11px]">${escapeHtml(o.product)}</td>
+            <td class="py-3 text-gray-300 font-mono text-[11px]">
+              <div>${escapeHtml(o.product)}</div>
+              ${o.paymentId ? `<div class="text-[9px] text-green-400 font-mono font-bold">✓ ${escapeHtml(o.paymentId)}</div>` : (o.utr ? `<div class="text-[9px] text-amber-400 font-mono font-bold">UTR: ${escapeHtml(o.utr)}</div>` : '')}
+            </td>
             <td class="py-3 font-bold text-purple-400 font-mono">${escapeHtml(o.amount)}</td>
             <td class="py-3 font-mono text-gray-400 text-[10px]">${escapeHtml(o.licenseKey)}</td>
             <td class="py-3">
@@ -750,11 +794,14 @@
             <td class="p-4 font-mono font-bold text-gray-400">${escapeHtml(o.id)}</td>
             <td class="p-4">
               <div class="font-bold text-white text-xs">${escapeHtml(o.customerName)}</div>
-              <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(o.customerPhone)}</div>
+              <div class="text-[10px] text-gray-500 font-mono">${escapeHtml(o.customerPhone || o.customerEmail)}</div>
             </td>
             <td class="p-4 text-xs font-medium text-gray-300">${escapeHtml(o.product)}</td>
             <td class="p-4 font-bold text-purple-400 font-mono">${escapeHtml(o.amount)}</td>
-            <td class="p-4 text-gray-400 text-[11px]">${escapeHtml(o.paymentMethod)}</td>
+            <td class="p-4">
+              <div class="text-gray-300 text-xs font-semibold">${escapeHtml(o.paymentMethod || 'UPI')}</div>
+              ${o.paymentId ? `<div class="inline-flex items-center gap-1 mt-1 px-1.5 py-0.5 rounded bg-green-500/10 border border-green-500/30 text-green-400 font-mono font-bold text-[10px]">✓ Razorpay: ${escapeHtml(o.paymentId)}</div>` : (o.utr ? `<div class="inline-flex items-center gap-1 mt-1 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono font-bold text-[10px]">⚡ UTR: ${escapeHtml(o.utr)}</div>` : '')}
+            </td>
             <td class="p-4 font-mono text-cyan-300 text-xs">${escapeHtml(o.licenseKey)}</td>
             <td class="p-4">
               <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">${escapeHtml(o.status)}</span>
@@ -776,6 +823,11 @@
       document.getElementById('set-email').value = adminData.settings.email;
       if (document.getElementById('set-upi')) document.getElementById('set-upi').value = adminData.settings.upiId || '7982179684@ptyes';
       document.getElementById('set-announcement').value = adminData.settings.announcement;
+
+      if (document.getElementById('set-rzp-key')) document.getElementById('set-rzp-key').value = adminData.settings.razorpayKeyId || 'rzp_test_AyushMotionKit';
+      if (document.getElementById('set-rzp-secret')) document.getElementById('set-rzp-secret').value = adminData.settings.razorpayKeySecret || '';
+      if (document.getElementById('set-rzp-mode')) document.getElementById('set-rzp-mode').value = adminData.settings.razorpayMode || 'test';
+      if (document.getElementById('set-rzp-enabled')) document.getElementById('set-rzp-enabled').checked = adminData.settings.razorpayEnabled !== false;
     }
 
     function renderLicensesTable(list) {
@@ -934,8 +986,13 @@
       if (document.getElementById('set-upi')) adminData.settings.upiId = document.getElementById('set-upi').value.trim();
       adminData.settings.announcement = document.getElementById('set-announcement').value.trim();
 
+      if (document.getElementById('set-rzp-key')) adminData.settings.razorpayKeyId = document.getElementById('set-rzp-key').value.trim();
+      if (document.getElementById('set-rzp-secret')) adminData.settings.razorpayKeySecret = document.getElementById('set-rzp-secret').value.trim();
+      if (document.getElementById('set-rzp-mode')) adminData.settings.razorpayMode = document.getElementById('set-rzp-mode').value;
+      if (document.getElementById('set-rzp-enabled')) adminData.settings.razorpayEnabled = document.getElementById('set-rzp-enabled').checked;
+
       persistAdminData();
-      showToast("Website settings updated successfully!");
+      showToast("Website & Gateway settings updated successfully!");
     }
 
     // Export Data

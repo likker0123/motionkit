@@ -51,15 +51,10 @@ def generate_universal_key(product):
     r3 = "".join(random.choices(chars, k=4))
     return f"{prefix}-{r1}-{r2}-{r3}"
 
-def generate_license(email, product="MotionKit Pro", machine_id=None, customer_name=None):
+def generate_license(email, product="MotionKit Pro", machine_id=None, customer_name=None, utr=None, payment_id=None):
     email = (email or "").strip().lower()
-    if machine_id and machine_id.strip().startswith("FLEX-"):
-        lic_key = generate_key_for_machine(machine_id.strip())
-    else:
-        lic_key = generate_universal_key(product)
-
-    if not customer_name:
-        customer_name = email.split("@")[0].title() if "@" in email else "Customer"
+    utr_clean = (utr or "").strip().replace(" ", "").replace("-", "")
+    pid_clean = (payment_id or "").strip()
 
     # Load admin data and record license
     root_dir = "C:\\Users\\NEHA\\.gemini\\antigravity\\scratch\\flex-wheel"
@@ -75,6 +70,33 @@ def generate_license(email, product="MotionKit Pro", machine_id=None, customer_n
         except Exception:
             pass
 
+    # Check for duplicate Payment ID
+    if pid_clean:
+        for prev_ord in admin_data.get("orders", []):
+            if prev_ord.get("paymentId") and str(prev_ord.get("paymentId")).strip() == pid_clean:
+                return {
+                    "success": False,
+                    "error": f"Razorpay Payment ID #{pid_clean} pehle se used hai! Ek payment se ek hi license claim kiya ja sakta hai."
+                }
+
+    # Check for duplicate UTR to prevent multiple licenses generated from single payment
+    if utr_clean:
+        for prev_ord in admin_data.get("orders", []):
+            prev_utr = str(prev_ord.get("utr") or "").strip().replace(" ", "").replace("-", "")
+            if prev_utr and prev_utr.lower() == utr_clean.lower():
+                return {
+                    "success": False,
+                    "error": f"Ye UTR #{utr_clean} pehle se registered hai! Ek payment se ek hi license claim kiya ja sakta hai."
+                }
+
+    if machine_id and machine_id.strip().startswith("FLEX-"):
+        lic_key = generate_key_for_machine(machine_id.strip())
+    else:
+        lic_key = generate_universal_key(product)
+
+    if not customer_name:
+        customer_name = email.split("@")[0].title() if "@" in email else "Customer"
+
     lic_entry = {
         "id": f"lic_{int(time.time() * 1000)}",
         "key": lic_key,
@@ -82,6 +104,8 @@ def generate_license(email, product="MotionKit Pro", machine_id=None, customer_n
         "customerName": customer_name,
         "customerEmail": email,
         "machineId": machine_id or "Universal",
+        "utr": utr_clean or pid_clean or "",
+        "paymentId": pid_clean or "",
         "status": "Active",
         "createdDate": time.strftime("%Y-%m-%d")
     }
@@ -90,14 +114,23 @@ def generate_license(email, product="MotionKit Pro", machine_id=None, customer_n
         admin_data["licenses"] = []
     admin_data["licenses"].insert(0, lic_entry)
 
-    # Order entry
+    # Order entry with verified Payment ID / UTR
+    if pid_clean:
+        pay_method_label = f"Razorpay Gateway ({pid_clean})"
+    elif utr_clean:
+        pay_method_label = f"UPI (UTR: {utr_clean})"
+    else:
+        pay_method_label = "Online Instant"
+
     order_entry = {
         "id": f"ORD-{random.randint(1000, 9999)}",
         "customerName": customer_name,
         "customerEmail": email,
         "product": product,
         "amount": "₹199 / $2.00" if "wheel" in (product or "").lower() else "₹249 / $3.00",
-        "paymentMethod": "UPI / Online Instant",
+        "paymentMethod": pay_method_label,
+        "paymentId": pid_clean or "",
+        "utr": utr_clean or pid_clean or "",
         "status": "Completed",
         "licenseKey": lic_key,
         "date": time.strftime("%Y-%m-%d %H:%M")
@@ -243,12 +276,43 @@ def dispatch_email(to_email, customer_name, product, license_key, settings):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        # CLI invocation: python keygen_engine.py <email> [product] [machine_id] [name]
+        arg1 = sys.argv[1].strip()
+        data = None
+
+        # 1. Try base64 JSON (immune to Windows CLI quoting)
+        try:
+            import base64
+            decoded = base64.b64decode(arg1).decode("utf-8")
+            if decoded.strip().startswith("{"):
+                data = json.loads(decoded)
+        except Exception:
+            pass
+
+        # 2. Try raw JSON
+        if not data and arg1.startswith("{"):
+            try:
+                data = json.loads(arg1)
+            except Exception:
+                pass
+
+        if data:
+            email_arg = data.get("email", "")
+            prod_arg = data.get("product", "MotionKit Pro")
+            mid_arg = data.get("machineId") or None
+            name_arg = data.get("name") or None
+            utr_arg = data.get("utr") or None
+            payment_id_arg = data.get("paymentId") or data.get("razorpay_payment_id") or data.get("payment_id") or None
+            res = generate_license(email_arg, prod_arg, mid_arg, name_arg, utr_arg, payment_id_arg)
+            print(json.dumps(res))
+            sys.exit(0)
+
+        # 3. Positional fallback: python keygen_engine.py <email> [product] [machine_id] [name] [utr]
         email_arg = sys.argv[1]
         prod_arg = sys.argv[2] if len(sys.argv) > 2 else "MotionKit Pro"
-        mid_arg = sys.argv[3] if len(sys.argv) > 3 else None
-        name_arg = sys.argv[4] if len(sys.argv) > 4 else None
-        res = generate_license(email_arg, prod_arg, mid_arg, name_arg)
+        mid_arg = sys.argv[3] if len(sys.argv) > 3 and sys.argv[3] != "NONE" else None
+        name_arg = sys.argv[4] if len(sys.argv) > 4 and sys.argv[4] != "NONE" else None
+        utr_arg = sys.argv[5] if len(sys.argv) > 5 and sys.argv[5] != "NONE" else None
+        res = generate_license(email_arg, prod_arg, mid_arg, name_arg, utr_arg)
         print(json.dumps(res))
     else:
         # Self-test
