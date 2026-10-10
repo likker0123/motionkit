@@ -1,0 +1,10 @@
+{
+  "name": "motionkit-website",
+  "version": "1.0.0",
+  "description": "MotionKit Pro & Wheel Platform",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo Build ready"
+  },
+  "dependencies": {}
+}
