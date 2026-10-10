@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flex GUI Pro v9.2.0 Master - Live Interactive Preview</title>
+  <title>MotionKit Pro v9.2.0 Master - Live Interactive Preview</title>
   <link rel="stylesheet" href="/flex-gui-pro/css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <div id="license-modal-overlay" class="license-modal-overlay">
       <div class="license-card">
         <div class="license-icon-wrap">🔒</div>
-        <div class="license-title">Flex GUI Pro Activation</div>
+        <div class="license-title">MotionKit Pro Activation</div>
         <div class="license-desc">
           Is extension ko use karne ke liye License Key ki jarurat hai. Apna Machine ID copy karke Admin ko bhejein aur License Key prapt karein.
         </div>
@@ -36,7 +36,7 @@
     <header class="header-bar">
       <div class="logo-group">
         <div class="logo-dot"></div>
-        <span class="logo-text">Flex GUI Pro</span>
+        <span class="logo-text">MotionKit Pro</span>
       </div>
       <div style="display:flex; align-items:center; gap:5px;">
         <span id="badge-license-status" class="badge-pro-licensed" title="Click to view license status">🔒 Locked</span>
@@ -69,6 +69,10 @@
       <button class="tab-btn" data-tab="tab-turbo">
         <span class="tab-icon">💾</span>
         <span>Comps</span>
+      </button>
+      <button class="tab-btn" data-tab="tab-sfx">
+        <span class="tab-icon">🎧</span>
+        <span>SFX</span>
       </button>
     </nav>
 
@@ -707,6 +711,46 @@
       </div>
     </div>
 
+    <!-- TAB 7: SFX & STUDIO SOUND EFFECTS -->
+    <div id="tab-sfx" class="tab-content">
+      <div class="card">
+        <div class="card-title">
+          <span>Studio Audio & SFX Library</span>
+          <span style="color: var(--accent-pink); font-size: 8px;">120+ ASSETS</span>
+        </div>
+        <div style="display:flex;gap:5px;margin-bottom:6px;">
+          <input type="text" id="panel-sfx-search" placeholder="🔍 Search sounds (click, pop, whoosh)..." style="flex:1;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:5px 8px;color:#fff;font-size:10.5px;" />
+          <button id="btn-panel-sfx-stop" class="action-btn" style="width:28px;padding:0;display:flex;align-items:center;justify-content:center;color:#ef4444;" title="Stop Playing">⏹</button>
+        </div>
+        <div class="btn-grid-4" style="margin-bottom:3px;">
+          <button class="action-btn primary panel-sfx-filter active" data-panelsfxcat="all">All (121)</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Clicks & UI">Clicks</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Pops & Bubbles">Pops</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Swoosh & Whoosh">Swoosh</button>
+        </div>
+        <div class="btn-grid-4">
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Glitch & Sci-Fi">Glitch</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Alerts & Bells">Bells</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Hits & Impacts">Hits</button>
+          <button class="action-btn panel-sfx-filter" data-panelsfxcat="Risers & Sweeps">Risers</button>
+        </div>
+      </div>
+
+      <!-- Quick Audio Transport / Status -->
+      <div class="card" style="padding:6px 8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;font-size:10px;">
+          <span id="panel-sfx-current-status" style="color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:170px;">Ready · Click ▶ to audition</span>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="font-size:9px;color:var(--text-muted);">Vol:</span>
+            <input type="range" id="panel-sfx-vol" min="0" max="1" step="0.05" value="0.8" style="width:50px;height:4px;accent-color:#D4AF37;" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Scrollable Sound Items Container -->
+      <div id="panel-sfx-items-container" style="display:flex;flex-direction:column;gap:4px;max-height:430px;overflow-y:auto;padding-right:2px;"></div>
+    </div>
+
     <!-- STICKY ALIGN, DISTRIBUTE & GROUP FOOTER -->
     <footer class="align-footer">
       <button class="align-btn" data-align="left" title="Align Left">⬅</button>
@@ -736,5 +780,6 @@
   </script>
   <script src="/flex-gui-pro/js/CSInterface.js"></script>
   <script src="/flex-gui-pro/js/main.js"></script>
+  <script src="/flex-gui-pro/js/sfx-panel.js"></script>
 </body>
 </html>

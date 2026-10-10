@@ -29,7 +29,7 @@ function flex_setAnchor(pos) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Anchor (" + pos + ")");
+    app.beginUndoGroup("MotionKit: Anchor (" + pos + ")");
     try {
         for (var i = 0; i < sel.length; i++) {
             var layer = sel[i];
@@ -99,7 +99,7 @@ function flex_centerInComp() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Center in Comp");
+    app.beginUndoGroup("MotionKit: Center in Comp");
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
         if (l.position.value.length === 3) l.position.setValue([comp.width / 2, comp.height / 2, l.position.value[2]]);
@@ -114,7 +114,7 @@ function flex_nullAndParent() {
     if (!comp) return "NO_COMP";
     var sel = comp.selectedLayers;
 
-    app.beginUndoGroup("Flex: Null & Parent");
+    app.beginUndoGroup("MotionKit: Null & Parent");
     var nullLayer = comp.layers.addNull();
     nullLayer.name = "Controller Null";
 
@@ -142,7 +142,7 @@ function flex_createCameraRig() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: 3D Camera Rig");
+    app.beginUndoGroup("MotionKit: 3D Camera Rig");
     var orbitNull = comp.layers.addNull();
     orbitNull.name = "Camera Orbit Null";
     orbitNull.threeDLayer = true;
@@ -158,7 +158,7 @@ function flex_createAdjustment() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Adjustment Layer");
+    app.beginUndoGroup("MotionKit: Adjustment Layer");
     var adj = comp.layers.addSolid([1, 1, 1], "Adjustment Layer", comp.width, comp.height, comp.pixelAspect, comp.duration);
     adj.adjustmentLayer = true;
     var sel = comp.selectedLayers;
@@ -177,7 +177,7 @@ function flex_createSolid() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Solid Layer");
+    app.beginUndoGroup("MotionKit: Solid Layer");
     comp.layers.addSolid([0.1, 0.1, 0.14], "Dark Solid", comp.width, comp.height, comp.pixelAspect, comp.duration);
     app.endUndoGroup();
     return "OK: Solid Layer Created";
@@ -193,7 +193,7 @@ function flex_precompSep() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Precomp Sep");
+    app.beginUndoGroup("MotionKit: Precomp Sep");
     var count = 0;
     for (var i = sel.length - 1; i >= 0; i--) {
         var lyr = sel[i];
@@ -214,7 +214,7 @@ function flex_trueDup() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: True Dup Precomp");
+    app.beginUndoGroup("MotionKit: True Dup Precomp");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -236,7 +236,7 @@ function flex_unPrecomp() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Un-Precomp");
+    app.beginUndoGroup("MotionKit: Un-Precomp");
     var uncompCount = 0;
     try {
         for (var i = 0; i < sel.length; i++) {
@@ -273,7 +273,7 @@ function flex_splitAtCTI() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Split at CTI");
+    app.beginUndoGroup("MotionKit: Split at CTI");
     var t = comp.time;
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
@@ -292,7 +292,7 @@ function flex_trimIn() {
     if (!comp) return "NO_COMP";
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
-    app.beginUndoGroup("Flex: Trim In");
+    app.beginUndoGroup("MotionKit: Trim In");
     for (var i = 0; i < sel.length; i++) sel[i].inPoint = comp.time;
     app.endUndoGroup();
     return "OK: Trimmed In";
@@ -303,7 +303,7 @@ function flex_trimOut() {
     if (!comp) return "NO_COMP";
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
-    app.beginUndoGroup("Flex: Trim Out");
+    app.beginUndoGroup("MotionKit: Trim Out");
     for (var i = 0; i < sel.length; i++) sel[i].outPoint = comp.time;
     app.endUndoGroup();
     return "OK: Trimmed Out";
@@ -315,7 +315,7 @@ function flex_cropCompToSelection() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Crop Comp to Selection");
+    app.beginUndoGroup("MotionKit: Crop Comp to Selection");
     var minIn = comp.duration, maxOut = 0;
     for (var i = 0; i < sel.length; i++) {
         if (sel[i].inPoint < minIn) minIn = sel[i].inPoint;
@@ -333,7 +333,7 @@ function flex_toggleMotionBlur() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Motion Blur Switch");
+    app.beginUndoGroup("MotionKit: Motion Blur Switch");
     comp.motionBlur = true;
     var anyOn = false;
     for (var i = 1; i <= comp.numLayers; i++) {
@@ -349,7 +349,7 @@ function flex_toggleShy() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Toggle Shy");
+    app.beginUndoGroup("MotionKit: Toggle Shy");
     comp.hideShyLayers = !comp.hideShyLayers;
     app.endUndoGroup();
     return "OK: Shy Layers " + (comp.hideShyLayers ? "Hidden" : "Shown");
@@ -363,7 +363,7 @@ function flex_createCursorEngine() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: 3D Cursor Engine");
+    app.beginUndoGroup("MotionKit: 3D Cursor Engine");
     var t = comp.time;
 
     var cursorLayer = comp.layers.addShape();
@@ -423,7 +423,7 @@ function flex_createSSToAE() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: SS to 3D Floating Mockup");
+    app.beginUndoGroup("MotionKit: SS to 3D Floating Mockup");
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
         l.threeDLayer = true;
@@ -451,7 +451,7 @@ function flex_createTerminalWindow() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Code Terminal Window");
+    app.beginUndoGroup("MotionKit: Code Terminal Window");
     var card = comp.layers.addSolid([0.08, 0.09, 0.12], "Code Terminal Window", 700, 420, comp.pixelAspect, comp.duration);
     card.position.setValue([comp.width / 2, comp.height / 2]);
 
@@ -493,7 +493,7 @@ function flex_staggerUI() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: UI Sequential Stagger");
+    app.beginUndoGroup("MotionKit: UI Sequential Stagger");
     var dt = 4 * comp.frameDuration;
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
@@ -520,7 +520,7 @@ function flex_createPromptBar() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: AI Prompt Bar");
+    app.beginUndoGroup("MotionKit: AI Prompt Bar");
     var bar = comp.layers.addSolid([0.1, 0.11, 0.15], "AI Prompt Bar", 650, 75, comp.pixelAspect, comp.duration);
     bar.position.setValue([comp.width / 2, comp.height / 2 + 100]);
 
@@ -545,7 +545,7 @@ function flex_createNotificationBadge() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Notification Badge");
+    app.beginUndoGroup("MotionKit: Notification Badge");
     var t = comp.time;
     var badge = comp.layers.addSolid([0.12, 0.14, 0.18], "Notification Card", 380, 75, comp.pixelAspect, comp.duration);
     badge.position.setValue([comp.width / 2, comp.height / 2]);
@@ -570,7 +570,7 @@ function flex_createDotMatrix() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Dot Matrix Grid");
+    app.beginUndoGroup("MotionKit: Dot Matrix Grid");
     var bg = comp.layers.addSolid([0.05, 0.05, 0.07], "Dot Grid Background", comp.width, comp.height, comp.pixelAspect, comp.duration);
     var fx = bg.property("ADBE Effect Parade");
     var grid = fx.addProperty("ADBE Grid");
@@ -618,7 +618,7 @@ function flex_pasteEase() {
     var props = comp.selectedProperties;
     if (!props || props.length === 0) return "NO_PROPS";
 
-    app.beginUndoGroup("Flex: Paste Ease");
+    app.beginUndoGroup("MotionKit: Paste Ease");
     var applied = 0;
     for (var p = 0; p < props.length; p++) {
         var prop = props[p];
@@ -654,7 +654,7 @@ function flex_applyGraphCurve(inInfluence, inSpeed, outInfluence, outSpeed) {
     var easeIn = new KeyframeEase(inSpd, Math.min(100, Math.max(0.1, inInf)));
     var easeOut = new KeyframeEase(outSpd, Math.min(100, Math.max(0.1, outInf)));
 
-    app.beginUndoGroup("Flex: Apply Graph Curve");
+    app.beginUndoGroup("MotionKit: Apply Graph Curve");
     var propsToEase = [];
     if (comp.selectedProperties && comp.selectedProperties.length > 0) {
         for (var p = 0; p < comp.selectedProperties.length; p++) propsToEase.push(comp.selectedProperties[p]);
@@ -715,7 +715,7 @@ function flex_applyLinear() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Linear Keys");
+    app.beginUndoGroup("MotionKit: Linear Keys");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var props = sel[i].selectedProperties;
@@ -742,7 +742,7 @@ function flex_applyHold() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Hold Keys");
+    app.beginUndoGroup("MotionKit: Hold Keys");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var props = sel[i].selectedProperties;
@@ -781,7 +781,7 @@ function flex_applyElastic() {
                "  value + v*amp*Math.sin(freq*t*2*Math.PI)/Math.exp(decay*t);\n" +
                "} else { value; }";
 
-    app.beginUndoGroup("Flex: Elastic Overshoot");
+    app.beginUndoGroup("MotionKit: Elastic Overshoot");
     var appliedCount = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -833,7 +833,7 @@ function flex_applyBounce() {
                      "  value + v * amp * Math.abs(Math.sin(w)) / Math.exp(decay * t);\n" +
                      "} else { value; }";
 
-    app.beginUndoGroup("Flex: Quick Bounce");
+    app.beginUndoGroup("MotionKit: Quick Bounce");
     var appliedCount = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -873,7 +873,7 @@ function flex_applyWiggle() {
     if (sel.length === 0) return "NO_LAYER";
     var props = comp.selectedProperties;
 
-    app.beginUndoGroup("Flex: Inertial Wiggle");
+    app.beginUndoGroup("MotionKit: Inertial Wiggle");
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
         var fxGroup = layer.property("ADBE Effect Parade");
@@ -925,7 +925,7 @@ function flex_applyLoop(mode) {
     }
     if (targetProps.length === 0) return "NO_PROPS";
 
-    app.beginUndoGroup("Flex: Loop (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Loop (" + mode + ")");
     var expr = 'loopOut("' + (mode === "pingpong" ? "pingpong" : "cycle") + '");';
     for (var i = 0; i < targetProps.length; i++) {
         try { if (targetProps[i].canSetExpression) targetProps[i].expression = expr; } catch(e) {}
@@ -940,7 +940,7 @@ function flex_staggerLayers(frames) {
     var sel = comp.selectedLayers;
     if (sel.length < 2) return "ERROR: Select at least 2 layers to stagger.";
 
-    app.beginUndoGroup("Flex: Stagger Layers");
+    app.beginUndoGroup("MotionKit: Stagger Layers");
     var dt = (parseInt(frames, 10) || 2) * comp.frameDuration;
     for (var i = 1; i < sel.length; i++) {
         sel[i].startTime = sel[0].startTime + (i * dt);
@@ -955,7 +955,7 @@ function flex_reverseKeyframes() {
     var props = comp.selectedProperties;
     if (!props || props.length === 0) return "NO_PROPS";
 
-    app.beginUndoGroup("Flex: Reverse Keyframes");
+    app.beginUndoGroup("MotionKit: Reverse Keyframes");
     for (var p = 0; p < props.length; p++) {
         var prop = props[p];
         if (prop.canVaryOverTime && prop.selectedKeys && prop.selectedKeys.length > 1) {
@@ -978,7 +978,7 @@ function flex_createKineticType(format) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Kinetic Type (" + format + ")");
+    app.beginUndoGroup("MotionKit: Kinetic Type (" + format + ")");
     var tLayer = comp.layers.addText("KINETIC\nMOTION\nDESIGN");
     tLayer.name = "Kinetic Type (" + format + ")";
     tLayer.position.setValue([comp.width / 2, comp.height / 2]);
@@ -1009,7 +1009,7 @@ function flex_batchRename(prefix) {
     if (sel.length === 0) return "NO_LAYER";
 
     prefix = prefix || "Card_";
-    app.beginUndoGroup("Flex: Batch Rename");
+    app.beginUndoGroup("MotionKit: Batch Rename");
     for (var i = 0; i < sel.length; i++) {
         var num = (i + 1 < 10) ? "0" + (i + 1) : "" + (i + 1);
         sel[i].name = prefix + num;
@@ -1031,7 +1031,7 @@ function flex_explodeText(mode) {
     var tokens = (mode === "chars") ? srcTextVal.split("") : srcTextVal.split(/\s+/);
     if (tokens.length <= 1) return "ERROR: Not enough text to explode.";
 
-    app.beginUndoGroup("Flex: Text Exploder (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Text Exploder (" + mode + ")");
     var origIn = textLayer.inPoint;
     var origOut = textLayer.outPoint;
 
@@ -1059,7 +1059,7 @@ function flex_applyTextAnim(type) {
     var sel = comp.selectedLayers;
     var tLayer = (sel.length > 0 && sel[0] instanceof TextLayer) ? sel[0] : comp.layers.addText("Flex GUI Motion");
 
-    app.beginUndoGroup("Flex: Text Anim (" + type + ")");
+    app.beginUndoGroup("MotionKit: Text Anim (" + type + ")");
     try {
         var animators = tLayer.Text.Animators;
         var anim = animators.addProperty("ADBE Text Animator");
@@ -1128,7 +1128,7 @@ function flex_createOrbRig(is3D) {
     var sel = comp.selectedLayers;
     if (sel.length < 2) return "ERROR: Select at least 2 layers for Orb Generator.";
 
-    app.beginUndoGroup("Flex: Orb Generator");
+    app.beginUndoGroup("MotionKit: Orb Generator");
     var masterNull = comp.layers.addNull();
     masterNull.name = "Orb Master Null";
     masterNull.threeDLayer = true;
@@ -1164,7 +1164,7 @@ function flex_add3DExtrusion(depthAmount) {
     if (sel.length === 0) return "NO_LAYER";
 
     var depth = parseInt(depthAmount, 10) || 10;
-    app.beginUndoGroup("Flex: 3D Extrusion");
+    app.beginUndoGroup("MotionKit: 3D Extrusion");
     var target = sel[0];
     for (var i = 1; i <= depth; i++) {
         var d = target.duplicate();
@@ -1188,7 +1188,7 @@ function flex_createCounter() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Number Counter");
+    app.beginUndoGroup("MotionKit: Number Counter");
     var tLayer = comp.layers.addText("0");
     tLayer.name = "Animated Number Counter";
 
@@ -1217,7 +1217,7 @@ function flex_addGlassMorph() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Glass Morph");
+    app.beginUndoGroup("MotionKit: Glass Morph");
     var adj = comp.layers.addSolid([1, 1, 1], "Glass Morph (Adj)", comp.width, comp.height, comp.pixelAspect, comp.duration);
     adj.adjustmentLayer = true;
 
@@ -1247,7 +1247,7 @@ function flex_addDeepGlow() {
         sel = [adj];
     }
 
-    app.beginUndoGroup("Flex: Deep Glow");
+    app.beginUndoGroup("MotionKit: Deep Glow");
     for (var i = 0; i < sel.length; i++) {
         try {
             var fx = sel[i].property("ADBE Effect Parade");
@@ -1273,7 +1273,7 @@ function flex_createAIDepthReveal() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: AI Depth Volumetric Fog");
+    app.beginUndoGroup("MotionKit: AI Depth Volumetric Fog");
     var adj = comp.layers.addSolid([1, 1, 1], "Volumetric Fog & Depth (Adj)", comp.width, comp.height, comp.pixelAspect, comp.duration);
     adj.adjustmentLayer = true;
 
@@ -1298,7 +1298,7 @@ function flex_addHalftoneWave() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Halftone Wave");
+    app.beginUndoGroup("MotionKit: Halftone Wave");
     var solid = comp.layers.addSolid([0.1, 0.12, 0.18], "Halftone Dot Ripple", comp.width, comp.height, comp.pixelAspect, comp.duration);
     var fx = solid.property("ADBE Effect Parade");
     var ball = fx.addProperty("CC Ball Action");
@@ -1317,7 +1317,7 @@ function flex_applyFill(hexColor) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Apply Fill");
+    app.beginUndoGroup("MotionKit: Apply Fill");
     var cleanHex = ("" + hexColor).replace("#", "");
     var r = parseInt(cleanHex.substring(0, 2), 16) / 255;
     var g = parseInt(cleanHex.substring(2, 4), 16) / 255;
@@ -1351,7 +1351,7 @@ function flex_applyPalette(theme) {
     };
     var colors = paletteMap[theme] || paletteMap["saas"];
 
-    app.beginUndoGroup("Flex: Palette (" + theme + ")");
+    app.beginUndoGroup("MotionKit: Palette (" + theme + ")");
     for (var i = 0; i < sel.length; i++) {
         var hex = colors[i % colors.length].replace("#", "");
         var r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -1377,7 +1377,7 @@ function flex_applyPalette(theme) {
 // -------------------------------------------------------------
 
 function flex_createSavedComp(presetName, width, height, fps, duration) {
-    app.beginUndoGroup("Flex: Create Comp (" + presetName + ")");
+    app.beginUndoGroup("MotionKit: Create Comp (" + presetName + ")");
     var w = parseInt(width, 10) || 1920;
     var h = parseInt(height, 10) || 1080;
     var f = parseFloat(fps) || 60;
@@ -1392,7 +1392,7 @@ function flex_resizeComp(format) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Resize Comp (" + format + ")");
+    app.beginUndoGroup("MotionKit: Resize Comp (" + format + ")");
     if (format === "9:16") { comp.width = 1080; comp.height = 1920; }
     else if (format === "16:9") { comp.width = 1920; comp.height = 1080; }
     else if (format === "1:1") { comp.width = 1080; comp.height = 1080; }
@@ -1405,7 +1405,7 @@ function flex_toggleTurboMode() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Turbo Mode Toggle");
+    app.beginUndoGroup("MotionKit: Turbo Mode Toggle");
     var anyActive = false;
     for (var i = 1; i <= comp.numLayers; i++) {
         var lyr = comp.layer(i);
@@ -1436,7 +1436,7 @@ function flex_toggleOptimizedMode() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Optimized Low-Spec Mode");
+    app.beginUndoGroup("MotionKit: Optimized Low-Spec Mode");
     if (comp.resolutionFactor[0] === 1) {
         comp.resolutionFactor = [2, 2];
         flex_toggleTurboMode();
@@ -1465,7 +1465,7 @@ function flex_silenceAudioCut() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Silence Audio Cut");
+    app.beginUndoGroup("MotionKit: Silence Audio Cut");
     var t = comp.time;
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
@@ -1483,7 +1483,7 @@ function flex_addBeatMarker() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Beat Marker");
+    app.beginUndoGroup("MotionKit: Beat Marker");
     var m = new MarkerValue("🎵 Beat");
     comp.markerProperty.setValueAtTime(comp.time, m);
     app.endUndoGroup();
@@ -1491,7 +1491,7 @@ function flex_addBeatMarker() {
 }
 
 function flex_cleanProject() {
-    app.beginUndoGroup("Flex: Clean Project Folders");
+    app.beginUndoGroup("MotionKit: Clean Project Folders");
     try {
         var compFolder = app.project.items.addFolder("_01_COMPS");
         var footageFolder = app.project.items.addFolder("_02_FOOTAGE");
@@ -1524,7 +1524,7 @@ function flex_align(type) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Align " + type);
+    app.beginUndoGroup("MotionKit: Align " + type);
     for (var i = 0; i < sel.length; i++) {
         var l = sel[i];
         var p = l.position.value;
@@ -1549,7 +1549,7 @@ function flex_distribute(axis) {
     var sel = comp.selectedLayers;
     if (sel.length < 3) return "ERROR: Select at least 3 layers to distribute.";
 
-    app.beginUndoGroup("Flex: Distribute " + axis);
+    app.beginUndoGroup("MotionKit: Distribute " + axis);
     var list = [];
     for (var i = 0; i < sel.length; i++) list.push(sel[i]);
     if (axis === "H") {
@@ -1581,7 +1581,7 @@ function flex_alignAsGroup() {
     var sel = comp.selectedLayers;
     if (sel.length < 2) return "ERROR: Select at least 2 layers to align as group.";
 
-    app.beginUndoGroup("Flex: Align as Group to Center");
+    app.beginUndoGroup("MotionKit: Align as Group to Center");
     var avgX = 0, avgY = 0;
     for (var i = 0; i < sel.length; i++) {
         avgX += sel[i].position.value[0];
@@ -1609,7 +1609,7 @@ function flex_createProximityEffector() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Create Proximity Effector");
+    app.beginUndoGroup("MotionKit: Create Proximity Effector");
     var eff = comp.layers.addNull();
     eff.name = "Flex Proximity Effector";
     eff.guideLayer = true;
@@ -1646,7 +1646,7 @@ function flex_applyProximityDriver(mode) {
         flex_createProximityEffector();
     }
 
-    app.beginUndoGroup("Flex: Proximity Driver (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Proximity Driver (" + mode + ")");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -1722,7 +1722,7 @@ function flex_syncCarousel() {
         }
     }
 
-    app.beginUndoGroup("Flex: Sync Carousel Ring");
+    app.beginUndoGroup("MotionKit: Sync Carousel Ring");
     var orbLayers = [];
     var sel = comp.selectedLayers;
 
@@ -1788,7 +1788,7 @@ function flex_createAutoHighlighter(type) {
     var textLayer = sel[0];
     if (!(textLayer instanceof TextLayer)) return "SELECT_TEXT_LAYER";
 
-    app.beginUndoGroup("Flex: Auto-Highlighter (" + type + ")");
+    app.beginUndoGroup("MotionKit: Auto-Highlighter (" + type + ")");
     var tRect = textLayer.sourceRectAtTime(comp.time, false);
     var tX = textLayer.position.value[0];
     var tY = textLayer.position.value[1];
@@ -1892,7 +1892,7 @@ function flex_applyCameraShake(type) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Camera Shake (" + type + ")");
+    app.beginUndoGroup("MotionKit: Camera Shake (" + type + ")");
     var shakeNull = comp.layers.addNull();
     shakeNull.name = "Camera Shake [" + type.toUpperCase() + "]";
     shakeNull.position.setValue([comp.width / 2, comp.height / 2]);
@@ -1929,7 +1929,7 @@ function flex_applyGradientLock() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Gradient Lock");
+    app.beginUndoGroup("MotionKit: Gradient Lock");
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
         var fx = layer.property("ADBE Effect Parade");
@@ -1961,7 +1961,7 @@ function flex_splitMasks() {
         return "ERROR: Selected layer needs at least 2 masks to split.";
     }
 
-    app.beginUndoGroup("Flex: Split Masks to Layers");
+    app.beginUndoGroup("MotionKit: Split Masks to Layers");
     var totalMasks = maskGroup.numProperties;
     var baseName = target.name;
 
@@ -1998,7 +1998,7 @@ function flex_replaceFont(fontFamily) {
     }
     if (targetLayers.length === 0) return "SELECT_TEXT_LAYER";
 
-    app.beginUndoGroup("Flex: Replace Font (" + fontFamily + ")");
+    app.beginUndoGroup("MotionKit: Replace Font (" + fontFamily + ")");
     var count = 0;
     for (var t = 0; t < targetLayers.length; t++) {
         var layer = targetLayers[t];
@@ -2024,7 +2024,7 @@ function flex_createAutoCaptions(preset) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: AutoCaptions (" + preset + ")");
+    app.beginUndoGroup("MotionKit: AutoCaptions (" + preset + ")");
     var txt = comp.layers.addText("FLEX KINETIC CAPTIONS DEMO");
     txt.name = "AutoCaptions [" + preset.toUpperCase() + "]";
     var doc = txt.property("Source Text").value;
@@ -2066,7 +2066,7 @@ function flex_createUIShape(type) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: UI Shape (" + type + ")");
+    app.beginUndoGroup("MotionKit: UI Shape (" + type + ")");
     if (type === "browser") {
         var shape = comp.layers.addShape();
         shape.name = "UI Browser Window Frame";
@@ -2170,7 +2170,7 @@ function flex_createFigmaVectorRig() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Figma Vector Shape Rig");
+    app.beginUndoGroup("MotionKit: Figma Vector Shape Rig");
     var shape = comp.layers.addShape();
     shape.name = "Figma Vector Shape Rig";
     var root = shape.property("ADBE Root Vectors Group");
@@ -2205,7 +2205,7 @@ function flex_createMapRig() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: 3D Map Rig & Pin Marker");
+    app.beginUndoGroup("MotionKit: 3D Map Rig & Pin Marker");
     var gridPlane = comp.layers.addSolid([0.08, 0.09, 0.12], "3D Map Plane", 1400, 1400, 1.0, comp.duration);
     gridPlane.threeDLayer = true;
     gridPlane.position.setValue([comp.width / 2, (comp.height / 2) + 150, 0]);
@@ -2266,7 +2266,7 @@ function flex_applyColorGrade(theme) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Color Grade (" + theme + ")");
+    app.beginUndoGroup("MotionKit: Color Grade (" + theme + ")");
     var adj = comp.layers.addSolid([1, 1, 1], "Flex Color Grade [" + theme.toUpperCase() + "]", comp.width, comp.height, comp.pixelAspect, comp.duration);
     adj.adjustmentLayer = true;
     adj.moveToBeginning();
@@ -2313,7 +2313,7 @@ function flex_checkGaps() {
     if (!comp) return "NO_COMP";
     if (comp.numLayers < 2) return "ERROR: Need at least 2 layers to check timeline gaps.";
 
-    app.beginUndoGroup("Flex: QC Gap Checker");
+    app.beginUndoGroup("MotionKit: QC Gap Checker");
     var layers = [];
     for (var l = 1; l <= comp.numLayers; l++) {
         layers.push(comp.layer(l));
@@ -2346,7 +2346,7 @@ function flex_createLayoutGuides(type) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Layout Guides (" + type + ")");
+    app.beginUndoGroup("MotionKit: Layout Guides (" + type + ")");
     var guide = comp.layers.addShape();
     guide.name = "LAYOUT GUIDES [" + type.toUpperCase() + "]";
     guide.guideLayer = true;
@@ -2417,7 +2417,7 @@ function flex_addSuperExtrude(depth, bevel) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Super Extrude (" + depth + ")");
+    app.beginUndoGroup("MotionKit: Super Extrude (" + depth + ")");
     var count = 0;
     var d = parseInt(depth, 10) || 12;
     for (var i = 0; i < sel.length; i++) {
@@ -2456,7 +2456,7 @@ function flex_createBlenderBridge() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Blender AE 2 Bridge");
+    app.beginUndoGroup("MotionKit: Blender AE 2 Bridge");
     var originNull = comp.layers.addNull();
     originNull.name = "Blender World Origin (0,0,0)";
     originNull.threeDLayer = true;
@@ -2496,7 +2496,7 @@ function flex_addDeepGlow2() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Deep Glow 2");
+    app.beginUndoGroup("MotionKit: Deep Glow 2");
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
         var fx = layer.property("ADBE Effect Parade");
@@ -2533,7 +2533,7 @@ function flex_applyShadowStudio(type) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Shadow Studio 3 (" + type + ")");
+    app.beginUndoGroup("MotionKit: Shadow Studio 3 (" + type + ")");
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
         var fx = layer.property("ADBE Effect Parade");
@@ -2583,7 +2583,7 @@ function flex_createLimberRig() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Limber 2 IK Rig");
+    app.beginUndoGroup("MotionKit: Limber 2 IK Rig");
     var cX = comp.width / 2;
     var cY = comp.height / 2;
 
@@ -2624,7 +2624,7 @@ function flex_createSaberRig(preset) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Saber Energy Rig (" + preset + ")");
+    app.beginUndoGroup("MotionKit: Saber Energy Rig (" + preset + ")");
     var solid = comp.layers.addSolid([0, 0, 0], "Saber Energy Beam [" + preset.toUpperCase() + "]", comp.width, comp.height, 1.0, comp.duration);
     solid.blendingMode = BlendingMode.SCREEN;
 
@@ -2663,7 +2663,7 @@ function flex_applyComposerTransition(type) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Animation Composer (" + type + ")");
+    app.beginUndoGroup("MotionKit: Animation Composer (" + type + ")");
     var t = comp.time;
     var dur = 0.45;
     var easeOut = new KeyframeEase(0, 85);
@@ -2703,7 +2703,7 @@ function flex_createGeoRouteTracker() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Geo Layers 3 Route Tracer");
+    app.beginUndoGroup("MotionKit: Geo Layers 3 Route Tracer");
     var mapPlane = comp.layers.addShape();
     mapPlane.name = "Geo Route Flight Path";
     mapPlane.threeDLayer = true;
@@ -2736,7 +2736,7 @@ function flex_createGeoRouteTracker() {
 
 // 9. Project Sorter Master (01_Comps, 02_Assets, etc.)
 function flex_sortProjectMaster() {
-    app.beginUndoGroup("Flex: Project Sorter Master");
+    app.beginUndoGroup("MotionKit: Project Sorter Master");
     function getOrCreateFolder(name) {
         for (var i = 1; i <= app.project.items.length; i++) {
             var itm = app.project.items[i];
@@ -2778,7 +2778,7 @@ function flex_createFace3DRig() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Face 3D Parallax Rig");
+    app.beginUndoGroup("MotionKit: Face 3D Parallax Rig");
     var joy = comp.layers.addNull();
     joy.name = "Face 3D Joystick Controller";
     joy.position.setValue([comp.width / 2, comp.height / 2]);
@@ -2802,7 +2802,7 @@ function flex_applyFastFX(fxName) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: FX Console (" + fxName + ")");
+    app.beginUndoGroup("MotionKit: FX Console (" + fxName + ")");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var fx = sel[i].property("ADBE Effect Parade");
@@ -2818,7 +2818,7 @@ function flex_applyFastFX(fxName) {
 function flex_takeSnapshot() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
-    app.beginUndoGroup("Flex: Freeze Frame Snapshot");
+    app.beginUndoGroup("MotionKit: Freeze Frame Snapshot");
     try { app.executeCommand(2145); } catch(e) {}
     app.endUndoGroup();
     return "OK: Freeze Frame Snapshot Taken at Playhead";
@@ -2829,7 +2829,7 @@ function flex_applyMotionBro(mode) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Motion Bro (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Motion Bro (" + mode + ")");
     var adj = comp.layers.addSolid([1, 1, 1], "Motion Bro Transition [" + mode.toUpperCase() + "]", comp.width, comp.height, 1.0, 0.6);
     adj.adjustmentLayer = true;
     adj.startTime = comp.time - 0.3;
@@ -2865,7 +2865,7 @@ function flex_convertOverlordVector() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Overlord 2 Vector to Shapes");
+    app.beginUndoGroup("MotionKit: Overlord 2 Vector to Shapes");
     try { app.executeCommand(3736); } catch(e) {}
     app.endUndoGroup();
     return "OK: Vector Layers Converted to Native Shapes";
@@ -2883,7 +2883,7 @@ function flex_cloneMatrixGrid(cols, rows) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Motion Tools Grid Cloner");
+    app.beginUndoGroup("MotionKit: Motion Tools Grid Cloner");
     var base = sel[0];
     var c = parseInt(cols, 10) || 3;
     var r = parseInt(rows, 10) || 3;
@@ -2919,7 +2919,7 @@ function flex_createLockdownMesh() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Lockdown 3 Surface Warp");
+    app.beginUndoGroup("MotionKit: Lockdown 3 Surface Warp");
     var target = sel[0];
     var fx = target.property("ADBE Effect Parade");
     var pin = fx.addProperty("ADBE Corner Pin");
@@ -2939,7 +2939,7 @@ function flex_createTikTokText() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: TikTokText Engine");
+    app.beginUndoGroup("MotionKit: TikTokText Engine");
     var txt = comp.layers.addText("VIRAL REELS CAPTION");
     txt.name = "TikTokText Kinetic Caption";
     var doc = txt.property("Source Text").value;
@@ -2975,7 +2975,7 @@ function flex_createSuper3DRoom() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Super 3D Room Box");
+    app.beginUndoGroup("MotionKit: Super 3D Room Box");
     var sz = 1000;
     var dur = comp.duration;
     var master = comp.layers.addNull();
@@ -3021,7 +3021,7 @@ function flex_createDuikJoystick() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Duik Angela Joystick Rig");
+    app.beginUndoGroup("MotionKit: Duik Angela Joystick Rig");
     var joy = comp.layers.addNull();
     joy.name = "Duik 2D Joystick Controller";
     joy.position.setValue([comp.width / 2, comp.height / 2]);
@@ -3045,7 +3045,7 @@ function flex_applyDuikPhysics() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Duik Angela Secondary Physics");
+    app.beginUndoGroup("MotionKit: Duik Angela Secondary Physics");
     var expr = "n = 0;\n" +
                "if (numKeys > 0) {\n" +
                "  n = nearestKey(time).index;\n" +
@@ -3077,7 +3077,7 @@ function flex_applyLoopySeamless() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Loopy Seamless Wiggle");
+    app.beginUndoGroup("MotionKit: Loopy Seamless Wiggle");
     var expr = "freq = 1.2; amp = 30;\n" +
                "loopTime = thisComp.duration;\n" +
                "t = time % loopTime;\n" +
@@ -3112,7 +3112,7 @@ function flex_splitText(mode) {
     var target = sel[0];
     if (!(target instanceof TextLayer)) return "SELECT_TEXT_LAYER";
 
-    app.beginUndoGroup("Flex: Text Splitter (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Text Splitter (" + mode + ")");
     var srcTextProp = target.property("Source Text");
     var doc = srcTextProp.value;
     var fullText = doc.text;
@@ -3173,7 +3173,7 @@ function flex_applyOrganizard() {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Organizard");
+    app.beginUndoGroup("MotionKit: Organizard");
     var total = comp.numLayers;
     if (total === 0) return "NO_LAYER";
 
@@ -3214,7 +3214,7 @@ function flex_createEasyParallax(depthStep) {
     var sel = comp.selectedLayers;
     if (sel.length < 2) return "⚠️ Select 2 or more layers for Easy Parallax!";
 
-    app.beginUndoGroup("Flex: Easy Parallax Rig");
+    app.beginUndoGroup("MotionKit: Easy Parallax Rig");
     var step = parseInt(depthStep, 10) || 500;
     var cam = null;
     for (var c = 1; c <= comp.numLayers; c++) {
@@ -3266,7 +3266,7 @@ function flex_compSaver(action) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Comp Saver (" + action + ")");
+    app.beginUndoGroup("MotionKit: Comp Saver (" + action + ")");
     if (action === "backup") {
         function getOrCreateFolder(name) {
             for (var i = 1; i <= app.project.items.length; i++) {
@@ -3300,7 +3300,7 @@ function flex_anchorSwitch(mode) {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Anchor Switch (" + mode + ")");
+    app.beginUndoGroup("MotionKit: Anchor Switch (" + mode + ")");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -3361,7 +3361,7 @@ function flex_applyBounceX() {
     var sel = comp.selectedLayers;
     if (sel.length === 0) return "NO_LAYER";
 
-    app.beginUndoGroup("Flex: Bounce X Controller");
+    app.beginUndoGroup("MotionKit: Bounce X Controller");
     var count = 0;
     for (var i = 0; i < sel.length; i++) {
         var layer = sel[i];
@@ -3416,7 +3416,7 @@ function flex_createAutoCounter(preset) {
     var comp = flex_getActiveComp();
     if (!comp) return "NO_COMP";
 
-    app.beginUndoGroup("Flex: Auto Counter (" + preset + ")");
+    app.beginUndoGroup("MotionKit: Auto Counter (" + preset + ")");
     var txt = comp.layers.addText("0");
     txt.name = "Auto Counter [" + preset.toUpperCase() + "]";
     var doc = txt.property("Source Text").value;

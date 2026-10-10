@@ -31,6 +31,26 @@
   status = 200
 
 [[redirects]]
+  from = "/free"
+  to = "/free-plugins.html"
+  status = 200
+
+[[redirects]]
+  from = "/free/"
+  to = "/free-plugins.html"
+  status = 200
+
+[[redirects]]
+  from = "/free-plugins"
+  to = "/free-plugins.html"
+  status = 200
+
+[[redirects]]
+  from = "/free-plugins/"
+  to = "/free-plugins.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

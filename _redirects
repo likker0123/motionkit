@@ -2,5 +2,8 @@
 /admin /admin.html 200
 /admin/ /admin.html 200
 /checkout /index.html 200
-/checkout/ /index.html 200
+/free /free-plugins.html 200
+/free/ /free-plugins.html 200
+/free-plugins /free-plugins.html 200
+/free-plugins/ /free-plugins.html 200
 /* /index.html 200

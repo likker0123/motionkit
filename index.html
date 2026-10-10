@@ -1021,6 +1021,133 @@
       }
     }
 
+    /* =========================================================================
+       PREMIUM LUXURY NAVBAR REFINEMENT (Prevents wrapping, collision & squishing)
+       ========================================================================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(12, 10, 7, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+    }
+
+    .navbar .container {
+      max-width: 1360px !important;
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+
+    .navbar-inner {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      height: 70px !important;
+      gap: 16px !important;
+    }
+
+    .nav-logo {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 9px !important;
+      text-decoration: none !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    .nav-pro-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      background: rgba(212, 175, 55, 0.14) !important;
+      border: 1px solid rgba(212, 175, 55, 0.35) !important;
+      color: var(--primary-glow) !important;
+      font-size: 10px !important;
+      font-weight: 800 !important;
+      padding: 2px 7px !important;
+      border-radius: 4px !important;
+      letter-spacing: 0.06em !important;
+      font-family: var(--font-heading) !important;
+      white-space: nowrap !important;
+      line-height: 1.4 !important;
+      flex-shrink: 0 !important;
+    }
+
+    .nav-links {
+      display: flex !important;
+      align-items: center !important;
+      gap: 18px !important;
+      flex-wrap: nowrap !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
+    }
+
+    .nav-link {
+      color: var(--text-muted) !important;
+      text-decoration: none !important;
+      font-size: 13.5px !important;
+      font-weight: 500 !important;
+      white-space: nowrap !important;
+      transition: all var(--transition-fast) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      line-height: 1 !important;
+    }
+
+    .nav-link:hover {
+      color: #FFF !important;
+    }
+
+    .nav-free-pill {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), rgba(245, 158, 11, 0.08)) !important;
+      border: 1px solid rgba(212, 175, 55, 0.4) !important;
+      color: var(--primary-glow) !important;
+      font-weight: 700 !important;
+      padding: 6px 14px !important;
+      border-radius: 9999px !important;
+      font-size: 12.5px !important;
+      box-shadow: 0 0 14px rgba(212, 175, 55, 0.18) !important;
+      white-space: nowrap !important;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+
+    .nav-free-pill:hover {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(245, 158, 11, 0.16)) !important;
+      border-color: var(--primary) !important;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.38) !important;
+      color: #FFF !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .nav-actions-wrap {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-shrink: 0 !important;
+      white-space: nowrap !important;
+    }
+
+    @media (max-width: 1260px) {
+      .nav-links { gap: 12px !important; }
+      .nav-link { font-size: 12.5px !important; }
+      .nav-free-pill { padding: 5px 11px !important; font-size: 12px !important; }
+    }
+
+    @media (max-width: 1100px) {
+      .nav-link-extra { display: none !important; }
+      .nav-links { gap: 10px !important; }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none !important; }
+      .btn-get-lic { padding: 7px 12px !important; font-size: 12px !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -1031,8 +1158,9 @@
   <header class="navbar">
     <div class="container">
       <div class="navbar-inner">
-        <a href="#" class="nav-logo">
-          <svg style="height:28px;width:auto;" viewBox="0 0 320 50">
+        <!-- Brand Logo + Compact Non-wrapping PRO Badge -->
+        <a href="/" class="nav-logo">
+          <svg style="height:26px;width:auto;" viewBox="0 0 320 50">
             <defs>
               <linearGradient id="brand-g" x1="0%" y1="50%" x2="100%" y2="50%">
                 <stop offset="0%" stop-color="#FDE68A"/>
@@ -1043,26 +1171,31 @@
             <path d="M0 2 L10 25 L0 48" fill="none" stroke="#FDE68A" stroke-width="2" opacity="0.9"/>
             <text x="45" y="38" font-family="'Space Grotesk', sans-serif" font-size="34" font-weight="700" fill="#FAFAFA">MOTIONKIT</text>
           </svg>
-          <span class="pill-badge" style="padding:3px 10px;font-size:11px;">PRO v9.1.5</span>
+          <span class="nav-pro-badge">PRO v9.1</span>
         </a>
 
+        <!-- Main Navigation Links (Clean, Single-line, No Collisions) -->
         <nav class="nav-links">
+          <a href="/free-plugins.html" class="nav-link nav-free-pill">
+            <span>⚡ Free Plugins</span>
+          </a>
           <a href="#tools" class="nav-link">Tools</a>
           <a href="#featured" class="nav-link">Wheel HUD</a>
-          <a href="#how-it-works" class="nav-link">Workflow</a>
-          <a href="#pricing" class="nav-link">Free vs Pro</a>
-          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#sfx-library" class="nav-link">SFX Library</a>
+          <a href="#how-it-works" class="nav-link nav-link-extra">Workflow</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#faq" class="nav-link nav-link-extra">FAQ</a>
         </nav>
 
-        <div style="display:flex;align-items:center;gap:10px;">
-          <a href="#featured" class="btn btn-secondary nav-live-wheel-btn" style="padding:8px 16px;font-size:13px;">Live Wheel</a>
-          <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="padding:8px 16px;font-size:13px;cursor:pointer;">Get License</button>
+        <!-- Right Side CTA Actions -->
+        <div class="nav-actions-wrap">
+          <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary btn-get-lic" style="padding:8px 18px;font-size:13px;cursor:pointer;white-space:nowrap;font-weight:700;">Get License</button>
 
           <!-- User Authentication Section -->
           <div id="nav-auth-container" style="position:relative;">
             <!-- Logged Out Button -->
-            <button id="nav-login-btn" onclick="openAuthModal()" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;display:flex;align-items:center;gap:7px;border-color:rgba(212, 175, 55, 0.35);color:#FFF;">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <button id="nav-login-btn" onclick="openAuthModal()" class="btn btn-secondary" style="padding:8px 15px;font-size:13px;display:flex;align-items:center;gap:7px;border-color:rgba(212, 175, 55, 0.35);color:#FFF;white-space:nowrap;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
               <span>Sign In</span>
             </button>
 
@@ -1157,6 +1290,35 @@
   </section>
 
   <!-- =========================================================================
+       SECTION 01.5: FREE PLUGINS SUITE BANNER (9 FREE PLUGINS)
+       ========================================================================= -->
+  <section id="free-plugins" class="section" style="padding:30px 0 10px;">
+    <div class="container">
+      <div style="background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(245,158,11,0.05)); border:1.5px solid rgba(212,175,55,0.35); border-radius:20px; padding:36px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; box-shadow:0 12px 40px rgba(212,175,55,0.14);">
+        <div style="max-width:680px;">
+          <div style="display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:var(--primary-glow); background:var(--primary-dim); border:1px solid rgba(212,175,55,0.3); padding:4px 12px; border-radius:999px; margin-bottom:12px;">
+            <span>⚡ 9 TOOLS · NO KEYGEN · $0 LIFETIME FOREVER</span>
+          </div>
+          <h2 style="font-size:32px; font-weight:800; color:#fff; font-family:'Space Grotesk',sans-serif; margin-bottom:8px;">
+            Free plugins that <span style="background:linear-gradient(135deg, #FFFFFF 15%, #FDE68A 65%, #D4AF37 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">feel paid.</span>
+          </h2>
+          <p style="color:var(--text-muted); font-size:15px; line-height:1.6;">
+            MotionKit Liquid Glass, AI Masker, Mosaic MAX face censor, Precision Grid, GPU Exponential Glow, Command Console (60+ commands), Docked Chromium Browser, Web To AE, aur 32-stream Downloader.
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; min-width:240px;">
+          <a href="/free-plugins.html" class="btn btn-primary" style="background:linear-gradient(135deg, #D4AF37, #F59E0B); color:#0C0A07; font-weight:800; padding:14px 24px; text-align:center; border-radius:8px; font-size:14px; text-decoration:none; box-shadow:0 4px 18px rgba(212,175,55,0.35);">
+            Explore 9 Free Plugins Live →
+          </a>
+          <a href="/downloads/free-plugins/MotionKit-All-Free-Plugins-Bundle.zip" class="btn btn-secondary" style="border-color:rgba(212,175,55,0.35); color:#fff; background:#14120D; text-align:center; padding:10px 18px; font-size:13px; text-decoration:none;" download>
+            📦 Download All (.ZIP 3.0 MB)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
        SECTION 02: TOOLS GRID
        ========================================================================= -->
   <section id="tools" class="section">
@@ -1235,6 +1397,23 @@
             </a>
           </div>
         </div>
+
+        <!-- Card 5: 120+ Studio SFX Library -->
+        <div class="tool-card">
+          <div class="tool-thumb" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(212,175,55,0.18), rgba(253,230,138,0.06));border-bottom:1px solid rgba(212,175,55,0.25);">
+            <div style="font-size:44px;filter:drop-shadow(0 0 16px rgba(212,175,55,0.5));">🎧</div>
+            <span class="tool-tag" style="background:#D4AF37;color:#0B0B0E;">Audio & SFX</span>
+          </div>
+          <h3>120+ Studio SFX Library</h3>
+          <p style="font-size:14px;margin-top:8px;">
+            Pristine 44.1kHz UI clicks, cinematic swooshes, cyberpunk glitches, pops, alerts, and sub impacts. 1-click timeline import.
+          </p>
+          <div style="margin-top:auto;padding-top:16px;">
+            <a href="#sfx-library" class="footer-link" style="font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:4px;color:#D4AF37;">
+              Audition SFX Library ↓
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1300,6 +1479,94 @@
         <p style="font-size:13.5px;color:var(--text-sub);">
           ⚡ Move your cursor across the slices or flick in any direction to trigger hotkey actions with audio feedback.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 03.5: MOTIONKIT SOUND EFFECTS & SFX LIBRARY
+       ========================================================================= -->
+  <section id="sfx-library" class="section" style="background:#0c0c10;border-top:1px solid rgba(212, 175, 55, 0.15);border-bottom:1px solid rgba(212, 175, 55, 0.15);">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:36px;">
+        <span class="pill-badge" style="margin-bottom:12px;background:rgba(212, 175, 55, 0.12);border-color:rgba(212, 175, 55, 0.35);color:#FDE68A;">
+          🎧 Studio Audio Suite
+        </span>
+        <h2>120+ Studio Sound Effects & SFX Library</h2>
+        <p>
+          High-fidelity 44.1kHz UI clicks, crisp pops, cinematic swooshes, cyberpunk glitches, alerts, and sub impacts. Audition live below or download the entire library pack in one click.
+        </p>
+      </div>
+
+      <!-- SFX Interactive Hub Container -->
+      <div class="sfx-hub-card" style="background:#131318;border:1px solid rgba(212,175,55,0.22);border-radius:18px;padding:24px;box-shadow:0 12px 40px rgba(0,0,0,0.5);">
+        <!-- Top Toolbar: Search, Category Filters & Master Pack Download -->
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,0.07);">
+          <!-- Live Search Bar -->
+          <div style="flex:1;min-width:260px;position:relative;">
+            <input type="text" id="site-sfx-search" placeholder="🔍 Search 120+ sound effects (e.g. click, swoosh, pop, glitch, hit)..." style="width:100%;background:rgba(0,0,0,0.45);border:1px solid rgba(212,175,55,0.25);border-radius:10px;padding:12px 16px;color:#fff;font-size:14px;outline:none;transition:border-color 0.2s;" />
+          </div>
+
+          <!-- Download Complete SFX Pack Button -->
+          <div style="display:flex;gap:10px;align-items:center;">
+            <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-primary" style="padding:10px 18px;font-size:13.5px;display:flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(212,175,55,0.35);">
+              <span>📦</span>
+              <span>Download Full SFX Pack (.zip)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div id="site-sfx-categories" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <button class="site-sfx-cat-btn active" data-sitecat="all">All (121)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Clicks & UI">Clicks & UI (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Pops & Bubbles">Pops & Bubbles (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Swoosh & Whoosh">Swoosh & Whoosh (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Glitch & Sci-Fi">Glitch & Sci-Fi (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Alerts & Bells">Alerts & Bells (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Hits & Impacts">Hits & Impacts (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Risers & Sweeps">Risers & Sweeps (15)</button>
+          <button class="site-sfx-cat-btn" data-sitecat="Ambient & Textures">Ambient & Textures (16)</button>
+        </div>
+
+        <!-- Live Audio Waveform & Now Playing Bar -->
+        <div id="site-sfx-now-playing" style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.2);border-radius:12px;padding:12px 18px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <button id="site-sfx-master-playbtn" onclick="toggleSiteMasterPlay()" style="width:38px;height:38px;border-radius:50%;background:#D4AF37;border:none;color:#0b0b0e;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;box-shadow:0 0 14px rgba(212,175,55,0.4);">
+              ▶
+            </button>
+            <div>
+              <div id="site-sfx-now-title" style="font-weight:700;font-size:14px;color:#fff;">Click any sound card to audition preview</div>
+              <div id="site-sfx-now-meta" style="font-size:12px;color:var(--text-muted);margin-top:2px;">121 studio sound effects ready in 44.1kHz WAV</div>
+            </div>
+          </div>
+
+          <!-- Mini Audio Equalizer Animation & Volume -->
+          <div style="display:flex;align-items:center;gap:16px;">
+            <div id="site-sfx-equalizer" class="sfx-equalizer-bars" style="display:flex;align-items:flex-end;gap:3px;height:20px;">
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted);">
+              <span>🔊</span>
+              <input type="range" id="site-sfx-volume" min="0" max="1" step="0.05" value="0.8" oninput="setSiteSFXVolume(this.value)" style="width:80px;accent-color:#D4AF37;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- SFX Cards Grid -->
+        <div id="site-sfx-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:12px;max-height:560px;overflow-y:auto;padding-right:6px;">
+          <!-- Dynamically populated via sfx catalog -->
+        </div>
+
+        <!-- Footer / Count status -->
+        <div style="margin-top:16px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-muted);border-top:1px solid rgba(255,255,255,0.06);padding-top:14px;flex-wrap:wrap;gap:8px;">
+          <span id="site-sfx-count-label">Showing 121 sounds across 8 categories</span>
+          <span style="color:#D4AF37;font-weight:600;">⚡ Included Free with MotionKit Pro & Wheel</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1424,6 +1691,12 @@
             <td><span class="check-icon">✓</span> 25+ Shakes, Glow Bloom, 3D Cursor</td>
           </tr>
           <tr>
+            <td><strong>120+ Studio Sound Effects & SFX</strong></td>
+            <td><span class="cross-icon">✕</span> Not Included</td>
+            <td><span class="check-icon">✓</span> Included Free (.zip pack)</td>
+            <td><span class="check-icon">✓</span> 120+ Full Studio SFX & Dockable Panel Browser</td>
+          </tr>
+          <tr>
             <td><strong>Device Activations</strong></td>
             <td>1 Machine</td>
             <td><span class="check-icon">✓</span> 2 Machines (Work & Home)</td>
@@ -1524,6 +1797,10 @@
             <li class="pricing-feature-item">
               <span class="check">✓</span>
               <span><strong>25+ Cinematic Presets:</strong> Shakes, Bloom Glow, Chromatic Aberration & 3D Cursors.</span>
+            </li>
+            <li class="pricing-feature-item">
+              <span class="check">✓</span>
+              <span><strong>120+ Studio SFX Library:</strong> Clicks, swooshes, glitches, bells & impacts included.</span>
             </li>
             <li class="pricing-feature-item">
               <span class="check">✓</span>
@@ -1656,6 +1933,7 @@
           <h4>Platform</h4>
           <ul class="footer-links">
             <li><a href="#tools" class="footer-link">Tools Grid</a></li>
+            <li><a href="/free-plugins.html" class="footer-link">9 Free Plugins Suite</a></li>
             <li><a href="#featured" class="footer-link">MotionKit Wheel HUD</a></li>
             <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
             <li><a href="#pricing" class="footer-link">Pricing & Plans</a></li>
@@ -1811,12 +2089,15 @@
           <div style="font-size:13px;font-weight:600;color:var(--text-main);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
             <span>📦</span> <span>Download Your Installer Files:</span>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-            <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:9px;font-size:12px;text-align:center;">
-              🎯 MotionKit Wheel (.zip)
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+            <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:9px 5px;font-size:11px;text-align:center;">
+              🎯 Wheel (.zip)
             </a>
-            <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:9px;font-size:12px;text-align:center;">
-              ⚡ MotionKit Pro (.zip)
+            <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:9px 5px;font-size:11px;text-align:center;">
+              ⚡ Pro Suite (.zip)
+            </a>
+            <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-secondary" style="padding:9px 5px;font-size:11px;text-align:center;border-color:rgba(212,175,55,0.4);color:#FDE68A;">
+              🎧 SFX Pack (.zip)
             </a>
           </div>
         </div>
@@ -2022,12 +2303,15 @@
         <h4 style="font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
           <span>📦</span> <span>Direct Installer Packages (v9.1.5)</span>
         </h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.3);">
-            <span>🎯</span> <span>MotionKit Wheel (.zip)</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.3);">
+            <span>🎯</span> <span>Wheel (.zip)</span>
           </a>
-          <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;">
-            <span>⚡</span> <span>MotionKit Pro (.zip)</span>
+          <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;">
+            <span>⚡</span> <span>Pro Suite (.zip)</span>
+          </a>
+          <a href="/downloads/MotionKit-SFX-Library.zip" download class="btn btn-secondary" style="padding:10px 6px;font-size:11.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.4);color:#FDE68A;">
+            <span>🎧</span> <span>SFX Pack (.zip)</span>
           </a>
         </div>
       </div>
@@ -2050,6 +2334,7 @@
   <script src="/js/sound.js"></script>
   <script src="/js/wheel.js"></script>
   <script src="/js/app.js"></script>
+  <script src="/js/site-sfx.js"></script>
 
   <script>
     // Dual Simulator Switcher (Radial Wheel HUD vs CEP Panel)

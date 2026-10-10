@@ -1,5 +1,5 @@
 /**
- * Flex GUI Pro v9.2.0 Master - Client Controller
+ * MotionKit Pro v9.2.0 Master - Client Controller
  * 100% Reliable Embedded ExtendScript Engine
  * Complete Unified Suite with Machine-Locked Licensing
  */
@@ -50,16 +50,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function getOrCreateMachineId() {
         var stored = "";
-        try { stored = localStorage.getItem("flex_machine_id") || ""; } catch(e) {}
-        if (stored && /^FLEX-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(stored)) {
+        try { stored = localStorage.getItem("motionkit_machine_id") || localStorage.getItem("flex_machine_id") || ""; } catch(e) {}
+        if (stored && /^(MK|FLEX)-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(stored)) {
             return stored;
         }
         var hex = "";
         for (var i = 0; i < 12; i++) {
             hex += Math.floor(Math.random() * 16).toString(16).toUpperCase();
         }
-        var newId = "FLEX-" + hex.slice(0, 4) + "-" + hex.slice(4, 8) + "-" + hex.slice(8, 12);
-        try { localStorage.setItem("flex_machine_id", newId); } catch(e) {}
+        var newId = "MK-" + hex.slice(0, 4) + "-" + hex.slice(4, 8) + "-" + hex.slice(8, 12);
+        try { localStorage.setItem("motionkit_machine_id", newId); } catch(e) {}
         return newId;
     }
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function isLicenseValid(key) {
         if (!key) return false;
         var k = ("" + key).replace(/^\s+|\s+$/g, '').toUpperCase();
-        if (k === "FLEX-MASTER-LIFETIME-ACCESS" || k === "FLEX-PRO-ADMIN-VIP-2026") return true;
+        if (k === "MOTIONKIT-MASTER-LIFETIME-ACCESS" || k === "MK-MASTER-LIFETIME-ACCESS" || k === "FLEX-MASTER-LIFETIME-ACCESS" || k === "FLEX-PRO-ADMIN-VIP-2026") return true;
         return k === flex_generateKey(machineId);
     }
 
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function updateLicenseUI() {
         var savedKey = "";
-        try { savedKey = localStorage.getItem("flex_license_key") || ""; } catch(e) {}
+        try { savedKey = localStorage.getItem("motionkit_license_key") || localStorage.getItem("flex_license_key") || ""; } catch(e) {}
         var valid = isLicenseValid(savedKey);
 
         if (valid) {
@@ -138,14 +138,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
             if (isLicenseValid(entered)) {
-                try { localStorage.setItem("flex_license_key", entered.toUpperCase()); } catch(e) {}
+                try { localStorage.setItem("motionkit_license_key", entered.toUpperCase()); } catch(e) {}
                 if (feedbackMsg) {
                     feedbackMsg.style.color = "#10b981";
-                    feedbackMsg.textContent = "✓ License Activated! Welcome to Flex GUI Pro!";
+                    feedbackMsg.textContent = "✓ License Activated! Welcome to MotionKit Pro!";
                 }
                 setTimeout(function() {
                     updateLicenseUI();
-                    showToast("🎉 Welcome to Flex GUI Pro! Activated.", false);
+                    showToast("🎉 Welcome to MotionKit Pro! Activated.", false);
                 }, 700);
             } else {
                 if (feedbackMsg) {
@@ -165,11 +165,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (badgeLicStatus) {
         badgeLicStatus.addEventListener("click", function() {
             var savedKey = "";
-            try { savedKey = localStorage.getItem("flex_license_key") || ""; } catch(e) {}
+            try { savedKey = localStorage.getItem("motionkit_license_key") || ""; } catch(e) {}
             if (isLicenseValid(savedKey)) {
-                var confirmDeact = confirm("Flex GUI Pro is currently Activated on this Machine.\nMachine ID: " + machineId + "\n\nDo you want to DEACTIVATE this license?");
+                var confirmDeact = confirm("MotionKit Pro is currently Activated on this Machine.\nMachine ID: " + machineId + "\n\nDo you want to DEACTIVATE this license?");
                 if (confirmDeact) {
-                    try { localStorage.removeItem("flex_license_key"); } catch(e) {}
+                    try { localStorage.removeItem("motionkit_license_key"); } catch(e) {}
                     updateLicenseUI();
                     showToast("⚠️ License deactivated.", true);
                 }
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // =========================================================
     function injectEngine() {
         var jsxSource = `/**
- * Flex GUI Pro - Ultimate Master ExtendScript Engine
+ * MotionKit Pro - Ultimate Master ExtendScript Engine
  * Complete consolidated suite with ALL features preserved:
  * 1. Rig & Transform (Anchor Snapper, Null, Camera, Adj, Solid, Center)
  * 2. Precomps & Timeline (Precomp Sep, True Dup, Un-Precomp, Split, Trim, Crop, Motion Blur, Shy)
@@ -3660,7 +3660,7 @@ function flex_createAutoCounter(preset) {
 
     function run(jsxCall, label) {
         var savedKey = "";
-        try { savedKey = localStorage.getItem("flex_license_key") || ""; } catch(e) {}
+        try { savedKey = localStorage.getItem("motionkit_license_key") || ""; } catch(e) {}
         if (!isLicenseValid(savedKey)) {
             updateLicenseUI();
             showToast("🔒 Please activate your license to use this tool.", true);

@@ -1,0 +1,327 @@
+[
+  {
+    "id": "liquid-glass",
+    "name": "MotionKit Liquid Glass",
+    "version": "2.0.0",
+    "tagline": "Glass that bends light for real.",
+    "pitch": "A rebuilt glass renderer. You shape the edge, set the index of refraction, and the background refracts, magnifies and splits into colour exactly where real glass would.",
+    "category": "effects",
+    "platforms": "macOS (Apple Silicon + Intel) \u00b7 Windows 64-bit",
+    "requires": "After Effects CC 2015 or newer,Multi-Frame Rendering needs AE 2022+",
+    "downloads": [],
+    "features": [
+      [
+        "Real refraction",
+        "Convex Lens, Smooth Dome, Chamfer, Concave or Flat edges, bent through an actual 3D surface."
+      ],
+      [
+        "True colour dispersion",
+        "Red, green and blue refract at their own index, so fringes appear only on the steep edge."
+      ],
+      [
+        "Any shape becomes glass",
+        "Assign a star, logo, text layer or precomp as the Track Layer and it gets the full bevel."
+      ],
+      [
+        "Blob merge + liquid motion",
+        "Shapes B and C melt into the main shape; Wobble animates the edge like living liquid."
+      ],
+      [
+        "A full lighting kit",
+        "Glare, sheen, inner shadow, rim colour, tint and environment reflections."
+      ],
+      [
+        "32-bit, multi-frame ready",
+        "8, 16 and 32-bit float, Multi-Frame Rendering in AE 2022 and newer."
+      ]
+    ]
+  },
+  {
+    "id": "masker",
+    "name": "MotionKit Masker",
+    "version": "1.2",
+    "tagline": "Select it. Refine it. Bake it. Done.",
+    "pitch": "Put the Target Point on an object and MotionKit Masker isolates it from PNGs, JPGs, stills and footage without drawing a single B\u00e9zier point, then bakes the result into normal After Effects masks.",
+    "category": "effects",
+    "platforms": "macOS (universal) \u00b7 Windows 64-bit",
+    "requires": "After Effects,Works best where the object has a clear colour or brightness edge",
+    "downloads": [],
+    "features": [
+      [
+        "One-click object selection",
+        "Place the Target Point over the object. Color Range and Edge Protection do the rest."
+      ],
+      [
+        "Multiple regions, real holes",
+        "Designs made of separate pieces stay whole; openings and enclosed areas stay cut out."
+      ],
+      [
+        "Refinement controls",
+        "Cleanup, Expand / Contract, Edge Feather, Fill Enclosed Holes and Matte Contrast."
+      ],
+      [
+        "Preview modes",
+        "Switch between Cutout, Matte, Selection Overlay and Original while you refine."
+      ],
+      [
+        "I'm Done - Bake Mask",
+        "Converts the result into standard After Effects masks and switches itself off for smooth playback."
+      ],
+      [
+        "Local and private",
+        "Runs on your machine and never uploads a frame. Center Anchor to Mask included."
+      ]
+    ]
+  },
+  {
+    "id": "mosaic",
+    "name": "MotionKit Mosaic MAX",
+    "version": "1.1.0",
+    "tagline": "Mosaic and blur that knows which layers to leave alone.",
+    "pitch": "Drop it on an adjustment layer, pick your layers and give each one a mode: Include puts the effect only on that layer, Exclude keeps that layer sharp. Mix them freely: censor a tracked face, keep the title that crosses it.",
+    "category": "effects",
+    "platforms": "macOS (Apple Silicon + Intel, notarised by Apple) \u00b7 Windows 10 / 11",
+    "requires": "After Effects,Windows 10 or 11",
+    "downloads": [],
+    "features": [
+      [
+        "Up to 12 layer slots",
+        "Set How Many and exactly that many pickers appear. Include or Exclude each one."
+      ],
+      [
+        "Follows everything",
+        "Parenting, 3D layers through the comp camera, opacity and in/out points are all respected."
+      ],
+      [
+        "Shape per layer",
+        "Alpha, Luma, Bounding Box or Bounding Ellipse: an instant face censor."
+      ],
+      [
+        "Lock Grid to a layer",
+        "Cells move, scale and rotate with your subject instead of crawling across it."
+      ],
+      [
+        "Styles and cells",
+        "Mosaic, Blur or both. Square, Hexagon, Triangle or Brick cells, plus Cell Gap for an LED-wall look."
+      ],
+      [
+        "Fast",
+        "Multithreaded, 8/16/32-bpc, and it only renders the area that changes: small regions up to 10\u00d7 faster."
+      ]
+    ]
+  },
+  {
+    "id": "grid",
+    "name": "MotionKit Grid",
+    "version": "1.3.0",
+    "tagline": "Framing grids, layout guides and tracked overlays.",
+    "pitch": "A native grid you can drag by its corners, run out to the frame edges, lock to a moving layer and dress with markers at every intersection. Every line setting is animatable.",
+    "category": "effects",
+    "platforms": "macOS (universal) \u00b7 Windows 10 / 11, 64-bit",
+    "requires": "After Effects",
+    "downloads": [],
+    "features": [
+      [
+        "Build the grid your way",
+        "Corner-point handles or Width / Height sliders, columns and rows up to 200."
+      ],
+      [
+        "Lines that leave the box",
+        "Run them out to the frame edges or extend them by a set amount: a real framing guide."
+      ],
+      [
+        "Tracks a layer, frame by frame",
+        "Locks to a layer's edges and follows its animation, no keyframes to set."
+      ],
+      [
+        "Keep Subject Clear",
+        "Mattes the grid out wherever your subject is, so the mesh sits around it, not on it."
+      ],
+      [
+        "Markers at every intersection",
+        "Square, diamond, triangle, plus, ring, circle, or any layer: logos, icons, whatever you want."
+      ],
+      [
+        "Animatable styling",
+        "Line width, colour and opacity, plus marker size, colour, opacity and rotation."
+      ]
+    ]
+  },
+  {
+    "id": "glow",
+    "name": "MotionKit Glow",
+    "version": "1.2.0",
+    "tagline": "Exponential glow without the render hit.",
+    "pitch": "A lightning-fast glow for After Effects: rich exponential falloff, sweeping light and cinematic chromatic fringing at any radius.",
+    "category": "effects",
+    "platforms": "macOS \u00b7 Windows",
+    "requires": "After Effects",
+    "downloads": [],
+    "features": [
+      [
+        "Exponential falloff",
+        "Layered bloom that stays hot in the core and fades naturally, like light does."
+      ],
+      [
+        "Chromatic fringing",
+        "Cinematic colour separation at the edges of the glow."
+      ],
+      [
+        "Any radius, fast",
+        "GPU accelerated, so huge glows do not stall your previews."
+      ],
+      [
+        "Colour accurate",
+        "16-bit and 32-bit float projects stay clean."
+      ]
+    ]
+  },
+  {
+    "id": "console",
+    "name": "MotionKit Command Console",
+    "version": "2.7",
+    "tagline": "Tell After Effects what you want.",
+    "pitch": "Press your shortcut, type it, hit Enter. deepglow red, blur 50, stagger 3, solid red 1080x1080: 60+ commands that understand what you mean, on Mac and Windows.",
+    "category": "workflow",
+    "platforms": "macOS (Apple Silicon + Intel, notarised) \u00b7 Windows 10 / 11",
+    "requires": "After Effects,macOS 11+ or Windows 10 / 11",
+    "downloads": [],
+    "features": [
+      [
+        "Effects that know what comes next",
+        "deepglow red adds Deep Glow with a red tint and switches the tint on. Already on the layer? It updates it."
+      ],
+      [
+        "60+ commands",
+        "solid, text, camera, circle, null, stagger, trim, speed, freeze, marker, ease, wiggle, loop, expr and more."
+      ],
+      [
+        "Say it either way",
+        "50 opacity or opacity 50. Chain with &. Save anything as a macro."
+      ],
+      [
+        "Never guess the syntax",
+        "help lists everything; type a command without numbers and it shows how it is written. Tab fills an example."
+      ],
+      [
+        "It finally feels right",
+        "A real spring on open, a highlight that glides between results, and it never steals Enter from a habit."
+      ],
+      [
+        "Signed on Mac",
+        "macOS 11+, signed and notarised by Apple. Windows 10 / 11 with high-DPI and every keyboard layout."
+      ]
+    ]
+  },
+  {
+    "id": "web2ae",
+    "name": "MotionKit Web To AE",
+    "version": "1.0.3",
+    "tagline": "Any web page, as editable After Effects layers.",
+    "pitch": "Not a screenshot, not a trace. Headlines arrive as real text layers with their fonts, cards and buttons as real shape layers with bezier paths, named, colour-labelled and parented like the page.",
+    "category": "workflow",
+    "platforms": "Any Chromium browser on macOS or Windows",
+    "requires": "Chrome, Edge, Brave or Arc,MotionKit Pro 8.0.0+ open in After Effects",
+    "downloads": [],
+    "features": [
+      [
+        "Real text, not pixels",
+        "Font, weight, size, tracking, leading and colour intact: retype it, animate it, restyle it."
+      ],
+      [
+        "True vector shapes",
+        "Cards, buttons and containers as shape layers where each corner keeps its own radius."
+      ],
+      [
+        "Pixel-perfect placement",
+        "Layers land by baseline, so nothing shifts even when a font substitutes."
+      ],
+      [
+        "Full layer hierarchy",
+        "Named after their elements, colour-labelled by type and parented to their containers."
+      ],
+      [
+        "Smart font handling",
+        "Tells you which web fonts will substitute and lets you pick the replacement before you build."
+      ],
+      [
+        "Send from anywhere, privately",
+        "Floating button, toolbar or Alt+Shift+A. Captures only travel to 127.0.0.1, your own machine."
+      ]
+    ]
+  },
+  {
+    "id": "browser",
+    "name": "MotionKitBrowser",
+    "version": "2.0.0",
+    "tagline": "A real browser in your editor, and it feels like Chrome.",
+    "pitch": "Browse, stream tutorials and pull references without leaving your comp. 2.0 looks and moves like Google Chrome, and your tabs follow you between After Effects and Premiere Pro.",
+    "category": "workflow",
+    "platforms": "macOS 12+ (Apple Silicon + Intel) \u00b7 Windows",
+    "requires": "After Effects and/or Premiere Pro,macOS 12 or newer,Windows: Microsoft Edge WebView2 (built into Windows 11)",
+    "downloads": [],
+    "features": [
+      [
+        "Looks and moves like Chrome",
+        "Curved tabs, a pill address bar with suggestions, menus, drag to reorder, reopen closed tab (\u21e7\u2318T), bookmarks (\u2318D)."
+      ],
+      [
+        "Tabs follow you",
+        "Open a tab in After Effects and it appears in Premiere Pro, same order, same active tab. Switch it off per app."
+      ],
+      [
+        "The sites you actually need",
+        "Pexels, Unsplash, Google, Instagram and YouTube load as real pages, and you stay signed in."
+      ],
+      [
+        "One sign-in on Mac",
+        "Log in once: the After Effects panel and the MotionKitBrowser app share their logins."
+      ],
+      [
+        "One voice",
+        "Video sound follows the app you are using, so a tab open in both never plays twice."
+      ],
+      [
+        "A start page for editors",
+        "A Chrome-style search box, pinned tiles and 84 editor bookmarks in 12 categories."
+      ]
+    ]
+  },
+  {
+    "id": "downloader",
+    "name": "MotionKit Downloader",
+    "version": "2.1.0",
+    "tagline": "Downloads built for editors.",
+    "pitch": "A dedicated download engine for MotionKit Pro and Flex ULTIMATE. Paste a link in your panel: it downloads at full speed, lands in your project and is ready to edit.",
+    "category": "apps",
+    "platforms": "macOS (Apple Silicon or Intel, notarised) \u00b7 Windows (x64 + ARM64)",
+    "requires": "For panel hand-off: MotionKit Pro 9.0.2+ or Flex ULTIMATE 2.0.4+ (optional)",
+    "downloads": [],
+    "features": [
+      [
+        "Connected to both panels",
+        "Paste a link in the Downloader tab of MotionKit Pro or Flex ULTIMATE; the file comes straight back into your project."
+      ],
+      [
+        "Built for speed",
+        "Up to 32 parallel connections into one file. Idle ones take over the slow parts, so it never sits at 99%."
+      ],
+      [
+        "Downloads that finish",
+        "New in 2.1: dropped Wi-Fi or a Mac waking from sleep is ridden out for up to two minutes, then it carries on."
+      ],
+      [
+        "4K and 2K that open in your editor",
+        "VP9 and AV1 become H.264 on your hardware encoder. Prefer the untouched original? One toggle."
+      ],
+      [
+        "Any link",
+        "YouTube, Instagram, TikTok, Vimeo, X, Facebook, Reddit, Twitch and more, plain file links, and your browser\u2019s cookies for sites that need a sign-in."
+      ],
+      [
+        "A library and a browser extension",
+        "Every file sorted into Video, Audio, Images and more; Chrome, Edge and Brave hand their downloads over too."
+      ]
+    ]
+  }
+]

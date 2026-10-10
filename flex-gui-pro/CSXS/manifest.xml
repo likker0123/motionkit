@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="7.0" ExtensionBundleId="com.captureflex.flexguipro" ExtensionBundleVersion="1.0.0"
-        ExtensionBundleName="Flex GUI Pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.motionkit.pro" ExtensionBundleVersion="1.0.0"
+        ExtensionBundleName="MotionKit Pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ExtensionList>
-        <Extension Id="com.captureflex.flexguipro.panel" Version="1.0.0" />
+        <Extension Id="com.motionkit.pro.panel" Version="1.0.0" />
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -17,7 +17,7 @@
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
-        <Extension Id="com.captureflex.flexguipro.panel">
+        <Extension Id="com.motionkit.pro.panel">
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
@@ -32,7 +32,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>Flex GUI Pro</Menu>
+                    <Menu>MotionKit Pro</Menu>
                     <Geometry>
                         <Size>
                             <Height>640</Height>

@@ -148,6 +148,8 @@ p {
   font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pill-dot {
@@ -272,14 +274,16 @@ p {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 18px;
+  flex-wrap: nowrap;
 }
 
 .nav-link {
   color: var(--text-muted);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 500;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
@@ -361,3 +365,89 @@ p {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================================
+   MOTIONKIT SFX & SOUND EFFECTS HUB STYLES
+   ========================================================================= */
+.sfx-equalizer-bars .eq-bar {
+  width: 3px;
+  height: 6px;
+  background: var(--primary, #D4AF37);
+  border-radius: 2px;
+  transition: height 0.15s ease;
+}
+.sfx-equalizer-bars.active .eq-bar:nth-child(1) { animation: eqBounce 0.4s infinite alternate; }
+.sfx-equalizer-bars.active .eq-bar:nth-child(2) { animation: eqBounce 0.6s 0.1s infinite alternate; }
+.sfx-equalizer-bars.active .eq-bar:nth-child(3) { animation: eqBounce 0.5s 0.2s infinite alternate; }
+.sfx-equalizer-bars.active .eq-bar:nth-child(4) { animation: eqBounce 0.7s 0.15s infinite alternate; }
+.sfx-equalizer-bars.active .eq-bar:nth-child(5) { animation: eqBounce 0.45s 0.05s infinite alternate; }
+@keyframes eqBounce {
+  0% { height: 4px; }
+  100% { height: 20px; }
+}
+
+.site-sfx-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.site-sfx-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+.site-sfx-card.playing {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: #D4AF37;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.2);
+}
+.site-sfx-playbtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #D4AF37;
+  color: #0b0b0e;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+.site-sfx-playbtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.5);
+}
+.site-sfx-cat-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #d1d5db;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.site-sfx-cat-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(212, 175, 55, 0.3);
+}
+.site-sfx-cat-btn.active {
+  background: #D4AF37;
+  color: #0B0B0E;
+  font-weight: 700;
+  border-color: #D4AF37;
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.35);
+}
+

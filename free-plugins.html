@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Plugins · MotionKit | Native After Effects & Premiere Pro Tools</title>
+  <meta name="description" content="9 free plugins that feel paid. Real 3D liquid glass refraction, instant smart masking, face censor tracking, exponential bloom, Chrome browser in AE, command console, and 32-stream downloader." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23D4AF37'/><path d='M30 25 L75 50 L30 75 Z' fill='%23000000'/></svg>" />
+
+  <!-- Fonts: Space Grotesk (Headings) & Inter (Body/UI) & JetBrains Mono (Code/Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/design-system.css">
+
+  <style>
+    :root {
+      --bg: #0C0A07;
+      --card-bg: #14120D;
+      --card-bg-elevated: #1C1912;
+      --card-border: rgba(212, 175, 55, 0.16);
+      --card-border-hover: rgba(212, 175, 55, 0.45);
+      --primary: #D4AF37;
+      --primary-hover: #C59B27;
+      --primary-glow: #FDE68A;
+      --primary-dim: rgba(212, 175, 55, 0.12);
+      --primary-glow-box: rgba(212, 175, 55, 0.35);
+      --gold-champagne: #FEF3C7;
+      --gold-warm: #F59E0B;
+      --text-main: #FCFBF7;
+      --text-muted: #B8B3A4;
+      --text-sub: #857F70;
+      --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; color-scheme: dark; }
+    body { background: var(--bg); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+
+    /* Top Navigation (Consistent with MotionKit Site) */
+    .header-nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(12, 10, 7, 0.88); border-bottom: 1px solid rgba(212, 175, 55, 0.14); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1320px; margin: 0 auto; width: 100%; }
+    .brand-group { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-logo-svg { height: 26px; width: auto; }
+    .brand-name { font-family: var(--font-heading); font-size: 19px; font-weight: 800; color: #FFF; letter-spacing: 0.02em; }
+    .brand-badge { background: linear-gradient(135deg, #D4AF37, #F59E0B); color: #0C0A07; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+    .nav-link:hover { color: #FFF; }
+    .nav-link.active { color: var(--primary-glow); font-weight: 700; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn-header { background: linear-gradient(135deg, #D4AF37, #F59E0B); color: #0C0A07; font-weight: 700; padding: 8px 18px; border-radius: 6px; text-decoration: none; font-size: 13px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.28); }
+    .btn-header:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); }
+    .btn-header-secondary { background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--primary-glow); font-weight: 600; padding: 7px 14px; border-radius: 6px; text-decoration: none; font-size: 12.5px; transition: all 0.2s; }
+    .btn-header-secondary:hover { background: rgba(212, 175, 55, 0.16); border-color: var(--primary); }
+
+    /* Mobile Nav Toggle */
+    .mobile-menu-btn { display: none; background: transparent; border: 1px solid rgba(212, 175, 55, 0.3); color: var(--primary-glow); padding: 6px 10px; border-radius: 6px; font-size: 16px; cursor: pointer; }
+
+    /* Hero Section */
+    .hero { position: relative; padding: 76px 20px 48px; text-align: center; max-width: 1040px; margin: 0 auto; }
+    .aurora { position: absolute; top: -60px; left: 50%; transform: translateX(-50%); width: 750px; height: 380px; background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(245, 158, 11, 0.07) 45%, transparent 72%); filter: blur(55px); pointer-events: none; z-index: 0; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; color: var(--primary-glow); background: var(--primary-dim); border: 1px solid rgba(212, 175, 55, 0.3); padding: 5px 16px; border-radius: 999px; margin-bottom: 22px; position: relative; z-index: 1; letter-spacing: 0.05em; text-transform: uppercase; }
+    .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); animation: pulseDot 2s infinite ease-in-out; }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+    h1 { font-family: var(--font-heading); font-size: clamp(36px, 5.5vw, 62px); font-weight: 800; line-height: 1.1; color: #FFF; margin-bottom: 18px; position: relative; z-index: 1; letter-spacing: -0.02em; }
+    .grad { background: linear-gradient(135deg, #FFFFFF 15%, #FDE68A 65%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .lead { font-size: clamp(15px, 2vw, 18px); color: var(--text-muted); max-width: 760px; margin: 0 auto 32px; position: relative; z-index: 1; line-height: 1.6; }
+    .hero-cta { display: flex; justify-content: center; gap: 14px; margin-bottom: 40px; position: relative; z-index: 1; flex-wrap: wrap; }
+    .btn-main { background: linear-gradient(135deg, #D4AF37, #F59E0B); color: #0C0A07; font-weight: 800; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-size: 14.5px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35); }
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5); }
+    .btn-outline { background: #14120D; border: 1px solid rgba(212, 175, 55, 0.3); color: #FFF; font-weight: 600; padding: 14px 24px; border-radius: 8px; text-decoration: none; font-size: 14.5px; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--primary); background: #1C1912; color: var(--primary-glow); }
+
+    /* Stats Bar */
+    .stats { display: flex; justify-content: center; gap: 36px; border-top: 1px solid rgba(212, 175, 55, 0.12); padding-top: 24px; position: relative; z-index: 1; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; }
+    .stat-val { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: #FFF; }
+    .stat-label { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* 3D Floating Interactive Jump Tiles Deck (CaptureFlex Layout) */
+    .tiles-deck-wrapper { max-width: 1240px; margin: 30px auto 10px; padding: 0 20px; }
+    .tiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    @media (max-width: 860px) { .tiles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .tiles-grid { grid-template-columns: 1fr; } }
+    .tile-card { position: relative; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(212, 175, 55, 0.03)); border: 1px solid rgba(212, 175, 55, 0.16); border-radius: 14px; padding: 16px 18px; text-decoration: none; display: flex; align-items: center; gap: 14px; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+    .tile-card:hover { transform: translateY(-3px); border-color: var(--primary); background: rgba(212, 175, 55, 0.08); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 0 18px rgba(212, 175, 55, 0.25); }
+    .tile-icon-box { width: 44px; height: 44px; border-radius: 10px; background: #1C1912; border: 1px solid rgba(212, 175, 55, 0.25); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
+    .tile-info { flex: 1; min-width: 0; }
+    .tile-name { font-family: var(--font-heading); font-size: 14.5px; font-weight: 700; color: #FFF; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tile-meta { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+    .tile-cat-badge { font-size: 10px; font-weight: 700; color: var(--primary-glow); background: rgba(212, 175, 55, 0.15); padding: 1px 5px; border-radius: 3px; text-transform: uppercase; }
+
+    /* Sticky Filter Bar */
+    .filter-sticky-bar { position: sticky; top: 62px; z-index: 90; background: rgba(12, 10, 7, 0.92); backdrop-filter: blur(16px); padding: 14px 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.14); display: flex; justify-content: center; gap: 10px; margin: 34px 0 36px; flex-wrap: wrap; }
+    .filter-btn { background: #14120D; border: 1px solid rgba(212, 175, 55, 0.18); color: var(--text-muted); font-size: 13px; font-weight: 600; padding: 7px 18px; border-radius: 999px; cursor: pointer; transition: all 0.15s; font-family: var(--font-body); }
+    .filter-btn:hover { background: #1C1912; color: #FFF; border-color: rgba(212, 175, 55, 0.35); }
+    .filter-btn.active { background: rgba(212, 175, 55, 0.18); color: var(--primary-glow); border-color: var(--primary); font-weight: 700; box-shadow: 0 0 12px rgba(212, 175, 55, 0.25); }
+
+    /* Main Container */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 20px 80px; }
+    .products-list { display: flex; flex-direction: column; gap: 48px; }
+
+    /* Product Card */
+    .prod-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; gap: 24px; transition: all 0.25s ease; position: relative; overflow: hidden; scroll-margin-top: 130px; }
+    .prod-card:hover { border-color: var(--card-border-hover); box-shadow: 0 14px 44px rgba(0,0,0,0.6), 0 0 24px rgba(212, 175, 55, 0.14); }
+    .prod-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; border-bottom: 1px solid rgba(212, 175, 55, 0.12); padding-bottom: 20px; }
+    .prod-title-group { display: flex; flex-direction: column; gap: 6px; }
+    .prod-kicker { font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: 0.06em; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+    .host-pill { background: #1C1912; color: var(--primary-glow); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; border: 1px solid rgba(212, 175, 55, 0.2); }
+    .prod-name { font-size: 28px; font-weight: 800; color: #FFF; font-family: var(--font-heading); display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .prod-ver { color: var(--primary-glow); font-size: 16px; font-weight: 600; font-family: var(--font-mono); }
+    .prod-tagline { font-size: 15.5px; color: var(--gold-champagne); font-style: italic; }
+    .prod-pitch { font-size: 14.5px; color: var(--text-muted); max-width: 820px; line-height: 1.6; }
+    .badge-free-forever { background: var(--primary-dim); color: var(--primary-glow); font-weight: 800; font-size: 11.5px; padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(212, 175, 55, 0.35); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Interactive Demo Stage */
+    .demo-stage { background: #0A0805; border: 1px solid rgba(212, 175, 55, 0.18); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7); }
+    .demo-title { font-size: 12px; font-weight: 700; color: var(--text-sub); display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; letter-spacing: 0.05em; }
+    .demo-screen { height: 180px; background: radial-gradient(circle at 50% 50%, #1A160E, #0A0805 80%); border-radius: 10px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid rgba(212, 175, 55, 0.12); }
+    .demo-controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; background: #120F0A; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.14); }
+    .control-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+    .control-item select, .control-item input[type=text] { background: #1C1912; border: 1px solid rgba(212, 175, 55, 0.25); color: #FFF; padding: 5px 10px; border-radius: 5px; font-size: 12px; outline: none; }
+    .control-item select:focus, .control-item input[type=text]:focus { border-color: var(--primary); }
+    .control-item input[type=range] { accent-color: var(--primary); cursor: pointer; }
+    .demo-btn { background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.3); color: var(--primary-glow); padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+    .demo-btn:hover { background: var(--primary); color: #0C0A07; }
+
+    /* Demo Visual Elements */
+    .glass-demo-ball { width: 130px; height: 130px; border-radius: 50%; background: linear-gradient(135deg, rgba(253, 230, 138, 0.2), rgba(212, 175, 55, 0.08)); backdrop-filter: blur(8px); border: 2px solid rgba(253, 230, 138, 0.45); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.35); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 800; color: #FFF; letter-spacing: 1px; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1); cursor: grab; text-align: center; font-size: 13px; }
+    .glass-demo-ball:hover { transform: scale(1.08); }
+    .glass-demo-ball span.sub { font-size: 10px; opacity: 0.8; font-family: var(--font-mono); color: var(--primary-glow); }
+
+    /* Grid & Downloads */
+    .prod-body { display: grid; grid-template-columns: 1fr 340px; gap: 28px; }
+    @media (max-width: 920px) { .prod-body { grid-template-columns: 1fr; } }
+    .feats-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .feats-list li { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
+    .feats-list li b { color: #FFF; font-weight: 600; }
+    .feats-list li::before { content: "✔ "; color: var(--primary); font-weight: bold; margin-right: 6px; }
+
+    /* Sidebar Download Box */
+    .dl-box { background: #0E0C08; border: 1px solid rgba(212, 175, 55, 0.18); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+    .dl-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+    .dl-plat { font-size: 11.5px; color: var(--text-sub); }
+    .btn-dl { background: linear-gradient(135deg, #D4AF37, #F59E0B); color: #0C0A07; font-weight: 700; text-decoration: none; padding: 12px 18px; border-radius: 7px; text-align: center; font-size: 13.5px; display: flex; justify-content: space-between; align-items: center; transition: all 0.18s; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25); }
+    .btn-dl:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); filter: brightness(1.06); }
+    .btn-dl-sub { font-size: 11.5px; opacity: 0.85; font-weight: 500; font-family: var(--font-mono); }
+    .btn-dl-secondary { background: #16130E; border: 1px solid rgba(212, 175, 55, 0.25); color: #FFF; text-decoration: none; padding: 10px 14px; border-radius: 6px; text-align: center; font-size: 12.5px; display: flex; justify-content: space-between; align-items: center; transition: all 0.15s; }
+    .btn-dl-secondary:hover { border-color: var(--primary); background: #1E1A12; }
+
+    /* Details Accordion */
+    details.install-accordion { background: #0A0805; border: 1px solid rgba(212, 175, 55, 0.12); border-radius: 6px; font-size: 12px; overflow: hidden; }
+    details.install-accordion summary { padding: 10px 12px; cursor: pointer; color: var(--text-muted); font-weight: 600; user-select: none; transition: color 0.15s; }
+    details.install-accordion summary:hover { color: #FFF; }
+    details.install-accordion ol { padding: 10px 16px 14px 28px; color: var(--text-sub); display: flex; flex-direction: column; gap: 8px; line-height: 1.5; }
+    details.install-accordion code { background: #16130E; color: var(--primary-glow); padding: 2px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 11px; }
+
+    /* Paths Box */
+    .paths-box { background: #080603; border: 1px solid rgba(212, 175, 55, 0.14); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 11.5px; font-family: var(--font-mono); }
+    .path-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .path-row:last-child { margin-bottom: 0; }
+    .copy-path-btn { background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--primary-glow); padding: 2px 7px; border-radius: 4px; font-size: 10.5px; cursor: pointer; font-family: var(--font-body); }
+    .copy-path-btn:hover { background: var(--primary); color: #0C0A07; }
+
+    /* FAQ Section */
+    .faq-section { max-width: 900px; margin: 40px auto 0; padding-top: 40px; border-top: 1px solid rgba(212, 175, 55, 0.14); }
+    .faq-title { font-family: var(--font-heading); font-size: 28px; font-weight: 800; color: #FFF; text-align: center; margin-bottom: 24px; }
+    .faq-grid { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; overflow: hidden; }
+    .faq-item summary { padding: 14px 18px; font-weight: 700; color: #FFF; cursor: pointer; user-select: none; font-size: 14.5px; }
+    .faq-item summary:hover { color: var(--primary-glow); }
+    .faq-item p { padding: 0 18px 14px; font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Footer */
+    footer { text-align: center; padding: 60px 20px 40px; font-size: 13px; color: var(--text-sub); border-top: 1px solid rgba(212, 175, 55, 0.12); }
+    footer a { color: var(--primary); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Toast Notification */
+    .toast-popup { position: fixed; bottom: 24px; right: 24px; background: #1C1912; border: 1px solid var(--primary); color: #FFF; padding: 12px 20px; border-radius: 8px; font-size: 13.5px; box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 16px rgba(212,175,55,0.3); z-index: 1000; display: none; align-items: center; gap: 8px; }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header-nav { padding: 12px 16px; }
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #0E0C08; border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 16px; gap: 14px; }
+      .mobile-menu-btn { display: block; }
+      .hero { padding: 50px 16px 36px; }
+      .prod-card { padding: 22px 18px; }
+      .demo-screen { height: 160px; }
+      .btn-header { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="header-nav">
+    <a href="/" class="brand-group">
+      <svg class="brand-logo-svg" viewBox="0 0 320 50">
+        <defs>
+          <linearGradient id="nav-gold-g" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="#FDE68A"/>
+            <stop offset="100%" stop-color="#D4AF37"/>
+          </linearGradient>
+        </defs>
+        <path d="M35 25 L0 2 L0 48 Z" fill="url(#nav-gold-g)"/>
+        <path d="M0 2 L10 25 L0 48" fill="none" stroke="#FDE68A" stroke-width="2" opacity="0.9"/>
+        <text x="45" y="38" font-family="'Space Grotesk', sans-serif" font-size="34" font-weight="700" fill="#FAFAFA">MOTIONKIT</text>
+      </svg>
+      <span class="brand-badge">⚡ FREE SUITE</span>
+    </a>
+
+    <nav class="nav-links" id="mainNavLinks">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/#tools" class="nav-link">Tools Grid</a>
+      <a href="/#featured" class="nav-link">Wheel HUD</a>
+      <a href="/#sfx-library" class="nav-link">SFX Library</a>
+      <a href="/free-plugins.html" class="nav-link active">Free Plugins</a>
+      <a href="/Preview.html" class="nav-link">Interactive Preview</a>
+      <a href="/#pricing" class="nav-link">Pricing</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="/downloads/free-plugins/MotionKit-All-Free-Plugins-Bundle.zip" class="btn-header" download>
+        <span>⚡ Download Bundle (3.0 MB)</span>
+      </a>
+      <button class="mobile-menu-btn" onclick="toggleMobileNav()">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="aurora"></div>
+    <div class="eyebrow"><span class="dot"></span> Free Plugins · No License Key · $0 Lifetime Forever</div>
+    <h1>Free plugins that <span class="grad">feel paid.</span></h1>
+    <p class="lead">9 production-grade native tools for After Effects and Premiere Pro: real optical glass refraction, instant smart masking, face censor tracking, exponential bloom, in-editor Chrome browser HUD, and a 32-stream downloader. 100% free for motion creators.</p>
+    
+    <div class="hero-cta">
+      <a href="/downloads/free-plugins/MotionKit-All-Free-Plugins-Bundle.zip" class="btn-main" download>
+        <span>📦 Download All 9 Plugins Bundle (.ZIP 3.0 MB)</span>
+      </a>
+      <a href="#plugin-1" class="btn-outline">Explore 9 Plugins Below ↓</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat-item"><span class="stat-val">9</span><span class="stat-label">Free Tools</span></div>
+      <div class="stat-item"><span class="stat-val">$0</span><span class="stat-label">Lifetime Free</span></div>
+      <div class="stat-item"><span class="stat-val">Win + Mac</span><span class="stat-label">Full Architecture</span></div>
+      <div class="stat-item"><span class="stat-val">AE + PR</span><span class="stat-label">Host Coverage</span></div>
+    </div>
+  </section>
+
+  <!-- 3D Floating Interactive Jump Tiles Deck (CaptureFlex Layout) -->
+  <div class="tiles-deck-wrapper">
+    <div class="tiles-grid">
+      <a href="#plugin-1" class="tile-card">
+        <div class="tile-icon-box">💎</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Liquid Glass</div>
+          <div class="tile-meta"><span class="tile-cat-badge">EFFECTS</span> <span>v2.0.0 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-2" class="tile-card">
+        <div class="tile-icon-box">✂️</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Masker</div>
+          <div class="tile-meta"><span class="tile-cat-badge">EFFECTS</span> <span>v1.2 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-3" class="tile-card">
+        <div class="tile-icon-box">🛡️</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Mosaic MAX</div>
+          <div class="tile-meta"><span class="tile-cat-badge">EFFECTS</span> <span>v1.1.0 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-4" class="tile-card">
+        <div class="tile-icon-box">📐</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Grid</div>
+          <div class="tile-meta"><span class="tile-cat-badge">EFFECTS</span> <span>v1.3.0 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-5" class="tile-card">
+        <div class="tile-icon-box">✨</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Glow</div>
+          <div class="tile-meta"><span class="tile-cat-badge">EFFECTS</span> <span>v1.2.0 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-6" class="tile-card">
+        <div class="tile-icon-box">⌨️</div>
+        <div class="tile-info">
+          <div class="tile-name">Command Console</div>
+          <div class="tile-meta"><span class="tile-cat-badge">WORKFLOW</span> <span>v2.7 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-7" class="tile-card">
+        <div class="tile-icon-box">🌐</div>
+        <div class="tile-info">
+          <div class="tile-name">Web To AE</div>
+          <div class="tile-meta"><span class="tile-cat-badge">WORKFLOW</span> <span>v1.0.3 · AE</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-8" class="tile-card">
+        <div class="tile-icon-box">🧭</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKitBrowser</div>
+          <div class="tile-meta"><span class="tile-cat-badge">WORKFLOW</span> <span>v2.0.0 · AE+PR</span></div>
+        </div>
+      </a>
+
+      <a href="#plugin-9" class="tile-card">
+        <div class="tile-icon-box">⚡</div>
+        <div class="tile-info">
+          <div class="tile-name">MotionKit Downloader</div>
+          <div class="tile-meta"><span class="tile-cat-badge">APPS</span> <span>v2.1.0 · Desktop</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sticky Filter Bar -->
+  <div class="filter-sticky-bar">
+    <button class="filter-btn active" onclick="filterPlugins('all')">All (9)</button>
+    <button class="filter-btn" onclick="filterPlugins('effects')">Effects (5)</button>
+    <button class="filter-btn" onclick="filterPlugins('workflow')">Workflow (3)</button>
+    <button class="filter-btn" onclick="filterPlugins('apps')">Apps (1)</button>
+  </div>
+
+  <!-- Products Showcase -->
+  <main class="container">
+    <div class="products-list" id="productsList">
+
+      <!-- 01: MotionKit Liquid Glass -->
+      <article class="prod-card" data-cat="effects" id="plugin-1">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>01 EFFECT</span>
+              <span class="host-pill">AE CC 2015 - CC 2026</span>
+            </span>
+            <h2 class="prod-name">MotionKit Liquid Glass <span class="prod-ver">v2.0.0</span></h2>
+            <p class="prod-tagline">“Glass that bends light for real.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">A rebuilt physical glass renderer. You shape the edge profile, set the index of refraction, and the background refracts, magnifies, and splits into spectral colors exactly where real optical glass would.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Optical Glass Refraction Simulator</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Shader: Active</span>
+          </div>
+          <div class="demo-screen" id="glass-screen" style="cursor:crosshair;">
+            <div class="glass-demo-ball" id="glass-ball" style="transform:scale(1);">
+              <span>LIQUID GLASS</span>
+              <span class="sub" id="glass-ior-label">IOR 1.52</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Edge Profile:</span>
+              <select id="glass-profile-sel" onchange="updateGlassDemo()">
+                <option value="lens">Convex Lens</option>
+                <option value="dome">Smooth Dome</option>
+                <option value="chamfer">Chamfer Bevel</option>
+                <option value="concave">Concave Lens</option>
+                <option value="flat">Flat Polished</option>
+              </select>
+            </div>
+            <div class="control-item">
+              <span>IOR Refraction:</span>
+              <input type="range" id="glass-ior-range" min="1.0" max="2.4" step="0.05" value="1.52" oninput="updateGlassDemo()">
+            </div>
+            <div class="control-item">
+              <span>Dispersion:</span>
+              <input type="range" id="glass-disp-range" min="0" max="100" value="45" oninput="updateGlassDemo()">
+            </div>
+            <div class="control-item" style="margin-left:auto;">
+              <button class="demo-btn" onclick="wobbleGlass()">🌊 Trigger Wobble</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Real refraction:</b> Convex Lens, Smooth Dome, Chamfer, Concave or Flat edges, bent through an actual 3D mathematical surface.</li>
+            <li><b>True colour dispersion:</b> Red, green, and blue refract at their own index, producing realistic chromatic aberrations on steep edges.</li>
+            <li><b>Any shape becomes glass:</b> Assign any star, typography, vector logo, or precomp as the Track Layer and it receives complete edge bevels.</li>
+            <li><b>Blob merge + liquid motion:</b> Multiple shapes organically melt together; Wobble animates the edge like real moving liquid.</li>
+            <li><b>Full studio lighting:</b> Specular glare, sheen, inner ambient shadow, rim highlight, and environment reflections.</li>
+            <li><b>32-bit & Multi-Frame ready:</b> Native 8, 16, and 32-bit float pipeline, GPU-accelerated with Multi-Frame Rendering (MFR) in AE 2022+.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS (Universal) · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Liquid-Glass-2.0.0.zip" class="btn-dl" download>
+              <span>📥 Download Plugin (.ZIP)</span>
+              <span class="btn-dl-sub">315 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Quit After Effects completely before installing.</li>
+                <li>Unzip and copy <code>FlexLiquidGlass.aex</code> (Windows) or <code>FlexLiquidGlass.plugin</code> (macOS) into your MediaCore directory.</li>
+                <li>Restart After Effects: <b>Effect › Stylize › Flex Liquid Glass</b>.</li>
+              </ol>
+              <div class="paths-box">
+                <div class="path-row">
+                  <span>Win: MediaCore</span>
+                  <button class="copy-path-btn" onclick="copyPath('C:\\Program Files\\Adobe\\Common\\Plug-ins\\7.0\\MediaCore\\')">Copy Path</button>
+                </div>
+                <div class="path-row">
+                  <span>Mac: MediaCore</span>
+                  <button class="copy-path-btn" onclick="copyPath('/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/')">Copy Path</button>
+                </div>
+              </div>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 02: MotionKit Masker -->
+      <article class="prod-card" data-cat="effects" id="plugin-2">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>02 EFFECT</span>
+              <span class="host-pill">AE CC 2017+</span>
+            </span>
+            <h2 class="prod-name">MotionKit Masker <span class="prod-ver">v1.2</span></h2>
+            <p class="prod-tagline">“Select it. Refine it. Bake it. Done.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Place the Target Point over any subject or object in your footage or still image, and MotionKit Masker instantly isolates it without drawing a single Bézier vertex, then bakes the result into standard After Effects masks.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Target Subject Isolation</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);" id="masker-status">Target: Object Locked</span>
+          </div>
+          <div class="demo-screen" id="masker-screen" style="cursor:crosshair; background:radial-gradient(circle at 50% 50%, #241D12, #0A0805);">
+            <div id="masker-preview-cutout" style="width:160px; height:120px; border:2px dashed var(--primary); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(212,175,55,0.12); box-shadow:0 0 30px rgba(212,175,55,0.25);">
+              <span style="font-size:32px;">🎯</span>
+              <span style="font-size:12px; font-weight:700; color:#FFF; margin-top:4px;">Isolated Subject</span>
+              <span style="font-size:10px; color:var(--primary-glow); font-family:var(--font-mono);" id="masker-pts-label">12 Mask Vertices</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>View Mode:</span>
+              <select id="masker-view-sel" onchange="updateMaskerDemo()">
+                <option value="cutout">Cutout Matte</option>
+                <option value="overlay">Selection Overlay</option>
+                <option value="original">Original Footage</option>
+              </select>
+            </div>
+            <div class="control-item">
+              <span>Color Range:</span>
+              <input type="range" id="masker-range" min="10" max="100" value="65" oninput="updateMaskerDemo()">
+            </div>
+            <div class="control-item">
+              <span>Feather:</span>
+              <input type="range" id="masker-feather" min="0" max="20" value="4" oninput="updateMaskerDemo()">
+            </div>
+            <div class="control-item" style="margin-left:auto;">
+              <button class="demo-btn" onclick="bakeMaskAction()">⚡ I'm Done - Bake Mask</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>One-click object selection:</b> Place the Target Point over any subject. Edge Protection algorithms extract the exact silhouette automatically.</li>
+            <li><b>Holes & complex cutouts:</b> Separate background openings, enclosed windows, and negative space stay cleanly cut out.</li>
+            <li><b>Refinement controls:</b> Cleanup, Expand / Contract, Edge Feather, Fill Enclosed Holes, and Matte Contrast sliders.</li>
+            <li><b>4 Preview modes:</b> Switch between Cutout, Matte, Selection Overlay, and Original while tuning edges.</li>
+            <li><b>Bake Mask:</b> Converts the result into standard After Effects masks and switches itself off for zero playback lag.</li>
+            <li><b>Local & private:</b> 100% offline GPU calculation; never uploads frames to cloud servers.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS (Universal) · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Masker-1.2.zip" class="btn-dl" download>
+              <span>📥 Download Plugin (.ZIP)</span>
+              <span class="btn-dl-sub">407 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Quit After Effects completely.</li>
+                <li>Copy <code>FlexMasker.aex</code> or <code>FlexMasker.plugin</code> into your MediaCore directory.</li>
+                <li>Launch After Effects: <b>Effect › Flex › Flex Masker</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 03: MotionKit Mosaic MAX -->
+      <article class="prod-card" data-cat="effects" id="plugin-3">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>03 EFFECT</span>
+              <span class="host-pill">AE CC 2018+</span>
+            </span>
+            <h2 class="prod-name">MotionKit Mosaic MAX <span class="prod-ver">v1.1.0</span></h2>
+            <p class="prod-tagline">“Mosaic and blur that knows which layers to leave alone.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Drop it on an adjustment layer, pick your layers and give each one a mode: Include applies the pixelation only on that layer, Exclude keeps that layer pristine. Censor a tracked face while preserving lower thirds and text crossing over it.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Multi-Pattern Pixelation</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Slots: 2 Active (Face Censored)</span>
+          </div>
+          <div class="demo-screen" id="mosaic-screen">
+            <div id="mosaic-box" style="width:140px; height:140px; border-radius:12px; background:repeating-linear-gradient(45deg, #1C1912, #1C1912 12px, #2A2416 12px, #2A2416 24px); border:2px solid var(--primary); display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 25px rgba(212,175,55,0.25);">
+              <span style="font-size:32px;">👤</span>
+              <span style="font-size:11px; font-weight:700; color:var(--primary-glow); margin-top:4px;" id="mosaic-type-label">Hexagon Cells (18px)</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Cell Pattern:</span>
+              <select id="mosaic-cell-sel" onchange="updateMosaicDemo()">
+                <option value="square">Square Grid</option>
+                <option value="hexagon">Hexagon Honeycomb</option>
+                <option value="triangle">Triangle Mesh</option>
+                <option value="brick">Brick Stagger</option>
+              </select>
+            </div>
+            <div class="control-item">
+              <span>Cell Size:</span>
+              <input type="range" id="mosaic-size" min="6" max="36" value="18" oninput="updateMosaicDemo()">
+            </div>
+            <div class="control-item">
+              <span>Style:</span>
+              <select id="mosaic-style-sel" onchange="updateMosaicDemo()">
+                <option value="mosaic">Mosaic</option>
+                <option value="blur">Gaussian Blur</option>
+                <option value="both">Mosaic + Blur</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Up to 12 layer slots:</b> Specify layer counts; Include or Exclude each one independently.</li>
+            <li><b>Follows comp hierarchy:</b> 3D comp cameras, parenting, layer opacity, and in/out points are all respected.</li>
+            <li><b>Shape per layer:</b> Alpha, Luma, Bounding Box, or Bounding Ellipse for rapid face censoring.</li>
+            <li><b>Lock Grid to layer:</b> Cells move, scale, and rotate with your subject instead of crawling across pixels.</li>
+            <li><b>Cell geometry:</b> Square, Hexagon, Triangle, and Brick cells, plus Cell Gap for LED display aesthetics.</li>
+            <li><b>Optimized multi-threaded render:</b> Only calculates regions that change—small regions render up to 10× faster.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS (Apple Silicon + Intel) · Windows 10/11</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Mosaic-MAX-1.1.0.zip" class="btn-dl" download>
+              <span>📥 Download Plugin (.ZIP)</span>
+              <span class="btn-dl-sub">359 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Quit After Effects completely.</li>
+                <li>Copy <code>FlexMosaicMAX.aex</code> or <code>FlexMosaicMAX.plugin</code> into MediaCore.</li>
+                <li>Add an adjustment layer above footage and apply <b>Effect › Stylize › Flex Mosaic MAX</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 04: MotionKit Grid -->
+      <article class="prod-card" data-cat="effects" id="plugin-4">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>04 EFFECT</span>
+              <span class="host-pill">AE CC 2015+</span>
+            </span>
+            <h2 class="prod-name">MotionKit Grid <span class="prod-ver">v1.3.0</span></h2>
+            <p class="prod-tagline">“Framing grids, layout guides and tracked overlays.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">A native procedural grid you can drag by corner-pin handles, run out to composition edges, lock to a moving layer, and dress with geometric intersection markers. Every parameter is fully animatable.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · 3D Corner-Pin Perspective Grid</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);" id="grid-meta-label">Grid: 8 × 5</span>
+          </div>
+          <div class="demo-screen" id="grid-screen">
+            <svg id="grid-svg" width="100%" height="100%" style="position:absolute; inset:0;">
+              <!-- Dynamically populated grid lines in JS -->
+            </svg>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Columns:</span>
+              <input type="range" id="grid-cols" min="2" max="20" value="8" oninput="updateGridDemo()">
+            </div>
+            <div class="control-item">
+              <span>Rows:</span>
+              <input type="range" id="grid-rows" min="2" max="14" value="5" oninput="updateGridDemo()">
+            </div>
+            <div class="control-item">
+              <span>Markers:</span>
+              <select id="grid-marker-sel" onchange="updateGridDemo()">
+                <option value="diamond">◆ Diamond</option>
+                <option value="cross">+ Crosshair</option>
+                <option value="circle">● Dot</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+            <div class="control-item" style="margin-left:auto;">
+              <button class="demo-btn" onclick="toggleGridTilt()">📐 Toggle 3D Tilt</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Custom geometry:</b> Corner-point handles or Width / Height sliders, columns and rows up to 200.</li>
+            <li><b>Lines that extend:</b> Run lines out to frame boundaries or extend past bounding boxes for cinematography framing.</li>
+            <li><b>Tracks a layer automatically:</b> Locks to layer boundaries and inherits scale, position, and rotation without keyframes.</li>
+            <li><b>Keep Subject Clear:</b> Masks the grid out around foreground actors or UI objects automatically.</li>
+            <li><b>Rich intersection markers:</b> Diamonds, crosshairs, dots, squares, and plus markers at every coordinate vertex.</li>
+            <li><b>Independent line weights:</b> Outer border and inner divider line stroke widths are customizable.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS (Universal) · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Grid-1.3.0.zip" class="btn-dl" download>
+              <span>📥 Download Plugin (.ZIP)</span>
+              <span class="btn-dl-sub">187 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Quit After Effects.</li>
+                <li>Copy <code>FlexGrid.aex</code> or <code>FlexGrid.plugin</code> into MediaCore.</li>
+                <li>Launch After Effects: <b>Effect › Flex › Flex Grid</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 05: MotionKit Glow -->
+      <article class="prod-card" data-cat="effects" id="plugin-5">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>05 EFFECT</span>
+              <span class="host-pill">AE CC 2015+</span>
+            </span>
+            <h2 class="prod-name">MotionKit Glow <span class="prod-ver">v1.2.0</span></h2>
+            <p class="prod-tagline">“Exponential GPU Bloom glow that doesn't blow out.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Physically accurate inverse-square inverse-decay glow with multi-radius thresholding. Unlike native AE Glow, MotionKit Glow produces buttery-smooth falloffs without harsh clipping bands.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Exponential GPU Bloom Falloff</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Falloff: Inverse-Square</span>
+          </div>
+          <div class="demo-screen" id="glow-screen">
+            <div id="glow-target" style="width:120px; height:120px; border-radius:50%; background:#FFF; display:flex; align-items:center; justify-content:center; font-weight:800; color:#0C0A07; font-size:16px; box-shadow:0 0 60px #D4AF37, 0 0 120px rgba(212,175,55,0.6); transition:box-shadow 0.2s;">
+              GLOW
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Intensity:</span>
+              <input type="range" id="glow-int-range" min="10" max="100" value="70" oninput="updateGlowDemo()">
+            </div>
+            <div class="control-item">
+              <span>Radius:</span>
+              <input type="range" id="glow-rad-range" min="20" max="180" value="80" oninput="updateGlowDemo()">
+            </div>
+            <div class="control-item">
+              <span>Tint Palette:</span>
+              <select id="glow-tint-sel" onchange="updateGlowDemo()">
+                <option value="gold">Luxury Gold (#D4AF37)</option>
+                <option value="warm">Warm Amber (#F59E0B)</option>
+                <option value="white">Pure White (#FFFFFF)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Physically accurate inverse-square falloff:</b> Simulates natural optical diffusion through lens glass.</li>
+            <li><b>Zero clipping:</b> High-dynamic-range mathematical rolloff prevents over-saturated hot spots.</li>
+            <li><b>Multi-radius blending:</b> Simultaneously composites 5 separate diffusion radii for organic depth.</li>
+            <li><b>Custom chromatic tint:</b> Colorize highlights with warm champagne gold or cool cinematic tones.</li>
+            <li><b>Multi-Frame Rendering:</b> GPU compute shaders written in native C++ for instantaneous rendering.</li>
+            <li><b>Alpha channel preservation:</b> Glows can be isolated onto separate render passes for comping.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS (Universal) · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Glow-1.2.0.zip" class="btn-dl" download>
+              <span>📥 Download Plugin (.ZIP)</span>
+              <span class="btn-dl-sub">247 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Quit After Effects.</li>
+                <li>Copy <code>FlexGlow.aex</code> or <code>FlexGlow.plugin</code> into MediaCore.</li>
+                <li>Launch After Effects: <b>Effect › Stylize › Flex Glow</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 06: MotionKit Command Console -->
+      <article class="prod-card" data-cat="workflow" id="plugin-6">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>06 WORKFLOW</span>
+              <span class="host-pill">AE CC 2019+</span>
+            </span>
+            <h2 class="prod-name">Command Console <span class="prod-ver">v2.7</span></h2>
+            <p class="prod-tagline">“The fastest keyboard HUD for After Effects.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Search effects, apply motion presets, run scripts, recolor layers, and navigate heavy compositions with single keystrokes. Instant floating HUD powered by Ctrl+K / Cmd+K.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Keyboard HUD Simulator</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Hotkey: Cmd+K / Ctrl+K</span>
+          </div>
+          <div class="demo-screen" style="flex-direction:column; padding:16px;">
+            <div style="width:100%; max-width:440px; background:#181510; border:1px solid rgba(212,175,55,0.3); border-radius:8px; padding:8px 12px; display:flex; align-items:center; gap:8px;">
+              <span style="color:var(--primary); font-size:14px;">🔍</span>
+              <input type="text" id="cmd-input" placeholder="Type a command (e.g. Glow, Mask, Camera, Null)..." style="background:transparent; border:none; outline:none; color:#FFF; font-size:13px; font-family:var(--font-mono); width:100%;" oninput="filterConsoleDemo()">
+              <span style="font-size:11px; background:#241F14; color:var(--primary-glow); padding:2px 6px; border-radius:4px; font-family:var(--font-mono);">ESC</span>
+            </div>
+            <div id="cmd-results" style="width:100%; max-width:440px; margin-top:8px; display:flex; flex-direction:column; gap:4px; max-height:85px; overflow-y:auto;">
+              <!-- Dynamic command results in JS -->
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Try quick queries:</span>
+              <button class="demo-btn" onclick="setCmdQuery('Glow')">Glow</button>
+              <button class="demo-btn" onclick="setCmdQuery('Mask')">Mask</button>
+              <button class="demo-btn" onclick="setCmdQuery('Camera')">Camera</button>
+              <button class="demo-btn" onclick="setCmdQuery('Null')">Null</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Fuzzy search:</b> Instant matching for all native and 3rd party plugins, presets, and ExtendScript files.</li>
+            <li><b>Custom hotkeys:</b> Assign any custom keyboard shortcut to trigger favorite actions.</li>
+            <li><b>Batch layer styling:</b> Change label colors, trim in/out points, and align layers without touching menus.</li>
+            <li><b>Project comp jumper:</b> Instantly jump between nested comps by name without digging through folders.</li>
+            <li><b>Zero memory overhead:</b> Native lightweight CEP architecture loads in milliseconds.</li>
+            <li><b>Preset runner:</b> Apply customized animation presets directly onto selected layers.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Command-Console-2.7.zip" class="btn-dl" download>
+              <span>📥 Download Extension (.ZIP)</span>
+              <span class="btn-dl-sub">868 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Unzip the package.</li>
+                <li>Copy the folder into <code>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions\</code> (Win) or <code>/Library/Application Support/Adobe/CEP/extensions/</code> (Mac).</li>
+                <li>Restart After Effects: <b>Window › Extensions › MotionKit Command Console</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 07: MotionKit Web To AE -->
+      <article class="prod-card" data-cat="workflow" id="plugin-7">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>07 WORKFLOW</span>
+              <span class="host-pill">AE CC 2018+</span>
+            </span>
+            <h2 class="prod-name">Web To AE <span class="prod-ver">v1.0.3</span></h2>
+            <p class="prod-tagline">“Paste web designs & SVG directly as editable shape layers.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Copy HTML/CSS or SVG code from Figma or browser and paste straight into After Effects with clean shape hierarchy preserved. No Illustrator intermediate files needed.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Vector Code to Shape Layer Converter</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Format: Native AE Shapes</span>
+          </div>
+          <div class="demo-screen" style="padding:16px; gap:20px;">
+            <div style="flex:1; height:100%; background:#100E0A; border:1px solid rgba(212,175,55,0.2); border-radius:8px; padding:10px; font-family:var(--font-mono); font-size:11px; color:var(--text-muted); overflow:hidden;">
+              <span style="color:var(--primary-glow);">&lt;svg viewBox="0 0 100 100"&gt;</span><br>
+              &nbsp;&nbsp;&lt;path d="M50 15 L85 85 L15 85 Z"<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fill="#D4AF37"/&gt;<br>
+              <span style="color:var(--primary-glow);">&lt;/svg&gt;</span>
+            </div>
+            <div style="font-size:24px; color:var(--primary);">➔</div>
+            <div id="w2a-output" style="flex:1; height:100%; background:#181510; border:1px solid rgba(212,175,55,0.3); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+              <svg width="60" height="60" viewBox="0 0 100 100">
+                <path d="M50 15 L85 85 L15 85 Z" fill="#D4AF37"/>
+              </svg>
+              <span style="font-size:10.5px; color:var(--primary-glow); margin-top:4px; font-family:var(--font-mono);">Shape Layer 1 (Bézier)</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item" style="margin-left:auto;">
+              <button class="demo-btn" onclick="animateW2A()">🔄 Re-Convert & Animate Path</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Direct clipboard paste:</b> Copy SVG from Figma, Illustrator, or browser and paste directly into your comp.</li>
+            <li><b>Preserves fills & strokes:</b> Vector fills, gradients, stroke widths, and dash arrays convert directly into AE properties.</li>
+            <li><b>No Illustrator required:</b> Eliminates multi-step file saving, importing, and "Create Shapes from Vector Layer".</li>
+            <li><b>Named layer hierarchy:</b> Groups and layer names in your SVG are preserved as neat shape layer groups.</li>
+            <li><b>Ultra light:</b> Only 38 KB footprint with zero bloat.</li>
+            <li><b>Supports CSS styling:</b> Basic CSS color variables and fills parse automatically.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Web-To-AE-1.0.3.zip" class="btn-dl" download>
+              <span>📥 Download Script (.ZIP)</span>
+              <span class="btn-dl-sub">38 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Unzip the package.</li>
+                <li>Copy <code>WebToAE.jsx</code> into <code>After Effects/Scripts/ScriptUI Panels/</code>.</li>
+                <li>Restart After Effects: <b>Window › WebToAE.jsx</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 08: MotionKitBrowser -->
+      <article class="prod-card" data-cat="workflow" id="plugin-8">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>08 WORKFLOW</span>
+              <span class="host-pill">AE CC 2019+ · PR CC 2019+</span>
+            </span>
+            <h2 class="prod-name">MotionKitBrowser <span class="prod-ver">v2.0.0</span></h2>
+            <p class="prod-tagline">“A complete Chromium browser docked right inside After Effects & Premiere.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">Browse YouTube tutorials, Freesound, Envato, textures, and client briefs directly in your After Effects or Premiere Pro workspace without alt-tabbing.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · Docked In-Editor Web Browser</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);">Engine: Chromium</span>
+          </div>
+          <div class="demo-screen" style="flex-direction:column; padding:0; overflow:hidden;">
+            <!-- Browser Chrome Topbar -->
+            <div style="width:100%; background:#1C1912; border-bottom:1px solid rgba(212,175,55,0.2); padding:6px 12px; display:flex; align-items:center; gap:8px;">
+              <span style="display:inline-flex; gap:4px;">
+                <span style="width:8px; height:8px; border-radius:50%; background:#EF4444;"></span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#F59E0B;"></span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#10B981;"></span>
+              </span>
+              <div id="browser-url-bar" style="flex:1; background:#120F0A; border:1px solid rgba(212,175,55,0.2); border-radius:4px; padding:3px 10px; font-size:11px; color:var(--text-muted); font-family:var(--font-mono); display:flex; align-items:center; gap:6px;">
+                <span style="color:var(--primary);">🔒</span> <span id="browser-url-text">https://freesound.org/search/?q=whoosh</span>
+              </div>
+            </div>
+            <!-- Browser Content Frame -->
+            <div style="flex:1; width:100%; background:#0E0C08; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;">
+              <span style="font-size:24px;">🎵</span>
+              <span style="font-size:13px; font-weight:700; color:#FFF;">Freesound Audio Browser</span>
+              <span style="font-size:11px; color:var(--text-sub);">Direct drag-and-drop into composition</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item">
+              <span>Quick Tabs:</span>
+              <button class="demo-btn" onclick="setBrowserTab('freesound', 'https://freesound.org/search/?q=whoosh')">Freesound</button>
+              <button class="demo-btn" onclick="setBrowserTab('youtube', 'https://youtube.com/results?search_query=ae+tutorial')">YouTube</button>
+              <button class="demo-btn" onclick="setBrowserTab('pexels', 'https://pexels.com/video/')">Pexels 4K</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>Looks and moves like Chrome:</b> Curved tabs, pill address bar with suggestions, history, and bookmarks.</li>
+            <li><b>Synchronized between apps:</b> Open a tab in After Effects and it stays in sync when switching to Premiere Pro.</li>
+            <li><b>Pre-loaded editor bookmarks:</b> 84+ essential motion bookmarks: Pexels, Unsplash, Envato, Freesound, and Fontshare.</li>
+            <li><b>Persistent logins:</b> Log into your accounts once and stay signed in across editing sessions.</li>
+            <li><b>Floating overlay mode:</b> Pin as an always-on-top panel or dock natively into your Adobe workspace.</li>
+            <li><b>Audio routing:</b> Playback stops automatically when scrubbing host timeline to avoid audio clashes.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS 12+ · Windows 64-bit</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Browser-2.0.0-Windows.zip" class="btn-dl" download>
+              <span>📥 Download Windows (.ZIP)</span>
+              <span class="btn-dl-sub">588 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Windows: Unzip and run <code>install.bat</code>.</li>
+                <li>macOS: Double-click package installer.</li>
+                <li>Launch After Effects: <b>Window › MotionKitBrowser</b>.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+      <!-- 09: MotionKit Downloader -->
+      <article class="prod-card" data-cat="apps" id="plugin-9">
+        <header class="prod-head">
+          <div class="prod-title-group">
+            <span class="prod-kicker">
+              <span>09 DESKTOP APP</span>
+              <span class="host-pill">AE · PR · Extension</span>
+            </span>
+            <h2 class="prod-name">MotionKit Downloader <span class="prod-ver">v2.1.0</span></h2>
+            <p class="prod-tagline">“Multi-threaded 32-stream background asset downloader.”</p>
+          </div>
+          <span class="badge-free-forever">100% FREE FOREVER</span>
+        </header>
+
+        <p class="prod-pitch">A dedicated high-speed download engine for motion designers. Paste any link: it downloads using 32 parallel streams, converts codecs on the fly, and lands directly into your active project bin.</p>
+
+        <!-- Interactive Demo Stage -->
+        <div class="demo-stage">
+          <div class="demo-title">
+            <span>LIVE INTERACTIVE PREVIEW · 32-Stream Download Acceleration</span>
+            <span style="color:var(--primary-glow); font-family:var(--font-mono);" id="dl-speed-label">Speed: 124.6 MB/s</span>
+          </div>
+          <div class="demo-screen" style="flex-direction:column; padding:20px; align-items:flex-start; justify-content:center; gap:10px;">
+            <div style="display:flex; justify-content:space-between; width:100%; font-size:12px; font-weight:600;">
+              <span>Cinematic_Drone_4K_ProRes.mov</span>
+              <span style="color:var(--primary-glow); font-family:var(--font-mono);" id="dl-pct-label">78% · 32 Streams Active</span>
+            </div>
+            <!-- Multi-Stream Segment Progress Bar -->
+            <div style="width:100%; height:12px; background:#1C1912; border-radius:6px; overflow:hidden; border:1px solid rgba(212,175,55,0.2); display:flex; gap:2px; padding:2px;">
+              <div style="width:80%; height:100%; background:linear-gradient(90deg, #D4AF37, #F59E0B); border-radius:4px;" id="dl-progress-bar"></div>
+            </div>
+            <div style="font-size:11px; color:var(--text-sub); display:flex; justify-content:space-between; width:100%;">
+              <span>Destination: Active Premiere Project Bin</span>
+              <span style="color:var(--primary-glow);">✓ Auto-H.264 Transcode</span>
+            </div>
+          </div>
+          <div class="demo-controls">
+            <div class="control-item" style="flex:1;">
+              <input type="text" value="https://youtube.com/watch?v=dQw4w9WgXcQ" style="width:100%; font-family:var(--font-mono); font-size:11.5px;" readonly>
+            </div>
+            <div class="control-item">
+              <button class="demo-btn" onclick="simulateDownload()">🚀 Simulate Stream Turbo</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-body">
+          <ul class="feats-list">
+            <li><b>32 Parallel streams:</b> Squeezes every bit of bandwidth out of your connection without bottleneck stalls.</li>
+            <li><b>Direct-to-timeline:</b> Downloaded media automatically imports into your open project's active bin.</li>
+            <li><b>Auto 4K transcoding:</b> VP9 and AV1 web formats automatically transcode into editing-friendly ProRes or H.264.</li>
+            <li><b>Connection recovery:</b> Network drops or laptop sleep cycles resume seamlessly without restarting from 0%.</li>
+            <li><b>Universal source support:</b> YouTube, Vimeo, Instagram, TikTok, Reddit, and direct CDN video URLs.</li>
+            <li><b>Browser extension included:</b> Chrome, Edge, and Brave extensions hand links directly to the engine.</li>
+          </ul>
+
+          <aside class="dl-box">
+            <div class="dl-top">
+              <span class="badge-free-forever">Lifetime $0</span>
+              <span class="dl-plat">macOS · Windows (x64)</span>
+            </div>
+            <a href="/downloads/free-plugins/MotionKit-Downloader-Browser-Extension.zip" class="btn-dl" download>
+              <span>📥 Browser Extension (.ZIP)</span>
+              <span class="btn-dl-sub">28 KB</span>
+            </a>
+            <details class="install-accordion">
+              <summary>Installation Guide (3 Steps)</summary>
+              <ol>
+                <li>Unzip the extension folder.</li>
+                <li>Open Chrome / Edge: <code>chrome://extensions</code>, enable Developer Mode, and click <b>Load unpacked</b>.</li>
+                <li>Click the MotionKit icon in your browser toolbar to download any video into your timeline.</li>
+              </ol>
+            </details>
+          </aside>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Universal MediaCore Paths Cheat Sheet -->
+    <div style="background:#14120D; border:1px solid rgba(212,175,55,0.2); border-radius:16px; padding:28px; margin-top:50px;">
+      <h3 style="font-family:var(--font-heading); font-size:20px; color:#FFF; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+        <span>📁</span> Universal Adobe MediaCore Paths (Where plugins go)
+      </h3>
+      <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:18px;">
+        All MotionKit native <code>.aex</code> and <code>.plugin</code> files go into Adobe's shared MediaCore folder. Both After Effects and Premiere Pro read plugins from this folder on startup.
+      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="background:#0C0A07; border:1px solid rgba(212,175,55,0.15); border-radius:10px; padding:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:#FFF; font-size:13px;">Windows 10 / 11 (64-bit)</strong>
+            <button class="copy-path-btn" onclick="copyPath('C:\\Program Files\\Adobe\\Common\\Plug-ins\\7.0\\MediaCore\\')">Copy Path</button>
+          </div>
+          <code style="font-size:11.5px; color:var(--primary-glow); font-family:var(--font-mono); word-break:break-all;">C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\</code>
+        </div>
+        <div style="background:#0C0A07; border:1px solid rgba(212,175,55,0.15); border-radius:10px; padding:16px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <strong style="color:#FFF; font-size:13px;">macOS (Apple Silicon & Intel)</strong>
+            <button class="copy-path-btn" onclick="copyPath('/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/')">Copy Path</button>
+          </div>
+          <code style="font-size:11.5px; color:var(--primary-glow); font-family:var(--font-mono); word-break:break-all;">/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <details class="faq-item" open>
+          <summary>Are these 9 plugins truly 100% free?</summary>
+          <p>Yes. Every plugin on this page is free forever. There are no license keys, no trial periods, no watermarks, and no registration required. Download the .zip, install, and create.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which versions of After Effects and Premiere Pro are supported?</summary>
+          <p>Effects plugins support Adobe After Effects CC 2015 through CC 2026+. Extensions and workflow tools support CC 2019+ on both Windows 10/11 and macOS (native Apple Silicon M1/M2/M3/M4 + Intel).</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I use these plugins for commercial client projects?</summary>
+          <p>Yes! All tools in the MotionKit Free Suite are completely royalty-free for both personal and commercial motion design, YouTube production, and broadcast client work.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What is the difference between these Free Plugins and MotionKit Pro?</summary>
+          <p>These 9 plugins are standalone native tools. MotionKit Pro is our unified creative ecosystem featuring the full Radial Wheel HUD, offline AI Whisper subtitles generator, Bezier curve graph editor, 25+ cinematic preset rigs, and the 120+ studio SFX library.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="margin-bottom:16px;">
+      <a href="/" style="font-family:var(--font-heading); font-size:18px; font-weight:800; color:#FFF; text-decoration:none;">⚡ MOTIONKIT ECOSYSTEM</a>
+    </div>
+    <p>© 2026 MotionKit Labs. All free tools unlocked and permanent for the global motion design community.</p>
+    <div style="margin-top:12px; display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+      <a href="/">Home</a>
+      <a href="/#tools">Tools Grid</a>
+      <a href="/#featured">Wheel HUD</a>
+      <a href="/#sfx-library">SFX Library</a>
+      <a href="/Preview.html">Interactive Extension Preview</a>
+      <a href="https://wa.me/917982179684" target="_blank">Direct WhatsApp Support</a>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Box -->
+  <div class="toast-popup" id="toastBox">
+    <span>✓</span> <span id="toastMsg">Path copied to clipboard!</span>
+  </div>
+
+  <!-- Interactive JavaScript Engine -->
+  <script>
+    // Mobile navigation toggle
+    function toggleMobileNav() {
+      const nav = document.getElementById('mainNavLinks');
+      nav.classList.toggle('open');
+    }
+
+    // Category filter pills
+    function filterPlugins(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      const cards = document.querySelectorAll('.prod-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Toast popup helper
+    function showToast(msg) {
+      const t = document.getElementById('toastBox');
+      const m = document.getElementById('toastMsg');
+      m.innerText = msg;
+      t.style.display = 'inline-flex';
+      setTimeout(() => { t.style.display = 'none'; }, 2600);
+    }
+
+    // Copy path to clipboard
+    function copyPath(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('MediaCore path copied to clipboard!');
+      }).catch(() => {
+        showToast('Path: ' + text);
+      });
+    }
+
+    // 01: Liquid Glass Demo Interactive Controller
+    function updateGlassDemo() {
+      const ior = parseFloat(document.getElementById('glass-ior-range').value);
+      const disp = parseInt(document.getElementById('glass-disp-range').value);
+      const ball = document.getElementById('glass-ball');
+      const label = document.getElementById('glass-ior-label');
+      label.innerText = 'IOR ' + ior.toFixed(2);
+      const glowSpread = Math.round(ior * 20);
+      ball.style.boxShadow = `0 10px ${glowSpread}px rgba(212, 175, 55, ${0.2 + disp/200})`;
+    }
+
+    function wobbleGlass() {
+      const ball = document.getElementById('glass-ball');
+      ball.style.transform = 'scale(1.15) rotate(4deg)';
+      setTimeout(() => { ball.style.transform = 'scale(0.92) rotate(-3deg)'; }, 180);
+      setTimeout(() => { ball.style.transform = 'scale(1.05) rotate(1deg)'; }, 360);
+      setTimeout(() => { ball.style.transform = 'scale(1) rotate(0deg)'; }, 520);
+      showToast('Liquid edge simulation updated!');
+    }
+
+    // 02: Masker Demo Interactive Controller
+    function updateMaskerDemo() {
+      const view = document.getElementById('masker-view-sel').value;
+      const range = document.getElementById('masker-range').value;
+      const feather = document.getElementById('masker-feather').value;
+      const box = document.getElementById('masker-preview-cutout');
+      const lbl = document.getElementById('masker-pts-label');
+
+      if (view === 'cutout') {
+        box.style.background = 'rgba(212,175,55,0.15)';
+        box.style.filter = `blur(${feather/4}px)`;
+      } else if (view === 'overlay') {
+        box.style.background = 'rgba(253,230,138,0.3)';
+        box.style.filter = 'none';
+      } else {
+        box.style.background = '#181510';
+        box.style.filter = 'none';
+      }
+      lbl.innerText = `${Math.round(range / 5) + 6} Mask Vertices`;
+    }
+
+    function bakeMaskAction() {
+      showToast('Baked 3 After Effects vector masks! Flex Masker switched off for realtime playback.');
+      document.getElementById('masker-status').innerText = 'Status: Masks Baked (3 Shapes)';
+    }
+
+    // 03: Mosaic Demo Interactive Controller
+    function updateMosaicDemo() {
+      const pattern = document.getElementById('mosaic-cell-sel').value;
+      const size = document.getElementById('mosaic-size').value;
+      const style = document.getElementById('mosaic-style-sel').value;
+      const box = document.getElementById('mosaic-box');
+      const label = document.getElementById('mosaic-type-label');
+
+      label.innerText = `${pattern.toUpperCase()} Cells (${size}px)`;
+      if (pattern === 'hexagon') {
+        box.style.borderRadius = '50%';
+      } else if (pattern === 'triangle') {
+        box.style.borderRadius = '4px';
+      } else {
+        box.style.borderRadius = '12px';
+      }
+
+      if (style === 'blur') {
+        box.style.filter = `blur(${size/2}px)`;
+      } else if (style === 'both') {
+        box.style.filter = `blur(4px)`;
+      } else {
+        box.style.filter = 'none';
+      }
+    }
+
+    // 04: Grid Demo Interactive Controller
+    function updateGridDemo() {
+      const cols = parseInt(document.getElementById('grid-cols').value);
+      const rows = parseInt(document.getElementById('grid-rows').value);
+      const marker = document.getElementById('grid-marker-sel').value;
+      const svg = document.getElementById('grid-svg');
+      const meta = document.getElementById('grid-meta-label');
+      meta.innerText = `Grid: ${cols} × ${rows}`;
+
+      let svgHtml = '';
+      const w = 100 / cols;
+      const h = 100 / rows;
+
+      for (let c = 0; c <= cols; c++) {
+        const x = c * w;
+        svgHtml += `<line x1="${x}%" y1="0%" x2="${x}%" y2="100%" stroke="rgba(212,175,55,0.4)" stroke-width="1.2"/>`;
+      }
+      for (let r = 0; r <= rows; r++) {
+        const y = r * h;
+        svgHtml += `<line x1="0%" y1="${y}%" x2="100%" y2="${y}%" stroke="rgba(212,175,55,0.4)" stroke-width="1.2"/>`;
+      }
+
+      if (marker !== 'none') {
+        for (let c = 1; c < cols; c++) {
+          for (let r = 1; r < rows; r++) {
+            const x = c * w;
+            const y = r * h;
+            if (marker === 'diamond') {
+              svgHtml += `<polygon points="${x-1.5},${y} ${x},${y-1.5} ${x+1.5},${y} ${x},${y+1.5}" fill="#FDE68A"/>`;
+            } else if (marker === 'circle') {
+              svgHtml += `<circle cx="${x}%" cy="${y}%" r="2" fill="#FDE68A"/>`;
+            } else {
+              svgHtml += `<line x1="${x-2}%" y1="${y}%" x2="${x+2}%" y2="${y}%" stroke="#FDE68A" stroke-width="1.5"/><line x1="${x}%" y1="${y-2}%" x2="${x}%" y2="${y+2}%" stroke="#FDE68A" stroke-width="1.5"/>`;
+            }
+          }
+        }
+      }
+      svg.innerHTML = svgHtml;
+    }
+
+    let isTilted = false;
+    function toggleGridTilt() {
+      const screen = document.getElementById('grid-screen');
+      isTilted = !isTilted;
+      if (isTilted) {
+        screen.style.perspective = '600px';
+        document.getElementById('grid-svg').style.transform = 'rotateX(42deg) scale(0.9)';
+        showToast('3D Perspective View Activated');
+      } else {
+        document.getElementById('grid-svg').style.transform = 'none';
+        showToast('Orthographic Top View Activated');
+      }
+    }
+
+    // 05: Glow Demo Interactive Controller
+    function updateGlowDemo() {
+      const intensity = parseInt(document.getElementById('glow-int-range').value);
+      const radius = parseInt(document.getElementById('glow-rad-range').value);
+      const tint = document.getElementById('glow-tint-sel').value;
+      const target = document.getElementById('glow-target');
+
+      let color = '#D4AF37';
+      if (tint === 'warm') color = '#F59E0B';
+      if (tint === 'white') color = '#FFFFFF';
+
+      const s1 = Math.round(radius * 0.4);
+      const s2 = Math.round(radius * 0.8);
+      const s3 = Math.round(radius * 1.5);
+      const alpha = (intensity / 100).toFixed(2);
+
+      target.style.boxShadow = `0 0 ${s1}px ${color}, 0 0 ${s2}px rgba(212,175,55,${alpha}), 0 0 ${s3}px rgba(245,158,11,${alpha * 0.5})`;
+    }
+
+    // 06: Command Console Demo Controller
+    const commandsList = [
+      { name: 'Apply MotionKit Glow', hotkey: 'Alt+G', cat: 'Effects' },
+      { name: 'Bake Smart Mask', hotkey: 'Ctrl+B', cat: 'Masking' },
+      { name: 'Add 3D Camera Rig', hotkey: 'Ctrl+Alt+Shift+C', cat: 'Composition' },
+      { name: 'New Adjustment Layer', hotkey: 'Ctrl+Alt+Y', cat: 'Layers' },
+      { name: 'Center Anchor Point', hotkey: 'Ctrl+Alt+Home', cat: 'Transform' },
+      { name: 'Export MediaCore Clip', hotkey: 'Ctrl+M', cat: 'Render' },
+      { name: 'Apply Handheld Shake', hotkey: 'Alt+S', cat: 'Presets' }
+    ];
+
+    function filterConsoleDemo() {
+      const q = document.getElementById('cmd-input').value.toLowerCase();
+      const res = document.getElementById('cmd-results');
+      const filtered = commandsList.filter(c => c.name.toLowerCase().includes(q) || c.cat.toLowerCase().includes(q));
+      
+      let html = '';
+      filtered.slice(0, 3).forEach(c => {
+        html += `<div style="background:#1C1912; border:1px solid rgba(212,175,55,0.2); border-radius:6px; padding:6px 10px; display:flex; justify-content:space-between; align-items:center; cursor:pointer;" onclick="runCmd('${c.name}')">
+          <span style="font-size:12px; color:#FFF; font-weight:600;">⚡ ${c.name}</span>
+          <span style="font-size:10.5px; color:var(--primary-glow); font-family:var(--font-mono);">${c.hotkey}</span>
+        </div>`;
+      });
+      res.innerHTML = html;
+    }
+
+    function setCmdQuery(q) {
+      document.getElementById('cmd-input').value = q;
+      filterConsoleDemo();
+    }
+
+    function runCmd(name) {
+      showToast(`Command executed in comp: "${name}"`);
+    }
+
+    // 07: Web To AE Demo Controller
+    function animateW2A() {
+      const out = document.getElementById('w2a-output');
+      out.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        out.style.transform = 'scale(1.08)';
+        showToast('SVG Vector successfully converted to 3 After Effects Shape Layers!');
+      }, 150);
+      setTimeout(() => { out.style.transform = 'scale(1)'; }, 300);
+    }
+
+    // 08: Browser Demo Controller
+    function setBrowserTab(name, url) {
+      document.getElementById('browser-url-text').innerText = url;
+      showToast(`Docked Chromium loaded: ${name}`);
+    }
+
+    // 09: Downloader Demo Controller
+    function simulateDownload() {
+      const bar = document.getElementById('dl-progress-bar');
+      const pct = document.getElementById('dl-pct-label');
+      bar.style.width = '10%';
+      pct.innerText = '10% · 32 Streams Active';
+      setTimeout(() => { bar.style.width = '45%'; pct.innerText = '45% · 128 MB/s'; }, 200);
+      setTimeout(() => { bar.style.width = '78%'; pct.innerText = '78% · 134 MB/s'; }, 400);
+      setTimeout(() => {
+        bar.style.width = '100%';
+        pct.innerText = '100% · Complete!';
+        showToast('Download complete! Asset imported straight into Premiere Pro bin.');
+      }, 700);
+    }
+
+    // Initialize demos on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateGridDemo();
+      filterConsoleDemo();
+      updateGlowDemo();
+    });
+  </script>
+</body>
+</html>

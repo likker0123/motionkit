@@ -1,0 +1,1091 @@
+[
+  {
+    "id": "ui_click_fast",
+    "file": "/SFX/library/ui_click_fast.wav",
+    "name": "Fast UI Click",
+    "category": "Clicks & UI",
+    "duration": "0.02s",
+    "durSeconds": 0.02,
+    "size": "2.2 KB"
+  },
+  {
+    "id": "ui_click_soft",
+    "file": "/SFX/library/ui_click_soft.wav",
+    "name": "Soft Mouse Click",
+    "category": "Clicks & UI",
+    "duration": "0.03s",
+    "durSeconds": 0.03,
+    "size": "3.1 KB"
+  },
+  {
+    "id": "ui_cherry_switch",
+    "file": "/SFX/library/ui_cherry_switch.wav",
+    "name": "Mechanical Cherry Switch",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.9 KB"
+  },
+  {
+    "id": "ui_membrane_tap",
+    "file": "/SFX/library/ui_membrane_tap.wav",
+    "name": "Membrane Keypress",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.5 KB"
+  },
+  {
+    "id": "ui_wooden_tap",
+    "file": "/SFX/library/ui_wooden_tap.wav",
+    "name": "Wooden Desktop Tap",
+    "category": "Clicks & UI",
+    "duration": "0.05s",
+    "durSeconds": 0.05,
+    "size": "4.3 KB"
+  },
+  {
+    "id": "ui_glass_tap",
+    "file": "/SFX/library/ui_glass_tap.wav",
+    "name": "Glass Screen Tap",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.5 KB"
+  },
+  {
+    "id": "ui_toggle_on",
+    "file": "/SFX/library/ui_toggle_on.wav",
+    "name": "Precise Toggle On",
+    "category": "Clicks & UI",
+    "duration": "0.03s",
+    "durSeconds": 0.03,
+    "size": "2.6 KB"
+  },
+  {
+    "id": "ui_toggle_off",
+    "file": "/SFX/library/ui_toggle_off.wav",
+    "name": "Precise Toggle Off",
+    "category": "Clicks & UI",
+    "duration": "0.03s",
+    "durSeconds": 0.03,
+    "size": "2.6 KB"
+  },
+  {
+    "id": "ui_ceramic_click",
+    "file": "/SFX/library/ui_ceramic_click.wav",
+    "name": "Ceramic Micro-Click",
+    "category": "Clicks & UI",
+    "duration": "0.02s",
+    "durSeconds": 0.02,
+    "size": "2.2 KB"
+  },
+  {
+    "id": "ui_hover_subtle",
+    "file": "/SFX/library/ui_hover_subtle.wav",
+    "name": "Subtle Cursor Hover",
+    "category": "Clicks & UI",
+    "duration": "0.02s",
+    "durSeconds": 0.02,
+    "size": "1.8 KB"
+  },
+  {
+    "id": "ui_spacebar_press",
+    "file": "/SFX/library/ui_spacebar_press.wav",
+    "name": "Spacebar Press",
+    "category": "Clicks & UI",
+    "duration": "0.06s",
+    "durSeconds": 0.06,
+    "size": "5.2 KB"
+  },
+  {
+    "id": "ui_double_click",
+    "file": "/SFX/library/ui_double_click.wav",
+    "name": "Double Click Pulse",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.9 KB"
+  },
+  {
+    "id": "ui_menu_select",
+    "file": "/SFX/library/ui_menu_select.wav",
+    "name": "Clean Menu Select",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.5 KB"
+  },
+  {
+    "id": "ui_stepper_tick",
+    "file": "/SFX/library/ui_stepper_tick.wav",
+    "name": "Minimal Stepper Tick",
+    "category": "Clicks & UI",
+    "duration": "0.02s",
+    "durSeconds": 0.02,
+    "size": "1.8 KB"
+  },
+  {
+    "id": "ui_button_depress",
+    "file": "/SFX/library/ui_button_depress.wav",
+    "name": "Button Depress",
+    "category": "Clicks & UI",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.9 KB"
+  },
+  {
+    "id": "pop_bubble_water",
+    "file": "/SFX/library/pop_bubble_water.wav",
+    "name": "Water Bubble Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.07s",
+    "durSeconds": 0.07,
+    "size": "6.1 KB"
+  },
+  {
+    "id": "pop_fizz_crisp",
+    "file": "/SFX/library/pop_fizz_crisp.wav",
+    "name": "Soda Fizz Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.06s",
+    "durSeconds": 0.06,
+    "size": "5.2 KB"
+  },
+  {
+    "id": "pop_mouth_elastic",
+    "file": "/SFX/library/pop_mouth_elastic.wav",
+    "name": "Elastic Mouth Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.09s",
+    "durSeconds": 0.09,
+    "size": "7.8 KB"
+  },
+  {
+    "id": "pop_pill_expand",
+    "file": "/SFX/library/pop_pill_expand.wav",
+    "name": "UI Pill Expansion",
+    "category": "Pops & Bubbles",
+    "duration": "0.08s",
+    "durSeconds": 0.08,
+    "size": "6.9 KB"
+  },
+  {
+    "id": "pop_high_bubble",
+    "file": "/SFX/library/pop_high_bubble.wav",
+    "name": "High Pitch Bubble",
+    "category": "Pops & Bubbles",
+    "duration": "0.05s",
+    "durSeconds": 0.05,
+    "size": "4.3 KB"
+  },
+  {
+    "id": "pop_low_plop",
+    "file": "/SFX/library/pop_low_plop.wav",
+    "name": "Low Tone Plop",
+    "category": "Pops & Bubbles",
+    "duration": "0.12s",
+    "durSeconds": 0.12,
+    "size": "10.4 KB"
+  },
+  {
+    "id": "pop_sub_plop",
+    "file": "/SFX/library/pop_sub_plop.wav",
+    "name": "Sub Plop",
+    "category": "Pops & Bubbles",
+    "duration": "0.14s",
+    "durSeconds": 0.14,
+    "size": "12.1 KB"
+  },
+  {
+    "id": "pop_air_burst",
+    "file": "/SFX/library/pop_air_burst.wav",
+    "name": "Air Pocket Burst",
+    "category": "Pops & Bubbles",
+    "duration": "0.06s",
+    "durSeconds": 0.06,
+    "size": "5.2 KB"
+  },
+  {
+    "id": "pop_ping_resonant",
+    "file": "/SFX/library/pop_ping_resonant.wav",
+    "name": "Resonant Ping Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.09s",
+    "durSeconds": 0.09,
+    "size": "7.8 KB"
+  },
+  {
+    "id": "pop_cartoon_blip",
+    "file": "/SFX/library/pop_cartoon_blip.wav",
+    "name": "Cartoon Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.08s",
+    "durSeconds": 0.08,
+    "size": "6.9 KB"
+  },
+  {
+    "id": "pop_snap_accent",
+    "file": "/SFX/library/pop_snap_accent.wav",
+    "name": "Snap Pop Accent",
+    "category": "Pops & Bubbles",
+    "duration": "0.05s",
+    "durSeconds": 0.05,
+    "size": "4.3 KB"
+  },
+  {
+    "id": "pop_cork_open",
+    "file": "/SFX/library/pop_cork_open.wav",
+    "name": "Cork Pop",
+    "category": "Pops & Bubbles",
+    "duration": "0.11s",
+    "durSeconds": 0.11,
+    "size": "9.5 KB"
+  },
+  {
+    "id": "pop_rubber_pluck",
+    "file": "/SFX/library/pop_rubber_pluck.wav",
+    "name": "Rubber Pluck",
+    "category": "Pops & Bubbles",
+    "duration": "0.08s",
+    "durSeconds": 0.08,
+    "size": "6.9 KB"
+  },
+  {
+    "id": "pop_staccato_blip",
+    "file": "/SFX/library/pop_staccato_blip.wav",
+    "name": "Staccato Blip",
+    "category": "Pops & Bubbles",
+    "duration": "0.04s",
+    "durSeconds": 0.04,
+    "size": "3.5 KB"
+  },
+  {
+    "id": "pop_drop_in",
+    "file": "/SFX/library/pop_drop_in.wav",
+    "name": "Drop-In Bubble",
+    "category": "Pops & Bubbles",
+    "duration": "0.07s",
+    "durSeconds": 0.07,
+    "size": "6.5 KB"
+  },
+  {
+    "id": "swoosh_cinematic_fast",
+    "file": "/SFX/library/swoosh_cinematic_fast.wav",
+    "name": "Fast Cinematic Swoosh",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.24s",
+    "durSeconds": 0.24,
+    "size": "20.7 KB"
+  },
+  {
+    "id": "swoosh_card_whip",
+    "file": "/SFX/library/swoosh_card_whip.wav",
+    "name": "Airy Card Whip",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.18s",
+    "durSeconds": 0.18,
+    "size": "15.5 KB"
+  },
+  {
+    "id": "swoosh_heavy_low",
+    "file": "/SFX/library/swoosh_heavy_low.wav",
+    "name": "Heavy Low Whoosh",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.38s",
+    "durSeconds": 0.38,
+    "size": "32.8 KB"
+  },
+  {
+    "id": "swoosh_page_turn",
+    "file": "/SFX/library/swoosh_page_turn.wav",
+    "name": "Ultra Fast Page Turn",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.16s",
+    "durSeconds": 0.16,
+    "size": "13.8 KB"
+  },
+  {
+    "id": "swoosh_smooth_slide",
+    "file": "/SFX/library/swoosh_smooth_slide.wav",
+    "name": "Smooth Slide Transition",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.28s",
+    "durSeconds": 0.28,
+    "size": "24.2 KB"
+  },
+  {
+    "id": "swoosh_digital_wind",
+    "file": "/SFX/library/swoosh_digital_wind.wav",
+    "name": "Digital Wind Passing",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.32s",
+    "durSeconds": 0.32,
+    "size": "27.6 KB"
+  },
+  {
+    "id": "swoosh_bezier_curve",
+    "file": "/SFX/library/swoosh_bezier_curve.wav",
+    "name": "Curved Bezier Whoosh",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.26s",
+    "durSeconds": 0.26,
+    "size": "22.4 KB"
+  },
+  {
+    "id": "swoosh_downward_swish",
+    "file": "/SFX/library/swoosh_downward_swish.wav",
+    "name": "Downward Swish",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.22s",
+    "durSeconds": 0.22,
+    "size": "19.0 KB"
+  },
+  {
+    "id": "swoosh_upward_swish",
+    "file": "/SFX/library/swoosh_upward_swish.wav",
+    "name": "Upward Swish",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.22s",
+    "durSeconds": 0.22,
+    "size": "19.0 KB"
+  },
+  {
+    "id": "swoosh_camera_flyby",
+    "file": "/SFX/library/swoosh_camera_flyby.wav",
+    "name": "Kinetic Camera Flyby",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.35s",
+    "durSeconds": 0.35,
+    "size": "30.2 KB"
+  },
+  {
+    "id": "swoosh_curtain_sweep",
+    "file": "/SFX/library/swoosh_curtain_sweep.wav",
+    "name": "Soft Curtain Sweep",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.3s",
+    "durSeconds": 0.3,
+    "size": "25.9 KB"
+  },
+  {
+    "id": "swoosh_quick_swipe",
+    "file": "/SFX/library/swoosh_quick_swipe.wav",
+    "name": "Quick Swipe Right",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.17s",
+    "durSeconds": 0.17,
+    "size": "14.7 KB"
+  },
+  {
+    "id": "swoosh_vacuum_reverse",
+    "file": "/SFX/library/swoosh_vacuum_reverse.wav",
+    "name": "Reverse Vacuum Swish",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.29s",
+    "durSeconds": 0.29,
+    "size": "25.0 KB"
+  },
+  {
+    "id": "swoosh_sub_bass",
+    "file": "/SFX/library/swoosh_sub_bass.wav",
+    "name": "Sub Bass Whoosh",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.42s",
+    "durSeconds": 0.42,
+    "size": "36.2 KB"
+  },
+  {
+    "id": "swoosh_air_slice",
+    "file": "/SFX/library/swoosh_air_slice.wav",
+    "name": "Air Slice",
+    "category": "Swoosh & Whoosh",
+    "duration": "0.2s",
+    "durSeconds": 0.2,
+    "size": "17.3 KB"
+  },
+  {
+    "id": "glitch_cyber_stutter",
+    "file": "/SFX/library/glitch_cyber_stutter.wav",
+    "name": "Cyberpunk Digital Stutter",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.18s",
+    "durSeconds": 0.18,
+    "size": "15.5 KB"
+  },
+  {
+    "id": "glitch_hologram_ui",
+    "file": "/SFX/library/glitch_hologram_ui.wav",
+    "name": "Hologram Interface Glitch",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.22s",
+    "durSeconds": 0.22,
+    "size": "19.0 KB"
+  },
+  {
+    "id": "glitch_8bit_warp",
+    "file": "/SFX/library/glitch_8bit_warp.wav",
+    "name": "8-Bit Warp Zap",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.15s",
+    "durSeconds": 0.15,
+    "size": "13.0 KB"
+  },
+  {
+    "id": "glitch_data_stream",
+    "file": "/SFX/library/glitch_data_stream.wav",
+    "name": "Data Stream Chirp",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.14s",
+    "durSeconds": 0.14,
+    "size": "12.1 KB"
+  },
+  {
+    "id": "glitch_bitcrush_teleport",
+    "file": "/SFX/library/glitch_bitcrush_teleport.wav",
+    "name": "Bit-Crush Teleport",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.25s",
+    "durSeconds": 0.25,
+    "size": "21.6 KB"
+  },
+  {
+    "id": "glitch_hf_scrambler",
+    "file": "/SFX/library/glitch_hf_scrambler.wav",
+    "name": "High Frequency Scrambler",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.12s",
+    "durSeconds": 0.12,
+    "size": "10.4 KB"
+  },
+  {
+    "id": "glitch_voltage_arc",
+    "file": "/SFX/library/glitch_voltage_arc.wav",
+    "name": "Voltage Spark Arc",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.16s",
+    "durSeconds": 0.16,
+    "size": "13.8 KB"
+  },
+  {
+    "id": "glitch_static_burst",
+    "file": "/SFX/library/glitch_static_burst.wav",
+    "name": "Fast Radio Static Burst",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.11s",
+    "durSeconds": 0.11,
+    "size": "9.5 KB"
+  },
+  {
+    "id": "glitch_modem_handshake",
+    "file": "/SFX/library/glitch_modem_handshake.wav",
+    "name": "Modem Handshake Tick",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.2s",
+    "durSeconds": 0.2,
+    "size": "17.3 KB"
+  },
+  {
+    "id": "glitch_terminal_readout",
+    "file": "/SFX/library/glitch_terminal_readout.wav",
+    "name": "Sci-Fi Terminal Readout",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.17s",
+    "durSeconds": 0.17,
+    "size": "14.7 KB"
+  },
+  {
+    "id": "glitch_pixel_jitter",
+    "file": "/SFX/library/glitch_pixel_jitter.wav",
+    "name": "Pixel Scramble Jitter",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.15s",
+    "durSeconds": 0.15,
+    "size": "13.0 KB"
+  },
+  {
+    "id": "glitch_pulse_beam",
+    "file": "/SFX/library/glitch_pulse_beam.wav",
+    "name": "Pulse Wave Beam",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.19s",
+    "durSeconds": 0.19,
+    "size": "16.4 KB"
+  },
+  {
+    "id": "glitch_quantum_flicker",
+    "file": "/SFX/library/glitch_quantum_flicker.wav",
+    "name": "Quantum Fluctuator",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.21s",
+    "durSeconds": 0.21,
+    "size": "18.1 KB"
+  },
+  {
+    "id": "glitch_malfunction_beep",
+    "file": "/SFX/library/glitch_malfunction_beep.wav",
+    "name": "Malfunction Beep",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.16s",
+    "durSeconds": 0.16,
+    "size": "13.8 KB"
+  },
+  {
+    "id": "glitch_robotic_servo",
+    "file": "/SFX/library/glitch_robotic_servo.wav",
+    "name": "Robotic Servo Twitch",
+    "category": "Glitch & Sci-Fi",
+    "duration": "0.24s",
+    "durSeconds": 0.24,
+    "size": "20.7 KB"
+  },
+  {
+    "id": "bell_success_chime",
+    "file": "/SFX/library/bell_success_chime.wav",
+    "name": "Crystal Success Chime",
+    "category": "Alerts & Bells",
+    "duration": "0.7s",
+    "durSeconds": 0.7,
+    "size": "60.3 KB"
+  },
+  {
+    "id": "bell_app_notif",
+    "file": "/SFX/library/bell_app_notif.wav",
+    "name": "Modern App Notification",
+    "category": "Alerts & Bells",
+    "duration": "0.5s",
+    "durSeconds": 0.5,
+    "size": "43.1 KB"
+  },
+  {
+    "id": "bell_elevator_ding",
+    "file": "/SFX/library/bell_elevator_ding.wav",
+    "name": "Elevator Bell Ding",
+    "category": "Alerts & Bells",
+    "duration": "0.8s",
+    "durSeconds": 0.8,
+    "size": "68.9 KB"
+  },
+  {
+    "id": "bell_two_tone_marimba",
+    "file": "/SFX/library/bell_two_tone_marimba.wav",
+    "name": "Two-Tone Marimba Chime",
+    "category": "Alerts & Bells",
+    "duration": "0.7s",
+    "durSeconds": 0.7,
+    "size": "60.3 KB"
+  },
+  {
+    "id": "bell_task_complete",
+    "file": "/SFX/library/bell_task_complete.wav",
+    "name": "Pleasant Task Complete",
+    "category": "Alerts & Bells",
+    "duration": "0.6s",
+    "durSeconds": 0.6,
+    "size": "51.7 KB"
+  },
+  {
+    "id": "bell_subtle_reminder",
+    "file": "/SFX/library/bell_subtle_reminder.wav",
+    "name": "Subtle Reminder Tone",
+    "category": "Alerts & Bells",
+    "duration": "0.55s",
+    "durSeconds": 0.55,
+    "size": "47.4 KB"
+  },
+  {
+    "id": "bell_warning_ping",
+    "file": "/SFX/library/bell_warning_ping.wav",
+    "name": "Soft Warning Ping",
+    "category": "Alerts & Bells",
+    "duration": "0.5s",
+    "durSeconds": 0.5,
+    "size": "43.1 KB"
+  },
+  {
+    "id": "bell_ascend_triad",
+    "file": "/SFX/library/bell_ascend_triad.wav",
+    "name": "Ascending Chime Triad",
+    "category": "Alerts & Bells",
+    "duration": "0.75s",
+    "durSeconds": 0.75,
+    "size": "64.6 KB"
+  },
+  {
+    "id": "bell_descend_dismiss",
+    "file": "/SFX/library/bell_descend_dismiss.wav",
+    "name": "Descending Dismiss Chime",
+    "category": "Alerts & Bells",
+    "duration": "0.6s",
+    "durSeconds": 0.6,
+    "size": "51.7 KB"
+  },
+  {
+    "id": "bell_glass_ring",
+    "file": "/SFX/library/bell_glass_ring.wav",
+    "name": "Modern Glass Ring",
+    "category": "Alerts & Bells",
+    "duration": "0.6s",
+    "durSeconds": 0.6,
+    "size": "51.7 KB"
+  },
+  {
+    "id": "bell_level_up",
+    "file": "/SFX/library/bell_level_up.wav",
+    "name": "Positive Level Up Ping",
+    "category": "Alerts & Bells",
+    "duration": "0.74s",
+    "durSeconds": 0.74,
+    "size": "63.8 KB"
+  },
+  {
+    "id": "bell_urgent_chirp",
+    "file": "/SFX/library/bell_urgent_chirp.wav",
+    "name": "Urgent High Chirp",
+    "category": "Alerts & Bells",
+    "duration": "0.35s",
+    "durSeconds": 0.35,
+    "size": "30.2 KB"
+  },
+  {
+    "id": "bell_ambient_chime",
+    "file": "/SFX/library/bell_ambient_chime.wav",
+    "name": "Ambient Bell Ring",
+    "category": "Alerts & Bells",
+    "duration": "0.9s",
+    "durSeconds": 0.9,
+    "size": "77.6 KB"
+  },
+  {
+    "id": "bell_zen_bowl",
+    "file": "/SFX/library/bell_zen_bowl.wav",
+    "name": "Soft Zen Bell",
+    "category": "Alerts & Bells",
+    "duration": "1.1s",
+    "durSeconds": 1.1,
+    "size": "94.8 KB"
+  },
+  {
+    "id": "bell_coin_clink",
+    "file": "/SFX/library/bell_coin_clink.wav",
+    "name": "Metallic Coin Clink",
+    "category": "Alerts & Bells",
+    "duration": "0.4s",
+    "durSeconds": 0.4,
+    "size": "34.5 KB"
+  },
+  {
+    "id": "hit_sub_boom",
+    "file": "/SFX/library/hit_sub_boom.wav",
+    "name": "Cinematic Sub Boom (40Hz)",
+    "category": "Hits & Impacts",
+    "duration": "0.55s",
+    "durSeconds": 0.55,
+    "size": "47.4 KB"
+  },
+  {
+    "id": "hit_punch_thud",
+    "file": "/SFX/library/hit_punch_thud.wav",
+    "name": "Heavy Punch Thud",
+    "category": "Hits & Impacts",
+    "duration": "0.38s",
+    "durSeconds": 0.38,
+    "size": "32.8 KB"
+  },
+  {
+    "id": "hit_metal_clang",
+    "file": "/SFX/library/hit_metal_clang.wav",
+    "name": "Metal Anvil Clang",
+    "category": "Hits & Impacts",
+    "duration": "0.45s",
+    "durSeconds": 0.45,
+    "size": "38.8 KB"
+  },
+  {
+    "id": "hit_digital_bassdrop",
+    "file": "/SFX/library/hit_digital_bassdrop.wav",
+    "name": "Digital Bass Drop",
+    "category": "Hits & Impacts",
+    "duration": "0.65s",
+    "durSeconds": 0.65,
+    "size": "56.0 KB"
+  },
+  {
+    "id": "hit_clean_stomp",
+    "file": "/SFX/library/hit_clean_stomp.wav",
+    "name": "Clean Floor Stomp",
+    "category": "Hits & Impacts",
+    "duration": "0.32s",
+    "durSeconds": 0.32,
+    "size": "27.6 KB"
+  },
+  {
+    "id": "hit_muffled_sub",
+    "file": "/SFX/library/hit_muffled_sub.wav",
+    "name": "Muffled Sub Impact",
+    "category": "Hits & Impacts",
+    "duration": "0.48s",
+    "durSeconds": 0.48,
+    "size": "41.4 KB"
+  },
+  {
+    "id": "hit_snappy_kick",
+    "file": "/SFX/library/hit_snappy_kick.wav",
+    "name": "Snappy Kick Punch",
+    "category": "Hits & Impacts",
+    "duration": "0.3s",
+    "durSeconds": 0.3,
+    "size": "25.9 KB"
+  },
+  {
+    "id": "hit_wooden_block",
+    "file": "/SFX/library/hit_wooden_block.wav",
+    "name": "Wooden Block Hit",
+    "category": "Hits & Impacts",
+    "duration": "0.24s",
+    "durSeconds": 0.24,
+    "size": "20.7 KB"
+  },
+  {
+    "id": "hit_drum_rimshot",
+    "file": "/SFX/library/hit_drum_rimshot.wav",
+    "name": "Drumstick Rimshot",
+    "category": "Hits & Impacts",
+    "duration": "0.2s",
+    "durSeconds": 0.2,
+    "size": "17.3 KB"
+  },
+  {
+    "id": "hit_thunder_boom",
+    "file": "/SFX/library/hit_thunder_boom.wav",
+    "name": "Distant Thunder Boom",
+    "category": "Hits & Impacts",
+    "duration": "0.8s",
+    "durSeconds": 0.8,
+    "size": "68.9 KB"
+  },
+  {
+    "id": "hit_shield_strike",
+    "file": "/SFX/library/hit_shield_strike.wav",
+    "name": "Heavy Shield Strike",
+    "category": "Hits & Impacts",
+    "duration": "0.42s",
+    "durSeconds": 0.42,
+    "size": "36.2 KB"
+  },
+  {
+    "id": "hit_logo_slam",
+    "file": "/SFX/library/hit_logo_slam.wav",
+    "name": "Clean Logo Slam",
+    "category": "Hits & Impacts",
+    "duration": "0.5s",
+    "durSeconds": 0.5,
+    "size": "43.1 KB"
+  },
+  {
+    "id": "hit_accent_thud",
+    "file": "/SFX/library/hit_accent_thud.wav",
+    "name": "High Impact Accent",
+    "category": "Hits & Impacts",
+    "duration": "0.35s",
+    "durSeconds": 0.35,
+    "size": "30.2 KB"
+  },
+  {
+    "id": "hit_body_thump",
+    "file": "/SFX/library/hit_body_thump.wav",
+    "name": "Resonance Body Thump",
+    "category": "Hits & Impacts",
+    "duration": "0.4s",
+    "durSeconds": 0.4,
+    "size": "34.5 KB"
+  },
+  {
+    "id": "hit_cyber_kick",
+    "file": "/SFX/library/hit_cyber_kick.wav",
+    "name": "Cyber Kick Slam",
+    "category": "Hits & Impacts",
+    "duration": "0.36s",
+    "durSeconds": 0.36,
+    "size": "31.1 KB"
+  },
+  {
+    "id": "riser_whitenoise_1s",
+    "file": "/SFX/library/riser_whitenoise_1s.wav",
+    "name": "White Noise Build Riser (1s)",
+    "category": "Risers & Sweeps",
+    "duration": "1.0s",
+    "durSeconds": 1.0,
+    "size": "86.2 KB"
+  },
+  {
+    "id": "riser_pitchbend_tension",
+    "file": "/SFX/library/riser_pitchbend_tension.wav",
+    "name": "Pitch Bend Tension Riser",
+    "category": "Risers & Sweeps",
+    "duration": "0.8s",
+    "durSeconds": 0.8,
+    "size": "68.9 KB"
+  },
+  {
+    "id": "riser_laser_charge",
+    "file": "/SFX/library/riser_laser_charge.wav",
+    "name": "Laser Charge Up",
+    "category": "Risers & Sweeps",
+    "duration": "0.65s",
+    "durSeconds": 0.65,
+    "size": "56.0 KB"
+  },
+  {
+    "id": "riser_drop_anticipate",
+    "file": "/SFX/library/riser_drop_anticipate.wav",
+    "name": "Drop Anticipation Riser",
+    "category": "Risers & Sweeps",
+    "duration": "0.75s",
+    "durSeconds": 0.75,
+    "size": "64.6 KB"
+  },
+  {
+    "id": "riser_reverse_swell",
+    "file": "/SFX/library/riser_reverse_swell.wav",
+    "name": "Reverse Reverb Swell",
+    "category": "Risers & Sweeps",
+    "duration": "0.9s",
+    "durSeconds": 0.9,
+    "size": "77.6 KB"
+  },
+  {
+    "id": "riser_subbass_lift",
+    "file": "/SFX/library/riser_subbass_lift.wav",
+    "name": "Sub Bass Rise (50-200Hz)",
+    "category": "Risers & Sweeps",
+    "duration": "0.85s",
+    "durSeconds": 0.85,
+    "size": "73.3 KB"
+  },
+  {
+    "id": "riser_scifi_powerup",
+    "file": "/SFX/library/riser_scifi_powerup.wav",
+    "name": "Sci-Fi Power Up",
+    "category": "Risers & Sweeps",
+    "duration": "0.7s",
+    "durSeconds": 0.7,
+    "size": "60.3 KB"
+  },
+  {
+    "id": "riser_turbine_spin",
+    "file": "/SFX/library/riser_turbine_spin.wav",
+    "name": "Turbine Spin Up",
+    "category": "Risers & Sweeps",
+    "duration": "0.95s",
+    "durSeconds": 0.95,
+    "size": "81.9 KB"
+  },
+  {
+    "id": "riser_shimmer_harmonic",
+    "file": "/SFX/library/riser_shimmer_harmonic.wav",
+    "name": "Shimmer Swell (Harmonic)",
+    "category": "Risers & Sweeps",
+    "duration": "0.8s",
+    "durSeconds": 0.8,
+    "size": "68.9 KB"
+  },
+  {
+    "id": "riser_tension_tick",
+    "file": "/SFX/library/riser_tension_tick.wav",
+    "name": "Tension Tick Riser",
+    "category": "Risers & Sweeps",
+    "duration": "0.7s",
+    "durSeconds": 0.7,
+    "size": "60.3 KB"
+  },
+  {
+    "id": "riser_warp_drive",
+    "file": "/SFX/library/riser_warp_drive.wav",
+    "name": "Warp Drive Accelerator",
+    "category": "Risers & Sweeps",
+    "duration": "0.85s",
+    "durSeconds": 0.85,
+    "size": "73.3 KB"
+  },
+  {
+    "id": "riser_atmospheric_lift",
+    "file": "/SFX/library/riser_atmospheric_lift.wav",
+    "name": "Airy Atmospheric Lift",
+    "category": "Risers & Sweeps",
+    "duration": "1.1s",
+    "durSeconds": 1.1,
+    "size": "94.8 KB"
+  },
+  {
+    "id": "riser_impact_preroll",
+    "file": "/SFX/library/riser_impact_preroll.wav",
+    "name": "Sudden Impact Pre-Roll",
+    "category": "Risers & Sweeps",
+    "duration": "0.5s",
+    "durSeconds": 0.5,
+    "size": "43.1 KB"
+  },
+  {
+    "id": "riser_cinematic_intro",
+    "file": "/SFX/library/riser_cinematic_intro.wav",
+    "name": "Cinematic Whoosh Hit Intro",
+    "category": "Risers & Sweeps",
+    "duration": "0.9s",
+    "durSeconds": 0.9,
+    "size": "77.6 KB"
+  },
+  {
+    "id": "riser_peak_uplifter",
+    "file": "/SFX/library/riser_peak_uplifter.wav",
+    "name": "Uplifter Peak Riser",
+    "category": "Risers & Sweeps",
+    "duration": "0.75s",
+    "durSeconds": 0.75,
+    "size": "64.6 KB"
+  },
+  {
+    "id": "ambient_camera_shutter",
+    "file": "/SFX/library/ambient_camera_shutter.wav",
+    "name": "Camera Mechanical Shutter",
+    "category": "Ambient & Textures",
+    "duration": "0.08s",
+    "durSeconds": 0.08,
+    "size": "6.9 KB"
+  },
+  {
+    "id": "ambient_typing_fast",
+    "file": "/SFX/library/ambient_typing_fast.wav",
+    "name": "Rapid Keyboard Typing",
+    "category": "Ambient & Textures",
+    "duration": "0.06s",
+    "durSeconds": 0.06,
+    "size": "5.6 KB"
+  },
+  {
+    "id": "ambient_paper_rustle",
+    "file": "/SFX/library/ambient_paper_rustle.wav",
+    "name": "Paper Sheet Rustle",
+    "category": "Ambient & Textures",
+    "duration": "0.18s",
+    "durSeconds": 0.18,
+    "size": "15.5 KB"
+  },
+  {
+    "id": "ambient_tape_pull",
+    "file": "/SFX/library/ambient_tape_pull.wav",
+    "name": "Tape Dispenser Pull",
+    "category": "Ambient & Textures",
+    "duration": "0.22s",
+    "durSeconds": 0.22,
+    "size": "19.0 KB"
+  },
+  {
+    "id": "ambient_vinyl_crackle",
+    "file": "/SFX/library/ambient_vinyl_crackle.wav",
+    "name": "Vinyl Needle Crackle",
+    "category": "Ambient & Textures",
+    "duration": "0.03s",
+    "durSeconds": 0.03,
+    "size": "2.6 KB"
+  },
+  {
+    "id": "ambient_projector_click",
+    "file": "/SFX/library/ambient_projector_click.wav",
+    "name": "Film Projector Clicker",
+    "category": "Ambient & Textures",
+    "duration": "0.06s",
+    "durSeconds": 0.06,
+    "size": "5.2 KB"
+  },
+  {
+    "id": "ambient_geiger_tick",
+    "file": "/SFX/library/ambient_geiger_tick.wav",
+    "name": "Minimal Geiger Tick",
+    "category": "Ambient & Textures",
+    "duration": "0.01s",
+    "durSeconds": 0.01,
+    "size": "0.9 KB"
+  },
+  {
+    "id": "ambient_cave_drip",
+    "file": "/SFX/library/ambient_cave_drip.wav",
+    "name": "Water Drip in Cave",
+    "category": "Ambient & Textures",
+    "duration": "0.1s",
+    "durSeconds": 0.1,
+    "size": "8.7 KB"
+  },
+  {
+    "id": "ambient_cash_register",
+    "file": "/SFX/library/ambient_cash_register.wav",
+    "name": "Cash Register Cha-Ching",
+    "category": "Ambient & Textures",
+    "duration": "0.85s",
+    "durSeconds": 0.85,
+    "size": "73.3 KB"
+  },
+  {
+    "id": "ambient_pen_click",
+    "file": "/SFX/library/ambient_pen_click.wav",
+    "name": "Pen Click On/Off",
+    "category": "Ambient & Textures",
+    "duration": "0.05s",
+    "durSeconds": 0.05,
+    "size": "4.8 KB"
+  },
+  {
+    "id": "ambient_zipper_pull",
+    "file": "/SFX/library/ambient_zipper_pull.wav",
+    "name": "Subtle Zipper Pull",
+    "category": "Ambient & Textures",
+    "duration": "0.14s",
+    "durSeconds": 0.14,
+    "size": "12.1 KB"
+  },
+  {
+    "id": "ambient_heartbeat_thump",
+    "file": "/SFX/library/ambient_heartbeat_thump.wav",
+    "name": "Heartbeat Thump",
+    "category": "Ambient & Textures",
+    "duration": "0.28s",
+    "durSeconds": 0.28,
+    "size": "24.2 KB"
+  },
+  {
+    "id": "ambient_clock_tick",
+    "file": "/SFX/library/ambient_clock_tick.wav",
+    "name": "Clock Second Hand Tick",
+    "category": "Ambient & Textures",
+    "duration": "0.02s",
+    "durSeconds": 0.02,
+    "size": "2.2 KB"
+  },
+  {
+    "id": "ambient_tape_stop",
+    "file": "/SFX/library/ambient_tape_stop.wav",
+    "name": "Tape Stop Power Down",
+    "category": "Ambient & Textures",
+    "duration": "0.35s",
+    "durSeconds": 0.35,
+    "size": "30.2 KB"
+  },
+  {
+    "id": "ambient_focus_motor",
+    "file": "/SFX/library/ambient_focus_motor.wav",
+    "name": "Camera Lens Focus Motor",
+    "category": "Ambient & Textures",
+    "duration": "0.18s",
+    "durSeconds": 0.18,
+    "size": "15.5 KB"
+  },
+  {
+    "id": "ambient_card_swipe",
+    "file": "/SFX/library/ambient_card_swipe.wav",
+    "name": "Magnetic Card Swipe",
+    "category": "Ambient & Textures",
+    "duration": "0.19s",
+    "durSeconds": 0.19,
+    "size": "16.4 KB"
+  }
+]
