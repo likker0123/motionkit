@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MotionKit Pro | Modern Creative-Tools Platform for Premiere Pro & After Effects</title>
   <meta name="description" content="Master your motion workflow with MotionKit Pro & MotionKit Wheel. The unified creative platform featuring Radial Wheel HUD, Offline AI Whisper Subtitles, Bezier Graph Editor, and cinematic presets." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%238B5CF6'/><path d='M30 25 L75 50 L30 75 Z' fill='%23FFFFFF'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23D4AF37'/><path d='M30 25 L75 50 L30 75 Z' fill='%23FFFFFF'/></svg>" />
 
   <!-- Fonts: Space Grotesk (Headings) & Inter (Body/UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
       padding: 6px 16px;
       border-radius: 9999px;
       background: var(--primary-dim);
-      border: 1px solid rgba(139, 92, 246, 0.3);
+      border: 1px solid rgba(212, 175, 55, 0.3);
       color: var(--primary-glow);
       font-size: 13px;
       font-weight: 600;
@@ -177,7 +177,7 @@
     .simulator-tab-btn.active {
       background: var(--primary);
       color: #FFF;
-      box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
     }
 
     .simulator-tab-btn:not(.active) {
@@ -200,7 +200,7 @@
       justify-content: center;
       min-height: 600px;
       position: relative;
-      background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, #09090C 70%);
+      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, #09090C 70%);
     }
 
     #wheel-svg-container {
@@ -366,7 +366,7 @@
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.5);
     }
 
     .pricing-tier-title {
@@ -477,13 +477,13 @@
     }
     .user-profile-btn:hover {
       border-color: var(--border-hover);
-      background: rgba(139, 92, 246, 0.1);
+      background: rgba(212, 175, 55, 0.1);
     }
     .user-avatar-circle {
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+      background: linear-gradient(135deg, #D4AF37, #B89223);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -563,7 +563,7 @@
     .auth-tab-btn.active {
       background: var(--primary);
       color: #FFF;
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
     }
     .google-btn {
       width: 100%;
@@ -613,7 +613,7 @@
     }
     .auth-input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
     }
 
     /* License & Dashboard Cards */
@@ -688,7 +688,7 @@
     .verify-progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #8B5CF6, #10B981);
+      background: linear-gradient(90deg, #D4AF37, #10B981);
       transition: width 0.4s ease;
     }
     .success-celebration-badge {
@@ -855,6 +855,172 @@
         height: 380px;
       }
     }
+  
+    /* =========================================================================
+       COMPLETE RESPONSIVE ENGINE (MOBILE + TABLET + DESKTOP) & GOLDEN THEMING
+       ========================================================================= */
+    html, body {
+      max-width: 100vw;
+      overflow-x: hidden !important;
+    }
+
+    /* Comparison Table Responsive Wrapper */
+    .compare-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 36px;
+      background: var(--surface);
+    }
+
+    .compare-table {
+      min-width: 620px;
+      width: 100%;
+      margin-bottom: 0 !important;
+    }
+
+    .compare-table-hint {
+      display: none;
+      text-align: center;
+      font-size: 12px;
+      color: var(--primary-glow);
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .compare-table-hint {
+        display: block;
+      }
+    }
+
+    /* Global Mobile Optimizations */
+    @media (max-width: 768px) {
+      .navbar-inner {
+        height: 62px;
+      }
+      .nav-logo svg {
+        height: 24px !important;
+      }
+      .nav-live-wheel-btn {
+        display: none !important;
+      }
+      .btn {
+        padding: 9px 16px;
+        font-size: 13.5px;
+      }
+      .hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+      }
+      .hero-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+      }
+      .metrics-bar {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+      .hero-deck {
+        padding: 16px !important;
+        margin-top: 36px !important;
+        border-radius: 16px !important;
+      }
+      .metric-item {
+        padding: 12px 8px !important;
+      }
+      .metric-value {
+        font-size: 22px !important;
+      }
+      .metric-label {
+        font-size: 11px !important;
+      }
+
+      /* Featured Simulator on Mobile */
+      .simulator-topbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 12px 14px !important;
+      }
+      .simulator-topbar > div:first-child {
+        width: 100% !important;
+        display: flex !important;
+        gap: 8px !important;
+      }
+      .simulator-tab-btn {
+        flex: 1 !important;
+        text-align: center !important;
+        font-size: 11.5px !important;
+        padding: 8px 6px !important;
+      }
+      .wheel-arena {
+        padding: 16px 10px !important;
+      }
+      #wheel-svg-container {
+        width: 100% !important;
+        max-width: 380px !important;
+        aspect-ratio: 1/1 !important;
+        height: auto !important;
+        margin: 0 auto !important;
+      }
+      #wheel-svg-container svg {
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .sim-iframe-container {
+        height: min(440px, 65vh) !important;
+      }
+
+      /* Pricing Cards Grid on Mobile */
+      .pricing-cards-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 480px !important;
+        margin: 0 auto !important;
+        gap: 20px !important;
+      }
+      .pricing-tier-card {
+        padding: 24px 18px !important;
+      }
+
+      /* Modals on Mobile */
+      .modal-overlay {
+        padding: 10px !important;
+        align-items: center !important;
+      }
+      .modal-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px 14px !important;
+        max-height: 92vh !important;
+        border-radius: 16px !important;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+      h1 {
+        font-size: 29px !important;
+      }
+      h2 {
+        font-size: 23px !important;
+      }
+      .hero-badge {
+        font-size: 11.5px !important;
+        padding: 5px 12px !important;
+      }
+      #btn-razorpay-pay {
+        font-size: 14.5px !important;
+        padding: 13px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -869,12 +1035,12 @@
           <svg style="height:28px;width:auto;" viewBox="0 0 320 50">
             <defs>
               <linearGradient id="brand-g" x1="0%" y1="50%" x2="100%" y2="50%">
-                <stop offset="0%" stop-color="#8B5CF6"/>
-                <stop offset="100%" stop-color="#A78BFA"/>
+                <stop offset="0%" stop-color="#FDE68A"/>
+                <stop offset="100%" stop-color="#D4AF37"/>
               </linearGradient>
             </defs>
             <path d="M35 25 L0 2 L0 48 Z" fill="url(#brand-g)"/>
-            <path d="M0 2 L10 25 L0 48" fill="none" stroke="#C4B5FD" stroke-width="2" opacity="0.9"/>
+            <path d="M0 2 L10 25 L0 48" fill="none" stroke="#FDE68A" stroke-width="2" opacity="0.9"/>
             <text x="45" y="38" font-family="'Space Grotesk', sans-serif" font-size="34" font-weight="700" fill="#FAFAFA">MOTIONKIT</text>
           </svg>
           <span class="pill-badge" style="padding:3px 10px;font-size:11px;">PRO v9.1.5</span>
@@ -889,13 +1055,13 @@
         </nav>
 
         <div style="display:flex;align-items:center;gap:10px;">
-          <a href="#featured" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;">Live Wheel</a>
+          <a href="#featured" class="btn btn-secondary nav-live-wheel-btn" style="padding:8px 16px;font-size:13px;">Live Wheel</a>
           <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary" style="padding:8px 16px;font-size:13px;cursor:pointer;">Get License</button>
 
           <!-- User Authentication Section -->
           <div id="nav-auth-container" style="position:relative;">
             <!-- Logged Out Button -->
-            <button id="nav-login-btn" onclick="openAuthModal()" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;display:flex;align-items:center;gap:7px;border-color:rgba(139,92,246,0.35);color:#FFF;">
+            <button id="nav-login-btn" onclick="openAuthModal()" class="btn btn-secondary" style="padding:8px 16px;font-size:13px;display:flex;align-items:center;gap:7px;border-color:rgba(212, 175, 55, 0.35);color:#FFF;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
               <span>Sign In</span>
             </button>
@@ -954,7 +1120,7 @@
         </p>
 
         <div class="hero-actions" style="justify-content:center;">
-          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="border-color:rgba(139,92,246,0.4);color:#FFF;">
+          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="border-color:rgba(212, 175, 55, 0.4);color:#FFF;">
             Get MotionKit Wheel · $2.00 <span style="opacity:0.6;font-size:13px;">/ ₹199</span>
           </button>
           <button onclick="openCheckoutModal('MotionKit Pro', '$3.00 / ₹249')" class="btn btn-primary btn-lg">
@@ -1109,7 +1275,7 @@
               <button id="btn-app-ae" class="btn btn-primary" style="padding:6px 14px;font-size:12px;">After Effects (114 Tools)</button>
               <button id="btn-app-premiere" class="btn btn-secondary" style="padding:6px 14px;font-size:12px;">Premiere Pro (73 Tools)</button>
             </div>
-            <div id="active-seg-info" style="font-family:var(--font-mono);font-size:12px;color:var(--primary-glow);background:rgba(139,92,246,0.12);padding:4px 12px;border-radius:20px;border:1px solid rgba(139,92,246,0.25);">
+            <div id="active-seg-info" style="font-family:var(--font-mono);font-size:12px;color:var(--primary-glow);background:rgba(212, 175, 55, 0.12);padding:4px 12px;border-radius:20px;border:1px solid rgba(212, 175, 55, 0.25);">
               Hover any slice to flick tools
             </div>
           </div>
@@ -1183,7 +1349,7 @@
           <p style="margin-top:10px;">
             Open After Effects or Premiere Pro, navigate to <strong>Window → Extensions → MotionKit Wheel / Pro</strong>, dock the panel wherever you prefer, and start flicking.
           </p>
-          <div style="margin-top:24px;padding:10px;border-radius:8px;background:rgba(139,92,246,0.1);font-family:var(--font-mono);font-size:12px;color:var(--primary-glow);">
+          <div style="margin-top:24px;padding:10px;border-radius:8px;background:rgba(212, 175, 55, 0.1);font-family:var(--font-mono);font-size:12px;color:var(--primary-glow);">
             ✓ Instant License Activation
           </div>
         </div>
@@ -1203,7 +1369,9 @@
       </div>
 
       <!-- Feature Comparison Table: Free vs Wheel vs Pro -->
-      <table class="compare-table">
+      <div class="compare-table-hint"><span>👉 Scroll horizontally to compare all features & capabilities</span></div>
+      <div class="compare-table-wrap">
+        <table class="compare-table">
         <thead>
           <tr>
             <th style="width:34%;">Feature / Capability</th>
@@ -1269,6 +1437,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- Side-by-Side Multi-Card Pricing Grid -->
       <div class="pricing-cards-grid">
@@ -1312,7 +1481,7 @@
             </li>
           </ul>
 
-          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="width:100%;border-color:rgba(139,92,246,0.5);font-size:15px;color:#FFF;">
+          <button onclick="openCheckoutModal('MotionKit Wheel', '$2.00 / ₹199')" class="btn btn-secondary btn-lg" style="width:100%;border-color:rgba(212, 175, 55, 0.5);font-size:15px;color:#FFF;">
             Get MotionKit Wheel · $2.00 / ₹199
           </button>
         </div>
@@ -1466,8 +1635,8 @@
             <svg style="height:24px;width:auto;" viewBox="0 0 320 50">
               <defs>
                 <linearGradient id="f-brand-g" x1="0%" y1="50%" x2="100%" y2="50%">
-                  <stop offset="0%" stop-color="#8B5CF6"/>
-                  <stop offset="100%" stop-color="#A78BFA"/>
+                  <stop offset="0%" stop-color="#FDE68A"/>
+                  <stop offset="100%" stop-color="#D4AF37"/>
                 </linearGradient>
               </defs>
               <path d="M35 25 L0 2 L0 48 Z" fill="url(#f-brand-g)"/>
@@ -1574,7 +1743,7 @@
 
           <!-- PRIMARY 1-CLICK RAZORPAY GATEWAY BUTTON -->
           <div style="margin-top:12px;text-align:center;">
-            <button id="btn-razorpay-pay" onclick="launchRazorpayCheckout()" class="btn btn-primary btn-lg" style="width:100%;font-size:16px;padding:15px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 30px rgba(139,92,246,0.45);border-radius:12px;font-weight:700;">
+            <button id="btn-razorpay-pay" onclick="launchRazorpayCheckout()" class="btn btn-primary btn-lg" style="width:100%;font-size:16px;padding:15px;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 30px rgba(212, 175, 55, 0.45);border-radius:12px;font-weight:700;">
               <span>⚡</span> <span id="rzp-btn-label">Pay ₹249 with Razorpay</span>
             </button>
 
@@ -1585,7 +1754,7 @@
               <span>✓ Cards & NetBanking</span>
             </div>
 
-            <div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.25);font-size:12px;color:var(--text-muted);text-align:left;line-height:1.5;">
+            <div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(212, 175, 55, 0.08);border:1px solid rgba(212, 175, 55, 0.25);font-size:12px;color:var(--text-muted);text-align:left;line-height:1.5;">
               🔒 <strong>Real-Time Bank Clearance:</strong> Payment hote hi bank se instant automated confirmation aayegi aur license key bina kisi delay ke aapki email par turant deliver ho jayegi (No fake UTR issue).
             </div>
           </div>
@@ -1617,7 +1786,7 @@
           Your official lifetime license key and receipt have been dispatched to:
         </p>
         
-        <div id="success-target-email" style="display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:var(--primary-glow);font-weight:600;font-size:14.5px;margin-bottom:8px;">
+        <div id="success-target-email" style="display:inline-block;padding:6px 16px;border-radius:8px;background:rgba(212, 175, 55, 0.15);border:1px solid rgba(212, 175, 55, 0.3);color:var(--primary-glow);font-weight:600;font-size:14.5px;margin-bottom:8px;">
           customer@gmail.com
         </div>
         <div id="success-target-utr" style="font-size:12px;color:#10B981;font-family:var(--font-mono);font-weight:600;margin-bottom:18px;">
@@ -1625,7 +1794,7 @@
         </div>
 
         <!-- Glowing License Key Display Box -->
-        <div style="background:#0E0E12;border:2px solid var(--primary);border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:0 0 30px rgba(139,92,246,0.25);">
+        <div style="background:#0E0E12;border:2px solid var(--primary);border-radius:14px;padding:18px;margin-bottom:20px;box-shadow:0 0 30px rgba(212, 175, 55, 0.25);">
           <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Your Permanent License Key:</div>
           <div id="success-key-code" style="font-family:var(--font-mono);font-size:22px;font-weight:700;color:#FFF;letter-spacing:0.06em;user-select:all;word-break:break-all;">
             MKIT-PRO-9482-1948-ABCD
@@ -1728,7 +1897,7 @@
             </label>
             <div style="display:flex;gap:8px;">
               <input type="email" id="google-direct-email" class="auth-input" placeholder="yourname@gmail.com" style="padding:9px 12px;font-size:13px;" />
-              <button type="button" onclick="loginWithGoogleInline()" class="btn btn-secondary" style="padding:9px 14px;font-size:12.5px;white-space:nowrap;border-color:rgba(139,92,246,0.5);">
+              <button type="button" onclick="loginWithGoogleInline()" class="btn btn-secondary" style="padding:9px 14px;font-size:12.5px;white-space:nowrap;border-color:rgba(212, 175, 55, 0.5);">
                 Instant Sign In
               </button>
             </div>
@@ -1854,7 +2023,7 @@
           <span>📦</span> <span>Direct Installer Packages (v9.1.5)</span>
         </h4>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(139,92,246,0.3);">
+          <a href="/downloads/MotionKit-Wheel.zip" download class="btn btn-secondary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;border-color:rgba(212, 175, 55, 0.3);">
             <span>🎯</span> <span>MotionKit Wheel (.zip)</span>
           </a>
           <a href="/downloads/MotionKit-Pro.zip" download class="btn btn-primary" style="padding:10px;font-size:12.5px;display:flex;align-items:center;justify-content:center;gap:6px;">
@@ -2024,7 +2193,7 @@
       }
 
       const prod = activeCheckoutProduct || 'MotionKit Pro';
-      statusMsg.style.color = '#A78BFA';
+      statusMsg.style.color = '#FDE68A';
       statusMsg.innerText = 'Generating your permanent ' + prod + ' license key...';
 
       let generatedKey = '';
@@ -2204,9 +2373,9 @@
         alertElem.style.border = '1px solid rgba(16, 185, 129, 0.4)';
         alertElem.style.color = '#6EE7B7';
       } else {
-        alertElem.style.background = 'rgba(139, 92, 246, 0.15)';
-        alertElem.style.border = '1px solid rgba(139, 92, 246, 0.4)';
-        alertElem.style.color = '#C4B5FD';
+        alertElem.style.background = 'rgba(212, 175, 55, 0.15)';
+        alertElem.style.border = '1px solid rgba(212, 175, 55, 0.4)';
+        alertElem.style.color = '#FEF3C7';
       }
       alertElem.textContent = msg;
     }
@@ -2549,7 +2718,7 @@
       }
 
       if (statusMsg) {
-        statusMsg.style.color = '#A78BFA';
+        statusMsg.style.color = '#FDE68A';
         statusMsg.textContent = 'Creating secure Razorpay order...';
       }
 
@@ -2581,7 +2750,7 @@
       }
 
       if (statusMsg) {
-        statusMsg.style.color = '#A78BFA';
+        statusMsg.style.color = '#FDE68A';
         statusMsg.textContent = 'Opening secure Razorpay Checkout...';
       }
 
@@ -2596,7 +2765,7 @@
           email: email
         },
         theme: {
-          color: '#8B5CF6'
+          color: '#D4AF37'
         },
         modal: {
           backdropclose: true,

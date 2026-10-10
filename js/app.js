@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Interactive Wheel
   const wheelInstance = new FlexWheel("wheel-svg-container", {
     appMode: "afterEffects",
-    accentColor: "#8B5CF6",
+    accentColor: "#D4AF37",
     onFire: (tool) => {
       console.log("Tool executed:", tool);
     },
