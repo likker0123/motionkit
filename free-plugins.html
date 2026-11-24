@@ -361,7 +361,7 @@
             <h2 class="prod-name">MotionKit Ultimate for PR <span class="prod-ver">v2.2.0</span></h2>
             <p class="prod-tagline">“The ultimate Premiere Pro workflow engine: Silence Cut, Subtitles, 3D & Graph Editor.”</p>
           </div>
-          <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);">$3.00 / ₹249 · LIFETIME</span>
+          <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);"><span class="dyn-ult-price">$3.00 / ₹249</span> · LIFETIME</span>
         </header>
 
         <p class="prod-pitch">The complete Premiere Pro dockable extension rebuilt for offline and master licensing. Includes Silence Remover (Auto Cut), 99-Language Whisper AutoCaptions & Subtitle Editor, Camera 3D Rig, Handheld Shake Presets, Speed Ramp Graph Editor with Adaptive Greedy-Fit polyline baking, and project sequence nesting tools.</p>
@@ -400,13 +400,13 @@
 
           <aside class="dl-box">
             <div class="dl-top">
-              <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);">$3.00 / ₹249</span>
+              <span class="badge-free-forever" style="background:rgba(212,175,55,0.18); color:var(--primary-glow); border:1px solid rgba(212,175,55,0.45);"><span class="dyn-ult-price">$3.00 / ₹249</span></span>
               <span class="dl-plat">Windows 10/11 · Premiere Pro CC 2020-2026+</span>
             </div>
             <!-- Buy License Link -->
             <a href="/#ultimate-pr" class="btn-dl" style="margin-bottom:6px;">
               <span>⚡ Buy Lifetime License</span>
-              <span class="btn-dl-sub">$3.00 / ₹249</span>
+              <span class="btn-dl-sub dyn-ult-price">$3.00 / ₹249</span>
             </a>
             <!-- Direct Package Download -->
             <a href="/downloads/MotionKit-Ultimate-PR-Installer.zip" class="btn-dl-secondary" download style="display:flex; justify-content:space-between; align-items:center;">
@@ -1493,6 +1493,24 @@
         showToast('Download complete! Asset imported straight into Premiere Pro bin.');
       }, 700);
     }
+
+
+    // Sync dynamic Ultimate pricing from admin panel
+    async function syncDynamicPricing() {
+      try {
+        const res = await fetch('/api/admin/data');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.settings && (data.settings.priceUltimateUSD || data.settings.priceUltimateINR)) {
+            const usd = data.settings.priceUltimateUSD || '$3.00';
+            const inr = data.settings.priceUltimateINR || '₹249';
+            const combined = `${usd} / ${inr}`;
+            document.querySelectorAll('.dyn-ult-price').forEach(el => el.textContent = combined);
+          }
+        }
+      } catch (e) {}
+    }
+    syncDynamicPricing();
 
     // Initialize demos on page load
     window.addEventListener('DOMContentLoaded', () => {

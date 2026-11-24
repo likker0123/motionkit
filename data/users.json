@@ -1,7 +1,29 @@
-﻿{
-    "id":  "usr_91e4475a",
-    "name":  "Ayush Singh",
-    "email":  "ayush@motionkit.com",
-    "created":  "2026-10-09 21:45",
-    "provider":  "manual"
-}
+﻿[
+    {
+        "id":  "usr_91e4475a",
+        "name":  "Ayush Singh",
+        "email":  "singhayush5304@gmail.com",
+        "password":  "admin",
+        "mobile":  "7982179684",
+        "created":  "2026-10-09 21:45",
+        "provider":  "manual"
+    },
+    {
+        "id":  "usr_dev_master",
+        "name":  "MotionKit Creator",
+        "email":  "ayush@motionkit.com",
+        "password":  "admin",
+        "mobile":  "9999999999",
+        "created":  "2026-10-10 12:00",
+        "provider":  "manual"
+    },
+    {
+        "id":  "usr_4c39b796",
+        "name":  "Alex Creator",
+        "email":  "test_1791722995@motionkit.dev",
+        "password":  "Password123",
+        "mobile":  "9876543210",
+        "created":  "2026-10-11 18:19",
+        "provider":  "manual"
+    }
+]

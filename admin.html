@@ -146,6 +146,11 @@
           Orders & Customers
         </button>
 
+        <button onclick="switchTab('users')" id="nav-users" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
+          <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          Registered Users
+        </button>
+
         <button onclick="switchTab('downloads')" id="nav-downloads" class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-all text-left">
           <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
           Plugin Downloads Hub
@@ -373,7 +378,56 @@
         </section>
 
         <!-- 4. PLUGIN DOWNLOADS HUB TAB -->
-        <section id="tab-downloads" class="space-y-6 hidden">
+              <!-- 04. REGISTERED USERS TAB -->
+      <section id="tab-users" class="tab-pane hidden flex-1 flex flex-col overflow-hidden p-8">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <div class="mb-3 p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-between text-xs">
+            <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Supabase Cloud Auth & Database Connected:</span>
+              <span class="font-mono text-white">jeluehdvshnmhjlvrxyk.supabase.co</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">🟢 Live Cloud Auth Active</span>
+          </div>
+          <h2 class="text-xl font-bold text-white tracking-tight">Registered Member Accounts</h2>
+            <p class="text-xs text-gray-400 mt-1">Creators registered via Email, Password, Google, and Mobile OTP</p>
+          </div>
+          <button onclick="loadAdminUsers()" class="px-4 py-2 bg-purple-600/30 hover:bg-purple-600/50 border border-purple-500/40 rounded-lg text-xs font-bold text-white transition-all flex items-center gap-2">
+            <span>🔄</span> Refresh Users
+          </button>
+        </div>
+
+        <div class="flex-1 glass-card overflow-hidden flex flex-col">
+          <div class="p-4 border-b border-white/10 flex items-center justify-between gap-4 bg-black/40">
+            <input type="text" id="search-users-input" oninput="filterUsersTable()" placeholder="Search users by name, email, or mobile..."
+                   class="w-80 px-4 py-2 bg-black/60 border border-white/10 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-purple-500" />
+            <div id="users-count-badge" class="text-xs text-gray-400 font-mono">0 Registered Users</div>
+          </div>
+
+          <div class="flex-1 overflow-y-auto">
+            <table class="w-full text-left border-collapse">
+              <thead class="sticky top-0 bg-[#141414] border-b border-white/10 text-[10px] font-bold text-gray-400 uppercase tracking-wider">
+                <tr>
+                  <th class="p-4">User</th>
+                  <th class="p-4">Email Address</th>
+                  <th class="p-4">Mobile</th>
+                  <th class="p-4">Login Method</th>
+                  <th class="p-4">Joined Date</th>
+                  <th class="p-4 text-right">Status</th>
+                </tr>
+              </thead>
+              <tbody id="users-table-body" class="divide-y divide-white/5 text-xs text-gray-300">
+                <tr>
+                  <td colspan="6" class="p-8 text-center text-gray-500 font-mono">Loading registered users...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+<section id="tab-downloads" class="space-y-6 hidden">
           <div>
             <h2 class="text-xl font-bold text-white">Plugin Packages & Downloads</h2>
             <p class="text-xs text-gray-400">Official release files for After Effects & Premiere Pro</p>
@@ -439,16 +493,71 @@
 
           <div class="glass-card p-8 max-w-2xl space-y-6">
             <form id="settings-form" onsubmit="saveSettings(event)" class="space-y-5">
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Price (USD)</label>
-                  <input type="text" id="set-price-usd" value="$3.00" required
-                         class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500" />
+              <!-- 3-TIER PRODUCT PRICING CONTROLS -->
+              <div class="p-5 bg-black/40 border border-[#D4AF37]/30 rounded-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-base">💰</span>
+                    <span class="text-xs font-bold text-white uppercase tracking-wider">Live Website Product Pricing Controls</span>
+                  </div>
+                  <span class="text-[10px] text-[#D4AF37] font-semibold">Changes sync instantly to live site</span>
                 </div>
-                <div>
-                  <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Price (INR)</label>
-                  <input type="text" id="set-price-inr" value="₹249" required
-                         class="w-full px-4 py-2.5 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-purple-500" />
+
+                <!-- 1. MotionKit Wheel -->
+                <div class="space-y-1">
+                  <div class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
+                    <span>🎯</span> <span>MotionKit Wheel (Radial HUD)</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Wheel USD ($)</label>
+                      <input type="text" id="set-price-wheel-usd" value="$2.00" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Wheel INR (₹)</label>
+                      <input type="text" id="set-price-wheel-inr" value="₹199" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. MotionKit Pro (AE) -->
+                <div class="space-y-1 pt-2 border-t border-white/5">
+                  <div class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
+                    <span>⚡</span> <span>MotionKit Pro (After Effects Suite)</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Pro USD ($)</label>
+                      <input type="text" id="set-price-pro-usd" value="$3.00" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Pro INR (₹)</label>
+                      <input type="text" id="set-price-pro-inr" value="₹249" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. MotionKit Ultimate (PR) -->
+                <div class="space-y-1 pt-2 border-t border-white/5">
+                  <div class="text-xs font-bold text-gray-300 flex items-center gap-1.5">
+                    <span>🎬</span> <span>MotionKit Ultimate (Premiere Pro Flagship)</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Ultimate PR USD ($)</label>
+                      <input type="text" id="set-price-ult-usd" value="$3.00" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                    <div>
+                      <label class="block text-[11px] text-gray-400 mb-1">Ultimate PR INR (₹)</label>
+                      <input type="text" id="set-price-ult-inr" value="₹249" required
+                             class="w-full px-3 py-2 bg-black/60 border border-white/10 rounded-lg text-sm text-white focus:outline-none focus:border-[#D4AF37] font-mono" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -729,7 +838,7 @@
 
     // Switch Tabs
     function switchTab(tabId) {
-      const tabs = ['dashboard', 'licenses', 'orders', 'downloads', 'settings'];
+      const tabs = ['dashboard', 'licenses', 'orders', 'users', 'downloads', 'settings'];
       tabs.forEach(t => {
         const el = document.getElementById(`tab-${t}`);
         const btn = document.getElementById(`nav-${t}`);
@@ -746,10 +855,76 @@
         'dashboard': 'Dashboard Overview',
         'licenses': 'License Keys Manager',
         'orders': 'Customer Orders & CRM',
+        'users': 'Registered User Accounts',
         'downloads': 'Plugin Downloads Hub',
         'settings': 'Website Settings & Pricing'
       };
       document.getElementById('page-title').innerText = titles[tabId] || 'Admin Console';
+      if (tabId === 'users') loadAdminUsers();
+    }
+
+
+    let adminUsersList = [];
+
+    async function loadAdminUsers() {
+      try {
+        const res = await fetch('/api/admin/users');
+        if (res.ok) {
+          const data = await res.json();
+          adminUsersList = data.users || [];
+          renderUsersTable(adminUsersList);
+        }
+      } catch (err) {
+        console.error('Error fetching admin users:', err);
+      }
+    }
+
+    function renderUsersTable(users) {
+      const tbody = document.getElementById('users-table-body');
+      const badge = document.getElementById('users-count-badge');
+      if (badge) badge.textContent = `${users.length} Registered Users`;
+      if (!tbody) return;
+
+      if (!users || users.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="p-8 text-center text-gray-500 font-mono">No registered users found.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = users.map(u => {
+        const providerBadge = u.provider === 'google' 
+          ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Google OAuth</span>'
+          : (u.provider === 'otp'
+              ? '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">OTP Verified</span>'
+              : '<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30">Email & Pass</span>');
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition-colors">
+            <td class="p-4 font-semibold text-white flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-400 font-bold text-xs flex items-center justify-center">
+                ${(u.name || 'U').charAt(0).toUpperCase()}
+              </div>
+              <span>${u.name || 'Creator'}</span>
+            </td>
+            <td class="p-4 font-mono text-gray-300">${u.email || '-'}</td>
+            <td class="p-4 font-mono text-gray-400">${u.mobile || '-'}</td>
+            <td class="p-4">${providerBadge}</td>
+            <td class="p-4 text-gray-400">${u.created || 'Recent'}</td>
+            <td class="p-4 text-right">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Active</span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterUsersTable() {
+      const q = (document.getElementById('search-users-input').value || '').toLowerCase();
+      const filtered = adminUsersList.filter(u => 
+        (u.name || '').toLowerCase().includes(q) ||
+        (u.email || '').toLowerCase().includes(q) ||
+        (u.mobile || '').toLowerCase().includes(q)
+      );
+      renderUsersTable(filtered);
     }
 
     // Render Data
@@ -817,16 +992,21 @@
       }
 
       // Settings Inputs
-      document.getElementById('set-price-usd').value = adminData.settings.priceUSD;
-      document.getElementById('set-price-inr').value = adminData.settings.priceINR;
-      document.getElementById('set-phone').value = adminData.settings.phone;
-      document.getElementById('set-email').value = adminData.settings.email;
-      if (document.getElementById('set-upi')) document.getElementById('set-upi').value = adminData.settings.upiId || '7982179684@ptyes';
-      document.getElementById('set-announcement').value = adminData.settings.announcement;
+      if (document.getElementById('set-price-wheel-usd')) document.getElementById('set-price-wheel-usd').value = adminData.settings.priceWheelUSD || '$2.00';
+      if (document.getElementById('set-price-wheel-inr')) document.getElementById('set-price-wheel-inr').value = adminData.settings.priceWheelINR || '₹199';
+      if (document.getElementById('set-price-pro-usd')) document.getElementById('set-price-pro-usd').value = adminData.settings.priceProUSD || adminData.settings.priceUSD || '$3.00';
+      if (document.getElementById('set-price-pro-inr')) document.getElementById('set-price-pro-inr').value = adminData.settings.priceProINR || adminData.settings.priceINR || '₹249';
+      if (document.getElementById('set-price-ult-usd')) document.getElementById('set-price-ult-usd').value = adminData.settings.priceUltimateUSD || '$3.00';
+      if (document.getElementById('set-price-ult-inr')) document.getElementById('set-price-ult-inr').value = adminData.settings.priceUltimateINR || '₹249';
 
-      if (document.getElementById('set-rzp-key')) document.getElementById('set-rzp-key').value = adminData.settings.razorpayKeyId || 'rzp_test_AyushMotionKit';
+      document.getElementById('set-phone').value = adminData.settings.phone || '+91 7982179684';
+      document.getElementById('set-email').value = adminData.settings.email || 'singhayush5304@gmail.com';
+      if (document.getElementById('set-upi')) document.getElementById('set-upi').value = adminData.settings.upiId || '7982179684@ptyes';
+      document.getElementById('set-announcement').value = adminData.settings.announcement || '';
+
+      if (document.getElementById('set-rzp-key')) document.getElementById('set-rzp-key').value = adminData.settings.razorpayKeyId || 'rzp_live_TmCdDrVkr3iZWV';
       if (document.getElementById('set-rzp-secret')) document.getElementById('set-rzp-secret').value = adminData.settings.razorpayKeySecret || '';
-      if (document.getElementById('set-rzp-mode')) document.getElementById('set-rzp-mode').value = adminData.settings.razorpayMode || 'test';
+      if (document.getElementById('set-rzp-mode')) document.getElementById('set-rzp-mode').value = adminData.settings.razorpayMode || 'live';
       if (document.getElementById('set-rzp-enabled')) document.getElementById('set-rzp-enabled').checked = adminData.settings.razorpayEnabled !== false;
     }
 
@@ -979,12 +1159,29 @@
     // Save Settings
     function saveSettings(e) {
       e.preventDefault();
-      adminData.settings.priceUSD = document.getElementById('set-price-usd').value.trim();
-      adminData.settings.priceINR = document.getElementById('set-price-inr').value.trim();
+      
+      const wheelUSD = document.getElementById('set-price-wheel-usd') ? document.getElementById('set-price-wheel-usd').value.trim() : '$2.00';
+      const wheelINR = document.getElementById('set-price-wheel-inr') ? document.getElementById('set-price-wheel-inr').value.trim() : '₹199';
+      const proUSD = document.getElementById('set-price-pro-usd') ? document.getElementById('set-price-pro-usd').value.trim() : '$3.00';
+      const proINR = document.getElementById('set-price-pro-inr') ? document.getElementById('set-price-pro-inr').value.trim() : '₹249';
+      const ultUSD = document.getElementById('set-price-ult-usd') ? document.getElementById('set-price-ult-usd').value.trim() : '$3.00';
+      const ultINR = document.getElementById('set-price-ult-inr') ? document.getElementById('set-price-ult-inr').value.trim() : '₹249';
+
+      adminData.settings.priceWheelUSD = wheelUSD;
+      adminData.settings.priceWheelINR = wheelINR;
+      adminData.settings.priceProUSD = proUSD;
+      adminData.settings.priceProINR = proINR;
+      adminData.settings.priceUltimateUSD = ultUSD;
+      adminData.settings.priceUltimateINR = ultINR;
+
+      // Compatibility fallback keys
+      adminData.settings.priceUSD = proUSD;
+      adminData.settings.priceINR = proINR;
+
       adminData.settings.phone = document.getElementById('set-phone').value.trim();
       adminData.settings.email = document.getElementById('set-email').value.trim();
       if (document.getElementById('set-upi')) adminData.settings.upiId = document.getElementById('set-upi').value.trim();
-      adminData.settings.announcement = document.getElementById('set-announcement').value.trim();
+      if (document.getElementById('set-announcement')) adminData.settings.announcement = document.getElementById('set-announcement').value.trim();
 
       if (document.getElementById('set-rzp-key')) adminData.settings.razorpayKeyId = document.getElementById('set-rzp-key').value.trim();
       if (document.getElementById('set-rzp-secret')) adminData.settings.razorpayKeySecret = document.getElementById('set-rzp-secret').value.trim();

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Flex Wheel - Application State & UI Controller
  */
 
@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize Interactive Wheel
   const wheelInstance = new FlexWheel("wheel-svg-container", {
     appMode: "afterEffects",
-    accentColor: "#D4AF37",
+    accentColor: "#B7FF2A",
+    accentGlow: "rgba(183, 255, 42, 0.45)",
     onFire: (tool) => {
       console.log("Tool executed:", tool);
     },
@@ -20,17 +21,30 @@ document.addEventListener("DOMContentLoaded", () => {
   window.flexWheelInstance = wheelInstance;
 
   // 2. Initialize Floating Search Palette
-  const searchPalette = new SearchPalette();
-  window.searchPaletteInstance = searchPalette;
+  let searchPalette = null;
+  if (typeof SearchPalette !== "undefined") {
+    try {
+      searchPalette = new SearchPalette();
+      window.searchPaletteInstance = searchPalette;
+    } catch (e) {
+      console.warn("SearchPalette init error:", e);
+    }
+  }
 
   const openSearchBtn = document.getElementById("open-search-modal-btn");
-  if (openSearchBtn) {
+  if (openSearchBtn && searchPalette) {
     openSearchBtn.addEventListener("click", () => searchPalette.open());
   }
 
   // 3. Initialize The Grids visualizer
-  const gridVis = new GridVisualizer("comp-canvas-area");
-  window.gridVisualizer = gridVis;
+  if (typeof GridVisualizer !== "undefined") {
+    try {
+      const gridVis = new GridVisualizer("comp-canvas-area");
+      window.gridVisualizer = gridVis;
+    } catch (e) {
+      console.warn("GridVisualizer init error:", e);
+    }
+  }
 
   // 4. App Mode Switcher (After Effects <-> Premiere Pro)
   const btnAE = document.getElementById("btn-app-ae");
@@ -77,17 +91,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     Object.keys(layouts).forEach((name, idx) => {
       const btn = document.createElement("button");
-      btn.className = `px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-        idx === 0 
-          ? "border-purple-500 text-purple-400 bg-purple-600/10 shadow-[0_0_10px_rgba(139,92,246,0.2)]" 
-          : "border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200"
-      }`;
+      btn.className = `simulator-tab-btn ${idx === 0 ? "active" : ""}`;
+      btn.style.cssText = `padding:6px 16px;font-size:12px;border-radius:20px;cursor:pointer;border:1px solid ${idx === 0 ? "var(--lime)" : "rgba(255,255,255,0.1)"};background:${idx === 0 ? "rgba(183,255,42,0.12)" : "rgba(18,22,27,0.7)"};color:${idx === 0 ? "var(--lime)" : "var(--text-muted)"};transition:all 0.2s ease;font-weight:600;`;
       btn.textContent = name;
       btn.addEventListener("click", () => {
         container.querySelectorAll("button").forEach(b => {
-          b.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold border border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200 transition-all";
+          b.className = "simulator-tab-btn";
+          b.style.borderColor = "rgba(255,255,255,0.1)";
+          b.style.background = "rgba(18,22,27,0.7)";
+          b.style.color = "var(--text-muted)";
         });
-        btn.className = "px-3.5 py-1.5 rounded-full text-xs font-semibold border border-purple-500 text-purple-400 bg-purple-600/10 shadow-[0_0_10px_rgba(139,92,246,0.2)] transition-all";
+        btn.className = "simulator-tab-btn active";
+        btn.style.borderColor = "var(--lime)";
+        btn.style.background = "rgba(183,255,42,0.12)";
+        btn.style.color = "var(--lime)";
         wheelInstance.showToast(`Layout: ${name}`, `Switched active wheel configuration to ${name}`);
         if (window.soundEngine) window.soundEngine.fanout();
       });

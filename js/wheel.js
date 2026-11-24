@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Flex Wheel - Interactive Radial Engine (Web Showcase)
  * Persistent DOM: Never destroys elements on hover so clicks register 100% reliably.
  */
@@ -12,8 +12,8 @@ class FlexWheel {
       outerRadius: 135,
       fanoutRadius: 215,
       appMode: "afterEffects",
-      accentColor: "#D4AF37",
-      accentGlow: "rgba(212, 175, 55, 0.45)",
+      accentColor: "#B7FF2A",
+      accentGlow: "rgba(183, 255, 42, 0.45)",
       onFire: null,
       onHover: null
     }, options);
